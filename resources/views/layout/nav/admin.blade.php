@@ -22,6 +22,13 @@
                 </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Profile')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
                 <a href="#" class='sidebar-link'> {{__('Country')}}</a>
                 <ul class="submenu">
                     <li class="py-1"><a href="{{route(currentUser().'.country.index')}}">{{__('List')}}</a></li>
