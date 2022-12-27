@@ -11,6 +11,7 @@ use App\Http\Controllers\Settings\Location\DistrictController as district;
 use App\Http\Controllers\Settings\Location\UpazilaController as upazila;
 use App\Http\Controllers\Settings\Location\ThanaController as thana;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ProfileController as profile;
 
 
 use App\Http\Controllers\FrontendController as front;
@@ -53,6 +54,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('upazila',upazila::class,['as'=>'admin']);
         Route::resource('thana',thana::class,['as'=>'admin']);
         Route::resource('slider',SliderController::class,['as'=>'admin']);
+        Route::resource('profile',profile::class,['as'=>'admin']);
 
 
     });
