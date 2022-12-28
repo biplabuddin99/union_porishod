@@ -17,17 +17,36 @@ return new class extends Migration
         Schema::create('ward_nos', function (Blueprint $table) {
             $table->id();
             $table->string('ward_name');
+            $table->string('ward_name_bn');
             $table->string('status')->default(1);
             $table->timestamps();
         });
 
         DB::table('ward_nos')->insert([
-            ['ward_name'=>'1no'],
-            ['ward_name'=>'2no'],
-            ['ward_name'=>'3no'],
-            ['ward_name'=>'4no'],
-            ['ward_name'=>'5no'],
-            ['ward_name'=>'6no'],
+            [
+                'ward_name'=>'1no',
+                'ward_name_bn'=>'১ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'2no',
+                'ward_name_bn'=>'২ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'3no',
+                'ward_name_bn'=>'৩ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'4no',
+                'ward_name_bn'=>'৪ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'5no',
+                'ward_name_bn'=>'৫ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'6no',
+                'ward_name_bn'=>'৬ নং ওয়ার্ড',
+            ],
         ]);
     }
 
