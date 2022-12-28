@@ -26,9 +26,10 @@
 
                     </div>
                     <div class="portlet-body util-btn-margin-bottom-5">
-                        <form action="#" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        <form action="{{route(currentUser().'.citizen.store')}}" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                             @csrf
-                            <input type="hidden" name="data[status]" value="1">
+                            @method('post')
+                            {{-- <input type="hidden" name="data[status]" value="1"> --}}
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
@@ -43,17 +44,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label">পিতা</label>
+                                        <label class="control-label">পিতা/স্বামী</label>
                                         <div class="">
                                             <input type="text" name="father" value="" class="form-control" placeholder="পিতা">
                                         </div>
-                                        <label class="control-label">স্বামী</label>
+                                        {{-- <label class="control-label">স্বামী</label>
                                         <div class="">
                                             <input type="text" name="husband" value="" class="form-control" placeholder="স্বামী">
-                                        </div>
+                                        </div> --}}
                                         <label class="control-label">গ্রাম/ রাস্তা </label>
                                         <div class="">
-                                            <input type="text" name="data[village]" value="" class="form-control" placeholder="গ্রাম/ রাস্তা ">
+                                            <input type="text" name="village" value="" class="form-control" placeholder="গ্রাম/ রাস্তা ">
                                         </div>
 
                                     </div>
@@ -66,9 +67,13 @@
                                         </div>
                                         <label class="control-label">ওয়ার্ড নং</label>
                                         <div class="">
-                                            <select name="data[words]" class="form-control" id="words">
+                                            <select name="ward_no_id" class="form-control" id="words">
                                                 <option value="" selected="selected">ওয়ার্ড নং</option>
-                                                <option value="1">১ নং ওয়ার্ড</option>
+                                                @forelse ($ward as $w)
+                                                <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
+                                                @empty
+                                                <p>No Ward found</p>
+                                                @endforelse
                                             </select>
                                         </div>
                                     </div>
@@ -76,16 +81,24 @@
                                     <div class="form-group">
                                         <label class="control-label">বিভাগ </label>
                                         <div class="">
-                                            <select name="division" class="form-control" required="" id="divisionid">
+                                            <select name="division_id" class="form-control" required="" id="divisionid">
                                                 <option value="">বিভাগ</option>
-                                                <option value="1">ঢাকা </option>
+                                                @forelse ($division as $div)
+                                                <option value="{{ $div->id }}">{{ $div->name_bn }}</option>
+                                                @empty
+                                                    <p>No Division found</p>
+                                                @endforelse
                                             </select>
                                         </div>
                                         <label class="control-label">জেলা</label>
                                         <div class="">
-                                            <select name="data[districtid]" class="form-control" required="" id="districtid">
+                                            <select name="district_id" class="form-control" required="" id="districtid">
                                                 <option value="">জেলা</option>
-                                                <option value="31">চাঁপাইনবাবগঞ্জ</option>
+                                                @forelse($district as $dist)
+                                                <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
+                                                @empty
+                                                <p>No District found</p>
+                                                @endforelse
                                             </select>
                                         </div>
                                     </div>
@@ -93,9 +106,15 @@
                                     <div class="form-group">
                                         <label class="control-label">থানা</label>
                                             <div class="">
-                                                <select name="data[thanaid]" class="form-control" required="" id="thanaid">
+                                                <select name="thana_id" class="form-control" required="" id="thanaid">
                                                     <option value="">থানা</option>
-                                                    <option value="196">উল্লাপাড়া</option>
+                                                    @forelse ($thana as $tha)
+                                                    <option value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
+                                                    @empty
+                                                    <p>No Thana found</p>
+
+                                                    @endforelse
+
                                                 </select>
                                             </div>
                                         </div>
