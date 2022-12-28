@@ -89,7 +89,7 @@ class ProfileController extends Controller
 
             if($p->save()){
             Toastr::success('Profile Create Successfully!');
-            return redirect()->route(currentUser().'.Profile.index');
+            return redirect()->route(currentUser().'.profile.index');
             }else{
             Toastr::success('Please try Again!');
             return redirect()->back();
