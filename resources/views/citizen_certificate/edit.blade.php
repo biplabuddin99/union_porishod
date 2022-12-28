@@ -26,9 +26,9 @@
 
                     </div>
                     <div class="portlet-body util-btn-margin-bottom-5">
-                        <form action="{{route(currentUser().'.citizen.update',encryptor('encrypt',$citizen->id))}}" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        <form action="{{route(currentUser().'.citizen.update',encryptor('encrypt',$citizen->id))}}" role="form" class="form-horizontal" enctype="multipart/form-data" accept-charset="utf-8">
                             @csrf
-                            @method('post')
+                            @method('PATCH')
                             {{-- <input type="hidden" name="data[status]" value="1"> --}}
                             <div class="row">
                                 <div class="col-6">
@@ -70,7 +70,7 @@
                                             <select name="ward_no_id" class="form-control" id="words">
                                                 <option value="" selected="selected">ওয়ার্ড নং</option>
                                                 @forelse ($ward as $w)
-                                                <option value="{{ $w->id }}" {{$citizen->ward_no?->id == $w->id ? 'selected' : ''}}>{{ $w->ward_name_bn }}</option>
+                                                <option value="{{ $w->id }}" {{$citizen->ward_no_id == $w->id ? 'selected' : ''}}>{{ $w->ward_name_bn }}</option>
                                                 @empty
                                                 <p>No Ward found</p>
                                                 @endforelse
@@ -84,7 +84,7 @@
                                             <select name="division_id" class="form-control" required="" id="divisionid">
                                                 <option value="">বিভাগ</option>
                                                 @forelse ($division as $div)
-                                                <option value="{{ $div->id }}" {{ $citizen->division?->division_id==$w->id ? 'selected' : '' }}>{{ $div->name_bn }}</option>
+                                                <option value="{{ $div->id }}" {{ $citizen->division_id==$div->id ? 'selected' : '' }}>{{ $div->name_bn }}</option>
                                                 @empty
                                                     <p>No Division found</p>
                                                 @endforelse
@@ -95,7 +95,7 @@
                                             <select name="district_id" class="form-control" required="" id="districtid">
                                                 <option value="">জেলা</option>
                                                 @forelse($district as $dist)
-                                                <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
+                                                <option value="{{ $dist->id }}" {{ $citizen->district_id==$dist->id ? 'selected' : '' }}>{{ $dist->name_bn }}</option>
                                                 @empty
                                                 <p>No District found</p>
                                                 @endforelse
@@ -109,7 +109,7 @@
                                                 <select name="thana_id" class="form-control" required="" id="thanaid">
                                                     <option value="">থানা</option>
                                                     @forelse ($thana as $tha)
-                                                    <option value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
+                                                    <option value="{{ $tha->id }}" {{ $citizen->thana_id==$tha->id ? 'selected' : '' }}>{{ $tha->name_bn }}</option>
                                                     @empty
                                                     <p>No Thana found</p>
 
