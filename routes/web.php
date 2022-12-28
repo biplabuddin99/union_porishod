@@ -12,6 +12,7 @@ use App\Http\Controllers\Settings\Location\UpazilaController as upazila;
 use App\Http\Controllers\Settings\Location\ThanaController as thana;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProfileController as profile;
+use App\Http\Controllers\WarishanController as warishan;
 use App\Http\Controllers\CitizenCertificateController as citizen;
 
 
@@ -56,6 +57,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('thana',thana::class,['as'=>'admin']);
         Route::resource('slider',SliderController::class,['as'=>'admin']);
         Route::resource('profile',profile::class,['as'=>'admin']);
+        Route::resource('warishan',warishan::class,['as'=>'admin']);
         Route::resource('citizen',citizen::class,['as'=>'admin']);
 
 

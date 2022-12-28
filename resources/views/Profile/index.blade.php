@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('pageTitle',trans('Profile'))
+@section('pageTitle',trans('আবেদনকারীর লিস্ট'))
 @section('pageSubTitle',trans('List'))
 
 @section('content')
@@ -17,17 +17,17 @@
                             <a class="float-end" href="{{route(currentUser().'.profile.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">{{__('#SL')}}</th>
-                                        <th scope="col">{{__('Image')}}</th>
-                                        <th scope="col">{{__('Name')}}</th>
-                                        <th scope="col">{{__('Father/Husband')}}</th>
-                                        <th scope="col">{{__('Mobile')}}</th>
-                                        <th scope="col">{{__('NID')}}</th>
-                                        <th scope="col">{{__('Profession')}}</th>
-                                        <th scope="col">{{__('Village')}}</th>
-                                        <th scope="col">{{__('Word NO')}}</th>
-                                        <th scope="col">{{__('Status')}}</th>
-                                        <th class="white-space-nowrap">{{__('ACTION')}}</th>
+                                        <th scope="col">{{__('ক্রমিক')}}</th>
+                                        <th scope="col">{{__('ফটো')}}</th>
+                                        <th scope="col">{{__('নাম')}}</th>
+                                        <th scope="col">{{__('পিতা/ স্বামী')}}</th>
+                                        <th scope="col">{{__('মোবাইল')}}</th>
+                                        <th scope="col">{{__('এন আইডি নং')}}</th>
+                                        <th scope="col">{{__('পেশা')}}</th>
+                                        <th scope="col">{{__('গ্রাম')}}</th>
+                                        <th scope="col">{{__('ওয়ার্ড')}}</th>
+                                        <th scope="col">{{__('স্ট্যাটাস')}}</th>
+                                        <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,12 +44,22 @@
                                         <td>{{$p->word_no}}</td>
                                         <td>{{ $p->status == 1?"Active":"Inactive" }}</td>
                                         <td class="white-space-nowrap">
-                                            <a class="ebutton" href="{{route(currentUser().'.profile.edit',encryptor('encrypt',$p->id))}}">Edit</a>
+                                            <a  href="{{route(currentUser().'.profile.edit',encryptor('encrypt',$p->id))}}">
+                                            <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a href="javascript:void()" onclick="$('#form{{$p->id}}').submit()">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                            <form id="form{{$p->id}}" action="{{route(currentUser().'.profile.destroy',encryptor('encrypt',$p->id))}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                
+                                            </form>
                                         </td>
                                     </tr>
                                     @empty
                                     <tr>
-                                        <th colspan="4" class="text-center">No Category Found</th>
+                                        <th colspan="11" class="text-center">No Category Found</th>
                                     </tr>
                                     @endforelse
                                 </tbody>

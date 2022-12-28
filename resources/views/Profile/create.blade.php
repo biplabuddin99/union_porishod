@@ -1,7 +1,7 @@
 @extends('layout.app')
 
-@section('pageTitle',trans('Apply Form'))
-@section('pageSubTitle',trans('Form'))
+@section('pageTitle',trans('আবেদন ফরম'))
+@section('pageSubTitle',trans('ফরম'))
 
 @section('content')
   <section id="multiple-column-form">
@@ -13,101 +13,101 @@
                           <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.profile.store')}}">
                               @csrf
                                   <div class="row mb-3">
-                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('Applicant Name')}}:</b></label>
+                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('আবেদনকারীর নাম')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="applicantName" value="{{ old('applicantName')}}" class="form-control"
-                                              placeholder="Applicant Name" name="applicantName">
+                                              placeholder="আবেদনকারীর নাম" name="applicantName">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('Father/Husband')}}:</b></label>
+                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('পিতা/স্বামী')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="FatherOrHusband" value="{{ old('FatherOrHusband')}}" class="form-control"
-                                              placeholder="Father/Husband" name="FatherOrHusband">
+                                              placeholder="পিতা/স্বামী" name="FatherOrHusband">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('Mother')}}:</b></label>
+                                      <label for="name" class="col-sm-2 offset-1 col-form-label"><b>{{__('মাতা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="Mother" value="{{ old('Mother')}}" class="form-control"
-                                              placeholder="Mother" name="Mother">
+                                              placeholder="মাতা" name="Mother">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="contat" class="col-sm-2 offset-1 col-form-label"><b>{{__('Mobile')}}:</b></label>
+                                      <label for="contat" class="col-sm-2 offset-1 col-form-label"><b>{{__('মোবাইল')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="Contact" value="{{ old('Contact')}}" class="form-control"
-                                              placeholder="Mobile" name="Contact">
+                                              placeholder="মোবাইল" name="Contact">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="id" class="col-sm-2 offset-1 col-form-label"><b>{{__('ID NO')}}:</b></label>
+                                      <label for="id" class="col-sm-2 offset-1 col-form-label"><b>{{__('আইডি নং')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="IdNo" value="{{ old('IdNo')}}" class="form-control"
-                                              placeholder="ID NO" name="IdNo">
+                                              placeholder="আইডি নং" name="IdNo">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="Man" class="col-sm-2 offset-1 col-form-label"><b>{{__('Man')}}:</b></label>
+                                      <label for="Man" class="col-sm-2 offset-1 col-form-label"><b>{{__('পুরুষ')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="man" value="{{ old('man')}}" class="form-control"
-                                              placeholder="Man" name="man">
+                                              placeholder="পুরুষ" name="man">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="woman" class="col-sm-2 offset-1 col-form-label"><b>{{__('Woman')}}:</b></label>
+                                      <label for="woman" class="col-sm-2 offset-1 col-form-label"><b>{{__('মহিলা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="woman" value="{{ old('woman')}}" class="form-control"
-                                              placeholder="Woman" name="woman">
+                                              placeholder="মহিলা" name="woman">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="total" class="col-sm-2 offset-1 col-form-label"><b>{{__('Total Member')}}:</b></label>
+                                      <label for="total" class="col-sm-2 offset-1 col-form-label"><b>{{__('মোট সদস্য')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="totalMember" value="{{ old('totalMember')}}" class="form-control"
-                                              placeholder="Total Member" name="totalMember">
+                                              placeholder="মোট সদস্য" name="totalMember" readonly>
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="voter" class="col-sm-2 offset-1 col-form-label"><b>{{__('Voter Number')}}:</b></label>
+                                      <label for="voter" class="col-sm-2 offset-1 col-form-label"><b>{{__('ভোটার সংখ্যা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="voterNumber" value="{{ old('voterNumber')}}" class="form-control"
                                               placeholder="Voter Number" name="voterNumber">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="allowance" class="col-sm-2 offset-1 col-form-label"><b>{{__('Allowance')}}:</b></label>
+                                      <label for="allowance" class="col-sm-2 offset-1 col-form-label"><b>{{__('ভাতা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                            <label for="allowance">Disability Allowance</label>
+                                            <label for="allowance">প্রতিবন্ধী ভাতা</label>
                                             <input type="radio" value="1" class="form-check-input" name="allowance">
-                                            <label for="allowance">Old Age Allowance</label>
+                                            <label for="allowance">বয়স্ক ভাতা</label>
                                             <input type="radio" value="2" class="form-check-input" name="allowance">
-                                            <label for="allowance">Widow's Allowance</label>
+                                            <label for="allowance">বিধবা ভাতা</label>
                                             <input type="radio" value="3" class="form-check-input" name="allowance">
-                                            <label for="allowance">Freedom Fighter</label>
+                                            <label for="allowance">মুক্তি যোদ্ধা</label>
                                             <input type="radio" value="4" class="form-check-input" name="allowance">
-                                            <label for="allowance">Other's</label>
+                                            <label for="allowance">অন্যান্য</label>
                                             <input type="radio" value="5" class="form-check-input" name="allowance">
-                                            <label for="allowance">None</label>
+                                            <label for="allowance">কোনটিই না</label>
                                             <input type="radio" value="6" class="form-check-input" name="allowance">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="source" class="col-sm-2 offset-1 col-form-label"><b>{{__('Main source of income')}}:</b></label>
+                                      <label for="source" class="col-sm-2 offset-1 col-form-label"><b>{{__('আয়ের প্রধান উৎস')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                            <label for="icomeSource">Agriculture</label>
+                                            <label for="icomeSource">কৃষি</label>
                                             <input type="radio" value="1" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">Business</label>
+                                            <label for="icomeSource">ব্যবসা</label>
                                             <input type="radio" value="2" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">Job</label>
+                                            <label for="icomeSource">চাকরি</label>
                                             <input type="radio" value="3" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">Expatriate</label>
+                                            <label for="icomeSource">প্রবাসী</label>
                                             <input type="radio" value="4" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">Housewife</label>
+                                            <label for="icomeSource">গ্রহীনি</label>
                                             <input type="radio" value="5" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">Day laborer</label>
+                                            <label for="icomeSource">দিন মজুর</label>
                                             <input type="radio" value="6" class="form-check-input" name="icomeSource">
-                                            <label for="icomeSource">None</label>
+                                            <label for="icomeSource">অন্যান্য</label>
                                             <input type="radio" value="7" class="form-check-input" name="icomeSource">
                                       </div>
                                   </div>
@@ -115,10 +115,10 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>#SL</th>
-                                                <th>Name</th>
-                                                <th>Relationship</th>
-                                                <th>NID/BRC</th>
+                                                <th>ক্রমিক</th>
+                                                <th>নাম</th>
+                                                <th>সম্পর্ক</th>
+                                                <th>এন আই ডি /বি আর সি</th>
                                             </tr>
                                             <tr>
                                                 <td></td>
@@ -129,116 +129,122 @@
                                         </thead>
                                     </table>
                                   </div>
-                                  <div><h5>Home Details</h5></div>
+                                  <div><h5>বাড়ির বিবরণ</h5></div>
 
                                   <div class="row mb-3">
-                                      <label for="house_name" class="col-sm-2 offset-1 col-form-label"><b>{{__('House Name')}}:</b></label>
+                                      <label for="house_name" class="col-sm-2 offset-1 col-form-label"><b>{{__('ভবনের নাম')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="house_name" value="{{ old('house_name')}}" class="form-control"
-                                              placeholder="House Name" name="house_name">
+                                              placeholder="ভবনের নাম" name="house_name">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="holding_no" class="col-sm-2 offset-1 col-form-label"><b>{{__('Holding Number')}}:</b></label>
+                                      <label for="holding_no" class="col-sm-2 offset-1 col-form-label"><b>{{__('হোল্ডিং নং')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="holding_no" value="{{ old('holding_no')}}" class="form-control"
-                                              placeholder="Holding Number" name="holding_no">
+                                              placeholder="হোল্ডিং নং" name="holding_no">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="source" class="col-sm-2 offset-1 col-form-label"><b>{{__('Type of House')}}:</b></label>
+                                      <label for="source" class="col-sm-2 offset-1 col-form-label"><b>{{__('বাড়ীর ধারন')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                            <label for="typeOfHouse">Ek Chala</label>
+                                            <label for="typeOfHouse">এক চালা</label>
                                             <input type="radio" value="1" class="form-check-input" name="typeOfHouse">
-                                            <label for="typeOfHouse">Dui Chala</label>
+                                            <label for="typeOfHouse">দুই চালা</label>
                                             <input type="radio" value="2" class="form-check-input" name="typeOfHouse">
-                                            <label for="typeOfHouse">Char Chala</label>
+                                            <label for="typeOfHouse">চার চালা</label>
                                             <input type="radio" value="3" class="form-check-input" name="typeOfHouse">
-                                            <label for="typeOfHouse">Addha Paka</label>
+                                            <label for="typeOfHouse">আধা পাকা</label>
                                             <input type="radio" value="4" class="form-check-input" name="typeOfHouse">
-                                            <label for="typeOfHouse">Paka</label>
+                                            <label for="typeOfHouse">পাকা</label>
                                             <input type="radio" value="5" class="form-check-input" name="typeOfHouse">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="total_room" class="col-sm-2 offset-1 col-form-label"><b>{{__('Total Room')}}:</b></label>
+                                      <label for="total_room" class="col-sm-2 offset-1 col-form-label"><b>{{__('রুম কযটা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                          <input type="text" id="total_room" value="{{ old('total_room')}}" class="form-control" placeholder="Total Room" name="total_room">
+                                          <input type="text" id="total_room" value="{{ old('total_room')}}" class="form-control" placeholder="রুম কযটা" name="total_room">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="percetageOfHouseLand" class="col-sm-2 offset-1 col-form-label"><b>{{__('Percentage Of House Land')}}:</b></label>
+                                      <label for="percetageOfHouseLand" class="col-sm-2 offset-1 col-form-label"><b>{{__('বাড়ীর জমি শতাংশ')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="percetageOfHouseLand" value="{{ old('percetageOfHouseLand')}}" class="form-control" 
-                                          placeholder="Percentage Of House Land" name="percetageOfHouseLand">
+                                          placeholder="বাড়ীর জমি শতাংশ" name="percetageOfHouseLand">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="percetageOfPaddyLand" class="col-sm-2 offset-1 col-form-label"><b>{{__('Percentage Of Paddy Land')}}:</b></label>
+                                      <label for="percetageOfPaddyLand" class="col-sm-2 offset-1 col-form-label"><b>{{__('ধানী জমি শতাংশ')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="percetageOfPaddyLand" value="{{ old('percetageOfPaddyLand')}}" class="form-control" 
-                                          placeholder="Percentage Of Paddy Land" name="percetageOfPaddyLand">
+                                          placeholder="ধানী জমি শতাংশ" name="percetageOfPaddyLand">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="estimatedValuOfHouse" class="col-sm-2 offset-1 col-form-label"><b>{{__('Estimated Value of House')}}:</b></label>
+                                      <label for="estimatedValuOfHouse" class="col-sm-2 offset-1 col-form-label"><b>{{__('গৃহের আনুমানিক মূল্য')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="estimatedValuOfHouse" value="{{ old('estimatedValuOfHouse')}}" class="form-control" 
-                                          placeholder="Estimated Value of House" name="estimatedValuOfHouse">
+                                          placeholder="গৃহের আনুমানিক মূল্য" name="estimatedValuOfHouse">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="tax_levied" class="col-sm-2 offset-1 col-form-label"><b>{{__('Tax Levied')}}:</b></label>
+                                      <label for="tax_levied" class="col-sm-2 offset-1 col-form-label"><b>{{__('ধার্যকৃত কর')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="tax_levied" value="{{ old('tax_levied')}}" class="form-control" 
-                                          placeholder="Tax Levied" name="tax_levied">
+                                          placeholder="0" name="tax_levied">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="tax_collected" class="col-sm-2 offset-1 col-form-label"><b>{{__('Tax Collected')}}:</b></label>
+                                      <label for="tax_collected" class="col-sm-2 offset-1 col-form-label"><b>{{__('আদায়কৃত কর')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="tax_collected" value="{{ old('tax_collected')}}" class="form-control" 
-                                          placeholder="Tax Levied" name="tax_collected">
+                                          placeholder="0" name="tax_collected">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="owing" class="col-sm-2 offset-1 col-form-label"><b>{{__('Owing')}}:</b></label>
+                                      <label for="owing" class="col-sm-2 offset-1 col-form-label"><b>{{__('বকেয়া')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="owing" value="{{ old('owing')}}" class="form-control" 
-                                          placeholder="Owing" name="owing">
+                                          placeholder="0" name="owing">
                                       </div>
                                   </div>
 
-                                  <div><h5>Address</h5></div>
+                                  <div><h5>ঠিকানা</h5></div>
 
                                   <div class="row mb-3">
-                                      <label for="vill" class="col-sm-2 offset-1 col-form-label"><b>{{__('Village/Road')}}:</b></label>
+                                      <label for="vill" class="col-sm-2 offset-1 col-form-label"><b>{{__('গ্রাম/ রাস্তা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="vill" value="{{ old('vill')}}" class="form-control"
-                                              placeholder="Village/Road" name="vill">
+                                              placeholder="গ্রাম/ রাস্তা" name="vill">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="post" class="col-sm-2 offset-1 col-form-label"><b>{{__('P.O')}}:</b></label>
+                                      <label for="post" class="col-sm-2 offset-1 col-form-label"><b>{{__('পোস্ট')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="post" value="{{ old('post')}}" class="form-control"
-                                              placeholder="P.O" name="post">
+                                              placeholder="পোস্ট" name="post">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="word" class="col-sm-2 offset-1 col-form-label"><b>{{__('Word No')}}:</b></label>
+                                      <label for="word" class="col-sm-2 offset-1 col-form-label"><b>ওয়ার্ড নং:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                          <input type="text" id="wordNo" value="{{ old('wordNo')}}" class="form-control"
-                                              placeholder="Word No" name="wordNo">
+                                            <select class="form-control form-select" name="wordNo">
+                                                <option value="">ওয়ার্ড নং</option>
+                                                @forelse($word as $d)
+                                                    <option  value="{{$d->id}}" {{ old('wordNo')==$d->id?"selected":""}}> {{ $d->ward_name_bn}}</option>
+                                                @empty
+                                                    <option value="">No Data found</option>
+                                                @endforelse
+                                            </select>
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="division" class="col-sm-2 offset-1 col-form-label"><b>{{__('Division')}}:</b></label>
+                                      <label for="division" class="col-sm-2 offset-1 col-form-label"><b>{{__('বিভাগ ')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                         <select onchange="show_district(this.value)" class="form-control form-select" name="divisionName" id="divisionName">
-                                            <option value="">Select Division</option>
+                                            <option value="">বিভাগ</option>
                                             @forelse($division as $d)
-                                                <option class="div div{{$d->country_id}}" value="{{$d->id}}" {{ old('divisionName')==$d->id?"selected":""}}> {{ $d->name}}</option>
+                                                <option value="{{$d->id}}" {{ old('divisionName')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                             @empty
                                                 <option value="">No division found</option>
                                             @endforelse
@@ -246,12 +252,12 @@
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="district" class="col-sm-2 offset-1 col-form-label"><b>{{__('District')}}:</b></label>
+                                      <label for="district" class="col-sm-2 offset-1 col-form-label"><b>{{__('জেলা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
-                                        <select class="form-control form-select" name="districtName" id="districtName">
-                                            <option value="">Select District</option>
+                                        <select onchange="show_thana(this.value)" class="form-control form-select" name="districtName" id="districtName">
+                                            <option value="">জেলা</option>
                                             @forelse($district as $d)
-                                                <option class="dist dist{{$d->division_id}}" value="{{$d->id}}" {{ old('districtName')==$d->id?"selected":""}}> {{ $d->name}}</option>
+                                                <option class="dist dist{{$d->division_id}}" value="{{$d->id}}" {{ old('districtName')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                             @empty
                                                 <option value="">No district found</option>
                                             @endforelse
@@ -259,12 +265,12 @@
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="Thana" class="col-sm-2 offset-1 col-form-label"><b>{{__('Thana')}}:</b></label>
+                                      <label for="Thana" class="col-sm-2 offset-1 col-form-label"><b>{{__('থানা')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                         <select class="form-control form-select" name="thana">
-                                            <option value="">Select Thana</option>
+                                            <option value="">থানা</option>
                                             @forelse($thana as $d)
-                                                <option value="{{$d->id}}" {{ old('thana')==$d->id?"selected":""}}> {{ $d->name}}</option>
+                                                <option class="thana thana{{$d->upazila_id}}" value="{{$d->id}}" {{ old('thana')==$d->id?"selected":""}}> {{ $d->name_bn}}</option>
                                             @empty
                                                 <option value="">No Thana found</option>
                                             @endforelse
@@ -272,22 +278,22 @@
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="image" class="col-sm-2 offset-1 col-form-label"><b>{{__('Image')}}:</b></label>
+                                      <label for="image" class="col-sm-2 offset-1 col-form-label"><b>{{__('ফটো')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="file" id="image" class="form-control"  name="image">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="home" class="col-sm-2 offset-1 col-form-label"><b>{{__('Home image')}}:</b></label>
+                                      <label for="home" class="col-sm-2 offset-1 col-form-label"><b>{{__('বাডী')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="file" id="home" class="form-control"  name="home">
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="date" class="col-sm-2 offset-1 col-form-label"><b>{{__('Status')}}:</b></label>
+                                      <label for="date" class="col-sm-2 offset-1 col-form-label"><b>{{__('স্ট্যাটাস')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <select class="form-control form-select" value="{{ old('status')}}" name="status" required>
-                                            <option value="">Select Status</option>
+                                            <option value="">স্ট্যাটাস</option>
                                                 <option value="0">Inactive</option>
                                                 <option value="1">Active</option>
                                         </select>
@@ -309,3 +315,23 @@
   <!-- // Basic multiple Column Form section end -->
 </div>
 @endsection
+@push('scripts')
+<script>
+
+     $(document).ready(function(){
+         $('.dist').hide();
+         $('.thana').hide();
+     })
+    function show_district(e){
+         $('.dist').hide();
+         $('.dist'+e).show()
+    }
+    function show_thana(e){
+        $('.thana').hide();
+        $('.thana'+e).show();
+    }
+    
+   
+    
+</script>
+@endpush
