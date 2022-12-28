@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CitizenCertificate;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Division;
+use App\Models\Settings\Location\Thana;
+use App\Models\Ward_no;
 use Exception;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
@@ -16,7 +20,8 @@ class CitizenCertificateController extends Controller
      */
     public function index()
     {
-        //
+        $citizen=CitizenCertificate::all();
+        return view('citizen_certificate.index',compact('citizen'));
     }
 
     /**
@@ -26,7 +31,11 @@ class CitizenCertificateController extends Controller
      */
     public function create()
     {
-        return view('citizen_certificate.create');
+        $division=Division::all();
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('citizen_certificate.create',compact('division','district','thana','ward'));
     }
 
     /**
@@ -80,9 +89,14 @@ class CitizenCertificateController extends Controller
      * @param  \App\Models\CitizenCertificate  $citizenCertificate
      * @return \Illuminate\Http\Response
      */
-    public function edit(CitizenCertificate $citizenCertificate)
+    public function edit($id)
     {
-        //
+        $division=Division::all();
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
+        return view('citizen_certificate.edit',compact('citizen','division','district','thana','ward'));
     }
 
     /**
