@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\Ward_no;
 use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
@@ -37,7 +38,8 @@ class ProfileController extends Controller
         $division = Division::all();
         $district = District::all();
         $thana = Thana::all();
-        return view('Profile.create',compact('division','district','thana'));
+        $word = Ward_no::all();
+        return view('Profile.create',compact('division','district','thana','word'));
     }
 
     /**
@@ -124,8 +126,9 @@ class ProfileController extends Controller
         $division = Division::all();
         $district = District::all();
         $thana = Thana::all();
+        $word = Ward_no::all();
         $profile = Profile::findOrFail(encryptor('decrypt',$id));
-        return view('Profile.edit',compact('division','district','thana','profile'));
+        return view('Profile.edit',compact('division','district','thana','profile','word'));
     }
 
     /**
