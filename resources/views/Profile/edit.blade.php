@@ -232,7 +232,7 @@
                                       <select class="form-control form-select" name="wordNo">
                                                 <option value="">ওয়ার্ড নং</option>
                                                 @forelse($word as $d)
-                                                    <option  value="{{$d->id}}" {{ old('wordNo',$profile->wordNo)==$d->id?"selected":""}}> {{ $d->ward_name_bn}}</option>
+                                                    <option  value="{{$d->id}}" {{ old('wordNo',$profile->word_no)==$d->id?"selected":""}}> {{ $d->ward_name_bn}}</option>
                                                 @empty
                                                     <option value="">No Data found</option>
                                                 @endforelse
