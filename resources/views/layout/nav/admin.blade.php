@@ -22,10 +22,17 @@
                 </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">
-                <a href="#" class='sidebar-link'> {{__('Profile')}}</a>
+                <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
                 <ul class="submenu">
                     <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('List')}}</a></li>
                     <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('ওয়ারিশান')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('Add New')}}</a></li>
                 </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('pageTitle',trans('আবেদন ফরম'))
-@section('pageSubTitle',trans('Form'))
+@section('pageSubTitle',trans('ফরম'))
 
 @section('content')
   <section id="multiple-column-form">
@@ -65,7 +65,7 @@
                                       <label for="total" class="col-sm-2 offset-1 col-form-label"><b>{{__('মোট সদস্য')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <input type="text" id="totalMember" value="{{ old('totalMember')}}" class="form-control"
-                                              placeholder="Total Member" name="totalMember" readonly>
+                                              placeholder="মোট সদস্য" name="totalMember" readonly>
                                       </div>
                                   </div>
                                   <div class="row mb-3">
@@ -290,10 +290,10 @@
                                       </div>
                                   </div>
                                   <div class="row mb-3">
-                                      <label for="date" class="col-sm-2 offset-1 col-form-label"><b>{{__('Status')}}:</b></label>
+                                      <label for="date" class="col-sm-2 offset-1 col-form-label"><b>{{__('স্ট্যাটাস')}}:</b></label>
                                       <div class="col-sm-6 offset-1">
                                           <select class="form-control form-select" value="{{ old('status')}}" name="status" required>
-                                            <option value="">Select Status</option>
+                                            <option value="">স্ট্যাটাস</option>
                                                 <option value="0">Inactive</option>
                                                 <option value="1">Active</option>
                                         </select>

@@ -205,8 +205,10 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy($id)
     {
-        //
+        $p= Profile::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }
