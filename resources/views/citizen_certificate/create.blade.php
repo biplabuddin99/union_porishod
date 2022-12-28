@@ -28,7 +28,6 @@
                     <div class="portlet-body util-btn-margin-bottom-5">
                         <form action="#" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                             @csrf
-
                             <input type="hidden" name="data[status]" value="1">
                             <div class="row">
                                 <div class="col-6">
