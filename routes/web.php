@@ -14,6 +14,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProfileController as profile;
 use App\Http\Controllers\WarishanController as warishan;
 use App\Http\Controllers\CitizenCertificateController as citizen;
+use App\Http\Controllers\TradeLicenseController as trade;
 
 
 use App\Http\Controllers\FrontendController as front;
@@ -59,6 +60,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('profile',profile::class,['as'=>'admin']);
         Route::resource('warishan',warishan::class,['as'=>'admin']);
         Route::resource('citizen',citizen::class,['as'=>'admin']);
+        Route::resource('trade',trade::class,['as'=>'admin']);
 
 
     });

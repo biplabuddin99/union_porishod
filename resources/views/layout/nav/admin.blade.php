@@ -36,6 +36,13 @@
                 </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('ট্রেড লাইসেন্স')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
                 <a href="#" class='sidebar-link'> {{__('নাগরিক সনদপত্র')}}</a>
                 <ul class="submenu">
                     <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('List')}}</a></li>
