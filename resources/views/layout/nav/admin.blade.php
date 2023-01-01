@@ -21,34 +21,7 @@
                     <li class="py-1"><a href="{{route(currentUser().'.admin.create')}}">{{__('Add New')}}</a></li>
                 </ul>
             </li>
-            <li class="submenu-item sidebar-item has-sub">
-                <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
-                <ul class="submenu">
-                    <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('List')}}</a></li>
-                    <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('Add New')}}</a></li>
-                </ul>
-            </li>
-            <li class="submenu-item sidebar-item has-sub">
-                <a href="#" class='sidebar-link'> {{__('ওয়ারিশান')}}</a>
-                <ul class="submenu">
-                    <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('List')}}</a></li>
-                    <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('Add New')}}</a></li>
-                </ul>
-            </li>
-            <li class="submenu-item sidebar-item has-sub">
-                <a href="#" class='sidebar-link'> {{__('ট্রেড লাইসেন্স')}}</a>
-                <ul class="submenu">
-                    <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট')}}</a></li>
-                    <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স')}}</a></li>
-                </ul>
-            </li>
-            <li class="submenu-item sidebar-item has-sub">
-                <a href="#" class='sidebar-link'> {{__('নাগরিক সনদপত্র')}}</a>
-                <ul class="submenu">
-                    <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('List')}}</a></li>
-                    <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('Add New')}}</a></li>
-                </ul>
-            </li>
+
             <li class="submenu-item sidebar-item has-sub">
                 <a href="#" class='sidebar-link'> {{__('Country')}}</a>
                 <ul class="submenu">
@@ -84,6 +57,41 @@
                     <li class="py-1"><a href="{{route(currentUser().'.thana.create')}}">{{__('Add New')}}</a></li>
                 </ul>
             </li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('প্রোফাইল  লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('প্রোফাইল  লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('ওয়ারিশান')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান')}}</a></li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('ট্রেড লাইসেন্স')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স')}}</a></li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('নাগরিক সনদপত্র')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র')}}</a></li>
         </ul>
     </li>
 </ul>

@@ -25,7 +25,8 @@
         <div class="col-lg-8 col-12">
             <div id="auth-left">
                 <div class="auth-logo">
-                    <img src="{{ asset('./images/khulsi_club_logo.png')}}" width="100%" height="70px" alt="">
+                    <h3>ইউপি ম্যানেজেমেন্ট সিস্টেম</h3>
+                    {{-- <img src="{{ asset('./images/khulsi_club_logo.png')}}" width="100%" height="70px" alt=""> --}}
                 </div>
 
                 @yield('content')
