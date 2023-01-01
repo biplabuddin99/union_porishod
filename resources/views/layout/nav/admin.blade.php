@@ -171,13 +171,6 @@
             <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
         </ul>
     </li>
-    <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
-        <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('প্রোফাইল  লিস্ট')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
-        </ul>
-    </li>
 
 
 
