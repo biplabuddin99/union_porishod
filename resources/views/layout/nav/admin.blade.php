@@ -66,7 +66,7 @@
             <span>{{__('অনলাইন আবেদন *')}}</span>
         </a>
         <ul class="submenu">
-            <li class="py-1"><a href="#">{{__(' নতুন হোল্ডিং নম্বর')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.holding.create')}}">{{__(' নতুন হোল্ডিং নম্বর *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান *')}}</a></li>
@@ -90,7 +90,7 @@
             <span>{{__('অনলাইন আবেদন তালিকা *')}}</span>
         </a>
         <ul class="submenu">
-            <li class="py-1"><a href="#">{{__('হোল্ডিং নম্বর তালিকা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.holding.index')}}">{{__('হোল্ডিং নম্বর তালিকা *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট *')}}</a></li>
@@ -113,9 +113,9 @@
         </a>
         <ul class="submenu">
             <li class="py-1"><a href="#">{{__('হোল্ডিং নম্বর')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  ')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স ')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র ')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   ')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান')}}</a></li>
             <li class="py-1"><a href="#">{{__('ভিজিএফ কার্ড')}}</a></li>
             <li class="py-1"><a href="#">{{__('বয়স্ক ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('বিধবা ভাতা')}}</a></li>

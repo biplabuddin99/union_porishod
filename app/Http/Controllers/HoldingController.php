@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Holding;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class HoldingController extends Controller
 {
@@ -14,7 +15,7 @@ class HoldingController extends Controller
      */
     public function index()
     {
-        //
+        return view('holding.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class HoldingController extends Controller
      */
     public function create()
     {
-        //
+        Return view('holding.create');
     }
 
     /**
