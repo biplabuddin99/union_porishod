@@ -59,8 +59,113 @@
             </li>
         </ul>
     </li>
+    {{-- অনলাইন আবেদন --}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('অনলাইন আবেদন *')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="py-1"><a href="#">{{__(' নতুন হোল্ডিং নম্বর')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান *')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন ভিজিএফ কার্ড')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন বয়স্ক ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন বিধবা ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন প্রতিবন্ধী ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন মাতৃত্বকালীন ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('নতুন অন্যান্য')}}</a></li>
+
+
+        </ul>
+    </li>
+    {{-- অনলাইন আবেদন শেষ --}}
+
+
+    {{-- আবেদন তালিকা--}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('অনলাইন আবেদন তালিকা *')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="py-1"><a href="#">{{__('হোল্ডিং নম্বর তালিকা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট *')}}</a></li>
+            <li class="py-1"><a href="#">{{__('ভিজিএফ কার্ড লিস্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('বয়স্ক ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('বিধবা ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('প্রতিবন্ধী ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('মাতৃত্বকালীন ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('অন্যান্য লিস্ট')}}</a></li>
+
+        </ul>
+    </li>
+    {{-- অনলাইন আবেদন  তালিকা শেষ --}}
+
+    {{-- গ্রাহক প্রোপাইল--}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('গ্রাহক প্রোপাইল')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="py-1"><a href="#">{{__('হোল্ডিং নম্বর')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  ')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র ')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   ')}}</a></li>
+            <li class="py-1"><a href="#">{{__('ভিজিএফ কার্ড')}}</a></li>
+            <li class="py-1"><a href="#">{{__('বয়স্ক ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('বিধবা ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('প্রতিবন্ধী ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('মাতৃত্বকালীন ভাতা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('অন্যান্য')}}</a></li>
+
+        </ul>
+    </li>
+    {{-- গ্রাহক প্রোপাইল শেষ --}}
+
+    {{-- ট্যাক্স/করদাতা--}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('ট্যাক্স/করদাতা')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="py-1"><a href="#">{{__('হোল্ডিং ট্যাক্সের তালিকা')}}</a></li>
+            <li class="py-1"><a href="#">{{__(' ব্যবসায়িক ট্যাক্সের তালিকা ')}}</a></li>
+            <li class="py-1"><a href="#">{{__('অন্যান্য ট্যাক্সের তালিকা')}}</a></li>
+            <li class="py-1"><a href="#">{{__('ট্যাক্স আদায়ের পরিমান')}}</a></li>
+            <li class="py-1"><a href="#">{{__('ট্যাক্স বকেয়া পরিমান')}}</a></li>
+            <li class="py-1"><a href="#">{{__('মোট ট্যাক্স আদায়ের রিপোর্ট')}}</a></li>
+            <li class="py-1"><a href="#">{{__('মোট ট্যাক্স বকেয়া রিপোর্ট')}}</a></li>
+
+        </ul>
+    </li>
+    {{-- ট্যাক্স/করদাতা শেষ --}}
+    {{--গ্রাম আদালত --}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('গ্রাম আদালত')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="py-1"><a href="#">{{__('অনলাইন আবেদন')}}</a></li>
+            <li class="py-1"><a href="#">{{__('আবেদন তালিকা ')}}</a></li>
+            <li class="py-1"><a href="#">{{__('প্রতিবাদীর সমনের কপি')}}</a></li>
+            <li class="py-1"><a href="#">{{__('স্বাক্ষীর সমনের কপি')}}</a></li>
+            <li class="py-1"><a href="#">{{__('ট্যাক্স বকেয়া পরিমান')}}</a></li>
+            <li class="py-1"><a href="#">{{__('আদালতের রায়ের কপি')}}</a></li>
+            <li class="py-1"><a href="#">{{__('আপোষনামার কপি')}}</a></li>
+            <li class="py-1"><a href="#">{{__('অন্যান্য কপি')}}</a></li>
+
+        </ul>
+    </li>
+    {{-- গ্রাম আদালত শেষ --}}
     <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'> {{__('প্রোফাইল')}}</a>
+        <a href="#" class='sidebar-link'> {{__('প্রোফাইল *')}}</a>
         <ul class="submenu">
             <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('প্রোফাইল  লিস্ট')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
@@ -73,25 +178,7 @@
             <li class="py-1"><a href="{{route(currentUser().'.profile.create')}}">{{__('নতুন  প্রোফাইল')}}</a></li>
         </ul>
     </li>
-    <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'> {{__('ওয়ারিশান')}}</a>
-        <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান')}}</a></li>
-        </ul>
-    </li>
-    <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'> {{__('ট্রেড লাইসেন্স')}}</a>
-        <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স')}}</a></li>
-        </ul>
-    </li>
-    <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'> {{__('নাগরিক সনদপত্র')}}</a>
-        <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র')}}</a></li>
-        </ul>
-    </li>
+
+
+
 </ul>
