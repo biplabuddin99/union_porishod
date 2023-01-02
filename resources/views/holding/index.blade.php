@@ -7,69 +7,60 @@
 <!-- Bordered table start -->
 <section class="section">
     <div class="card">
-            <ul class="page-breadcrumb breadcrumb">
-                <li>
-                    <a href="#">হোম </a>
-                    <i class="fa fa-circle"></i>
-                </li>
+        <form action="#" role="form" class="form-horizontal" method="get" accept-charset="utf-8">
+        <div class="row">
+            {{-- <div class="form-body col-md-12"> --}}
+                <div class="form-group">
+                    <div class="col-md-2">
+                    <input type="text" name="holding" value=""  class="form-control" placeholder="হোল্ডিং নং " />
+                    </div>
+                    <div class="col-md-2">
+                        <select name="word" class="form-control" id="words">
+                            <option value="" selected="selected">ওয়ার্ড নং</option>
+                            <option value="1">১ নং ওয়ার্ড</option>
+                            <option value="2">২ নং ওয়ার্ড</option>
+                            <option value="3">৩ নং ওয়ার্ড</option>
+                            <option value="4">৪ নং ওয়ার্ড</option>
+                            <option value="5">৫ নং ওয়ার্ড</option>
+                            <option value="6">৬ নং ওয়ার্ড</option>
+                            <option value="7">৭ নং ওয়ার্ড</option>
+                            <option value="8">৮ নং ওয়ার্ড</option>
+                            <option value="9">৯ নং ওয়ার্ড</option>
+                            <option value="11">১০ নং ওয়ার্ড</option>
+                            <option value="12">১১ নং ওয়ার্ড</option>
+                            <option value="13">১২ নং ওয়ার্ড</option>
+                            <option value="14">১৩ নং ওয়ার্ড</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="incom" class="form-control" id="incom">
+                        <option value="" selected="selected">আয়ের উৎস</option>
+                        <option value="1">কৃষি</option>
+                        <option value="2">ব্যবসা</option>
+                        <option value="3">চাকরি</option>
+                        <option value="4">প্রবাসী</option>
+                        </select>
+                    </div>
 
-                <li>
-                    <span>হোল্ডিং  লিস্ট </span>
-                </li>
-            </ul>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary" name="Search" value="Search"/>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <strong>মোট সংখ্যাঃ&nbsp;৭৯৯</strong>
+                    </div>
+                </div>
+            {{-- </div> --}}
+        </div>
+        </form>
 
             <div class="page-content-inner">
 
                 <div class="portlet light tasks-widget ">
                     <div class="portlet-body util-btn-margin-bottom-5">
-                        <div class="row">
-                            <form action="#" role="form" class="form-horizontal" method="get" accept-charset="utf-8">
-                            <div class="form-body col-md-12">
-                                <div class="form-group">
-                                    <div class="col-md-2">
-                                    <input type="text" name="holding" value=""  class="form-control" placeholder="হোল্ডিং নং " />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select name="word" class="form-control" id="words">
-                                            <option value="" selected="selected">ওয়ার্ড নং</option>
-                                            <option value="1">১ নং ওয়ার্ড</option>
-                                            <option value="2">২ নং ওয়ার্ড</option>
-                                            <option value="3">৩ নং ওয়ার্ড</option>
-                                            <option value="4">৪ নং ওয়ার্ড</option>
-                                            <option value="5">৫ নং ওয়ার্ড</option>
-                                            <option value="6">৬ নং ওয়ার্ড</option>
-                                            <option value="7">৭ নং ওয়ার্ড</option>
-                                            <option value="8">৮ নং ওয়ার্ড</option>
-                                            <option value="9">৯ নং ওয়ার্ড</option>
-                                            <option value="11">১০ নং ওয়ার্ড</option>
-                                            <option value="12">১১ নং ওয়ার্ড</option>
-                                            <option value="13">১২ নং ওয়ার্ড</option>
-                                            <option value="14">১৩ নং ওয়ার্ড</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select name="incom" class="form-control" id="incom">
-                                        <option value="" selected="selected">আয়ের উৎস</option>
-                                        <option value="1">কৃষি</option>
-                                        <option value="2">ব্যবসা</option>
-                                        <option value="3">চাকরি</option>
-                                        <option value="4">প্রবাসী</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="col-md-2">
-                                        <input type="submit" class="btn btn-primary" name="Search" value="Search"/>
-                                    </div>
-                                    <div class="col-md-2">
-
-                                    </div>
-                                    <div class="col-md-2 text-right">
-                                        <strong>মোট সংখ্যাঃ&nbsp;৭৯৯</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            </form>
-                        </div>
                         <form action="#" role="form" class="form-horizontal" id="multipleDelete" method="post" accept-charset="utf-8">
                             <input type="hidden" name="csrf_token" value="896a62c335dbc9190d9520356d9be43d" />
 

@@ -16,6 +16,7 @@ use App\Http\Controllers\WarishanController as warishan;
 use App\Http\Controllers\CitizenCertificateController as citizen;
 use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
+use App\Http\Controllers\PaymentReceiptController as payment;
 
 
 use App\Http\Controllers\FrontendController as front;
@@ -63,6 +64,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('citizen',citizen::class,['as'=>'admin']);
         Route::resource('trade',trade::class,['as'=>'admin']);
         Route::resource('holding',holding::class,['as'=>'admin']);
+        Route::resource('payment',payment::class,['as'=>'admin']);
 
 
     });

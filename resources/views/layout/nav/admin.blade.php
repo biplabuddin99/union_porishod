@@ -165,6 +165,13 @@
     </li>
     {{-- গ্রাম আদালত শেষ --}}
     <li class="submenu-item sidebar-item has-sub">
+        <a href="#" class='sidebar-link'> {{__('পেমেন্ট রসিদ*')}}</a>
+        <ul class="submenu">
+            <li class="py-1"><a href="{{route(currentUser().'.payment.index')}}">{{__('পেমেন্ট রসিদ  লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.payment.create')}}">{{__('নতুন  পেমেন্ট রসিদ')}}</a></li>
+        </ul>
+    </li>
+    <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'> {{__('প্রোফাইল *')}}</a>
         <ul class="submenu">
             <li class="py-1"><a href="{{route(currentUser().'.profile.index')}}">{{__('প্রোফাইল  লিস্ট')}}</a></li>
