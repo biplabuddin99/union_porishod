@@ -10,7 +10,7 @@
             <ul class="page-breadcrumb breadcrumb">
                 <li>
                     <a href="#">হোম </a>
-                    <i class="fa fa-circle"></i>
+                    <i class="bi bi-circle-half"></i>
                 </li>
 
                 <li>

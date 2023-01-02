@@ -8,7 +8,7 @@
     <ul class="page-breadcrumb breadcrumb">
         <li>
             <a href="#">হোম </a>
-            <i class="fa fa-circle"></i>
+            <i class="bi bi-circle-half"></i>
         </li>
 
         <li>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="row">
                             <label class="col-md-2 control-label">আইডি নং </label>
                             <div class="col-md-2">
                                 <input type="text" name="nid" value=""  class="form-control autoNID" required placeholder="আইডি নং / মোবাইল" />
