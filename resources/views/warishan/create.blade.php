@@ -78,7 +78,7 @@
                                                   </select>
                                             </div>
                                             <div class="col-12 ">
-                                              <table class="table table-hover">
+                                              <table class="table table-hover mt-4">
                                                   <thead>
                                                       <tr>
                                                           <th>ক্রমিক</th>

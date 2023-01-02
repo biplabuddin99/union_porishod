@@ -11,10 +11,51 @@
         <div class="row" id="table-bordered">
             <div class="col-12">
                 <div class="card">
+                    <div class="row p-2">
+                        <div class="col-md-6 text-start p-2">
+                            <a class="btn btn-success" href="{{route(currentUser().'.warishan.create')}}">আবেদন ফরম <i class="bi bi-plus-lg"></i></a>
+                        </div>
+                        <!-- <div class="col-md-6 text-end p-2">
+                            <a class="btn btn-success" href="#"><i class="bi bi-cloud-download"></i> Download</a>
+                        </div> -->
+                    </div>
                         <!-- table bordered -->
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-2 mt-2">
+                                    <input type="text" class="form-control" name="name" placeholder="নাম">
+                                </div>
+                                <div class="col-md-2 mt-2">
+                                    <input type="text" class="form-control" name="mobile" placeholder="মোবাইল">
+                                </div>
+                                <div class="col-md-2 mt-2">
+                                    <select class="form-control form-select" name="word">
+                                        <option value="">ওয়ার্ড নং</option>
+                                        <option value="1">১ নং ওয়ার্ড</option>
+                                        <option value="2">২ নং ওয়ার্ড</option>
+                                        <option value="3">৩ নং ওয়ার্ড</option>
+                                        <option value="4">৪ নং ওয়ার্ড</option>
+                                        <option value="5">৫ নং ওয়ার্ড</option>
+                                        <option value="6">৬ নং ওয়ার্ড</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mt-2">
+                                    <input type="text" class="form-control" name="village" placeholder="গ্রাম">
+                                </div>
+                                <div class="col-md-2 mt-2">
+                                    <input type="date" class="form-control" name="formdate" placeholder="তারিখ হইতে">
+                                </div>
+                                <div class="col-md-2 mt-2">
+                                    <input type="date" class="form-control" name="todate" placeholder="তারিখ পর্যন্ত">
+                                </div>
+                                
+                                <div class="col-md-2 mt-2">
+                                    <a class="btn btn-success " href="#">খুজুন</a>
+                                </div>
+                            </div>
+                        </form>
                         <div class="table-responsive">
-                            <table class="table table-bordered mb-0">
-                            <a class="float-end" href="{{route(currentUser().'.warishan.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
+                            <table class="table table-bordered mb-0 mt-5">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">{{__('ক্রমিক')}}</th>
