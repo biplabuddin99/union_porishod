@@ -10,15 +10,11 @@
             <a href="#">হোম </a>
             <i class="bi bi-circle-half"></i>
         </li>
-
         <li>
             <span>অবকাঠামোর ফরম</span>
         </li>
     </ul>
-
-
     <div class="page-content-inner">
-
         <div class="portlet light tasks-widget ">
             <div class="portlet-title">
                 <div class="caption">
@@ -44,15 +40,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                        <tr>
-                                            <td><span id="name">--</span></td>
-                                            <td><span id="mobile">--</span></td>
-                                            <td><span id="nid">--</span></td>
-                                            <td><span id="dob">--</span></td>
-
-                                        </tr>
-
+                                            <tr>
+                                                <td><span id="name">--</span></td>
+                                                <td><span id="mobile">--</span></td>
+                                                <td><span id="nid">--</span></td>
+                                                <td><span id="dob">--</span></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -72,8 +65,6 @@
                                 <input type="text" name="data[old_hoilding]" value=""  class="form-control" autocomplete="off"  placeholder="সাবেক নং" />
                             </div>
                         </div>
-
-
                         <hr >
                         <strong> অবকাঠামোর বিবরণ  </strong>
                         <hr />
@@ -294,9 +285,6 @@
             </div>
         </div>
     </div>
-
-
   </section>
-
 </div>
 @endsection
