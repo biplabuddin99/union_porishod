@@ -12,6 +12,36 @@
             <div class="col-12">
                 <div class="card">
                         <!-- table bordered -->
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-2 mt-7">
+                                    <input type="text" class="form-control" name="name" placeholder="নাম">
+                                </div>
+                                <div class="col-md-2 mt-7">
+                                    <input type="text" class="form-control" name="parent" placeholder="পিতা / মাতা">
+                                </div>
+                                <div class="col-md-2 mt-7">
+                                    <input type="text" class="form-control" name="holding" placeholder="হোল্ডং নং">
+                                </div>
+                                <div class="col-md-2 mt-7">
+                                    <input type="text" class="form-control" name="mobile" placeholder="মোবাইল">
+                                </div>
+                                <div class="col-md-2 mt-7">
+                                    <select class="form-control form-select" name="word">
+                                        <option value="">ওয়ার্ড নং</option>
+                                        <option value="1">১ নং ওয়ার্ড</option>
+                                        <option value="2">২ নং ওয়ার্ড</option>
+                                        <option value="3">৩ নং ওয়ার্ড</option>
+                                        <option value="4">৪ নং ওয়ার্ড</option>
+                                        <option value="5">৫ নং ওয়ার্ড</option>
+                                        <option value="6">৬ নং ওয়ার্ড</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 mt-7">
+                                    <input type="text" class="form-control" name="village" placeholder="গ্রাম">
+                                </div>
+                            </div>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0">
                             <a class="float-end" href="{{route(currentUser().'.profile.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
