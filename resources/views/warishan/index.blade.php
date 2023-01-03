@@ -43,7 +43,7 @@
                                     <input type="text" class="form-control" name="village" placeholder="গ্রাম">
                                 </div>
                                 <div class="col-md-2 mt-2">
-                                    <input type="date" class="form-control" name="formdate" placeholder="তারিখ হইতে">
+                                    <input type="text" class="form-control datepicker" name="formdate" placeholder="তারিখ হইতে">
                                 </div>
                                 <div class="col-md-2 mt-2">
                                     <input type="date" class="form-control" name="todate" placeholder="তারিখ পর্যন্ত">
@@ -109,3 +109,13 @@
 </div>
 
 @endsection
+
+@push('scripts')
+
+<script type="text/javascript">
+    $(function() {
+        $('.datepicker').datepicker();
+    });
+</script>
+
+@endpush
