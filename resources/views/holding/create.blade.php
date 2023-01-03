@@ -52,16 +52,16 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-md-2 control-label">আইডি নং </label>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
+                                <label class="control-label">আইডি নং </label>
                                 <input type="text" name="nid" value=""  class="form-control autoNID" required placeholder="আইডি নং / মোবাইল" />
                             </div>
-                            <label class="col-md-2 control-label">তারিখ </label>
-                            <div class="col-md-2">
-                                <input type="text" name="data[date]" value="2023-01-01"  class="form-control datepick" autocomplete="off" required placeholder="প্রদান তারিখ" />
+                            <div class="col-md-4">
+                                <label class="control-label">তারিখ </label>
+                                <input type="date" name="data[date]" value="2023-01-01"  class="form-control datepick" autocomplete="off" required placeholder="প্রদান তারিখ" />
                             </div>
-                            <label class="col-md-2 control-label">সাবেক নং</label>
-                            <div class="col-md-2">
+                            <div class="col-md-4">
+                                <label class="control-label">সাবেক নং</label>
                                 <input type="text" name="data[old_hoilding]" value=""  class="form-control" autocomplete="off"  placeholder="সাবেক নং" />
                             </div>
                         </div>
@@ -69,16 +69,16 @@
                         <strong> অবকাঠামোর বিবরণ  </strong>
                         <hr />
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">গ্রাম/ রাস্তা / পোস্ট </label>
-                                    <div class="col-md-8">
+                                    <label class="control-label">গ্রাম/ রাস্তা / পোস্ট </label>
+                                    <div class="">
                                         <input type="text" name="data[road]" value=""  class="form-control"  placeholder="গ্রাম/ রাস্তা / পোস্ট" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">ওয়ার্ড নং</label>
-                                    <div class="col-md-8">
+                                    <label class=" control-label">ওয়ার্ড নং</label>
+                                    <div class="">
                                         <select name="data[words]" class="form-control" required id="words">
                                         <option value="" selected="selected">ওয়ার্ড নং</option>
                                         <option value="1">১ নং ওয়ার্ড</option>
@@ -99,8 +99,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">বিভাগ </label>
-                                    <div class="col-md-8">
+                                    <label class="control-label">বিভাগ </label>
+                                    <div class="">
                                         <select name="data[divisionid]" class="form-control" required id="divisionid">
                                         <option value="">বিভাগ</option>
                                         <option value="1" selected="selected">ঢাকা </option>
@@ -115,8 +115,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">জেলা</label>
-                                    <div class="col-md-8">
+                                    <label class="control-label">জেলা</label>
+                                    <div class="">
                                         <select name="data[districtid]" class="form-control" required id="districtid">
                                         <option value="">জেলা</option>
                                         <option value="6">কিশোরগঞ্জ</option>
@@ -137,8 +137,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">থানা</label>
-                                    <div class="col-md-8">
+                                    <label class=" control-label">থানা</label>
+                                    <div class="">
                                         <select name="data[thanaid]" class="form-control" required id="thanaid">
                                         <option value="">থানা</option>
                                         <option value="412">Chandra</option>
@@ -154,36 +154,33 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">ভবনের নাম </label>
+                                    <label class="control-label">ভবনের নাম </label>
                                     <div class="col-md-10">
-                                        <input type="text" name="data[land]" value=""  class="form-control" autocomplete="off" required placeholder="ভবনের নাম " />
+                                        <input type="text" name="data[land]" value="" class="form-control" autocomplete="off" required placeholder="ভবনের নাম " />
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
 
-                                <label class="col-md-2"><strong>বাড়ীর বিবরন</strong></label>
-                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-2">
+                                    <label class="col-md-2"><strong>বাড়ীর বিবরন</strong></label>
+                                    <label class="mt-checkbox-outline">
                                         <input type="checkbox" name="floor" value="1">কাঁচা
                                         <span></span>
                                     </label>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-2">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                         <input type="checkbox" name="tinsed" value="1">পাকা
                                         <span></span>
                                     </label>
                                     <label class="col-md-3">
                                         <input type="text" class="form-control" name="data[room]" placeholder="রুম কযটা" >
-
                                     </label>
                                     <label class="col-md-3">
                                         <input type="text" class="form-control" name="data[votar]" placeholder="ভোটার সংখ্যা ">
-
                                     </label>
                                 </div>
                                 <div class="form-group col-md-12">
-
                                     <label class="col-md-2"><strong>ল্যাট্রিন</strong></label>
                                     <label class="mt-radio mt-radio-single mt-radio-outline col-md-2">
                                         <input type="radio" name="lattrin" value="1"> পাকা
@@ -198,26 +195,26 @@
 
                                 <div class="form-group col-md-12">
                                     <h5 class="text-center"><b>আয়ের প্রধান উৎস</b></h5>
-                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-3">
-                                        <input type="checkbox" name="farmar" value="1">কৃষি
+                                  <label class="m-3">
+                                        <input class="m-1" type="checkbox" name="farmar" value="1">কৃষি
                                         <span></span>
                                     </label>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-3">
-                                        <input type="checkbox" name="business" value="1">ব্যবসা
+                                    <label class="m-3">
+                                        <input class="m-1" type="checkbox" name="business" value="1">ব্যবসা
                                         <span></span>
                                     </label>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-3">
-                                        <input type="checkbox" name="service" value="1">চাকরি
+                                    <label class="m-3">
+                                        <input class="m-1" type="checkbox" name="service" value="1">চাকরি
                                         <span></span>
                                     </label>
-                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline col-md-3">
-                                        <input type="checkbox" name="foreran" value="1">প্রবাসী
+                                    <label class="m-3">
+                                        <input class="m-1" type="checkbox" name="foreran" value="1">প্রবাসী
                                         <span></span>
                                     </label>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">গৃহের আনুমানিক মূল্য</label>
+                                    <label class="control-label">গৃহের আনুমানিক মূল্য</label>
                                     <div class="col-md-9">
                                         <input type="text" name="data[property_price]" value=""  class="form-control price" autocomplete="off" required placeholder="গৃহের আনুমানিক মূল্য" />
                                     </div>
