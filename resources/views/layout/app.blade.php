@@ -76,7 +76,7 @@
 							<div class="col-12 col-md-6 order-md-1 order-last">
 								<div class="fs-5 fw-bold">@yield('pageTitle')</div>
 							</div>
-							<div class="col-12 col-md-6 order-md-2 order-first">
+							<!-- <div class="col-12 col-md-6 order-md-2 order-first">
 								<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
 									<ol class="breadcrumb mb-0">
                                         @hasSection('pageSubTitle')
@@ -87,7 +87,7 @@
                                         @endif
 									</ol>
 								</nav>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
