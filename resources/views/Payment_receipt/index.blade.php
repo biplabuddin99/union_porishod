@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="portlet-body util-btn-margin-bottom-5">
-                    <div class="">
+                    {{-- <div class="row">
                          <form action="#" role="form" class="form-horizontal" method="get" accept-charset="utf-8">
 
                         <div class="form-body ">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         </form>
-                    </div>
+                    </div> --}}
 
 
                     <div class="table-responsive">
