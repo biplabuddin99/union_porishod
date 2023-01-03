@@ -59,37 +59,37 @@
                                           <input type="text" id="voterNumber" value="{{ old('voterNumber',$profile->voterNumber)}}" class="form-control"
                                               placeholder="ভোটার সংখ্যা" name="voterNumber">
                                       </div>
-                                      <div class="col-sm-6 ">
+                                      <div class="col-sm-6 p-2">
                                           <label for="allowance" class="  col-form-label"><b>{{__('ভাতা')}}:</b></label>
                                             <label for="allowance">প্রতিবন্ধী ভাতা</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="1" {{ old('allowance',$profile->allowance)=="1" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="1" {{ old('allowance',$profile->allowance)=="1" ? "checked":"" }}>
                                             <label for="allowance">বয়স্ক ভাতা</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="2" {{ old('allowance',$profile->allowance)=="2" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="2" {{ old('allowance',$profile->allowance)=="2" ? "checked":"" }}>
                                             <label for="allowance">বিধবা ভাতা</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="3" {{ old('allowance',$profile->allowance)=="3" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="3" {{ old('allowance',$profile->allowance)=="3" ? "checked":"" }}>
                                             <label for="allowance">মুক্তি যোদ্ধা</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="4" {{ old('allowance',$profile->allowance)=="4" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="4" {{ old('allowance',$profile->allowance)=="4" ? "checked":"" }}>
                                             <label for="allowance">অন্যান্য</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="5" {{ old('allowance',$profile->allowance)=="5" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="5" {{ old('allowance',$profile->allowance)=="5" ? "checked":"" }}>
                                             <label for="allowance">কোনটিই না</label>
-                                            <input type="radio"  class="form-check-input" name="allowance" value="6" {{ old('allowance',$profile->allowance)=="6" ? "checked":"" }}>
+                                            <input type="radio"  class="form-input" name="allowance" value="6" {{ old('allowance',$profile->allowance)=="6" ? "checked":"" }}>
                                       </div>
-                                      <div class="col-sm-6 ">
+                                      <div class="col-sm-6 p-2">
                                           <label for="source" class="  col-form-label"><b>{{__('আয়ের প্রধান উৎস')}}:</b></label>
                                             <label for="icomeSource">কৃষি</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="1" {{ old('icomeSource',$profile->icomeSource)=="1" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="1" {{ old('icomeSource',$profile->icomeSource)=="1" ? "checked":"" }}>
                                             <label for="icomeSource">ব্যবসা</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="2" {{ old('icomeSource',$profile->icomeSource)=="2" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="2" {{ old('icomeSource',$profile->icomeSource)=="2" ? "checked":"" }}>
                                             <label for="icomeSource">চাকরি</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="3" {{ old('icomeSource',$profile->icomeSource)=="3" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="3" {{ old('icomeSource',$profile->icomeSource)=="3" ? "checked":"" }}>
                                             <label for="icomeSource">প্রবাসী</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="4" {{ old('icomeSource',$profile->icomeSource)=="4" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="4" {{ old('icomeSource',$profile->icomeSource)=="4" ? "checked":"" }}>
                                             <label for="icomeSource">গ্রহীনি</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="5" {{ old('icomeSource',$profile->icomeSource)=="5" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="5" {{ old('icomeSource',$profile->icomeSource)=="5" ? "checked":"" }}>
                                             <label for="icomeSource">দিন মজুর</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="6" {{ old('icomeSource',$profile->icomeSource)=="6" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="6" {{ old('icomeSource',$profile->icomeSource)=="6" ? "checked":"" }}>
                                             <label for="icomeSource">অন্যান্য</label>
-                                            <input type="radio" class="form-check-input" name="icomeSource" value="7" {{ old('icomeSource',$profile->icomeSource)=="7" ? "checked":"" }}>
+                                            <input type="radio" class="form-input" name="icomeSource" value="7" {{ old('icomeSource',$profile->icomeSource)=="7" ? "checked":"" }}>
                                       </div>
                                         <div class="col-10 ">
                                             <table class="table table-hover">
@@ -109,7 +109,7 @@
                                                 </thead>
                                             </table>
                                         </div>
-                                        <div><h5>বাড়ির বিবরণ</h5></div>
+                                        <div><h5><b>বাড়ির বিবরণ</b></h5></div>
                                         <div class="col-sm-6 ">
                                             <label for="house_name" class="  col-form-label"><b>{{__('ভবনের নাম')}}:</b></label>
                                             <input type="text" id="house_name" value="{{ old('house_name',$profile->house_name)}}" class="form-control"
@@ -120,18 +120,18 @@
                                             <input type="text" id="holding_no" value="{{ old('holding_no',$profile->holding_no)}}" class="form-control"
                                                 placeholder="হোল্ডিং নং" name="holding_no">
                                         </div>
-                                        <div class="col-sm-6 ">
+                                        <div class="col-sm-6 p-2">
                                             <label for="source" class="  col-form-label"><b>{{__('বাড়ীর ধারন')}}:</b></label>
                                               <label for="typeOfHouse">এক চালা</label>
-                                              <input type="radio"  class="form-check-input" name="typeOfHouse" value="1" {{ old('typeOfHouse',$profile->typeOfHouse)=="1" ? "checked":"" }}>
+                                              <input type="radio"  class="form-input" name="typeOfHouse" value="1" {{ old('typeOfHouse',$profile->typeOfHouse)=="1" ? "checked":"" }}>
                                               <label for="typeOfHouse">দুই চালা</label>
-                                              <input type="radio"  class="form-check-input" name="typeOfHouse" value="2" {{ old('typeOfHouse',$profile->typeOfHouse)=="2" ? "checked":"" }}>
+                                              <input type="radio"  class="form-input" name="typeOfHouse" value="2" {{ old('typeOfHouse',$profile->typeOfHouse)=="2" ? "checked":"" }}>
                                               <label for="typeOfHouse">চার চালা</label>
-                                              <input type="radio"  class="form-check-input" name="typeOfHouse" value="3" {{ old('typeOfHouse',$profile->typeOfHouse)=="3" ? "checked":"" }}>
+                                              <input type="radio"  class="form-input" name="typeOfHouse" value="3" {{ old('typeOfHouse',$profile->typeOfHouse)=="3" ? "checked":"" }}>
                                               <label for="typeOfHouse">আধা পাকা</label>
-                                              <input type="radio"  class="form-check-input" name="typeOfHouse" value="4" {{ old('typeOfHouse',$profile->typeOfHouse)=="4" ? "checked":"" }}>
+                                              <input type="radio"  class="form-input" name="typeOfHouse" value="4" {{ old('typeOfHouse',$profile->typeOfHouse)=="4" ? "checked":"" }}>
                                               <label for="typeOfHouse">পাকা</label>
-                                              <input type="radio"  class="form-check-input" name="typeOfHouse" value="5" {{ old('typeOfHouse',$profile->typeOfHouse)=="5" ? "checked":"" }}>
+                                              <input type="radio"  class="form-input" name="typeOfHouse" value="5" {{ old('typeOfHouse',$profile->typeOfHouse)=="5" ? "checked":"" }}>
                                         </div>
                                         <div class="col-sm-6 ">
                                             <label for="total_room" class="  col-form-label"><b>{{__('রুম কযটা')}}:</b></label>
@@ -167,7 +167,7 @@
                                             <input type="text" id="owing" value="{{ old('owing',$profile->owing)}}" class="form-control" 
                                             placeholder="0" name="owing">
                                         </div>
-                                        <div><h5>ঠিকানা</h5></div>
+                                        <div><h5><b>ঠিকানা</b></h5></div>
                                         <div class="col-sm-6 ">
                                             <label for="vill" class="  col-form-label"><b>{{__('গ্রাম/ রাস্তা')}}:</b></label>
                                             <input type="text" id="vill" value="{{ old('vill',$profile->village)}}" class="form-control"
