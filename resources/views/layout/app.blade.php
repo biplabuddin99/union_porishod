@@ -16,7 +16,6 @@
 
   {{-- tostr css --}}
   <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script
   src="https://code.jquery.com/jquery-3.6.1.min.js"
   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -76,7 +75,7 @@
 							<div class="col-12 col-md-6 order-md-1 order-last">
 								<div class="fs-5 fw-bold">@yield('pageTitle')</div>
 							</div>
-							<!-- <div class="col-12 col-md-6 order-md-2 order-first">
+							<div class="col-12 col-md-6 order-md-2 order-first">
 								<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
 									<ol class="breadcrumb mb-0">
                                         @hasSection('pageSubTitle')
@@ -87,7 +86,7 @@
                                         @endif
 									</ol>
 								</nav>
-							</div> -->
+							</div>
 						</div>
 					</div>
 				</div>
@@ -112,13 +111,15 @@
     </div>
 <script src="{{ asset('/assets/js/bootstrap.js') }}"></script>
 <script src="{{ asset('/assets/js/app.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 @stack('scripts')
-
-
+<script type="text/javascript">
+    $( ".datepicker" ).datepicker();
+</script>
   {{-- tostr --}}
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

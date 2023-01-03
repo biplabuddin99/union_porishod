@@ -46,7 +46,7 @@
                                     <input type="text" class="form-control datepicker" name="formdate" placeholder="তারিখ হইতে">
                                 </div>
                                 <div class="col-md-2 mt-2">
-                                    <input type="date" class="form-control" name="todate" placeholder="তারিখ পর্যন্ত">
+                                    <input type="text" class="form-control datepicker" name="todate" placeholder="তারিখ পর্যন্ত">
                                 </div>
                                 
                                 <div class="col-md-2 mt-2">
@@ -64,7 +64,7 @@
                                         <th scope="col">{{__('পিতা/ স্বামী')}}</th>
                                         <th scope="col">{{__('মৃত্যু তারিখ')}}</th>
                                         <th scope="col">{{__('গ্রাম/ রাস্তা')}}</th>
-                                        <th scope="col">{{__('ওয়ার্ডঃ')}}</th>
+                                        <th scope="col">{{__('ওয়ার্ড')}}</th>
                                         <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
                                     </tr>
                                 </thead>
@@ -106,16 +106,4 @@
         </div>
     </section>
     <!-- Bordered table end -->
-</div>
-
 @endsection
-
-@push('scripts')
-
-<script type="text/javascript">
-    $(function() {
-        $('.datepicker').datepicker();
-    });
-</script>
-
-@endpush
