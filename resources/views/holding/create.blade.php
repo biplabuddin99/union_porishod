@@ -36,7 +36,7 @@
             <input class="form-control" type="text"
             name="" id="" placeholder="পিতা/ স্বামী">
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">নতুন হোল্ডিং নম্বর :-</label>
                 <input class="form-control"
@@ -47,7 +47,7 @@
                 <input class="form-control" type="text" name="" id="" value="" placeholder="আগের হোল্ডিং নম্বর">
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">গ্রাম/পাড়া/মহল্লা :-</label>
                 <input class="form-control"
@@ -58,7 +58,7 @@
                 <input class="form-control" type="text" name="" id="" value="" placeholder="ওয়ার্ড নং">
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">জন্ম তারিখ :-</label>
                 <input class="form-control datepicker"
@@ -69,7 +69,7 @@
                 <input class="form-control" type="text" name="" id="" value="" placeholder="ভোটার আইডি নং">
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">মোবাইল নম্বর :-</label>
                 <input class="form-control"
@@ -80,7 +80,7 @@
                 <input class="form-control" type="email" name="" id="" value="" placeholder=".....@mail.com">
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">বৈবাহিক অবস্থা :-  </label>
                 <div class="form-check form-check-inline">
@@ -108,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">ডিজিটাল জন্মনিবন্ধন :-  </label>
                 <div class="form-check form-check-inline">
@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">বিদেশে থাকে/প্রবাসী :-  </label>
                 <div class="form-check form-check-inline">
@@ -156,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
                 <label for="">নলকূপ :-  </label>
                 <div class="form-check form-check-inline">
@@ -180,7 +180,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for="">শিক্ষাগত যোগ্যতা :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -210,7 +210,7 @@
             </div>
 
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for="">পরিবারের সদস্য :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -240,7 +240,7 @@
             </div>
 
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for="">ধর্ম :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -270,7 +270,7 @@
             </div>
 
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for=""> মোবাইল ব্যাংক:-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -300,7 +300,7 @@
             </div>
 
         </div>
-        <fieldset class="border border-2 m-2 p-3">
+        <div class="border border-2 m-2 p-3">
             {{-- <legend class="">সরকারি সুবিধা:-</legend> --}}
             <label for="">সরকারি সুবিধা:- </label>
             <div class="row m-2">
@@ -330,8 +330,8 @@
                 </div>
             </div>
 
-        </fieldset>
-        <div class="row m-2">
+        </div>
+        <div class="row border border-2 m-2 p-3">
             <label for=""> পারিবারিক অবস্থা :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -361,7 +361,7 @@
             </div>
 
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for=""> ডিজিটাল ডিভাইস :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -391,7 +391,7 @@
             </div>
 
         </div>
-        <div class="row m-2">
+        <div class="row border border-2 m-2 p-3">
             <label for=""> টেলিযোগাযোগ :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -421,7 +421,7 @@
             </div>
 
         </div>
-        <fieldset class="border border-2 m-2 p-3">
+        <div class="border border-2 m-2 p-3">
             <label for=""> পেশা বা আয়ের উৎস :-</label>
             <div class="row m-2">
                 <div class="col-2">
@@ -528,18 +528,18 @@
                 </div>
             </div>
 
-        </fieldset>
-        <fieldset class="border border-2 m-2 p-3">
+        </div>
+        <div class="border border-2 m-2 p-3">
             <label for="">ব্যবসায়িক করের উৎস  :-</label>
             <div class="row m-2">
                 <div class="col-2">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-                    <label class="form-check-label" for="inlineCheckbox1">কৃষি খামার<small>(সরকারি)</small></label>
+                    <label class="form-check-label" for="inlineCheckbox1">কৃষি খামার</label>
                 </div>
 
                 <div class="col-2">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-                    <label class="form-check-label" for="inlineCheckbox2">মৎস খামার<small>(বে-সরকারি)</small></label>
+                    <label class="form-check-label" for="inlineCheckbox2">মৎস খামার</label>
                 </div>
 
                 <div class="col-2">
@@ -791,45 +791,103 @@
                     <label class="form-check-label" for="inlineCheckbox3"> অন্যান্য</label>
                 </div>
             </div>
+            <div class="row m-2">
+                <label for="" class="col-sm-2 offset-2 col-form-label text-end">করের পরিমান :-</label>
+                <div class="col-sm-6">
+                    <input type="text" value="" class="form-control"
+                        placeholder="করের পরিমান" name="">
+                </div>টাকা
+            </div>
 
-        </fieldset>
-        <div class="row m-2">
+        </div>
+        <div class="row border border-2 m-2 p-3">
+            <label for="">অন্যান্য করের উৎস :-</label>
+            <div class="row m-2">
+                <div class="col-6">
+                    <input type="checkbox">
+                    <input name="" id="" value=""  type="text" placeholder="অন্যান্য কর">
+                </div>
+                <div class="col-6 float-right">
+                    <label for="">করের পরিমান  :-</label>
+                    <input type="text" name="" id="" value="" placeholder="করের পরিমান"> টাকা
+                </div>
+            </div>
+        </div>
+        <div class="row border border-2 m-2 p-3">
+            <label for=""> বসত বাড়ির ধরন :-</label>
+            <div class="row m-2">
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                    <label class="form-check-label" for="inlineCheckbox1">কাচা-ঘর</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                    <label class="form-check-label" for="inlineCheckbox2">টিনসেট</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"/>
+                    <label class="form-check-label" for="inlineCheckbox3">আধা-পাকা</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"/>
+                    <label class="form-check-label" for="inlineCheckbox3">পাকা ইমারত</label>
+                </div>
+
+                <div class="col-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"/>
+                    <label class="form-check-label" for="inlineCheckbox3"></label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row border border-2 m-2 p-3">
+            <label for="">হোল্ডিং ট্যাক্স :-</label>
+            <div class="row">
+                <div class="col-6">
+                    <label for="">বাড়ির আনুমানিক দাম :-</label>
+                    <input name="" id="" value=""  type="text" placeholder=""> টাকা
+                </div>
+                <div class="col-6 float-right">
+                    <label for="">বার্ষিক করযোগ্য মূল্য :-</label>
+                    <input type="text" name="" id="" value="" placeholder=""> টাকা
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="">বাড়ির করযোগ্য মূল্য :-</label>
+                    <input
+                    name="" id="" value=""  type="text" placeholder=""> টাকা
+                </div>
+                <div class="col-6 float-right">
+                    <label for="">বাষিক করের পরিমান :-</label>
+                    <input type="text" name="" id="" value="" placeholder=""> টাকা
+                </div>
+            </div>
+        </div>
+        <div class="row m-2 border border-2 p-3">
+            <label for="">সর্বমোট ট্যাক্স :-</label>
+            <label for="" class="col-sm-6 col-form-label text-end">হোল্ডিং ট্যাক্স + ব্যাবসায়িক ট্যাক্স + অন্যান্য ট্যাক্স :-</label>
+            <div class="col-sm-4">
+                <input type="text" value="" class="form-control"
+                    placeholder="করের পরিমান" name="">
+            </div>টাকা
+        </div>
+        <div class="row border border-2 m-2 p-3">
             <div class="col-6">
-                <label for=""> :-</label>
+                <label for="">তথ্য প্রদানকারীর স্বাক্ষর :-</label>
                 <input class="form-control"
-                name="" id="" value=""  type="text" placeholder="">
+                name="" id="" value=""  type="file" placeholder="">
             </div>
             <div class="col-6 float-right">
-                <label for=""> :-</label>
-                <input class="form-control" type="text" name="" id="" value="" placeholder="">
-            </div>
-        </div>
-        <div class="row m-2">
-            <label for="">মাতার নাম </label>
-            <input class="form-control" type="text"
-            name="" id="" placeholder="মাতার নাম">
-        </div>
-        <div class="row m-2">
-            <label for="">মাতার নাম </label>
-            <input class="form-control" type="text"
-            name="" id="" placeholder="মাতার নাম">
-        </div>
-        <div class="row m-2">
-            <label for="">মাতার নাম </label>
-            <input class="form-control" type="text"
-            name="" id="" placeholder="মাতার নাম">
-        </div>
-        <div class="row m-2">
-            <div class="form-group">
-                <label class="col-md-3 control-label">বকেয়া</label>
-                <div class="col-md-9">
-                    <input type="text" name="data[due]" value=""  class="form-control" id="due" autocomplete="off" required placeholder="বকেয়া" />
-                </div>
+                <label for="">তথ্য সংগ্রহকারীর স্বাক্ষর :-</label>
+                <input class="form-control" type="file" name="" id="" value="" placeholder="">
             </div>
         </div>
     </div>
 </section>
 <!-- Bordered table end -->
-
 
 @endsection
