@@ -60,34 +60,34 @@
                                       </div>
                                       <div class="col-sm-6 p-2">
                                           <label for="allowance" class="form-label"><b>{{__('ভাতা')}}:</b></label>
-                                            <label for="allowance">প্রতিবন্ধী ভাতা</label>
-                                            <input type="radio" value="1" class="form-input" name="allowance">
-                                            <label for="allowance">বয়স্ক ভাতা</label>
+                                            <label for="allowance" class="form-label">প্রতিবন্ধী ভাতা</label>
+                                            <input type="radio" value="1"  name="allowance">
+                                            <label for="allowance" class="form-label">বয়স্ক ভাতা</label>
                                             <input type="radio" value="2" class="form-input" name="allowance">
-                                            <label for="allowance">বিধবা ভাতা</label>
+                                            <label for="allowance" class="form-label">বিধবা ভাতা</label>
                                             <input type="radio" value="3" class="form-input" name="allowance">
-                                            <label for="allowance">মুক্তি যোদ্ধা</label>
+                                            <label for="allowance" class="form-label">মুক্তি যোদ্ধা</label>
                                             <input type="radio" value="4" class="form-input" name="allowance">
-                                            <label for="allowance">অন্যান্য</label>
+                                            <label for="allowance" class="form-label">অন্যান্য</label>
                                             <input type="radio" value="5" class="form-input" name="allowance">
-                                            <label for="allowance">কোনটিই না</label>
+                                            <label for="allowance" class="form-label">কোনটিই না</label>
                                             <input type="radio" value="6" class="form-input" name="allowance">
                                       </div>
                                       <div class="col-sm-6 p-2">
                                           <label for="source" class="form-label"><b>{{__('আয়ের প্রধান উৎস')}}:</b></label>
-                                            <label for="icomeSource">কৃষি</label>
+                                            <label for="icomeSource" class="form-label">কৃষি</label>
                                             <input type="radio" value="1" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">ব্যবসা</label>
+                                            <label for="icomeSource" class="form-label">ব্যবসা</label>
                                             <input type="radio" value="2" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">চাকরি</label>
+                                            <label for="icomeSource" class="form-label">চাকরি</label>
                                             <input type="radio" value="3" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">প্রবাসী</label>
+                                            <label for="icomeSource" class="form-label">প্রবাসী</label>
                                             <input type="radio" value="4" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">গ্রহীনি</label>
+                                            <label for="icomeSource" class="form-label">গ্রহীনি</label>
                                             <input type="radio" value="5" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">দিন মজুর</label>
+                                            <label for="icomeSource" class="form-label">দিন মজুর</label>
                                             <input type="radio" value="6" class="form-input" name="icomeSource">
-                                            <label for="icomeSource">অন্যান্য</label>
+                                            <label for="icomeSource" class="form-label">অন্যান্য</label>
                                             <input type="radio" value="7" class="form-input" name="icomeSource">
                                       </div>
                                   
@@ -124,15 +124,15 @@
                                         </div>
                                         <div class="col-sm-6 p-2">
                                             <label for="source" class="form-label"><b>{{__('বাড়ীর ধারন')}}:</b></label>
-                                              <label for="typeOfHouse">এক চালা</label>
+                                              <label for="typeOfHouse" class="form-label">এক চালা</label>
                                               <input type="radio" value="1" class="form-input" name="typeOfHouse">
-                                              <label for="typeOfHouse">দুই চালা</label>
+                                              <label for="typeOfHouse" class="form-label">দুই চালা</label>
                                               <input type="radio" value="2" class="form-input" name="typeOfHouse">
-                                              <label for="typeOfHouse">চার চালা</label>
+                                              <label for="typeOfHouse" class="form-label">চার চালা</label>
                                               <input type="radio" value="3" class="form-input" name="typeOfHouse">
-                                              <label for="typeOfHouse">আধা পাকা</label>
+                                              <label for="typeOfHouse" class="form-label">আধা পাকা</label>
                                               <input type="radio" value="4" class="form-input" name="typeOfHouse">
-                                              <label for="typeOfHouse">পাকা</label>
+                                              <label for="typeOfHouse" class="form-label">পাকা</label>
                                               <input type="radio" value="5" class="form-input" name="typeOfHouse">
                                         </div>
                                         <div class="col-sm-6">
