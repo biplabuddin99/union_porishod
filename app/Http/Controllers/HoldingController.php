@@ -17,7 +17,8 @@ class HoldingController extends Controller
      */
     public function index()
     {
-        return view('holding.index');
+        $hold=Holding::get(['id','head_household','phone','total_tax']);
+        return view('holding.index',compact('hold'));
     }
 
     /**
@@ -74,14 +75,18 @@ class HoldingController extends Controller
             $holding->digital_devices=implode(',',$request->digital_devices);
             $holding->telecommunications=implode(',',$request->telecommunications);
             $holding->source_income=implode(',',$request->source_income);
-            $holding->business_taxes=$request->business_taxes;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
-            $holding->head_household=$request->head_household;
+            $holding->business_taxes=implode(',',$request->business_taxes);
+            $holding->business_amount_taxes=$request->business_amount_taxes;
+            $holding->sources_other_taxes=$request->sources_other_taxes;
+            $holding->other_taxes_amount=$request->other_taxes_amount;
+            $holding->residence_type=implode(',',$request->residence_type);
+            $holding->approximate_price_house=$request->approximate_price_house;
+            $holding->annual_taxable_value=$request->annual_taxable_value;
+            $holding->taxable_value_house=$request->taxable_value_house;
+            $holding->annual_tax_amount=$request->annual_tax_amount;
+            $holding->total_tax=$request->total_tax;
+            $holding->signature_informant=$request->signature_informant;
+            $holding->signature_collector=$request->signature_collector;
             $holding->save();
             Toastr::success('holding Created Successfully!');
             return redirect(route('holding.index'));
@@ -99,9 +104,13 @@ class HoldingController extends Controller
      * @param  \App\Models\Holding  $holding
      * @return \Illuminate\Http\Response
      */
-    public function show(Holding $holding)
+    public function show($id)
     {
-        //
+        $hold = Holding::findOrFail(encryptor('decrypt',$id));
+        // $ed=$hold->edu_qual;
+        // $edu=explode(',',$array['ed']);
+        // return $edu;
+        return view('holding.show',compact('hold'));
     }
 
     /**
