@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{route(currentUser().'.holding.store')}}" method="POST">
+                        <form action="{{route(currentUser().'.holding.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-3 offset-1">
@@ -89,27 +89,27 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="marital_status">বৈবাহিক অবস্থা :-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="marital_status" id="marital_status" value="1" {{old('marital_status') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="marital_status">বিবাহিত</label>
+                                        <input class="form-check-input" type="radio" name="marital_status" id="marital_status1" value="1" {{old('marital_status') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="marital_status1">বিবাহিত</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="marital_status" id="marital_status" value="2" {{old('marital_status') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="marital_status">অবিবাহিত</label>
+                                        <input class="form-check-input" type="radio" name="marital_status" id="marital_status2" value="2" {{old('marital_status') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="marital_status2">অবিবাহিত</label>
                                     </div>
                                 </div>
                                 <div class="col-6 float-right">
                                     <label  class="form-label" for="gender">লিঙ্গের অবস্থা :-</label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender" value="1" {{old('gender') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="gender">পুরুষ</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="1" {{old('gender') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="gender1">পুরুষ</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="2" {{old('gender') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="inlineRadio2">মহিলা</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="2" {{old('gender') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="gender2">মহিলা</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="3" {{old('gender') == '3' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="inlineRadio2">হিজলা</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender3" value="3" {{old('gender') == '3' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="gender3">হিজলা</label>
                                     </div>
                                 </div>
                             </div>
@@ -117,23 +117,23 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="digital_birth_cer">ডিজিটাল জন্মনিবন্ধন :-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="digital_birth_cer" id="digital_birth_cer" value="1" {{old('digital_birth_cer') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="digital_birth_cer">আছে</label>
+                                        <input class="form-check-input" type="radio" name="digital_birth_cer" id="digital_birth_cer1" value="1" {{old('digital_birth_cer') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="digital_birth_cer1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="digital_birth_cer" id="digital_birth_cer" value="2" {{old('digital_birth_cer') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="digital_birth_cer">নাই</label>
+                                        <input class="form-check-input" type="radio" name="digital_birth_cer" id="digital_birth_cer2" value="2" {{old('digital_birth_cer') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="digital_birth_cer2">নাই</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="paved_bathroom">পাকা বাথরুম:-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="paved_bathroom" id="paved_bathroom" value="1" {{old('paved_bathroom') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="paved_bathroom">আছে</label>
+                                        <input class="form-check-input" type="radio" name="paved_bathroom" id="paved_bathroom1" value="1" {{old('paved_bathroom') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="paved_bathroom1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="paved_bathroom" id="paved_bathroom" value="2" {{old('paved_bathroom') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="paved_bathroom">নাই</label>
+                                        <input class="form-check-input" type="radio" name="paved_bathroom" id="paved_bathroom2" value="2" {{old('paved_bathroom') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="paved_bathroom2">নাই</label>
                                     </div>
                                 </div>
                             </div>
@@ -141,23 +141,23 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="expatriate">বিদেশে থাকে/প্রবাসী :-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="expatriate" id="expatriate" value="1" {{old('expatriate') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="expatriate">আছে</label>
+                                        <input class="form-check-input" type="radio" name="expatriate" id="expatriate1" value="1" {{old('expatriate') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="expatriate1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="expatriate" id="expatriate" value="2" {{old('expatriate') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="expatriate">নাই</label>
+                                        <input class="form-check-input" type="radio" name="expatriate" id="expatriate2" value="2" {{old('expatriate') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="expatriate2">নাই</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="power_connection">বিদ্যুৎ সংযোগ:-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="power_connection" id="power_connection" value="1" {{old('power_connection') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="power_connection">আছে</label>
+                                        <input class="form-check-input" type="radio" name="power_connection" id="power_connection1" value="1" {{old('power_connection') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="power_connection1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="power_connection" id="power_connection" value="2" {{old('power_connection') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="power_connection">নাই</label>
+                                        <input class="form-check-input" type="radio" name="power_connection" id="power_connection2" value="2" {{old('power_connection') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="power_connection2">নাই</label>
                                     </div>
                                 </div>
                             </div>
@@ -165,23 +165,23 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="tube_well">নলকূপ :-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tube_well" id="tube_well" value="1" {{old('tube_well') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="tube_well">আছে</label>
+                                        <input class="form-check-input" type="radio" name="tube_well" id="tube_well1" value="1" {{old('tube_well') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="tube_well1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tube_well" id="tube_well" value="2" {{old('tube_well') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="tube_well">নাই</label>
+                                        <input class="form-check-input" type="radio" name="tube_well" id="tube_well2" value="2" {{old('tube_well') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="tube_well2">নাই</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="bank">ব্যাংক হিসেব:-  </label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="bank" id="bank" value="1" {{old('bank') == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="bank">আছে</label>
+                                        <input class="form-check-input" type="radio" name="bank" id="bank1" value="1" {{old('bank') == '1' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="bank1">আছে</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="bank" id="bank" value="2" {{old('bank') == '2' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="bank">নাই</label>
+                                        <input class="form-check-input" type="radio" name="bank" id="bank2" value="2" {{old('bank') == '2' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="bank2">নাই</label>
                                     </div>
                                 </div>
                             </div>
@@ -189,28 +189,28 @@
                                 <label  class="form-label" for="edu_qual">শিক্ষাগত যোগ্যতা :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual" value="1" {{old('edu_qual') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="edu_qual">স্ব-শিক্ষিত</label>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual1" value="1" {{old('edu_qual') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="edu_qual1">স্ব-শিক্ষিত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual" value="2" {{old('edu_qual') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="edu_qual">প্রাথমিক</label>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual2" value="2" {{old('edu_qual') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="edu_qual2">প্রাথমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual" value="3" {{old('edu_qual') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="edu_qual">মাধ্যমিক</label>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual3" value="3" {{old('edu_qual') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="edu_qual3">মাধ্যমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual" value="4" {{old('edu_qual') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="edu_qual">উচ্চ-মাধ্যমিক</label>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual4" value="4" {{old('edu_qual') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="edu_qual4">উচ্চ-মাধ্যমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual" value="5" {{old('edu_qual') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="edu_qual">উচ্চতর-ডিগ্রী</label>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual5" value="5" {{old('edu_qual') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="edu_qual5">উচ্চতর-ডিগ্রী</label>
                                     </div>
                                 </div>
 
@@ -219,28 +219,28 @@
                                 <label  class="form-label" for="family_male">পরিবারের সদস্য :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-control" type="text" name="family_male" id="family_male" placeholder="পুরুষ সদস্য" value="{{ old('family_male') }}" />
+                                        <input class="form-control" type="text" name="family_male" id="family_male0" placeholder="পুরুষ সদস্য" value="{{ old('family_male') }}" />
                                         {{-- <label  class="form-label" for="inlineCheckbox1">পুরুষ সদস্য</label> --}}
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-control" type="text" name="family_female" id="family_female" placeholder="নারী সদস্য" value="{{ old('family_female') }}" />
+                                        <input class="form-control" type="text" name="family_female" id="family_female1" placeholder="নারী সদস্য" value="{{ old('family_female') }}" />
                                         {{-- <label  class="form-label" for="inlineCheckbox2">নারী সদস্য</label> --}}
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-control" type="text" name="family_total" id="family_total" placeholder="মোট সদস্য" value="{{ old('family_total') }}"/>
+                                        <input class="form-control" type="text" name="family_total" id="family_total2" placeholder="মোট সদস্য" value="{{ old('family_total') }}"/>
                                         {{-- <label  class="form-label" for="inlineCheckbox3">মোট সদস্য</label> --}}
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="single_joint_family" type="radio" id="single_joint_family" value="1" {{old('single_joint_family') == '1' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="single_joint_family">একক পরিবার</label>
+                                        <input class="form-check-input" name="single_joint_family" type="radio" id="single_joint_family1" value="1" {{old('single_joint_family') == '1' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="single_joint_family1">একক পরিবার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="single_joint_family" type="radio" id="single_joint_family" value="2" {{old('single_joint_family') == '2' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="single_joint_family">যৌথ পরিবার</label>
+                                        <input class="form-check-input" name="single_joint_family" type="radio" id="single_joint_family2" value="2" {{old('single_joint_family') == '2' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="single_joint_family2">যৌথ পরিবার</label>
                                     </div>
                                 </div>
 
@@ -249,28 +249,28 @@
                                 <label  class="form-label" for="religion">ধর্ম :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" name="religion" type="radio" id="religion" value="1" {{old('religion') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="religion">ইসলাম</label>
+                                        <input class="form-check-input" name="religion" type="radio" id="religion1" value="1" {{old('religion') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="religion1">ইসলাম</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="religion" type="radio" id="religion" value="2" {{old('religion') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="religion">হিন্দু</label>
+                                        <input class="form-check-input" name="religion" type="radio" id="religion2" value="2" {{old('religion') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="religion2">হিন্দু</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="religion" type="radio" id="religion" value="3" {{old('religion') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="religion">বৌদ্ধ</label>
+                                        <input class="form-check-input" name="religion" type="radio" id="religion3" value="3" {{old('religion') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="religion3">বৌদ্ধ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="religion" type="radio" id="religion" value="4" {{old('religion') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="religion">খ্রিষ্টান</label>
+                                        <input class="form-check-input" name="religion" type="radio" id="religion4" value="4" {{old('religion') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="religion4">খ্রিষ্টান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="religion" type="radio" id="religion" value="5" {{old('religion') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="religion">অন্যান্য</label>
+                                        <input class="form-check-input" name="religion" type="radio" id="religion5" value="5" {{old('religion') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="religion5">অন্যান্য</label>
                                     </div>
                                 </div>
 
@@ -279,28 +279,28 @@
                                 <label  class="form-label" for="mobile_bank"> মোবাইল ব্যাংক:-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank" value="1" {{old('mobile_bank') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="mobile_bank">নগদ</label>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" {{old('mobile_bank') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="mobile_bank1">নগদ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank" value="2" {{old('mobile_bank') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="mobile_bank">বিকাশ</label>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2" {{old('mobile_bank') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="mobile_bank2">বিকাশ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank" value="3" {{old('mobile_bank') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank">রকেট</label>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3" {{old('mobile_bank') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="mobile_bank3">রকেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank" value="4" {{old('mobile_bank') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank">উপায়</label>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4" {{old('mobile_bank') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="mobile_bank4">উপায়</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank" value="5" {{old('mobile_bank') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank">অন্যান্য</label>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5" {{old('mobile_bank') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="mobile_bank5">অন্যান্য</label>
                                     </div>
                                 </div>
 
@@ -310,28 +310,28 @@
                                 <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="government_facilities">ভিজিএফ কার্ড</label>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="government_facilities1">ভিজিএফ কার্ড</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities" value="2" {{old('government_facilities') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="government_facilities">বয়স্ক ভাতা</label>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities2" value="2" {{old('government_facilities') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="government_facilities2">বয়স্ক ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities" value="3" {{old('government_facilities') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities">মাতৃত্বকালীন ভাতা</label>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities3" value="3" {{old('government_facilities') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="government_facilities3">মাতৃত্বকালীন ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities" value="4" {{old('government_facilities') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities">প্রতিবন্ধী ভাতা</label>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities4" value="4" {{old('government_facilities') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="government_facilities4">প্রতিবন্ধী ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities">বিধবা ভাতা</label>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
                                     </div>
                                 </div>
 
@@ -340,28 +340,28 @@
                                 <label  class="form-label" for="family_status"> পারিবারিক অবস্থা :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="radio" name="family_status" id="family_status" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="family_status">হতদরিদ্র</label>
+                                        <input class="form-check-input" type="radio" name="family_status" id="family_status1" value="1" {{old('family_status') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="family_status1">হতদরিদ্র</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="radio" name="family_status" id="family_status" value="2" {{old('government_facilities') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="family_status">নিন্ম-মধ্যবৃত্ত</label>
+                                        <input class="form-check-input" type="radio" name="family_status" id="family_status2" value="2" {{old('family_status') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="family_status2">নিন্ম-মধ্যবৃত্ত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="radio" name="family_status" id="family_status" value="3" {{old('government_facilities') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="family_status">মধ্যবৃত্ত</label>
+                                        <input class="form-check-input" type="radio" name="family_status" id="family_status3" value="3" {{old('family_status') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="family_status3">মধ্যবৃত্ত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="radio" name="family_status" id="family_status" value="4" {{old('government_facilities') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="family_status">উচ্চ-মধ্যবৃত্ত</label>
+                                        <input class="form-check-input" type="radio" name="family_status" id="family_status4" value="4" {{old('family_status') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="family_status4">উচ্চ-মধ্যবৃত্ত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="radio" name="family_status" id="family_status" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="family_status">উচ্চবৃত্ত</label>
+                                        <input class="form-check-input" type="radio" name="family_status" id="family_status5" value="5" {{old('family_status') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="family_status5">উচ্চবৃত্ত</label>
                                     </div>
                                 </div>
 
@@ -370,28 +370,28 @@
                                 <label  class="form-label" for=""> ডিজিটাল ডিভাইস :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices" value="1" {{old('digital_devices') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="digital_devices">নরমাল মোবাইল</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" {{old('digital_devices') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="digital_devices1">নরমাল মোবাইল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices" value="2" {{old('digital_devices') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="digital_devices">স্মার্ট ফোন</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" {{old('digital_devices') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="digital_devices2">স্মার্ট ফোন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices" value="3" {{old('digital_devices') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices">কম্পিউটার/ল্যাপটপ</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" {{old('digital_devices') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="digital_devices3">কম্পিউটার/ল্যাপটপ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices" value="4" {{old('digital_devices') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices">ইন্টারনেট</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" {{old('digital_devices') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="digital_devices4">ইন্টারনেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices">টিভি</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="digital_devices5">টিভি</label>
                                     </div>
                                 </div>
 
@@ -400,28 +400,28 @@
                                 <label  class="form-label" for="telecommunications"> টেলিযোগাযোগ :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications" value="1" {{old('telecommunications') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="telecommunications">টেলিটক</label>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications1" value="1" {{old('telecommunications') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="telecommunications1">টেলিটক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications" value="2" {{old('telecommunications') == '2' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="telecommunications">গ্রামীন</label>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications2" value="2" {{old('telecommunications') == '2' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="telecommunications2">গ্রামীন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications" value="3" {{old('telecommunications') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="telecommunications">এয়ারটেল/রবি</label>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications3" value="3" {{old('telecommunications') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="telecommunications3">এয়ারটেল/রবি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications" value="4" {{old('telecommunications') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="telecommunications">বাংলালিংক</label>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications4" value="4" {{old('telecommunications') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="telecommunications4">বাংলালিংক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications" value="5" {{old('telecommunications') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="telecommunications">টিএনটি</label>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications5" value="5" {{old('telecommunications') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="telecommunications5">টিএনটি</label>
                                     </div>
                                 </div>
 
@@ -430,106 +430,106 @@
                                 <label  class="form-label" for="source_income"> পেশা বা আয়ের উৎস :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="1" {{old('source_income') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">চাকুরি<small>(সরকারি)</small></label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income1" value="1" {{old('source_income') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income1">চাকুরি<small>(সরকারি)</small></label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="2" {{old('source_income') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">চাকুরি<small>(বে-সরকারি)</small></label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income2" value="2" {{old('source_income') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income2">চাকুরি<small>(বে-সরকারি)</small></label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="3" {{old('source_income') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">ব্যবসা</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income3" value="3" {{old('source_income') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income3">ব্যবসা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="4" {{old('source_income') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">কৃষি</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income4" value="4" {{old('source_income') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income4">কৃষি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="5" {{old('source_income') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">শিক্ষক</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income5" value="5" {{old('source_income') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income5">শিক্ষক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="6" {{old('source_income') == '6' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">প্রকৌশলি</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income6" value="6" {{old('source_income') == '6' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income6">প্রকৌশলি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="7" {{old('source_income') == '7' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">আইনজীবী</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income7" value="7" {{old('source_income') == '7' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income7">আইনজীবী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="8" {{old('source_income') == '8' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">চিকিৎসক</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income8" value="8" {{old('source_income') == '8' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income8">চিকিৎসক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="9" {{old('source_income') == '9' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">শ্রমিক</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income9" value="9" {{old('source_income') == '9' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income9">শ্রমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="10" {{old('source_income') == '10' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">খাবার হোটেল</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income10" value="10" {{old('source_income') == '10' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income10">খাবার হোটেল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="11" {{old('source_income') == '11' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">মৎস  খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income11" value="11" {{old('source_income') == '11' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income11">মৎস  খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="12" {{old('source_income') == '12' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">ক্ষুদ্র ও কুটির শিল্প</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income12" value="12" {{old('source_income') == '12' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income12">ক্ষুদ্র ও কুটির শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="13" {{old('source_income') == '13' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">গবাদি পশুর খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income13" value="13" {{old('source_income') == '13' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income13">গবাদি পশুর খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="14" {{old('source_income') == '14' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">গাড়ী চালক</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income14" value="14" {{old('source_income') == '14' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income14">গাড়ী চালক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="15" {{old('source_income') == '15' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income"> ঠিকাদার</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income15" value="15" {{old('source_income') == '15' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income15"> ঠিকাদার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="16" {{old('source_income') == '16' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">মাঝারি শিল্প</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income16" value="16" {{old('source_income') == '16' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income16">মাঝারি শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="17" {{old('source_income') == '17' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="source_income">নারী উদ্যোক্তা</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income17" value="17" {{old('source_income') == '17' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="source_income17">নারী উদ্যোক্তা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="18" {{old('source_income') == '18' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">হাঁস-মুরগির খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income18" value="18" {{old('source_income') == '18' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income18">হাঁস-মুরগির খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="19" {{old('source_income') == '19' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income">প্রবাসী</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income19" value="19" {{old('source_income') == '19' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income19">প্রবাসী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income" value="20" {{old('source_income') == '20' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="source_income"> অন্যান্য</label>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income20" value="20" {{old('source_income') == '20' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="source_income20"> অন্যান্য</label>
                                     </div>
                                 </div>
 
@@ -538,270 +538,273 @@
                                 <label  class="form-label" for="business_taxes">ব্যবসায়িক করের উৎস  :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="1" {{old('business_taxes') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">কৃষি খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes1" value="1" {{old('business_taxes') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes1">কৃষি খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="2" {{old('business_taxes') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">মৎস খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes2" value="2" {{old('business_taxes') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes2">মৎস খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="3" {{old('business_taxes') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">দুগ্ধ খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes3" value="3" {{old('business_taxes') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes3">দুগ্ধ খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="4" {{old('business_taxes') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">হাঁস-মুরগীর খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes4" value="4" {{old('business_taxes') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes4">হাঁস-মুরগীর খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="5" {{old('business_taxes') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">গবাদি পশুর খামার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes5" value="5" {{old('business_taxes') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes5">গবাদি পশুর খামার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="6" {{old('business_taxes') == '6' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">মুদির দোকান</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes6" value="6" {{old('business_taxes') == '6' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes6">মুদির দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="7" {{old('business_taxes') == '7' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">আর্থিক প্রতিষ্ঠান</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes7" value="7" {{old('business_taxes') == '7' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes7">আর্থিক প্রতিষ্ঠান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="8" {{old('business_taxes') == '8' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ক্ষুদ্র ও কুটির শিল্প</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes8" value="8" {{old('business_taxes') == '8' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes8">ক্ষুদ্র ও কুটির শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="9" {{old('business_taxes') == '9' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">মাঝারি শিল্প</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes9" value="9" {{old('business_taxes') == '9' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes9">মাঝারি শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="10" {{old('business_taxes') == '10' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">খাবার হোটেল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes10" value="10" {{old('business_taxes') == '10' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes10">খাবার হোটেল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="11" {{old('business_taxes') == '11' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">প্রকৌশলী</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes11" value="11" {{old('business_taxes') == '11' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes11">প্রকৌশলী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="12" {{old('business_taxes') == '12' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">আইনজীবি</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes12" value="12" {{old('business_taxes') == '12' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes12">আইনজীবি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="13" {{old('business_taxes') == '13' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> চিকিৎসক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes13" value="13" {{old('business_taxes') == '13' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes13"> চিকিৎসক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="14" {{old('business_taxes') == '14' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ক্লিনিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes14" value="14" {{old('business_taxes') == '14' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes14">ক্লিনিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="15" {{old('business_taxes') == '15' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ঔষদের দোকান</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes15" value="15" {{old('business_taxes') == '15' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes15">ঔষদের দোকান</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="16" {{old('business_taxes') == '16' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">আবাসিক হোটেল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes16" value="16" {{old('business_taxes') == '16' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes16">আবাসিক হোটেল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="17" {{old('business_taxes') == '17' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">মিষ্টির দোকান</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes17" value="17" {{old('business_taxes') == '17' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes17">মিষ্টির দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="18" {{old('business_taxes') == '18' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">বে-সরকারি হাসপাতাল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes18" value="18" {{old('business_taxes') == '18' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes18">বে-সরকারি হাসপাতাল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="19" {{old('business_taxes') == '19' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">বে-সরকারি স্কুল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes19" value="19" {{old('business_taxes') == '19' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes19">বে-সরকারি স্কুল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="20" {{old('business_taxes') == '20' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> কোচিং সেন্টার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes20" value="20" {{old('business_taxes') == '20' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes20"> কোচিং সেন্টার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="21" {{old('business_taxes') == '21' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">খাবারের হোটেল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes21" value="21" {{old('business_taxes') == '21' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes21">খাবারের হোটেল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="22" {{old('business_taxes') == '22' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">হিমাগার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes22" value="22" {{old('business_taxes') == '22' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes22">হিমাগার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="23" {{old('business_taxes') == '23' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ধান ভাঙানোর কল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes23" value="23" {{old('business_taxes') == '23' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes23">ধান ভাঙানোর কল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="24" {{old('business_taxes') == '24' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">আটার কল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes24" value="24" {{old('business_taxes') == '24' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes24">আটার কল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="25" {{old('business_taxes') == '25' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">তেলের কল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes25" value="25" {{old('business_taxes') == '25' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes25">তেলের কল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="26" {{old('business_taxes') == '26' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">স’মিল</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes26" value="26" {{old('business_taxes') == '26' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes26">স’মিল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="27" {{old('business_taxes') == '27' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">বিউটি পার্লার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes27" value="27" {{old('business_taxes') == '27' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes27">বিউটি পার্লার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="28" {{old('business_taxes') == '28' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">হেয়ার কাট সেলুন</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes28" value="28" {{old('business_taxes') == '28' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes28">হেয়ার কাট সেলুন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="29" {{old('business_taxes') == '29' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">লন্ড্রীর দোকান</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes29" value="29" {{old('business_taxes') == '29' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes29">লন্ড্রীর দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="30" {{old('business_taxes') == '30' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ইঞ্জিনিয়রিং ফার্ম</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes30" value="30" {{old('business_taxes') == '30' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes30">ইঞ্জিনিয়রিং ফার্ম</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="31" {{old('business_taxes') == '31' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">শিল্প কারখানা</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes31" value="31" {{old('business_taxes') == '31' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes31">শিল্প কারখানা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="32" {{old('business_taxes') == '32' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">ইট ভাটা</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes32" value="32" {{old('business_taxes') == '32' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes32">ইট ভাটা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="33" {{old('business_taxes') == '33' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> কনসালটেন্সি ফার্ম</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes33" value="33" {{old('business_taxes') == '33' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes33"> কনসালটেন্সি ফার্ম</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="34" {{old('business_taxes') == '34' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">গুদাম</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes34" value="34" {{old('business_taxes') == '34' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes34">গুদাম</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="35" {{old('business_taxes') == '35' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">রিক্মার মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes35" value="35" {{old('business_taxes') == '35' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes35">রিক্মার মালিক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="36" {{old('business_taxes') == '36' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">বাজার ইজারা</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes36" value="36" {{old('business_taxes') == '36' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes36">বাজার ইজারা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="37" {{old('business_taxes') == '37' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">টেম্পের মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes37" value="37" {{old('business_taxes') == '37' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes37">টেম্পের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="38" {{old('business_taxes') == '38' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">বাসের মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes38" value="38" {{old('business_taxes') == '38' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes38">বাসের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="39" {{old('business_taxes') == '39' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">ট্রাকের মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes39" value="39" {{old('business_taxes') == '39' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes39">ট্রাকের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="40" {{old('business_taxes') == '40' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> পরিবহন এজেন্সী</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes40" value="40" {{old('business_taxes') == '40' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes40"> পরিবহন এজেন্সী</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="41" {{old('business_taxes') == '41' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">নৌযানের মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes41" value="41" {{old('business_taxes') == '41' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes41">নৌযানের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="42" {{old('business_taxes') == '42' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">অটো রিক্সার মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes42" value="42" {{old('business_taxes') == '42' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes42">অটো রিক্সার মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="43" {{old('business_taxes') == '43' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">স্টীমার/কার্গোর মালিক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes43" value="43" {{old('business_taxes') == '43' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes43">স্টীমার/কার্গোর মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="44" {{old('business_taxes') == '44' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">শিশু পার্ক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes44" value="44" {{old('business_taxes') == '44' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes44">শিশু পার্ক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="45" {{old('business_taxes') == '45' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> বিনোদন পার্ক</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes45" value="45" {{old('business_taxes') == '45' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes45"> বিনোদন পার্ক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="46" {{old('business_taxes') == '46' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">পশু জবাইয়</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes46" value="46" {{old('business_taxes') == '46' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes46">পশু জবাইয়</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="47" {{old('business_taxes') == '47' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes">১ম শ্রেণীর ঠিকাদার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes47" value="47" {{old('business_taxes') == '47' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="business_taxes47">১ম শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="48" {{old('business_taxes') == '48' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">২য় শ্রেণীর ঠিকাদার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes48" value="48" {{old('business_taxes') == '48' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes48">২য় শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="49" {{old('business_taxes') == '49' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes">৩য় শ্রেণীর ঠিকাদার</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes49" value="49" {{old('business_taxes') == '49' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes49">৩য় শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes" value="50" {{old('business_taxes') == '50' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes"> অন্যান্য</label>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes50" value="50" {{old('business_taxes') == '50' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="business_taxes50"> অন্যান্য</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
-                                    <label  class="form-label" for="" class="col-sm-2 offset-2 col-form-label text-end">করের পরিমান :-</label>
+                                    {{-- <div class="col-sm-6">
+                                        <input type="text" class="form-control" placeholder="অন্যান্য" name="" id="">
+                                    </div> --}}
                                     <div class="col-sm-6">
-                                        <input type="text" value="{{ old('business_amount_taxes') }}" class="form-control"
-                                            placeholder="করের পরিমান" name="business_amount_taxes">
-                                    </div>টাকা
+                                        <label  class="form-label" for="" class="col-sm-2 offset-2 col-form-label text-end">করের পরিমান :-</label>
+                                        <input type="text" value="{{ old('business_amount_taxes') }}"
+                                            placeholder="করের পরিমান টাকা" class="form-control" name="business_amount_taxes">
+                                    </div>
                                 </div>
 
                             </div>
@@ -822,28 +825,28 @@
                                 <label  class="form-label" for="residence_type"> বসত বাড়ির ধরন :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type" value="1" {{old('residence_type') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="residence_type">কাচা-ঘর</label>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type1" value="1" {{old('residence_type') == '1' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="residence_type1">কাচা-ঘর</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type" value="2" {{old('residence_type') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="residence_type">টিনসেট</label>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type2" value="2" {{old('residence_type') == '2' ? 'checked' : ''}} />
+                                        <label  class="form-label" for="residence_type2">টিনসেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type" value="3" {{old('residence_type') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="residence_type">আধা-পাকা</label>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type3" value="3" {{old('residence_type') == '3' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="residence_type3">আধা-পাকা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type" value="4" {{old('residence_type') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="residence_type">পাকা ইমারত</label>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type4" value="4" {{old('residence_type') == '4' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="residence_type4">পাকা ইমারত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type" value="5" {{old('residence_type') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="residence_type"></label>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type5" value="5" {{old('residence_type') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="residence_type5"></label>
                                     </div>
                                 </div>
 
@@ -895,7 +898,7 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <span class="btn or">or</span>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
-                            </div>>
+                            </div>
                         </form>
                     </div>
                 </div>

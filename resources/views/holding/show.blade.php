@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ডিজিটাল তথ্য সংগ্রহ ফরম</title>
     <style>
         body{
             font-size: 14px;
@@ -312,12 +312,12 @@
                         <input type="checkbox"><label for="">২য় শ্রেণীর ঠিকাদার</label><br>
                         <input type="checkbox"><label for="">৩য় শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox"><label for="">অন্যান্য।</label><br>
-                        <input type="checkbox"><input type="text" value="{{ $hold->business_amount_taxes }}" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->sources_other_taxes }}" type="text" class="sbinput">টাকা
+                        <input type="checkbox"><input type="text" value="" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা
                     </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">অন্যান্য করের উৎস :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><input type="text" class="sbinput"><label for="">করের পরিমান =</label><input type="text" class="sbinput">টাকা</td>
+                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><input value="{{ $hold->sources_other_taxes }}" type="text" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->other_taxes_amount }}" type="text" class="sbinput">টাকা</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">বসত বাড়ীর ধরন :-</th>
@@ -325,17 +325,17 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">হোল্ডিং ট্যাক্স :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><label for="">বাড়ির আনুমানিক দাম=</label><input type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করযোগ্য মুল্য =</label><input type="text" class="sbsinput">টাকা<br>
-                        <label for="">&nbsp;&nbsp;বাড়ির করযোগ্য মুল্য=</label><input type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করের পরিমান =</label><input type="text" class="sbsinput">টাকা</td>
+                    <td style="border-style: solid; border-width: 1px;"><label for="">বাড়ির আনুমানিক দাম=</label><input value="{{ $hold->approximate_price_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করযোগ্য মুল্য =</label><input value="{{ $hold->annual_taxable_value }}" type="text" class="sbsinput">টাকা<br>
+                        <label for="">&nbsp;&nbsp;বাড়ির করযোগ্য মুল্য=</label><input value="{{ $hold->taxable_value_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করের পরিমান =</label><input value="{{ $hold->annual_tax_amount }}" type="text" class="sbsinput">টাকা</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">সর্বমোট ট্যাক্স :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><label for="">হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স + অন্যান্য ট্যাক্স =</label><input type="text" class="sbinput">টাকা</td>
+                    <td style="border-style: solid; border-width: 1px;"><label for="">হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স + অন্যান্য ট্যাক্স =</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা</td>
                 </tr>
             </table>
             <div style="margin-top: 2rem;">
-                <div class="formnodiv"><b>তথ্য প্রধানকারীর স্বাক্ষর :-</b><input class="infoinput" type="text"></div>
-                <div class="infodiv"><b>তথ্য সংগ্রহকারীর স্বাক্ষর :-</b><input class="infoinput" type="text"></div>
+                <div class="formnodiv"><b>তথ্য প্রধানকারীর স্বাক্ষর :-</b><img width="70px" height="50px" class="float-first" src="{{asset('uploads/holding/'.$hold->signature_informant)}}" alt=""></div>
+                <div class="infodiv"><b>তথ্য সংগ্রহকারীর স্বাক্ষর :-</b><img width="70px" height="50px" class="float-first" src="{{asset('uploads/holding/'.$hold->signature_collector)}}" alt=""></div>
             </div>
             <table style="width: 100%; margin-top: 1rem;">
                 <tr >
@@ -353,7 +353,7 @@
                             <p style="margin: 0px;"><h5 style="margin: 0px;"><b>Dhaka Office:</b> H-76, (1st Floor),New Airport Road,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amtoli, Banani, Dhaka-1212.</h5></p>
                         </div>
                     </td>
-                    <td style="text-align: center;"><img src="logo/Screenshot_5.jpg" width="30%" height="auto" alt=""></td>
+                    <td style="text-align: center;"><img src="{{ asset('logo/Screenshot_5.jpg') }}" width="30%" height="auto" alt=""></td>
                     <td style="text-align: center; width: 28%;">
                         <h5 style="padding: 0px; margin: 0px;">আদেশক্রমে</h5>
                         <h4 style="padding: 0px; margin: 0px;">(মোঃ সাইদুর রহমান চৌধুরী)</h4>
