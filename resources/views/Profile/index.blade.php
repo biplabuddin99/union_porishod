@@ -107,6 +107,9 @@
                                         <td>{{$p->word_no}}</td>
                                         <td>{{ $p->status == 1?"Active":"Inactive" }}</td>
                                         <td class="white-space-nowrap">
+                                            <a href="{{route(currentUser().'.profile.show',encryptor('encrypt',$p->id))}}">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </a>
                                             <a  href="{{route(currentUser().'.profile.edit',encryptor('encrypt',$p->id))}}">
                                             <i class="bi bi-pencil-square"></i>
                                             </a>
