@@ -110,9 +110,11 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show($id)
     {
-        //
+        $pro = Profile::findOrFail(encryptor('decrypt',$id));
+        
+        return view('Profile.show',compact('pro'));
     }
 
     /**

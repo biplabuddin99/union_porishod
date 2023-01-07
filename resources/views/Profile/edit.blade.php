@@ -91,7 +91,7 @@
                                             <label for="icomeSource" class="form-label">অন্যান্য</label>
                                             <input type="radio" class="form-input" name="icomeSource" value="7" {{ old('icomeSource',$profile->icomeSource)=="7" ? "checked":"" }}>
                                       </div>
-                                        <div class="col-10 ">
+                                        <div class="col-12 ">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
