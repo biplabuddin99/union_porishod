@@ -1,6 +1,5 @@
 @extends('layout.app')
-@section('pageTitle',trans('trade List'))
-@section('pageSubTitle',trans('List'))
+@section('pageTitle',trans('ট্রেড লাইসেন্স লিস্ট'))
 
 @section('content')
 
@@ -39,12 +38,12 @@
                             @forelse($trade as $c)
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
-                                <td></td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/trade_license/')}}/{{ $c->image}}" alt=""></td>
                                 <td></td>
                                 <td>{{$c->business_name}}</td>
                                 <td>{{$c->proprietor_name}}</td>
                                 <td>{{$c->organization_details}}</td>
-                                <td></td>
+                                <td>{{ $c->institution_address }}</td>
                                 <td>{{$c->phone}}</td>
                                 <td>{{$c->estimated_price}}</td>
                                 {{-- <td>@if($p->status == 1) {{__('Active') }} @else {{__('Inactive') }} @endif</td> --}}

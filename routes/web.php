@@ -63,6 +63,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('warishan',warishan::class,['as'=>'admin']);
         Route::resource('citizen',citizen::class,['as'=>'admin']);
         Route::resource('trade',trade::class,['as'=>'admin']);
+        Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::resource('payment',payment::class,['as'=>'admin']);
 

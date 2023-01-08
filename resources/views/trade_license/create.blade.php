@@ -143,7 +143,7 @@
                                         </div>
                                         <label class="control-label">ফটো</label>
                                         <div class="m-2">
-                                            <input type="file" name="image" value="" class="form-control" autocomplete="off" required="" placeholder="ফটো">
+                                            <input type="file" name="image" value="" class="form-control dropify">
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +204,4 @@
     </div>
 
   </section>
-  <!-- // Basic multiple Column Form section end -->
-</div>
 @endsection
