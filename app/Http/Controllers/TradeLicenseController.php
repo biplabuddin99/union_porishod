@@ -93,9 +93,10 @@ class TradeLicenseController extends Controller
      * @param  \App\Models\TradeLicense  $tradeLicense
      * @return \Illuminate\Http\Response
      */
-    public function show(TradeLicense $tradeLicense)
+    public function show($id)
     {
-        return view('trade_license.show_print_preview');
+        $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
+        return view('trade_license.show_print_preview',compact('trade'));
     }
 
     /**

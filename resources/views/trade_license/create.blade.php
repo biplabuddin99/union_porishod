@@ -67,7 +67,7 @@
                                         <div class="col-6">
                                             <label class="control-label">তারিখ </label>
                                             <div class="mb-3">
-                                                <input type="date" name="date" value="" class="form-control" placeholder="তারিখ">
+                                                <input type="text" name="date" value="" class="form-control datepicker" placeholder="তারিখ">
                                             </div>
                                         </div>
                                         <div class="col-6 mt-4">

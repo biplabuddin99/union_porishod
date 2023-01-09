@@ -49,6 +49,9 @@
                                 {{-- <td>@if($p->status == 1) {{__('Active') }} @else {{__('Inactive') }} @endif</td> --}}
                                 {{-- or <td>{{ $c->status == 1?"Active":"Inactive" }}</td> --}}
                                 <td class="white-space-nowrap">
+                                    <a href="{{route(currentUser().'.trade.show',encryptor('encrypt',$c->id))}}">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a>
                                     <a href="{{route(currentUser().'.trade.edit',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('post_office');
             $table->string('division_id');
             $table->string('thana_id');
-            $table->string('image');
+            $table->string('image')->nullable()->default('avater.jpg');
             $table->string('id_no_img');
             $table->string('status')->default(0);
             $table->timestamps();
