@@ -34,18 +34,18 @@
                                     <div class="form-group">
                                         <label class="control-label">ব্যবসা প্রতিষ্ঠানের নাম </label>
                                         <div class="m-2">
-                                            <input type="text" name="business_name" value="" class="form-control" required="" placeholder="ব্যবসা প্রতিষ্ঠানের নাম">
+                                            <input type="text" name="business_name" value="{{ $trade->business_name }}" class="form-control" required="" placeholder="ব্যবসা প্রতিষ্ঠানের নাম">
                                         </div>
                                         <label class="control-label">প্রোপাইটরের নাম</label>
                                         <div class="m-2">
-                                            <input type="text" name="proprietor_name" value="" class="form-control" placeholder="প্রোপাইটরের নাম">
+                                            <input type="text" name="proprietor_name" value="{{ $trade->proprietor_name }}" class="form-control" placeholder="প্রোপাইটরের নাম">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label">পিতা/স্বামী</label>
                                         <div class="">
-                                            <input type="text" name="father_husband" value="" class="form-control" placeholder="পিতা/স্বামী">
+                                            <input type="text" name="father_husband" value="{{ $trade->father_husband }}" class="form-control" placeholder="পিতা/স্বামী">
                                         </div>
                                         {{-- <label class="control-label">স্বামী</label>
                                         <div class="">
@@ -53,7 +53,7 @@
                                         </div> --}}
                                         <label class="control-label">মোবাইল </label>
                                         <div class="">
-                                            <input type="text" name="phone" value="" class="form-control" placeholder="মোবাইল">
+                                            <input type="text" name="phone" value="{{ $trade->phone }}" class="form-control" placeholder="মোবাইল">
                                         </div>
                                         <label class="control-label">আনুমানিক মূল্য </label>
                                         <div class="">
@@ -67,18 +67,18 @@
                                         <div class="col-6">
                                             <label class="control-label">তারিখ </label>
                                             <div class="mb-3">
-                                                <input type="date" name="date" value="" class="form-control" placeholder="তারিখ">
+                                                <input type="text" name="date" value="{{ $trade->date }}" class="form-control datepicker" placeholder="তারিখ">
                                             </div>
                                         </div>
                                         <div class="col-6 mt-4">
                                             <select name="financial_year" class="form-control" id="financial_year">
-                                                <option value="" selected="selected">অর্থবছর</option>
-                                                <option value="2022-2023">2022-2023</option>
-                                                <option value="2023-2024">2023-2024</option>
-                                                <option value="2024-2025">2024-2025</option>
-                                                <option value="2025-2026">2025-2026</option>
-                                                <option value="2026-2027">2026-2027</option>
-                                                <option value="2027-2028">2027-2028</option>
+                                                <option value="">অর্থবছর</option>
+                                                <option value="2022-2023" {{ $trade->financial_year=="2022-2023" ? "selected" : "" }}>2022-2023</option>
+                                                <option value="2023-2024" {{ $trade->financial_year=="2023-2024" ? "selected" : "" }}>2023-2024</option>
+                                                <option value="2024-2025" {{ $trade->financial_year=="2024-2025" ? "selected" : "" }}>2024-2025</option>
+                                                <option value="2025-2026" {{ $trade->financial_year=="2025-2026" ? "selected" : "" }}>2025-2026</option>
+                                                <option value="2026-2027" {{ $trade->financial_year=="2026-2027" ? "selected" : "" }}>2026-2027</option>
+                                                <option value="2027-2028" {{ $trade->financial_year=="2027-2028" ? "selected" : "" }}>2027-2028</option>
 
                                             </select>
                                         </div>
@@ -87,22 +87,22 @@
                                     <div class="form-group">
                                         <label class="control-label">প্রতিষ্ঠানের বিবরন </label>
                                         <div class="">
-                                            <input type="text" name="organization_details" value="" class="form-control" placeholder="প্রতিষ্ঠানের বিবরন">
+                                            <input type="text" name="organization_details" value="{{ $trade->organization_details }}" class="form-control" placeholder="প্রতিষ্ঠানের বিবরন">
                                         </div>
                                         <label class="control-label">প্রতিষ্ঠানের ঠিকানা</label>
                                         <div class="">
-                                            <input type="text" name="institution_address" value="" class="form-control" placeholder="প্রতিষ্ঠানের ঠিকানা">
+                                            <input type="text" name="institution_address" value="{{ $trade->institution_address }}" class="form-control" placeholder="প্রতিষ্ঠানের ঠিকানা">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label">আইডি নং</label>
                                         <div class="">
-                                            <input type="text" name="id_no" value="" class="form-control" placeholder="আইডি নং">
+                                            <input type="text" name="id_no" value="{{ $trade->id_no }}" class="form-control" placeholder="আইডি নং">
                                         </div>
                                         <label class="control-label">আদায়কৃত ফ্রি</label>
                                         <div class="">
-                                            <input type="text" name="earned_free" value="" class="form-control" placeholder="আদায়কৃত ফ্রি">
+                                            <input type="text" name="earned_free" value="{{ $trade->earned_free }}" class="form-control" placeholder="আদায়কৃত ফ্রি">
                                         </div>
                                     </div>
                                 </div>
@@ -115,14 +115,14 @@
                                     <div class="form-group">
                                         <label class="control-label">গ্রাম/ রাস্তা </label>
                                         <div class="m-2">
-                                            <input type="text" name="village_road" value="" class="form-control" required="" placeholder="গ্রাম/ রাস্তা">
+                                            <input type="text" name="village_road" value="{{ $trade->village_road }}" class="form-control" required="" placeholder="গ্রাম/ রাস্তা">
                                         </div>
                                         <label class="control-label">ওয়ার্ড নং</label>
                                         <div class="">
                                             <select name="ward_no_id" class="form-control" id="words">
                                                 <option value="" selected="selected">ওয়ার্ড নং</option>
                                                 @forelse ($ward as $w)
-                                                <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
+                                                <option value="{{ $w->id }}" {{ $trade->ward_no_id==$w->id?'selected':'' }}>{{ $w->ward_name_bn }}</option>
                                                 @empty
                                                 <p>No Ward found</p>
                                                 @endforelse
@@ -135,7 +135,7 @@
                                             <select name="district_id" class="form-control" required="" id="districtid">
                                                 <option value="">জেলা</option>
                                                 @forelse($district as $dist)
-                                                <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
+                                                <option value="{{ $dist->id }}" {{ $trade->district_id==$dist->id ? 'selected':'' }}>{{ $dist->name_bn }}</option>
                                                 @empty
                                                 <p>No District found</p>
                                                 @endforelse
@@ -143,7 +143,7 @@
                                         </div>
                                         <label class="control-label">ফটো</label>
                                         <div class="m-2">
-                                            <input type="file" name="image" value="" class="form-control" autocomplete="off" required="" placeholder="ফটো">
+                                            <input type="file" name="image" value="{{ $trade->image }}"  class="form-control dropify" autocomplete="off" required="" placeholder="ফটো">
                                         </div>
                                     </div>
                                 </div>

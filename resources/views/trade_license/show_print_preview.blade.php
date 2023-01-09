@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('pageTitle',trans('ট্রেড লাইসেন্স লিস্ট'))
+@section('pageTitle',trans('প্রিন্ট প্রি ভিউ'))
 
 @section('content')
 

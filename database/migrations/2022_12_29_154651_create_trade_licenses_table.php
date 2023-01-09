@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('father_husband');
             $table->string('estimated_price');
             $table->string('phone');
-            $table->date('date');
+            $table->string('date');
             $table->string('financial_year');
             $table->string('organization_details');
             $table->string('institution_address');

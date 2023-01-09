@@ -113,10 +113,52 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label class="control-label">গ্রাম/ রাস্তা </label>
-                                        <div class="m-2">
-                                            <input type="text" name="village_road" value="" class="form-control" required="" placeholder="গ্রাম/ রাস্তা">
+                                        <label class="control-label">বিভাগ</label>
+                                        <select onchange="show_district(this.value)" name="division_id" class="form-control" required="" id="divisionid">
+                                            <option value="">বিভাগ</option>
+                                            @forelse ($division as $div)
+                                            <option value="{{ $div->id }}">{{ $div->name_bn }}</option>
+                                            @empty
+                                                <p>No Division found</p>
+                                            @endforelse
+                                        </select>
+                                        <label class="control-label">জেলা</label>
+                                        <div class="">
+                                            <select onchange="show_thana(this.value)" name="district_id" class="form-control" required="" id="districtid">
+                                                <option value="">জেলা</option>
+                                                @forelse($district as $dist)
+                                                <option class="dist dist{{$dist->division_id}}" value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
+                                                @empty
+                                                <p>No District found</p>
+                                                @endforelse
+                                            </select>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="control-label">থানা</label>
+                                        <div class="">
+                                            <select name="thana_id" class="form-control" required="" id="thanaid">
+                                                <option value="">থানা</option>
+                                                @forelse ($thana as $tha)
+
+                                                <option class="thana thana{{$tha->upazila_id}}" value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
+                                                @empty
+
+                                                <p>No Thana found</p>
+                                                @endforelse
+
+                                            </select>
+                                        </div>
+
+                                        <label class="control-label">ফটো</label>
+                                        <div class="m-2">
+                                            <input type="file" name="image" value="" class="form-control dropify">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
                                         <label class="control-label">ওয়ার্ড নং</label>
                                         <div class="">
                                             <select name="ward_no_id" class="form-control" id="words">
@@ -128,56 +170,18 @@
                                                 @endforelse
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">জেলা</label>
-                                        <div class="">
-                                            <select name="district_id" class="form-control" required="" id="districtid">
-                                                <option value="">জেলা</option>
-                                                @forelse($district as $dist)
-                                                <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
-                                                @empty
-                                                <p>No District found</p>
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                        <label class="control-label">ফটো</label>
+                                        <label class="control-label">গ্রাম/ রাস্তা </label>
                                         <div class="m-2">
-                                            <input type="file" name="image" value="" class="form-control dropify">
+                                            <input type="text" name="village_road" value="" class="form-control" required="" placeholder="গ্রাম/ রাস্তা">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
                                     <div class="form-group">
+
                                         <label class="control-label">পোস্ট অফিস</label>
                                         <div class="m-2">
                                             <input type="text" name="post_office" value="" class="form-control" required="" placeholder="ব্যাক্তির নাম">
                                         </div>
-                                        <label class="control-label">বিভাগ</label>
-                                        <select name="division_id" class="form-control" required="" id="divisionid">
-                                            <option value="">বিভাগ</option>
-                                            @forelse ($division as $div)
-                                            <option value="{{ $div->id }}">{{ $div->name_bn }}</option>
-                                            @empty
-                                                <p>No Division found</p>
-                                            @endforelse
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">থানা</label>
-                                        <div class="">
-                                            <select name="thana_id" class="form-control" required="" id="thanaid">
-                                                <option value="">থানা</option>
-                                                @forelse ($thana as $tha)
 
-                                                <option value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
-                                                @empty
-
-                                                <p>No Thana found</p>
-                                                @endforelse
-
-                                            </select>
-                                        </div>
                                         <label class="control-label">আইডি নং</label>
                                         <div class="m-2">
                                             <input type="file" name="id_no_img" value="" class="form-control dropify" autocomplete="off" required="">
@@ -205,3 +209,23 @@
 
   </section>
 @endsection
+@push('scripts')
+<script>
+
+     $(document).ready(function(){
+         $('.dist').hide();
+         $('.thana').hide();
+     })
+    function show_district(e){
+         $('.dist').hide();
+         $('.dist'+e).show()
+    }
+    function show_thana(e){
+        $('.thana').hide();
+        $('.thana'+e).show();
+    }
+
+
+
+</script>
+@endpush
