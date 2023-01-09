@@ -83,7 +83,7 @@ class ProfileController extends Controller
             $p->thana_id=$request->thana;
             $p->status=$request->status;
             if($request->has('image'))
-                $p->image=$this->resizeImage($request->image,'uploads/profile',true,200,200,false);
+                $p->image=$this->resizeImage($request->image,'uploads/profile',true,30,50,false);
             if($request->has('home_image'))
                 $p->home_image=$this->resizeImage($request->home_image,'uploads/profile',true,200,200,false);
 
@@ -113,7 +113,6 @@ class ProfileController extends Controller
     public function show($id)
     {
         $pro = Profile::findOrFail(encryptor('decrypt',$id));
-        
         return view('Profile.show',compact('pro'));
     }
 
@@ -178,7 +177,7 @@ class ProfileController extends Controller
 
             if($request->has('image') && $request->image)
             if($this->deleteImage($p->image,$path))
-                $p->image=$this->resizeImage($request->image,$path,true,200,200,false);
+                $p->image=$this->resizeImage($request->image,$path,true,70,90,false);
 
             if($request->has('home_image') && $request->home_image)
             if($this->deleteImage($p->home_image,$path))
