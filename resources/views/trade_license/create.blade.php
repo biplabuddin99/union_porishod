@@ -180,7 +180,7 @@
                                         </div>
                                         <label class="control-label">আইডি নং</label>
                                         <div class="m-2">
-                                            <input type="file" name="id_no_img" value="" class="form-control" autocomplete="off" required="" placeholder="আইডি নং">
+                                            <input type="file" name="id_no_img" value="" class="form-control dropify" autocomplete="off" required="">
                                         </div>
                                     </div>
                                 </div>
