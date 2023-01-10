@@ -180,5 +180,67 @@
     </li>
 
 
+    {{-- extra --}}
+    <li class="sidebar-item has-sub">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-gear-fill"></i>
+            <span>{{__('Supporting')}}</span>
+        </a>
+        <ul class="submenu">
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Education')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.education.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.education.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Govt. facility')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.govtfacility.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.govtfacility.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Mobile Bank')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.mobilebank.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.mobilebank.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Digital Device')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.digitaldevice.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.digitaldevice.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Telecomunication')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.telecomunication.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.telecomunication.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Source Income')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.sourceincome.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.sourceincome.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Housing Type')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.housingtype.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.housingtype.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+
+
 
 </ul>

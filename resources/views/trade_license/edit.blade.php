@@ -143,7 +143,7 @@
                                         </div>
                                         <label class="control-label">ফটো</label>
                                         <div class="m-2">
-                                            <input type="file" name="image" value="{{ $trade->image }}"  class="form-control dropify" autocomplete="off" required="" placeholder="ফটো">
+                                            <input type="file" name="image" class="form-control dropify"  data-default-file="{{ asset('uploads/trade_license') }}/{{ $trade->image }}">
                                         </div>
                                     </div>
                                 </div>
@@ -151,13 +151,13 @@
                                     <div class="form-group">
                                         <label class="control-label">পোস্ট অফিস</label>
                                         <div class="m-2">
-                                            <input type="text" name="post_office" value="" class="form-control" required="" placeholder="ব্যাক্তির নাম">
+                                            <input type="text" name="post_office" value="{{ $trade->post_office }}" class="form-control" required="" placeholder="ব্যাক্তির নাম">
                                         </div>
                                         <label class="control-label">বিভাগ</label>
                                         <select name="division_id" class="form-control" required="" id="divisionid">
                                             <option value="">বিভাগ</option>
                                             @forelse ($division as $div)
-                                            <option value="{{ $div->id }}">{{ $div->name_bn }}</option>
+                                            <option value="{{ $div->id }}" {{ $trade->division_id==$div->id? 'selected' : '' }}>{{ $div->name_bn }}</option>
                                             @empty
                                                 <p>No Division found</p>
                                             @endforelse
@@ -170,7 +170,7 @@
                                                 <option value="">থানা</option>
                                                 @forelse ($thana as $tha)
 
-                                                <option value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
+                                                <option value="{{ $tha->id }}" {{ $trade->thana_id==$tha->id? 'selected' : '' }}>{{ $tha->name_bn }}</option>
                                                 @empty
 
                                                 <p>No Thana found</p>
@@ -180,7 +180,7 @@
                                         </div>
                                         <label class="control-label">আইডি নং</label>
                                         <div class="m-2">
-                                            <input type="file" name="id_no_img" value="" class="form-control" autocomplete="off" required="" placeholder="আইডি নং">
+                                            <input type="file" name="id_no_img" class="form-control dropify" data-default-file="{{ asset('uploads/trade_license') }}/{{ $trade->id_no_img }}">
                                         </div>
                                     </div>
                                 </div>

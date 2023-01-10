@@ -18,6 +18,17 @@ use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
 use App\Http\Controllers\PaymentReceiptController as payment;
 
+//extra
+use App\Http\Controllers\EducationalQualificationController as education;
+use App\Http\Controllers\GovernmentFacilityController as govtfacility;
+use App\Http\Controllers\MobileBankController as mobilebank;
+use App\Http\Controllers\DigitalDeviceController as digitaldevice;
+use App\Http\Controllers\TelecommunicationController as telecomunication;
+use App\Http\Controllers\SourceIncomeController as sourceincome;
+use App\Http\Controllers\SourcesBusinessTaxeController as sourcebusiness;
+use App\Http\Controllers\HousingTypeController as housingtype;
+
+
 
 use App\Http\Controllers\FrontendController as front;
 /* Middleware */
@@ -66,6 +77,16 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::resource('payment',payment::class,['as'=>'admin']);
+
+        //extra route
+        Route::resource('education',education::class,['as'=>'admin']);
+        Route::resource('govtfacility',govtfacility::class,['as'=>'admin']);
+        Route::resource('mobilebank',mobilebank::class,['as'=>'admin']);
+        Route::resource('digitaldevice',digitaldevice::class,['as'=>'admin']);
+        Route::resource('telecomunication',telecomunication::class,['as'=>'admin']);
+        Route::resource('sourceincome',sourceincome::class,['as'=>'admin']);
+        Route::resource('housingtype',housingtype::class,['as'=>'admin']);
+
 
 
     });

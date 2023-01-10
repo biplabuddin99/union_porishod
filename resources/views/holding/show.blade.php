@@ -237,6 +237,7 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">পেশা বা আয়ের উৎস :-</th>
                     <td style="border-style: solid; border-width: 1px;">
+                        {{ $hold->source_income }}
                         <input type="checkbox"><label for="">চাকুরী(সরকারী)</label>
                         <input type="checkbox"><label for="">চাকুরী(বেসরকারী)</label>
                         <input type="checkbox"><label for="">ব্যবসা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
