@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SourceIncome;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Exception;
 
 class SourceIncomeController extends Controller
 {
@@ -14,7 +16,8 @@ class SourceIncomeController extends Controller
      */
     public function index()
     {
-        //
+        $income=SourceIncome::all();
+        return view('holding-supporting.source_income.index',compact('income'));
     }
 
     /**
@@ -24,7 +27,7 @@ class SourceIncomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('holding-supporting.source_income.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class SourceIncomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $p=new SourceIncome;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Create Successfully!');
+            return redirect()->route(currentUser().'.sourceincome.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -55,9 +76,10 @@ class SourceIncomeController extends Controller
      * @param  \App\Models\SourceIncome  $sourceIncome
      * @return \Illuminate\Http\Response
      */
-    public function edit(SourceIncome $sourceIncome)
+    public function edit($id)
     {
-        //
+        $d=SourceIncome::findOrFail(encryptor('decrypt',$id));
+        return view('holding-supporting.source_income.edit',compact('d'));
     }
 
     /**
@@ -67,9 +89,27 @@ class SourceIncomeController extends Controller
      * @param  \App\Models\SourceIncome  $sourceIncome
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SourceIncome $sourceIncome)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $p=SourceIncome::findOrFail(encryptor('decrypt',$id));;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Update Successfully!');
+            return redirect()->route(currentUser().'.sourceincome.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -78,8 +118,10 @@ class SourceIncomeController extends Controller
      * @param  \App\Models\SourceIncome  $sourceIncome
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SourceIncome $sourceIncome)
+    public function destroy($id)
     {
-        //
+        $p= SourceIncome::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }

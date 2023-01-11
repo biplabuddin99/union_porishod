@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\EducationalQualification;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Exception;
 
 class EducationalQualificationController extends Controller
 {
@@ -14,7 +16,8 @@ class EducationalQualificationController extends Controller
      */
     public function index()
     {
-        //
+        $education=EducationalQualification::all();
+        return view('holding-supporting.Edu_qualification.index',compact('education'));
     }
 
     /**
@@ -24,7 +27,7 @@ class EducationalQualificationController extends Controller
      */
     public function create()
     {
-        //
+        return view('holding-supporting.Edu_qualification.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class EducationalQualificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $p=new EducationalQualification;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Create Successfully!');
+            return redirect()->route(currentUser().'.education.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -55,9 +76,10 @@ class EducationalQualificationController extends Controller
      * @param  \App\Models\EducationalQualification  $educationalQualification
      * @return \Illuminate\Http\Response
      */
-    public function edit(EducationalQualification $educationalQualification)
+    public function edit($id)
     {
-        //
+        $d=EducationalQualification::findOrFail(encryptor('decrypt',$id));
+        return view('holding-supporting.Edu_qualification.edit',compact('d'));
     }
 
     /**
@@ -67,9 +89,27 @@ class EducationalQualificationController extends Controller
      * @param  \App\Models\EducationalQualification  $educationalQualification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EducationalQualification $educationalQualification)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $p=EducationalQualification::findOrFail(encryptor('decrypt',$id));;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Update Successfully!');
+            return redirect()->route(currentUser().'.education.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -78,8 +118,10 @@ class EducationalQualificationController extends Controller
      * @param  \App\Models\EducationalQualification  $educationalQualification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EducationalQualification $educationalQualification)
+    public function destroy( $id)
     {
-        //
+        $p= EducationalQualification::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\HousingType;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Exception;
 
 class HousingTypeController extends Controller
 {
@@ -14,7 +16,8 @@ class HousingTypeController extends Controller
      */
     public function index()
     {
-        //
+        $housing=HousingType::all();
+        return view('holding-supporting.housing_type.index',compact('housing'));
     }
 
     /**
@@ -24,7 +27,7 @@ class HousingTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('holding-supporting.housing_type.create');
     }
 
     /**
@@ -35,7 +38,27 @@ class HousingTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $p=new HousingType;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            $p->tax_amount=$request->tax_amount;
+            $p->other_charge=$request->other_charge;
+            if($p->save()){
+            Toastr::success('Create Successfully!');
+            return redirect()->route(currentUser().'.housingtype.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -55,9 +78,10 @@ class HousingTypeController extends Controller
      * @param  \App\Models\HousingType  $housingType
      * @return \Illuminate\Http\Response
      */
-    public function edit(HousingType $housingType)
+    public function edit($id)
     {
-        //
+        $d=HousingType::findOrFail(encryptor('decrypt',$id));
+        return view('holding-supporting.housing_type.edit',compact('d'));
     }
 
     /**
@@ -67,9 +91,29 @@ class HousingTypeController extends Controller
      * @param  \App\Models\HousingType  $housingType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HousingType $housingType)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $p=HousingType::findOrFail(encryptor('decrypt',$id));
+            $p->name=$request->name;
+            $p->description=$request->description;
+            $p->tax_amount=$request->tax_amount;
+            $p->other_charge=$request->other_charge;
+            if($p->save()){
+            Toastr::success('Update Successfully!');
+            return redirect()->route(currentUser().'.housingtype.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -78,8 +122,10 @@ class HousingTypeController extends Controller
      * @param  \App\Models\HousingType  $housingType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HousingType $housingType)
+    public function destroy($id)
     {
-        //
+        $p= HousingType::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }

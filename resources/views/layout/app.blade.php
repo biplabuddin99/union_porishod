@@ -36,7 +36,7 @@
 
 <body>
     <div id="app">
-    <div id="sidebar" class="active">
+    <div id="sidebar" class="active no-print">
             <div class="sidebar-wrapper active">
 				<div class="sidebar-header position-relative">
 					<div class="">
@@ -62,7 +62,7 @@
 			</div>
         </div>
         <div id="main">
-            <header class="mb-3">
+            <header class="mb-3 no-print">
                 <div class="dropdown float-end">
                     <a href="#" id="topbarUserDropdown" class="user-dropdown d-flex align-items-center dropend dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="text">
@@ -81,7 +81,7 @@
                 </a>
             </header>
 			<div class="content-wrapper container">
-				<div class="page-heading m-0">
+				<div class="page-heading m-0 no-print">
 					<div class="page-title">
 						<div class="row">
 							<div class="col-12 col-md-6 order-md-1 order-last">
@@ -106,7 +106,7 @@
 					@yield('content')
 				</div>
 			</div>
-            <footer>
+            <footer class="no-print">
                 <div class="container">
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-start">

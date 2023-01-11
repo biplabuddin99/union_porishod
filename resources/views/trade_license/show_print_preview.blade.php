@@ -7,7 +7,7 @@
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
-            <ul class="page-breadcrumb breadcrumb">
+            <ul class="page-breadcrumb breadcrumb no-print">
                 <li>
                     <a href="#">হোম </a>
                     <i class="bi bi-circle-half"></i>
@@ -73,16 +73,15 @@
                                             </tr>
                                         </table>
                                     </div>
-
-                                    {{-- <div class="form-actions hidden-print">
+                                    <div class="form-actions hidden-print">
                                         <div class="row">
-                                            <div class="col-md-offset-2 col-md-10">
-                                                <input type="button"  class="btn default cancel" value="Back"/>
-                                                <input type="button" onclick="javascript:print();" class="btn btn-primary" value="Print"/>
+                                            <div class="col-md-offset-2 col-md-10 mb-3">
+                                                <input type="button"  class="btn btn-warning cancel no-print" value="Back"/>
+                                                <input type="button" onclick="javascript:print();" class="btn btn-primary no-print" value="Print"/>
                                             </div>
                                         </div>
-                                    </div> --}}
-                                    <a href="#" class="btn btn-md btn-danger print_btn"><i class="bi bi-printer"></i></a>
+                                    </div>
+                                    {{-- <a href="#" class="btn btn-md btn-danger print_btn"><i class="bi bi-printer"></i></a> --}}
                                 </form>
                             </div>
                         </div>
@@ -92,7 +91,7 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" referrerpolicy="no-referrer"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PrintArea/2.4.1/jquery.PrintArea.min.js" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function(){
@@ -104,7 +103,7 @@
                 w.close();
             });
         });
-    </script>
+    </script> --}}
 </section>
 <!-- Bordered table end -->
 

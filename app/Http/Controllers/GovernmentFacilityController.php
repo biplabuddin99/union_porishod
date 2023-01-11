@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\GovernmentFacility;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Exception;
+
 
 class GovernmentFacilityController extends Controller
 {
@@ -14,7 +17,8 @@ class GovernmentFacilityController extends Controller
      */
     public function index()
     {
-        //
+        $govt=GovernmentFacility::all();
+        return view('holding-supporting.govt_facilities.index',compact('govt'));
     }
 
     /**
@@ -24,7 +28,7 @@ class GovernmentFacilityController extends Controller
      */
     public function create()
     {
-        //
+        return view('holding-supporting.govt_facilities.create');
     }
 
     /**
@@ -35,7 +39,25 @@ class GovernmentFacilityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $p=new GovernmentFacility;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Create Successfully!');
+            return redirect()->route(currentUser().'.govtfacility.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -55,9 +77,10 @@ class GovernmentFacilityController extends Controller
      * @param  \App\Models\GovernmentFacility  $governmentFacility
      * @return \Illuminate\Http\Response
      */
-    public function edit(GovernmentFacility $governmentFacility)
+    public function edit($id)
     {
-        //
+        $d=GovernmentFacility::findOrFail(encryptor('decrypt',$id));
+        return view('holding-supporting.govt_facilities.edit',compact('d'));
     }
 
     /**
@@ -67,9 +90,27 @@ class GovernmentFacilityController extends Controller
      * @param  \App\Models\GovernmentFacility  $governmentFacility
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GovernmentFacility $governmentFacility)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $p=GovernmentFacility::findOrFail(encryptor('decrypt',$id));;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Update Successfully!');
+            return redirect()->route(currentUser().'.govtfacility.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -78,8 +119,10 @@ class GovernmentFacilityController extends Controller
      * @param  \App\Models\GovernmentFacility  $governmentFacility
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GovernmentFacility $governmentFacility)
+    public function destroy($id)
     {
-        //
+        $p= GovernmentFacility::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }

@@ -79,9 +79,10 @@ class CitizenCertificateController extends Controller
      * @param  \App\Models\CitizenCertificate  $citizenCertificate
      * @return \Illuminate\Http\Response
      */
-    public function show(CitizenCertificate $citizenCertificate)
+    public function show($id)
     {
-        //
+        $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
+        return view('citizen_certificate.show',compact('citizen'));
     }
 
     /**

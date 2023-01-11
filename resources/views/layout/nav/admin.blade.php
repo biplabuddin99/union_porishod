@@ -237,6 +237,13 @@
                     <li class="py-1"><a href="{{route(currentUser().'.housingtype.create')}}">{{__('Add New')}}</a></li>
                 </ul>
             </li>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'> {{__('Source Business')}}</a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.sourcebusiness.index')}}">{{__('List')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.sourcebusiness.create')}}">{{__('Add New')}}</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 

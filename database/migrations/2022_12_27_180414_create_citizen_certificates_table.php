@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('person_name');
             $table->string('father')->nullable();
-            $table->string('husband')->nullable();
+            // $table->string('husband')->nullable();
             $table->string('mother')->nullable();
             $table->string('postoffice')->nullable();
             $table->string('division_id');

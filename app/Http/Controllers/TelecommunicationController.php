@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Telecommunication;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Exception;
 
 class TelecommunicationController extends Controller
 {
@@ -14,7 +16,8 @@ class TelecommunicationController extends Controller
      */
     public function index()
     {
-        //
+        $telecom=Telecommunication::all();
+        return view('holding-supporting.telecomunication.index',compact('telecom'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TelecommunicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('holding-supporting.telecomunication.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class TelecommunicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $p=new Telecommunication;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Create Successfully!');
+            return redirect()->route(currentUser().'.telecomunication.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -55,9 +76,10 @@ class TelecommunicationController extends Controller
      * @param  \App\Models\Telecommunication  $telecommunication
      * @return \Illuminate\Http\Response
      */
-    public function edit(Telecommunication $telecommunication)
+    public function edit($id)
     {
-        //
+        $d=Telecommunication::findOrFail(encryptor('decrypt',$id));
+        return view('holding-supporting.telecomunication.edit',compact('d'));
     }
 
     /**
@@ -67,9 +89,27 @@ class TelecommunicationController extends Controller
      * @param  \App\Models\Telecommunication  $telecommunication
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Telecommunication $telecommunication)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $p=Telecommunication::findOrFail(encryptor('decrypt',$id));;
+            $p->name=$request->name;
+            $p->description=$request->description;
+            if($p->save()){
+            Toastr::success('Update Successfully!');
+            return redirect()->route(currentUser().'.telecomunication.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**
@@ -78,8 +118,10 @@ class TelecommunicationController extends Controller
      * @param  \App\Models\Telecommunication  $telecommunication
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Telecommunication $telecommunication)
+    public function destroy($id)
     {
-        //
+        $p= Telecommunication::findOrFail(encryptor('decrypt',$id));
+        $p->delete();
+        return redirect()->back();
     }
 }

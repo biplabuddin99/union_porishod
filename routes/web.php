@@ -86,6 +86,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('telecomunication',telecomunication::class,['as'=>'admin']);
         Route::resource('sourceincome',sourceincome::class,['as'=>'admin']);
         Route::resource('housingtype',housingtype::class,['as'=>'admin']);
+        Route::resource('sourcebusiness',sourcebusiness::class,['as'=>'admin']);
 
 
 
