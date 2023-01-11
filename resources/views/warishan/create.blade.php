@@ -78,7 +78,7 @@
                                                   </select>
                                             </div>
                                             <div class="col-12 ">
-                                              <table class="table table-hover mt-4">
+                                              <table class="table table-hover mt-4 table-bordered" id="account">
                                                   <thead>
                                                       <tr>
                                                           <th>ক্রমিক</th>
@@ -86,20 +86,47 @@
                                                           <th>লিঙ্গ</th>
                                                           <th>সিরিয়াল</th>
                                                       </tr>
-                                                      <tr>
-                                                          <td></td>
-                                                          <td></td>
-                                                          <td></td>
-                                                          <td></td>
-                                                      </tr>
                                                   </thead>
+                                                  <tfoot>
+                                                    <tr>
+                                                        <th style="text-align:right;" colspan="4">
+                                                            <input type='button' class='btn btn-primary' value='Add' onClick='add_row();'>
+                                                            <input type='button' class='btn btn-danger' value='Remove' onClick='remove_row();'>
+                                                        </th>
+                                                    </tr>
+                                                </tfoot>
+                                                  <tbody>
+                                                    <tr>
+                                                        <td style='text-align:center;'>1</td>
+                                                        <td style='text-align:left;'>
+                                                            <div style='width:100%;position:relative;'>
+                                                                <input type='text' name='name[]' class='cls_account_code form-control' value='' style='border:none;' onkeyup="get_head(this);" maxlength='100' autocomplete="off" placeholder="নাম"/>
+                                                                <div class="sugg" style='display:none;'>
+                                                                    <div style='border:1px solid #aaa;'></div>
+                                                                </div>
+                                                            </div>
+                                                                <input type='hidden' class='table_name' name='table_name[]' value=''>
+                                                                <input type='hidden' class='table_id' name='table_id[]' value=''>
+                                                        </td>
+                                                        <td style='text-align:left;'>
+                                                            <select class='cls_debit form-control' name="gender[]" onkeyup='removeChar(this)'>
+                                                                <option value="">লিঙ্গ</option>
+                                                                <option value="1">পুত্র</option>
+                                                                <option value="2">কন্যা</option>
+                                                                <option value="3">অন্যান্য</option>
+                                                            </select>
+                                                            {{-- <input type='text' name='debit[]' class='cls_debit form-control' value='' style='text-align:center; border:none;' maxlength='15' onkeyup='removeChar(this)' onBlur='return debit_entry(this);' autocomplete="off"/> --}}
+                                                        </td>
+                                                        <td style='text-align:left;'><input type='text' class=" form-control" name='serial[]' value='1' maxlength='50' style='text-align:left;border:none;' /></td>
+                                                    </tr>
+                                                  </tbody>
                                               </table>
                                             </div>
                                     </div>
                                   <div class="col-12 d-flex justify-content-end">
                                       <button type="submit" class="btn btn-primary me-1 mb-1">{{__('Save')}}</button>
                                       <button type="reset" class="btn btn-primary me-1 mb-1">{{__('Cancel')}}</button>
-                                      
+
                                   </div>
                           </form>
                       </div>
@@ -126,8 +153,40 @@
         $('.thana').hide();
         $('.thana'+e).show();
     }
-    
-   
-    
+
+
+
 </script>
+<script>
+	function add_row(){
+
+		var row="<tr>\
+					<td style='text-align:center;'>"+(parseInt($("#account tbody tr").length) + 1)+"</td>\
+					<td style='text-align:left;'>\
+						<div style='width:100%;position:relative;'>\
+							<input type='text' name='name[]' class='cls_account_code form-control' value='' onkeyup='get_head(this)' maxlength='100' autocomplete='off'  placeholder='নাম'/>\
+							<div class='sugg' style='display:none;'>\
+								<div style='border:1px solid #aaa;'></div>\
+							</div>\
+						</div>\
+							<input type='hidden' class='table_name' name='table_name[]' value=''>\
+							<input type='hidden' class='table_id' name='table_id[]' value=''>\
+					</td>\
+                    <td style='text-align:left;'>\
+                        <select class='cls_debit form-control' name='gender[]' onkeyup='removeChar(this)'>\
+                            <option value=''>লিঙ্গ</option>\
+                            <option value='1'>পুত্র</option>\
+                            <option value='2'>কন্যা</option>\
+                            <option value='3'>অন্যান্য</option>\
+                        </select>\
+                    </td>\
+					<td style='text-align:left;'><input type='text' name='serial[]' value='1' class=' form-control' maxlength='50' style='text-align:left;border:none;' /></td>\
+				</tr>";
+		$('#account tbody').append(row);
+	}
+
+	function remove_row(){
+		$('#account tbody tr').last().remove();
+	}
+    </script>
 @endpush
