@@ -17,6 +17,7 @@ use App\Http\Controllers\CitizenCertificateController as citizen;
 use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
 use App\Http\Controllers\PaymentReceiptController as payment;
+use App\Http\Controllers\DisabilityCertificateController as disablity;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -77,6 +78,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::resource('payment',payment::class,['as'=>'admin']);
+        Route::resource('disablity',disablity::class,['as'=>'admin']);
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);
