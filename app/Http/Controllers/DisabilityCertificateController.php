@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DisabilityCertificate;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Thana;
+use App\Models\Ward_no;
 use Illuminate\Http\Request;
 
 class DisabilityCertificateController extends Controller
@@ -24,7 +27,10 @@ class DisabilityCertificateController extends Controller
      */
     public function create()
     {
-        return view('disability.create');
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('disability.create',compact('district','thana','ward'));
     }
 
     /**

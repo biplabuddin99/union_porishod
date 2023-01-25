@@ -73,7 +73,7 @@
             <li class="py-1"><a href="#">{{__('নতুন ভিজিএফ কার্ড')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন বয়স্ক ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন বিধবা ভাতা')}}</a></li>
-            <li class="py-1"><a href="{{ route(currentUser().'.disablity.create') }}">{{__('নতুন প্রতিবন্ধী ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{ route(currentUser().'.disablity.create') }}">{{__('নতুন প্রতিবন্ধী ভাতা *')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন মাতৃত্বকালীন ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন অন্যান্য')}}</a></li>
 
