@@ -71,7 +71,7 @@
             <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান *')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন ভিজিএফ কার্ড')}}</a></li>
-            <li class="py-1"><a href="#">{{__('নতুন বয়স্ক ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.oldallowance.create')}}">{{__('নতুন বয়স্ক ভাতা *')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন বিধবা ভাতা')}}</a></li>
             <li class="py-1"><a href="{{ route(currentUser().'.disablity.create') }}">{{__('নতুন প্রতিবন্ধী ভাতা *')}}</a></li>
             <li class="py-1"><a href="#">{{__('নতুন মাতৃত্বকালীন ভাতা')}}</a></li>
@@ -95,9 +95,9 @@
             <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট *')}}</a></li>
             <li class="py-1"><a href="#">{{__('ভিজিএফ কার্ড লিস্ট')}}</a></li>
-            <li class="py-1"><a href="#">{{__('বয়স্ক ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.oldallowance.index')}}">{{__('বয়স্ক ভাতা লিস্ট *')}}</a></li>
             <li class="py-1"><a href="#">{{__('বিধবা ভাতা লিস্ট')}}</a></li>
-            <li class="py-1"><a href="#">{{__('প্রতিবন্ধী ভাতা লিস্ট')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.disablity.index')}}">{{__('প্রতিবন্ধী ভাতা লিস্ট *')}}</a></li>
             <li class="py-1"><a href="#">{{__('মাতৃত্বকালীন ভাতা লিস্ট')}}</a></li>
             <li class="py-1"><a href="#">{{__('অন্যান্য লিস্ট')}}</a></li>
 

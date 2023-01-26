@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DisabilityCertificate;
+use App\Models\OldageAllowance;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
 use App\Models\Ward_no;
 use Illuminate\Http\Request;
-use App\Http\Requests\DisabilityCreate;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use Exception;
 
-class DisabilityCertificateController extends Controller
+class OldageAllowanceController extends Controller
 {
     use ImageHandleTraits;
     /**
@@ -22,8 +21,8 @@ class DisabilityCertificateController extends Controller
      */
     public function index()
     {
-        $disability=DisabilityCertificate::all();
-        return view('disability.index',compact('disability'));
+        $oldallowance=OldageAllowance::all();
+        return view('oldage_allowance.index',compact('oldallowance'));
     }
 
     /**
@@ -36,7 +35,7 @@ class DisabilityCertificateController extends Controller
         $district=District::all();
         $thana=Thana::all();
         $ward=Ward_no::all();
-        return view('disability.create',compact('district','thana','ward'));
+        return view('oldage_allowance.create',compact('district','thana','ward'));
     }
 
     /**
@@ -45,10 +44,10 @@ class DisabilityCertificateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DisabilityCreate $request)
+    public function store(Request $request)
     {
         try{
-            $p=new DisabilityCertificate;
+            $p=new OldageAllowance;
             $p->name_en=$request->name_en;
             $p->name_bn=$request->name_bn;
             $p->national_id=$request->national_id;
@@ -89,11 +88,11 @@ class DisabilityCertificateController extends Controller
             $p->comment_bn=$request->comment_bn;
 
             if($request->has('image'))
-            $p->image=$this->resizeImage($request->image,'uploads/disablity',true,300,300,false);
+            $p->image=$this->resizeImage($request->image,'uploads/oldallowance',true,300,300,false);
 
             if($p->save()){
             Toastr::success('Create Successfully!');
-            return redirect()->route(currentUser().'.disablity.index');
+            return redirect()->route(currentUser().'.oldallowance.index');
             }else{
             Toastr::success('Please try Again!');
             return redirect()->back();
@@ -111,10 +110,10 @@ class DisabilityCertificateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\OldageAllowance  $oldageAllowance
      * @return \Illuminate\Http\Response
      */
-    public function show(DisabilityCertificate $disabilityCertificate)
+    public function show(OldageAllowance $oldageAllowance)
     {
         //
     }
@@ -122,10 +121,10 @@ class DisabilityCertificateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\OldageAllowance  $oldageAllowance
      * @return \Illuminate\Http\Response
      */
-    public function edit(DisabilityCertificate $disabilityCertificate)
+    public function edit(OldageAllowance $oldageAllowance)
     {
         //
     }
@@ -134,10 +133,10 @@ class DisabilityCertificateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\OldageAllowance  $oldageAllowance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DisabilityCertificate $disabilityCertificate)
+    public function update(Request $request, OldageAllowance $oldageAllowance)
     {
         //
     }
@@ -145,10 +144,10 @@ class DisabilityCertificateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\OldageAllowance  $oldageAllowance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DisabilityCertificate $disabilityCertificate)
+    public function destroy(OldageAllowance $oldageAllowance)
     {
         //
     }

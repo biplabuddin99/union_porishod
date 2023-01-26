@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('pageTitle',trans('প্রতিবন্ধী তালিকা'))
+@section('pageTitle',trans('বয়স্ক ভাতা তালিকা'))
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div>
-                <a class="float-end" href="{{route(currentUser().'.disablity.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
+                <a class="float-end" href="{{route(currentUser().'.oldallowance.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
                 </div>
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
@@ -30,25 +30,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($disability as $c)
+                            @forelse($oldallowance as $c)
                             <tr>
                                 <td scope="row">{{ ++$loop->index }}</td>
                                 <td>{{$c->name_bn}}</td>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/disablity')}}/{{ $c->image}}" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/oldallowance')}}/{{ $c->image}}" alt=""></td>
                                 <td>{{$c->father_name_bn}}</td>
                                 <td>{{$c->national_id}}</td>
                                 <td>{{$c->mobile}}</td>
                                 <td class="white-space-nowrap">
-                                    <a href="{{route(currentUser().'.disablity.show',encryptor('encrypt',$c->id))}}">
+                                    <a href="{{route(currentUser().'.oldallowance.show',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
-                                    <a href="{{route(currentUser().'.disablity.edit',encryptor('encrypt',$c->id))}}">
+                                    <a href="{{route(currentUser().'.oldallowance.edit',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <a href="javascript:void()" onclick="$('#form{{$c->id}}').submit()">
                                         <i class="bi bi-trash"></i>
                                     </a>
-                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.disablity.destroy',encryptor('encrypt',$c->id))}}" method="post">
+                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.oldallowance.destroy',encryptor('encrypt',$c->id))}}" method="post">
                                         @csrf
                                         @method('delete')
                                     </form>
@@ -56,7 +56,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <th colspan="8" class="text-center">No disablity Found</th>
+                                <th colspan="8" class="text-center">No oldallowance Found</th>
                             </tr>
                             @endforelse
                         </tbody>

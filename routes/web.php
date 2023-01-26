@@ -18,6 +18,7 @@ use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
 use App\Http\Controllers\PaymentReceiptController as payment;
 use App\Http\Controllers\DisabilityCertificateController as disablity;
+use App\Http\Controllers\OldageAllowanceController as oldallowance;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -79,6 +80,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
+        Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);

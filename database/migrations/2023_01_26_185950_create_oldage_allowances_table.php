@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('disability_certificates', function (Blueprint $table) {
+        Schema::create('oldage_allowances', function (Blueprint $table) {
             $table->id();
             $table->string('name_en');
             $table->string('name_bn');
@@ -65,6 +65,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disability_certificates');
+        Schema::dropIfExists('oldage_allowances');
     }
 };
