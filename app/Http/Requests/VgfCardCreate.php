@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DisabilityCreate extends FormRequest
+class VgfCardCreate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class DisabilityCreate extends FormRequest
     public function rules()
     {
         return [
-            'name_en' => 'required',
-            // 'name_bn' => 'required',
-            'birth_date' => 'required',
-
+            //
         ];
     }
-
 }

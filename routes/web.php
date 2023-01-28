@@ -19,6 +19,9 @@ use App\Http\Controllers\HoldingController as holding;
 use App\Http\Controllers\PaymentReceiptController as payment;
 use App\Http\Controllers\DisabilityCertificateController as disablity;
 use App\Http\Controllers\OldageAllowanceController as oldallowance;
+use App\Http\Controllers\WidowAllowanceController as widowallowance;
+use App\Http\Controllers\MaternityAllowanceController as maternityallowance;
+use App\Http\Controllers\VgfCardController as vgfcard;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -81,6 +84,9 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
         Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);
+        Route::resource('widowallowance',widowallowance::class,['as'=>'admin']);
+        Route::resource('maternityallowance',maternityallowance::class,['as'=>'admin']);
+        Route::resource('vgfcard',vgfcard::class,['as'=>'admin']);
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);

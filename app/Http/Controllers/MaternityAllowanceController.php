@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DisabilityCertificate;
+use App\Models\MaternityAllowance;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
 use App\Models\Ward_no;
 use Illuminate\Http\Request;
-use App\Http\Requests\DisabilityCreate;
+use App\Http\Requests\MaternityAllowanceCreate;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use Exception;
 
-class DisabilityCertificateController extends Controller
+class MaternityAllowanceController extends Controller
 {
     use ImageHandleTraits;
     /**
@@ -22,8 +22,8 @@ class DisabilityCertificateController extends Controller
      */
     public function index()
     {
-        $disability=DisabilityCertificate::all();
-        return view('disability.index',compact('disability'));
+        $maternity=MaternityAllowance::all();
+        return view('maternity_allowance.index',compact('maternity'));
     }
 
     /**
@@ -36,7 +36,7 @@ class DisabilityCertificateController extends Controller
         $district=District::all();
         $thana=Thana::all();
         $ward=Ward_no::all();
-        return view('disability.create',compact('district','thana','ward'));
+        return view('maternity_allowance.create',compact('district','thana','ward'));
     }
 
     /**
@@ -45,10 +45,10 @@ class DisabilityCertificateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DisabilityCreate $request)
+    public function store(MaternityAllowanceCreate $request)
     {
         try{
-            $p=new DisabilityCertificate;
+            $p=new MaternityAllowance;
             $p->name_en=$request->name_en;
             $p->name_bn=$request->name_bn;
             $p->national_id=$request->national_id;
@@ -89,11 +89,11 @@ class DisabilityCertificateController extends Controller
             $p->comment_bn=$request->comment_bn;
 
             if($request->has('image'))
-            $p->image=$this->resizeImage($request->image,'uploads/disablity',true,300,300,false);
+            $p->image=$this->resizeImage($request->image,'uploads/maternityallowance',true,300,300,false);
 
             if($p->save()){
-            Toastr::success('Create Successfully!');
-            return redirect()->route(currentUser().'.disablity.index');
+            Toastr::success('নতুন মাতৃত্বকালীন আবেদন সফলভাবে সম্পন্ন হয়েছে!!');
+            return redirect()->route(currentUser().'.maternityallowance.index');
             }else{
             Toastr::success('Please try Again!');
             return redirect()->back();
@@ -111,22 +111,21 @@ class DisabilityCertificateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\MaternityAllowance  $maternityAllowance
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MaternityAllowance $maternityAllowance)
     {
-        $disability = DisabilityCertificate::findOrFail(encryptor('decrypt',$id));
-        return view('disability.show',compact('disability'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\MaternityAllowance  $maternityAllowance
      * @return \Illuminate\Http\Response
      */
-    public function edit(DisabilityCertificate $disabilityCertificate)
+    public function edit(MaternityAllowance $maternityAllowance)
     {
         //
     }
@@ -135,10 +134,10 @@ class DisabilityCertificateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\MaternityAllowance  $maternityAllowance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DisabilityCertificate $disabilityCertificate)
+    public function update(Request $request, MaternityAllowance $maternityAllowance)
     {
         //
     }
@@ -146,10 +145,10 @@ class DisabilityCertificateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
+     * @param  \App\Models\MaternityAllowance  $maternityAllowance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DisabilityCertificate $disabilityCertificate)
+    public function destroy(MaternityAllowance $maternityAllowance)
     {
         //
     }

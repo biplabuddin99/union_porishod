@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('pageTitle','প্রতিবন্ধী সনদের আবেদন')
+@section('pageTitle','মাতৃত্বকালীন ভাতা আবেদন')
 
 @section('content')
 <section style="margin-top: 50px;">
@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col-md-12 text-center bg-primary"
                 style="margin-top: 20px; margin-bottom: 20px; border-radius: 4px;">
-                <h4 style="color: white; padding-top: 5px;">প্রতিবন্ধী সনদের আবেদন</h4>
+                <h4 style="color: white; padding-top: 5px;">মাতৃত্বকালীন ভাতা আবেদন</h4>
             </div>
         </div>
     </div>
 </section>
 <section>
     <div class="container">
-        <form id="form-data" action="{{route(currentUser().'.disablity.store')}}" method="post"
+        <form id="form-data" action="{{route(currentUser().'.maternityallowance.store')}}" method="post"
             enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -99,7 +99,7 @@
                 <div class="col-md-3 text-center">
                     <label for="cropzee-input">
                         <div class="image-overlay mt-5">
-                                <input type="file" name="image" value="" data-default-file="{{ asset('uploads/disablity/default.jpg') }}" class="form-control dropify">
+                                <input type="file" name="image" value="" data-default-file="{{ asset('uploads/maternityallowance/default.jpg') }}" class="form-control dropify">
                             <div class="overlay">
                                 <div class="text">ছবি দিতে ক্লিক করুন</div>
                             </div>
