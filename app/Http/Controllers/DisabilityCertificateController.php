@@ -126,9 +126,13 @@ class DisabilityCertificateController extends Controller
      * @param  \App\Models\DisabilityCertificate  $disabilityCertificate
      * @return \Illuminate\Http\Response
      */
-    public function edit(DisabilityCertificate $disabilityCertificate)
+    public function edit($id)
     {
-        //
+        $disability=DisabilityCertificate::findOrFail(encryptor('decrypt',$id));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('disability.edit',compact('disability','district','thana','ward'));
     }
 
     /**
