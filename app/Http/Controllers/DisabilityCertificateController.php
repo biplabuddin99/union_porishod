@@ -117,7 +117,10 @@ class DisabilityCertificateController extends Controller
     public function show($id)
     {
         $disability = DisabilityCertificate::findOrFail(encryptor('decrypt',$id));
-        return view('disability.show',compact('disability'));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('disability.show',compact('disability','district','thana','ward'));
     }
 
     /**
