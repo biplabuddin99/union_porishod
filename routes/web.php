@@ -87,6 +87,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('widowallowance',widowallowance::class,['as'=>'admin']);
         Route::resource('maternityallowance',maternityallowance::class,['as'=>'admin']);
         Route::resource('vgfcard',vgfcard::class,['as'=>'admin']);
+        Route::get('/dis/search',[disablity::class,'getholding'])->name('dis.getholding');
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);

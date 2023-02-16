@@ -189,33 +189,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="row form-group">
-                <label for="present_district_id" class="col-sm-3 control-label">জেলা :</label>
-                <select style="width: 280px; border: 0px !important; box-shadow: none !important;" class="form-control" id="present_district_id" name="present_district_id">
-                    @forelse($district as $dis)
-                        <option disabled  value="{{$dis->id}}" {{$disability->present_district_id== $dis->id ? 'selected' : ''}}>{{$dis->name_bn}}</option>
-                    @empty
-                        <option>No data found</option>
-                    @endforelse
-                </select>
-                {{-- <label for="present_district_id" class="col-sm-3 control-label">জেলা :</label>
-                <div class="col-sm-3 bt-flabels__wrapper" id="present_district_id">
-                    <div>{{ $disability->present_district_id }}</div>
-                </div> --}}
-                <label for="present_upazila_id" class="col-sm-3 control-label">উপজেলা/থানা :</label>
-                <div class="col-sm-3 bt-flabels__wrapper" id="present_upazila_id">
-                    <select style=" border: 0px !important; box-shadow: none !important;" class="form-control" id="present_district_id" name="present_district_id">
-                        @forelse($thana as $tha)
-                            <option disabled  value="{{$tha->id}}" {{$disability->present_district_id== $tha->id ? 'selected' : ''}}>{{$tha->name_bn}}</option>
-                        @empty
-                            <option>No data found</option>
-                        @endforelse
-                    </select>
-                    {{-- <div>{{ $disability->present_upazila_id }}</div> --}}
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row">
         <h4 class="text-center m-4"><strong>স্থায়ী ঠিকানা</strong></h4>

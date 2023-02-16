@@ -37,9 +37,6 @@ return new class extends Migration
             $table->string('present_rbs_bn');
             $table->string('present_holding_no');
             $table->string('present_ward_no');
-            $table->string('present_district_id');
-            $table->string('present_upazila_id');
-            $table->string('present_postoffice_id');
             $table->string('permanent_village_en');
             $table->string('permanent_village_bn');
             $table->string('permanent_rbs_en');

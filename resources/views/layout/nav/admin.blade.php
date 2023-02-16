@@ -4,14 +4,14 @@
     <li class="sidebar-item">
         <a href="{{route(currentUser().'.dashboard')}}" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
-            <span>{{__('dashboard') }}</span>
+            <span>{{__('ড্যাশবোর্ড') }}</span>
         </a>
     </li>
 
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-gear-fill"></i>
-            <span>{{__('Settings')}}</span>
+            <span>{{__('সেটিংস')}}</span>
         </a>
         <ul class="submenu">
             <li class="submenu-item sidebar-item has-sub">

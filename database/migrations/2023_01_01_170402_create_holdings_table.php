@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('husband_wife')->nullable();
-            $table->string('new_holding_no')->nullable();
+            $table->string('new_holding_no')->unique();
             $table->string('previous_holding_no')->nullable();
             $table->string('village')->nullable();
             $table->string('ward_no')->nullable();
