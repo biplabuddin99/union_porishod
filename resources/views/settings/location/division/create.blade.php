@@ -14,7 +14,7 @@
                             <form class="form" method="post" action="{{route(currentUser().'.division.store')}}">
                                 @csrf
                                 <div class="row">
-                                    
+
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="country_id">Country</label>
@@ -44,11 +44,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
-                                        
+
                                     </div>
                                 </div>
                             </form>
@@ -58,6 +58,4 @@
             </div>
         </div>
     </section>
-    <!-- // Basic multiple Column Form section end -->
-</div>
 @endsection

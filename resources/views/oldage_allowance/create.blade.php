@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('pageTitle','নতুন বয়স্ক ভাতা আবেদন')
+{{-- @section('pageTitle','নতুন বয়স্ক ভাতা আবেদন') --}}
 
 @section('content')
 <section style="margin-top: 50px;">
@@ -28,59 +28,6 @@
                         <li class='text-danger'>আপনি যদি পূর্বে কোনো সনদ নিয়ে থাকেন, নিচের সার্চ বক্সে আপনার
                             ন্যাশনাল আইডি/জন্ম নিবন্ধন/পাসপোর্ট/পিন নং দিয়ে সার্চ করুন!</li>
                     </ul>
-
-                    <div class="col-md-12">
-                        <div class="row form-group">
-                            <label for="app_district_id" class="col-sm-1 control-label">জেলা<span
-                                    class="text-danger">*</span></label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_district_id">
-                                <select onchange="show_thana(this.value)" name="district_id" class="form-control" required="" id="districtid">
-                                    <option value="">জেলা</option>
-                                    @forelse($district as $dist)
-                                    <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
-                                    @empty
-                                    <p>No District found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">জেলা নির্বাচন করুন....</span>
-
-                                <span id="app_district_id_feedback" class="help-block"></span> --}}
-                            </div>
-                            <label for="app_upazila_id" class="col-sm-1 control-label">থানা<span
-                                    class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_upazila_id_status">
-                                <select name="thana_id" class="form-control" required="" id="thanaid">
-                                    <option value="">থানা</option>
-                                    @forelse ($thana as $tha)
-                                    <option class="thana thana{{$tha->upazila_id}}" value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
-                                    @empty
-                                    <p>No Thana found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">থানা নির্বাচন করুন....</span>
-
-                                <span id="app_upazila_id_feedback" class="help-block"></span> --}}
-                            </div>
-
-                            <label for="app_union_id" class="col-sm-1 control-label">ওয়ার্ড<span
-                                    class="text-danger">*</span></label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_union_id_status">
-                                <select name="ward_no_id" class="form-control" id="words">
-                                    <option value="" selected="selected">ওয়ার্ড নং</option>
-                                    @forelse ($ward as $w)
-                                    <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
-                                    @empty
-                                    <p>No Ward found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">ওয়ার্ড নং নির্বাচন করুন....</span>
-
-                                <span id="app_union_id_feedback" class="text-danger"></span> --}}
-                            </div>
-
-                        </div>
-                    </div>
 
                     <div class="input-group">
                         <input type="search" id="search-data" class="form-control"
@@ -313,52 +260,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-md-12" id="wife" style="display: none;">
-                    <div class="row form-group">
-                        <label for="Wife-name-english" class="col-sm-3 control-label">স্ত্রীর নাম (ইংরেজিতে) </label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="wife_name_en_status">
-                            <input type="text" name="wife_name_en" id="wife_name_en" class="form-control"
-                                data-parsley-pattern="^[a-zA-Z. ]+$" data-parsley-trigger="keyup"
-                                placeholder="Name of Wife" />
-                            <span class="bt-flabels__error-desc">স্ত্রীর নাম দিন ইংরেজিতে....</span>
-
-                            <span id="wife_name_en_feedback" class="help-block"></span>
-                        </div>
-
-                        <label for="Wife-name-bangla" class="col-sm-3 control-label">স্ত্রীর নাম (বাংলায়)</label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="wife_name_bn_status">
-                            <input type="text" name="wife_name_bn" id="wife_name_bn" class="form-control"
-                                placeholder="স্ত্রীর নাম" />
-                            <span class="bt-flabels__error-desc">স্ত্রীর নাম দিন বাংলায়....</span>
-
-                            <span id="wife_name_bn_feedback" class="help-block"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12" id="husband" style="display: none;">
-                    <div class="row form-group">
-                        <label for="husband_name_en" class="col-sm-3 control-label">স্বামীর নাম (ইংরেজিতে)</label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="husband_name_en_status">
-                            <input type="text" name="husband_name_en" id="husband_name_en" class="form-control"
-                                data-parsley-pattern="^[a-zA-Z. ]+$" data-parsley-trigger="keyup"
-                                placeholder="Name of Husband" />
-                            <span class="bt-flabels__error-desc">স্বামীর নাম দিন ইংরেজিতে....</span>
-
-                            <span id="husband_name_en_feedback" class="help-block"></span>
-                        </div>
-
-                        <label for="husband_name_bn" class="col-sm-3 control-label"> স্বামী নাম (বাংলায়)</label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="husband_name_bn_status">
-                            <input type="text" name="husband_name_bn" id="husband_name_bn" class="form-control"
-                                placeholder="স্বামী নাম" />
-                            <span class="bt-flabels__error-desc">স্বামী নাম দিন বাংলায়....</span>
-
-                            <span id="husband_name_bn_feedback" class="help-block"></span>
-                        </div>
-                    </div>
-                </div> --}}
-
             </div>
 
             <div class="row" style="margin-top: 50px;">
@@ -370,6 +271,26 @@
             </div>
 
             <div class="row">
+                <div class="col-sm-12">
+                    <div class="row form-group">
+                        <label for="present_holding_no" class="col-sm-3 control-label">হোল্ডিং নং</label>
+                        <div class="col-sm-3 bt-flabels__wrapper me-0 pe-0" id="present_holding_no_status">
+                            <input type="text" name="present_holding_no" id="present_holding_no" value="" class="form-control" placeholder="হোল্ডিং নং দিন ইংরেজিতে"/>
+                        </div>
+                        <span class="col-sm-1 ms-0 ps-0">
+                            <button class="btn btn-primary" type="button" id="search_h">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </span>
+
+                        <label for="present_ward_no" class="col-sm-2 control-label">ওয়ার্ড নং <span
+                                class="text-danger">*</span></label>
+                        <div class="col-sm-3 bt-flabels__wrapper" id="present_ward_no_status">
+                            <input type="text" name="present_ward_no" id="present_ward_no"
+                                value="" class="form-control" placeholder="ওয়ার্ড নং দিন" readonly/>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-12">
                     <div class="row form-group">
                         <label for="present_village_en" class="col-sm-3 control-label">গ্রাম/মহল্লা (ইংরেজিতে)</label>
@@ -385,7 +306,7 @@
                                 class="text-danger">*</span></label>
                         <div class="col-sm-3 bt-flabels__wrapper" id="present_village_bn_status">
                             <input type="text" name="present_village_bn" id="present_village_bn"
-                                value="" class="form-control" placeholder="গ্রাম/মহল্লা" />
+                                value="" class="form-control" placeholder="গ্রাম/মহল্লা" readonly/>
                             {{-- <span class="bt-flabels__error-desc">গ্রাম/মহল্লা দিন বাংলায়....</span>
 
                             <span id="present_village_bn_feedback" class="help-block"></span> --}}
@@ -414,125 +335,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-12">
-                    <div class="row form-group">
-                        <label for="present_holding_no" class="col-sm-3 control-label">হোল্ডিং নং</label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="present_holding_no_status">
-                            <input type="text" name="present_holding_no" id="present_holding_no" value="" class="form-control" placeholder="হোল্ডিং নং দিন ইংরেজিতে"/>
-                            {{-- <span class="bt-flabels__error-desc">হোল্ডিং নং দিন ইংরেজিতে....</span>
-
-                            <span id="present_holding_no_feedback" class="help-block"></span> --}}
-                        </div>
-
-                        <label for="present_ward_no" class="col-sm-3 control-label">ওয়ার্ড নং <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="present_ward_no_status">
-
-                            <select name="present_ward_no" class="form-control" id="present_ward_no">
-                                <option value="">ওয়ার্ড নং</option>
-                                @forelse ($ward as $w)
-                                <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
-                                @empty
-                                <p>No Ward found</p>
-                                @endforelse
-                            </select>
-                            {{-- <span class="bt-flabels__error-desc">ওয়ার্ড নং দিন ইংরেজিতে....</span>
-
-                            <span id="present_ward_no_feedback" class="help-block"></span> --}}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="row form-group">
-                        <label for="present_district_id" class="col-sm-3 control-label">জেলা <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="present_district_id_status">
-                            <select onchange="show_thana(this.value)" name="present_district_id" class="form-control" required="" id="present_district_id">
-                                <option value="">জেলা নির্বাচন করুন</option>
-                                @forelse($district as $dist)
-                                <option value="{{ $dist->id }}">{{ $dist->name }}</option>
-                                @empty
-                                <p>No District found</p>
-                                @endforelse
-                            </select>
-                            {{-- <span class="bt-flabels__error-desc">জেলা নির্বাচন করুন....</span>
-
-                            <span id="present_district_id_feedback" class="help-block"></span> --}}
-                        </div>
-
-                        <label for="present_district" class="col-sm-3 control-label">জেলা <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3">
-                            <input type="text" disabled id="present_district" value="জেলা" class="form-control"
-                                placeholder="" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="row form-group">
-                        <label for="present_upazila_id" class="col-sm-3 control-label">উপজেলা/থানা <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="present_upazila_id_status">
-                            <select name="present_upazila_id" class="form-control" required="" id="present_upazila_id">
-                                <option value="">থানা</option>
-                                @forelse ($thana as $tha)
-                                <option class="thana thana{{$tha->upazila_id}}" value="{{ $tha->id }}">{{ $tha->name }}</option>
-                                @empty
-                                <p>No Thana found</p>
-                                @endforelse
-                            </select>
-                            {{-- <select
-                                onchange="getLocation($(this).val(), 'present_upazila', 'present_post_office_append', 'present_postoffice_id', 'present_postoffice', 6 )"
-                                name="present_upazila_id" id="present_upazila_id" class="form-control"
-                                data-parsley-required>
-                                <option value="" id="present_upazila_append">চিহ্নিত করুন</option>
-                                <option value="" id="present_upazila_append">চিহ্নিত করুন</option>
-                            </select>
-                            <span class="bt-flabels__error-desc">উপজেলা/থানা নির্বাচন করুন....</span>
-
-                            <span id="present_upazila_id_feedback" class="help-block"></span> --}}
-                        </div>
-
-                        <label for="present_upazila" class="col-sm-3 control-label">উপজেলা/থানা <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3">
-                            <input type="text" disabled id="present_upazila" value="উপজেলা/থানা" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="row form-group">
-                        <label for="present_postoffice_id" class="col-sm-3 control-label">পোষ্ট অফিস <span
-                                class="text-danger">*</span></label>
-                        <div class="col-sm-3 bt-flabels__wrapper" id="present_postoffice_id_status">
-                            <select name="present_postoffice_id" id="present_postoffice_id" class="form-control">
-                                <option value="">পোষ্ট অফিস নির্বাচন করুন</option>
-                                <option value="1">কমলাপুর</option>
-                                <option value="2">শ্যামলী</option>
-                                <option value="3">শাহবাগ</option>
-                            </select>
-                            {{-- <select onchange="getLocation($(this).val(), 'present_postoffice')"
-                                name="present_postoffice_id" id="present_postoffice_id1" class="form-control"
-                                data-parsley-required>
-                                <option value="" id="present_post_office_append">চিহ্নিত করুন</option>
-                            </select>
-                            <span class="bt-flabels__error-desc">পোষ্ট অফিস নির্বাচন করুন....</span>
-
-                            <span id="present_postoffice_id_feedback" class="help-block"></span> --}}
-                        </div>
-
-                        <label for="present_postoffice" class="col-sm-3 control-label">পোষ্ট অফিস <span class="text-danger">*</span></label>
-                        <div class="col-sm-3">
-                            <input type="text" disabled id="present_postoffice" value="পোষ্ট অফিস" class="form-control"
-                                placeholder="" />
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             <div class="row" style="margin-top: 50px;">
@@ -849,6 +651,25 @@
     };
 
     });
+
+        /* ========search Holding data======== */
+        $('#search_h').click(function(){
+        var present_holding_no = $('#present_holding_no').val();
+        $.ajax({
+            url:'{{ route("dis.getholding") }}',
+            type: 'GET',
+            data: {'id':present_holding_no},
+            success: function(data){
+                // console.log(data);
+            if(data){
+                        $('#checkExist').val(data[0].id);
+                        $('#present_village_bn').val(data[0].village);
+                        $('#present_ward_no').val(data[0].ward_no);
+
+                    }
+                }
+            });
+        });
     });
 </script>
 

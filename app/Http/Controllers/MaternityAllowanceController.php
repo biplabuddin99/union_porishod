@@ -71,9 +71,6 @@ class MaternityAllowanceController extends Controller
             $p->present_rbs_bn=$request->present_rbs_bn;
             $p->present_holding_no=$request->present_holding_no;
             $p->present_ward_no=$request->present_ward_no;
-            $p->present_district_id=$request->present_district_id;
-            $p->present_upazila_id=$request->present_upazila_id;
-            $p->present_postoffice_id=$request->present_postoffice_id;
             $p->permanent_village_en=$request->permanent_village_en;
             $p->permanent_village_bn=$request->permanent_village_bn;
             $p->permanent_rbs_en=$request->permanent_rbs_en;

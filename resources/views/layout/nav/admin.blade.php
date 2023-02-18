@@ -7,6 +7,12 @@
             <span>{{__('ড্যাশবোর্ড') }}</span>
         </a>
     </li>
+    <li class="sidebar-item">
+        <a href="{{route(currentUser().'.porishodsettiong.index')}}" class='sidebar-link'>
+            <i class="bi bi-grid-fill"></i>
+            <span>{{__('পরিষদ সেটিংস') }}</span>
+        </a>
+    </li>
 
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
@@ -59,6 +65,7 @@
             </li>
         </ul>
     </li>
+
     {{-- অনলাইন আবেদন --}}
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>

@@ -22,6 +22,7 @@ use App\Http\Controllers\OldageAllowanceController as oldallowance;
 use App\Http\Controllers\WidowAllowanceController as widowallowance;
 use App\Http\Controllers\MaternityAllowanceController as maternityallowance;
 use App\Http\Controllers\VgfCardController as vgfcard;
+use App\Http\Controllers\PorishodSettingController as porishodsettiong;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -88,6 +89,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('maternityallowance',maternityallowance::class,['as'=>'admin']);
         Route::resource('vgfcard',vgfcard::class,['as'=>'admin']);
         Route::get('/dis/search',[disablity::class,'getholding'])->name('dis.getholding');
+        // Route::get('/porishod-settings',[porishodsettiong::class,'create'])->name('porishod.setting');
+        Route::resource('porishodsettiong',porishodsettiong::class,['as'=>'admin']);
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);

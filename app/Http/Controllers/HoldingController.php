@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Holding;
 use Illuminate\Http\Request;
+use App\Http\Requests\HoldingCreateRequest;
 use PhpParser\Node\Stmt\Return_;
 use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
@@ -39,7 +40,7 @@ class HoldingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HoldingCreateRequest $request)
     {
         try{
             $holding=new Holding;
