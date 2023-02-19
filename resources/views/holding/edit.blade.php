@@ -1,7 +1,17 @@
 @extends('layout.app')
-@section('pageTitle',trans('হোল্ডিং আপডেট'))
+{{-- @section('pageTitle',trans('হোল্ডিং আপডেট')) --}}
 
 @section('content')
+<section style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center bg-warning"
+                style="margin-top: 20px; margin-bottom: 20px; border-radius: 4px;">
+                <h4 style="color: rgb(12, 12, 11); padding-top: 5px;">হোল্ডিং আপডেট করুন</h4>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="multiple-column-form">
     <div class="row match-height">
@@ -22,25 +32,40 @@
                                     <input class="form-control datepicker" name="holding_date" value="{{ old("holding_date",$hold->holding_date) }}" id="holding_date" type="text" placeholder="মাস-দিন-বছর">
                                 </div>
                             </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="head_household">বাড়ির প্রধানের নাম  :-</label>
-                                <input class="form-control" type="text"
-                                name="head_household" value="{{ old('head_household',$hold->head_household) }}" id="head_household" placeholder="বাড়ির প্রধানের নাম" required>
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="father_name">পিতার নাম :-</label>
-                                <input class="form-control" type="text"
-                                name="father_name" value="{{ old('father_name',$hold->father_name) }}" id="father_name" placeholder="পিতার নাম" required>
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="mother_name">মাতার নাম :-</label>
-                                <input class="form-control" type="text"
-                                name="mother_name" value="{{ old('mother_name',$hold->mother_name) }}" id="mother_name" placeholder="মাতার নাম">
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
-                                <input class="form-control" type="text"
-                                name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="head_household">বাড়ির প্রধানের নাম  :-</label>
+                                        <input class="form-control" type="text"
+                                        name="head_household" value="{{ old('head_household',$hold->head_household) }}" id="head_household" placeholder="বাড়ির প্রধানের নাম" required>
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                        <input class="form-control" type="text"
+                                        name="father_name" value="{{ old('father_name',$hold->father_name) }}" id="father_name" placeholder="পিতার নাম" required>
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="mother_name">মাতার নাম :-</label>
+                                        <input class="form-control" type="text"
+                                        name="mother_name" value="{{ old('mother_name',$hold->mother_name) }}" id="mother_name" placeholder="মাতার নাম">
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
+                                        <input class="form-control" type="text"
+                                        name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <label for="cropzee-input">
+                                        <div class="image-overlay mt-5">
+                                                <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding') }}/{{ $hold->image  }}" class="form-control dropify">
+                                            <div class="overlay">
+                                                <div class="text">ছবি দিতে ক্লিক করুন</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    {{-- <input id="cropzee-input" style="display: none;" name="photo" type="file" accept="image/*"> --}}
+                                </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
