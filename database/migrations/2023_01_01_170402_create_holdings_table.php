@@ -59,6 +59,7 @@ return new class extends Migration
             $table->string('taxable_value_house')->nullable();
             $table->string('annual_tax_amount')->nullable();
             $table->string('total_tax')->nullable();
+            $table->string('image')->nullable();
             $table->string('signature_informant')->nullable();
             $table->string('signature_collector')->nullable();
             $table->timestamps();

@@ -88,6 +88,8 @@ class HoldingController extends Controller
             $holding->taxable_value_house=$request->taxable_value_house;
             $holding->annual_tax_amount=$request->annual_tax_amount;
             $holding->total_tax=$request->total_tax;
+            if($request->has('image'))
+            $holding->image=$this->resizeImage($request->image,'uploads/holding',true,300,300,false);
 
             if($request->has('signature_informant'))
             $holding->signature_informant=$this->resizeImage($request->signature_informant,'uploads/holding',true,200,200,false);

@@ -22,49 +22,64 @@
                         <form action="{{route(currentUser().'.holding.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-3 offset-1">
+                                <div class="col-6">
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
-                                    <input class="form-control" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
+                                    <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div>
-                                <div class="col-3 offset-1 float-right">
+                                <div class="col-6" style="padding-left: 200px;">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
-                                    <input class="form-control datepicker" name="holding_date" value="{{ old("holding_date") }}" id="holding_date" type="text" placeholder="মাস-দিন-বছর">
+                                    <input class="form-control col-6 datepicker" name="holding_date" value="{{ old("holding_date") }}" id="holding_date" type="text" placeholder="মাস-দিন-বছর">
                                 </div>
                             </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="head_household">বাড়ির প্রধানের নাম  :-</label>
-                                <input class="form-control @error('head_household') is-invalid @enderror" type="text"
-                                name="head_household" value="{{ old('head_household') }}" id="head_household" placeholder="বাড়ির প্রধানের নাম">
-                                @if($errors->has('head_household'))
-                                <small class="d-block text-danger">
-                                    {{ $errors->first('head_household') }}
-                                </small>
-                                @endif
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="father_name">পিতার নাম :-</label>
-                                <input class="form-control @error('father_name') is-invalid @enderror" type="text"
-                                name="father_name" value="{{ old('father_name') }}" id="father_name" placeholder="পিতার নাম">
-                                @if($errors->has('father_name'))
-                                <small class="d-block text-danger">
-                                    {{ $errors->first('father_name') }}
-                                </small>
-                                @endif
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="mother_name">মাতার নাম :-</label>
-                                <input class="form-control @error('mother_name') is-invalid @enderror" type="text"
-                                name="mother_name" value="{{ old('mother_name') }}" id="mother_name" placeholder="মাতার নাম">
-                                @if($errors->has('mother_name'))
-                                <small class="d-block text-danger">
-                                    {{ $errors->first('mother_name') }}
-                                </small>
-                                @endif
-                            </div>
-                            <div class="row m-2">
-                                <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
-                                <input class="form-control" type="text"
-                                name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                            <div class="row">
+                                <div class="col-8 m-0 p-0">
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="head_household">বাড়ির প্রধানের নাম  :-</label>
+                                        <input class="form-control @error('head_household') is-invalid @enderror" type="text"
+                                        name="head_household" value="{{ old('head_household') }}" id="head_household" placeholder="বাড়ির প্রধানের নাম">
+                                        @if($errors->has('head_household'))
+                                        <small class="d-block text-danger">
+                                            {{ $errors->first('head_household') }}
+                                        </small>
+                                        @endif
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                        <input class="form-control @error('father_name') is-invalid @enderror" type="text"
+                                        name="father_name" value="{{ old('father_name') }}" id="father_name" placeholder="পিতার নাম">
+                                        @if($errors->has('father_name'))
+                                        <small class="d-block text-danger">
+                                            {{ $errors->first('father_name') }}
+                                        </small>
+                                        @endif
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="mother_name">মাতার নাম :-</label>
+                                        <input class="form-control @error('mother_name') is-invalid @enderror" type="text"
+                                        name="mother_name" value="{{ old('mother_name') }}" id="mother_name" placeholder="মাতার নাম">
+                                        @if($errors->has('mother_name'))
+                                        <small class="d-block text-danger">
+                                            {{ $errors->first('mother_name') }}
+                                        </small>
+                                        @endif
+                                    </div>
+                                    <div class="row m-2">
+                                        <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
+                                        <input class="form-control" type="text"
+                                        name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <label for="cropzee-input">
+                                        <div class="image-overlay mt-5">
+                                                <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding/default.jpg') }}" class="form-control dropify">
+                                            <div class="overlay">
+                                                <div class="text">ছবি দিতে ক্লিক করুন</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    {{-- <input id="cropzee-input" style="display: none;" name="photo" type="file" accept="image/*"> --}}
+                                </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
