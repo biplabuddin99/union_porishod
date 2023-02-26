@@ -24,28 +24,64 @@ return new class extends Migration
 
         DB::table('ward_nos')->insert([
             [
-                'ward_name'=>'1no',
+                'ward_name'=>'1no Ward',
                 'ward_name_bn'=>'১ নং ওয়ার্ড',
             ],
             [
-                'ward_name'=>'2no',
+                'ward_name'=>'2no Ward',
                 'ward_name_bn'=>'২ নং ওয়ার্ড',
             ],
             [
-                'ward_name'=>'3no',
+                'ward_name'=>'3no Ward',
                 'ward_name_bn'=>'৩ নং ওয়ার্ড',
             ],
             [
-                'ward_name'=>'4no',
+                'ward_name'=>'4no Ward',
                 'ward_name_bn'=>'৪ নং ওয়ার্ড',
             ],
             [
-                'ward_name'=>'5no',
+                'ward_name'=>'5no Ward',
                 'ward_name_bn'=>'৫ নং ওয়ার্ড',
             ],
             [
-                'ward_name'=>'6no',
+                'ward_name'=>'6no Ward',
                 'ward_name_bn'=>'৬ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'7no Ward',
+                'ward_name_bn'=>'৭ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'8no Ward',
+                'ward_name_bn'=>'৮ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'9no Ward',
+                'ward_name_bn'=>'৯ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'10no Ward',
+                'ward_name_bn'=>'১০ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'11no Ward',
+                'ward_name_bn'=>'১১ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'12no Ward',
+                'ward_name_bn'=>'১২ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'13no Ward',
+                'ward_name_bn'=>'১৩ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'14no Ward',
+                'ward_name_bn'=>'১৪ নং ওয়ার্ড',
+            ],
+            [
+                'ward_name'=>'15no Ward',
+                'ward_name_bn'=>'১৫ নং ওয়ার্ড',
             ],
         ]);
     }

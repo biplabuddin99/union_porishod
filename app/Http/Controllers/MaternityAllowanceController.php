@@ -111,9 +111,13 @@ class MaternityAllowanceController extends Controller
      * @param  \App\Models\MaternityAllowance  $maternityAllowance
      * @return \Illuminate\Http\Response
      */
-    public function show(MaternityAllowance $maternityAllowance)
+    public function show($id)
     {
-        //
+        $maternity = MaternityAllowance::findOrFail(encryptor('decrypt',$id));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('maternity_allowance.show',compact('maternity','district','thana','ward'));
     }
 
     /**

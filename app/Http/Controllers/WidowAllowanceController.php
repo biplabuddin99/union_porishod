@@ -112,9 +112,13 @@ class WidowAllowanceController extends Controller
      * @param  \App\Models\WidowAllowance  $widowAllowance
      * @return \Illuminate\Http\Response
      */
-    public function show(WidowAllowance $widowAllowance)
+    public function show($id)
     {
-        //
+        $windowallowance = WidowAllowance::findOrFail(encryptor('decrypt',$id));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('widow_allowance.show',compact('windowallowance','district','thana','ward'));
     }
 
     /**

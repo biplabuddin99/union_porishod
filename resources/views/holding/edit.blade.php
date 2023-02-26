@@ -215,27 +215,27 @@
                                 <label  class="form-label" for="edu_qual">শিক্ষাগত যোগ্যতা :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual1" value="1" {{old('edu_qual') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual1" value="1" @if(in_array(1, $education)) checked @endif />
                                         <label  class="form-label" for="edu_qual1">স্ব-শিক্ষিত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual2" value="2" {{old('edu_qual') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual2" value="2" @if(in_array(2, $education)) checked @endif />
                                         <label  class="form-label" for="edu_qual2">প্রাথমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual3" value="3" {{old('edu_qual') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual3" value="3" @if(in_array(3, $education)) checked @endif/>
                                         <label  class="form-label" for="edu_qual3">মাধ্যমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual4" value="4" {{old('edu_qual') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual4" value="4" @if(in_array(4, $education)) checked @endif/>
                                         <label  class="form-label" for="edu_qual4">উচ্চ-মাধ্যমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual5" value="5" {{old('edu_qual') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="edu_qual[]" id="edu_qual5" value="5" @if(in_array(5, $education)) checked @endif/>
                                         <label  class="form-label" for="edu_qual5">উচ্চতর-ডিগ্রী</label>
                                     </div>
                                 </div>
@@ -305,27 +305,27 @@
                                 <label  class="form-label" for="mobile_bank"> মোবাইল ব্যাংক:-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" {{old('mobile_bank') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" @if(in_array(1, $Mobile)) checked @endif />
                                         <label  class="form-label" for="mobile_bank1">নগদ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2" {{old('mobile_bank') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2"  @if(in_array(2, $Mobile)) checked @endif />
                                         <label  class="form-label" for="mobile_bank2">বিকাশ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3" {{old('mobile_bank') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3"  @if(in_array(3, $Mobile)) checked @endif/>
                                         <label  class="form-label" for="mobile_bank3">রকেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4" {{old('mobile_bank') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4"  @if(in_array(4, $Mobile)) checked @endif/>
                                         <label  class="form-label" for="mobile_bank4">উপায়</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5" {{old('mobile_bank') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5"  @if(in_array(5, $Mobile)) checked @endif/>
                                         <label  class="form-label" for="mobile_bank5">অন্যান্য</label>
                                     </div>
                                 </div>
@@ -336,27 +336,27 @@
                                 <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" @if(in_array(1, $Govt_fac)) checked @endif />
                                         <label  class="form-label" for="government_facilities1">ভিজিএফ কার্ড</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities2" value="2" {{old('government_facilities') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities2" value="2" @if(in_array(2, $Govt_fac)) checked @endif />
                                         <label  class="form-label" for="government_facilities2">বয়স্ক ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities3" value="3" {{old('government_facilities') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities3" value="3" @if(in_array(3, $Govt_fac)) checked @endif/>
                                         <label  class="form-label" for="government_facilities3">মাতৃত্বকালীন ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities4" value="4" {{old('government_facilities') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities4" value="4" @if(in_array(4, $Govt_fac)) checked @endif/>
                                         <label  class="form-label" for="government_facilities4">প্রতিবন্ধী ভাতা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" @if(in_array(5, $Govt_fac)) checked @endif/>
                                         <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
                                     </div>
                                 </div>
@@ -396,27 +396,27 @@
                                 <label  class="form-label" for=""> ডিজিটাল ডিভাইস :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" {{old('digital_devices') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" @if(in_array(1, $Digital_div)) checked @endif />
                                         <label  class="form-label" for="digital_devices1">নরমাল মোবাইল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" {{old('digital_devices') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" @if(in_array(2, $Digital_div)) checked @endif />
                                         <label  class="form-label" for="digital_devices2">স্মার্ট ফোন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" {{old('digital_devices') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" @if(in_array(3, $Digital_div)) checked @endif/>
                                         <label  class="form-label" for="digital_devices3">কম্পিউটার/ল্যাপটপ</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" {{old('digital_devices') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" @if(in_array(4, $Digital_div)) checked @endif/>
                                         <label  class="form-label" for="digital_devices4">ইন্টারনেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" @if(in_array(5, $Digital_div)) checked @endif/>
                                         <label  class="form-label" for="digital_devices5">টিভি</label>
                                     </div>
                                 </div>
@@ -426,27 +426,27 @@
                                 <label  class="form-label" for="telecommunications"> টেলিযোগাযোগ :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications1" value="1" {{old('telecommunications') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications1" value="1" @if(in_array(1, $Telecommunic)) checked @endif />
                                         <label  class="form-label" for="telecommunications1">টেলিটক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications2" value="2" {{old('telecommunications') == '2' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications2" value="2" @if(in_array(2, $Telecommunic)) checked @endif/>
                                         <label  class="form-label" for="telecommunications2">গ্রামীন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications3" value="3" {{old('telecommunications') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications3" value="3" @if(in_array(3, $Telecommunic)) checked @endif/>
                                         <label  class="form-label" for="telecommunications3">এয়ারটেল/রবি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications4" value="4" {{old('telecommunications') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications4" value="4" @if(in_array(4, $Telecommunic)) checked @endif/>
                                         <label  class="form-label" for="telecommunications4">বাংলালিংক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications5" value="5" {{old('telecommunications') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="telecommunications[]" id="telecommunications5" value="5" @if(in_array(5, $Telecommunic)) checked @endif/>
                                         <label  class="form-label" for="telecommunications5">টিএনটি</label>
                                     </div>
                                 </div>
@@ -456,105 +456,105 @@
                                 <label  class="form-label" for="source_income"> পেশা বা আয়ের উৎস :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income1" value="1" {{old('source_income') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income1" value="1" @if(in_array(1, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income1">চাকুরি<small>(সরকারি)</small></label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income2" value="2" {{old('source_income') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income2" value="2" @if(in_array(2, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income2">চাকুরি<small>(বে-সরকারি)</small></label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income3" value="3" {{old('source_income') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income3" value="3" @if(in_array(3, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income3">ব্যবসা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income4" value="4" {{old('source_income') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income4" value="4" @if(in_array(4, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income4">কৃষি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income5" value="5" {{old('source_income') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income5" value="5" @if(in_array(5, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income5">শিক্ষক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income6" value="6" {{old('source_income') == '6' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income6" value="6" @if(in_array(6, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income6">প্রকৌশলি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income7" value="7" {{old('source_income') == '7' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income7" value="7" @if(in_array(7, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income7">আইনজীবী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income8" value="8" {{old('source_income') == '8' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income8" value="8" @if(in_array(8, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income8">চিকিৎসক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income9" value="9" {{old('source_income') == '9' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income9" value="9" @if(in_array(9, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income9">শ্রমিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income10" value="10" {{old('source_income') == '10' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income10" value="10" @if(in_array(10, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income10">খাবার হোটেল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income11" value="11" {{old('source_income') == '11' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income11" value="11" @if(in_array(11, $Source_inc)) checked @endif />
                                         <label  class="form-label" for="source_income11">মৎস  খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income12" value="12" {{old('source_income') == '12' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income12" value="12" @if(in_array(12, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income12">ক্ষুদ্র ও কুটির শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income13" value="13" {{old('source_income') == '13' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income13" value="13" @if(in_array(13, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income13">গবাদি পশুর খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income14" value="14" {{old('source_income') == '14' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income14" value="14" @if(in_array(14, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income14">গাড়ী চালক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income15" value="15" {{old('source_income') == '15' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income15" value="15" @if(in_array(15, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income15"> ঠিকাদার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income16" value="16" {{old('source_income') == '16' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income16" value="16" @if(in_array(16, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income16">মাঝারি শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income17" value="17" {{old('source_income') == '17' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income17" value="17" @if(in_array(17, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income17">নারী উদ্যোক্তা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income18" value="18" {{old('source_income') == '18' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income18" value="18" @if(in_array(18, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income18">হাঁস-মুরগির খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income19" value="19" {{old('source_income') == '19' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income19" value="19" @if(in_array(19, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income19">প্রবাসী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income20" value="20" {{old('source_income') == '20' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="source_income[]" id="source_income20" value="20" @if(in_array(20, $Source_inc)) checked @endif/>
                                         <label  class="form-label" for="source_income20"> অন্যান্য</label>
                                     </div>
                                 </div>
@@ -564,261 +564,261 @@
                                 <label  class="form-label" for="business_taxes">ব্যবসায়িক করের উৎস  :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes1" value="1" {{old('business_taxes') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes1" value="1" @if(in_array(1, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes1">কৃষি খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes2" value="2" {{old('business_taxes') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes2" value="2" @if(in_array(2, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes2">মৎস খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes3" value="3" {{old('business_taxes') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes3" value="3" @if(in_array(3, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes3">দুগ্ধ খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes4" value="4" {{old('business_taxes') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes4" value="4" @if(in_array(4, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes4">হাঁস-মুরগীর খামার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes5" value="5" {{old('business_taxes') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes5" value="5" @if(in_array(5, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes5">গবাদি পশুর খামার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes6" value="6" {{old('business_taxes') == '6' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes6" value="6" @if(in_array(6, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes6">মুদির দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes7" value="7" {{old('business_taxes') == '7' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes7" value="7" @if(in_array(7, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes7">আর্থিক প্রতিষ্ঠান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes8" value="8" {{old('business_taxes') == '8' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes8" value="8" @if(in_array(8, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes8">ক্ষুদ্র ও কুটির শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes9" value="9" {{old('business_taxes') == '9' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes9" value="9" @if(in_array(9, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes9">মাঝারি শিল্প</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes10" value="10" {{old('business_taxes') == '10' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes10" value="10" @if(in_array(10, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes10">খাবার হোটেল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes11" value="11" {{old('business_taxes') == '11' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes11" value="11" @if(in_array(11, $Business_tax)) checked @endif />
                                         <label  class="form-label" for="business_taxes11">প্রকৌশলী</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes12" value="12" {{old('business_taxes') == '12' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes12" value="12" @if(in_array(12, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes12">আইনজীবি</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes13" value="13" {{old('business_taxes') == '13' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes13" value="13" @if(in_array(13, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes13"> চিকিৎসক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes14" value="14" {{old('business_taxes') == '14' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes14" value="14" @if(in_array(14, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes14">ক্লিনিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes15" value="15" {{old('business_taxes') == '15' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes15" value="15" @if(in_array(15, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes15">ঔষদের দোকান</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes16" value="16" {{old('business_taxes') == '16' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes16" value="16" @if(in_array(16, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes16">আবাসিক হোটেল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes17" value="17" {{old('business_taxes') == '17' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes17" value="17" @if(in_array(17, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes17">মিষ্টির দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes18" value="18" {{old('business_taxes') == '18' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes18" value="18" @if(in_array(18, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes18">বে-সরকারি হাসপাতাল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes19" value="19" {{old('business_taxes') == '19' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes19" value="19" @if(in_array(19, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes19">বে-সরকারি স্কুল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes20" value="20" {{old('business_taxes') == '20' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes20" value="20" @if(in_array(20, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes20"> কোচিং সেন্টার</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes21" value="21" {{old('business_taxes') == '21' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes21" value="21" @if(in_array(21, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes21">খাবারের হোটেল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes22" value="22" {{old('business_taxes') == '22' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes22" value="22" @if(in_array(22, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes22">হিমাগার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes23" value="23" {{old('business_taxes') == '23' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes23" value="23" @if(in_array(23, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes23">ধান ভাঙানোর কল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes24" value="24" {{old('business_taxes') == '24' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes24" value="24" @if(in_array(24, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes24">আটার কল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes25" value="25" {{old('business_taxes') == '25' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes25" value="25" @if(in_array(25, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes25">তেলের কল</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes26" value="26" {{old('business_taxes') == '26' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes26" value="26" @if(in_array(26, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes26">স’মিল</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes27" value="27" {{old('business_taxes') == '27' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes27" value="27" @if(in_array(27, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes27">বিউটি পার্লার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes28" value="28" {{old('business_taxes') == '28' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes28" value="28" @if(in_array(28, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes28">হেয়ার কাট সেলুন</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes29" value="29" {{old('business_taxes') == '29' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes29" value="29" @if(in_array(29, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes29">লন্ড্রীর দোকান</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes30" value="30" {{old('business_taxes') == '30' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes30" value="30" @if(in_array(30, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes30">ইঞ্জিনিয়রিং ফার্ম</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes31" value="31" {{old('business_taxes') == '31' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes31" value="31" @if(in_array(31, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes31">শিল্প কারখানা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes32" value="32" {{old('business_taxes') == '32' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes32" value="32" @if(in_array(32, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes32">ইট ভাটা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes33" value="33" {{old('business_taxes') == '33' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes33" value="33" @if(in_array(33, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes33"> কনসালটেন্সি ফার্ম</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes34" value="34" {{old('business_taxes') == '34' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes34" value="34" @if(in_array(34, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes34">গুদাম</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes35" value="35" {{old('business_taxes') == '35' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes35" value="35" @if(in_array(35, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes35">রিক্মার মালিক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes36" value="36" {{old('business_taxes') == '36' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes36" value="36" @if(in_array(36, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes36">বাজার ইজারা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes37" value="37" {{old('business_taxes') == '37' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes37" value="37" @if(in_array(37, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes37">টেম্পের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes38" value="38" {{old('business_taxes') == '38' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes38" value="38" @if(in_array(38, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes38">বাসের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes39" value="39" {{old('business_taxes') == '39' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes39" value="39" @if(in_array(39, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes39">ট্রাকের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes40" value="40" {{old('business_taxes') == '40' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes40" value="40" @if(in_array(40, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes40"> পরিবহন এজেন্সী</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes41" value="41" {{old('business_taxes') == '41' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes41" value="41" @if(in_array(41, $Business_tax)) checked @endif />
                                         <label  class="form-label" for="business_taxes41">নৌযানের মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes42" value="42" {{old('business_taxes') == '42' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes42" value="42" @if(in_array(42, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes42">অটো রিক্সার মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes43" value="43" {{old('business_taxes') == '43' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes43" value="43" @if(in_array(43, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes43">স্টীমার/কার্গোর মালিক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes44" value="44" {{old('business_taxes') == '44' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes44" value="44" @if(in_array(44, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes44">শিশু পার্ক</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes45" value="45" {{old('business_taxes') == '45' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes45" value="45" @if(in_array(45, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes45"> বিনোদন পার্ক</label>
                                     </div>
                                 </div>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes46" value="46" {{old('business_taxes') == '46' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes46" value="46" @if(in_array(46, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes46">পশু জবাইয়</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes47" value="47" {{old('business_taxes') == '47' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes47" value="47" @if(in_array(47, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes47">১ম শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes48" value="48" {{old('business_taxes') == '48' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes48" value="48" @if(in_array(48, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes48">২য় শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes49" value="49" {{old('business_taxes') == '49' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes49" value="49" @if(in_array(49, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes49">৩য় শ্রেণীর ঠিকাদার</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes50" value="50" {{old('business_taxes') == '50' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="business_taxes[]" id="business_taxes50" value="50" @if(in_array(50, $Business_tax)) checked @endif/>
                                         <label  class="form-label" for="business_taxes50"> অন্যান্য</label>
                                     </div>
                                 </div>
@@ -848,27 +848,27 @@
                                 <label  class="form-label" for="residence_type"> বসত বাড়ির ধরন :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type1" value="1" {{old('residence_type') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type1" value="1" @if(in_array(1, $Residence)) checked @endif/>
                                         <label  class="form-label" for="residence_type1">কাচা-ঘর</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type2" value="2" {{old('residence_type') == '2' ? 'checked' : ''}} />
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type2" value="2" @if(in_array(2, $Residence)) checked @endif/>
                                         <label  class="form-label" for="residence_type2">টিনসেট</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type3" value="3" {{old('residence_type') == '3' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type3" value="3" @if(in_array(3, $Residence)) checked @endif/>
                                         <label  class="form-label" for="residence_type3">আধা-পাকা</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type4" value="4" {{old('residence_type') == '4' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type4" value="4" @if(in_array(4, $Residence)) checked @endif/>
                                         <label  class="form-label" for="residence_type4">পাকা ইমারত</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type5" value="5" {{old('residence_type') == '5' ? 'checked' : ''}}/>
+                                        <input class="form-check-input" type="checkbox" name="residence_type[]" id="residence_type5" value="5" @if(in_array(5, $Residence)) checked @endif/>
                                         <label  class="form-label" for="residence_type5"></label>
                                     </div>
                                 </div>

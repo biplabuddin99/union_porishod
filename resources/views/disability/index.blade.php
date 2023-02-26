@@ -1,16 +1,35 @@
 @extends('layout.app')
-@section('pageTitle',trans('প্রতিবন্ধী তালিকা'))
+{{-- @section('pageTitle',trans('প্রতিবন্ধী তালিকা')) --}}
 
 @section('content')
-
+<section style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center bg-primary"
+                style="margin-top: 20px; margin-bottom: 20px; border-radius: 4px;">
+                <h4 style="color: white; padding-top: 5px;">প্রতিবন্ধী তালিকা</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="input-group m-3">
+    <input type="search" id="search-data" class="form-control"
+        placeholder="ন্যাশনাল আইডি নং অথবা জন্ম নিবন্ধন নং অথবা পাসপোর্ট নং অথবা পিন নং দিন ইংরেজিতে">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" id="search-btn">
+            {{-- <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> --}}
+            <span class="ion-ios-search" aria-hidden="true"></span> Search
+        </button>
+    </span>
+</div>
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
 
             <div class="card">
-                <div>
+                {{-- <div>
                 <a class="float-end" href="{{route(currentUser().'.disablity.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
-                </div>
+                </div> --}}
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
                 @endif

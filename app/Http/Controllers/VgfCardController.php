@@ -111,9 +111,13 @@ class VgfCardController extends Controller
      * @param  \App\Models\VgfCard  $vgfCard
      * @return \Illuminate\Http\Response
      */
-    public function show(VgfCard $vgfCard)
+    public function show($id)
     {
-        //
+        $vgf = VgfCard::findOrFail(encryptor('decrypt',$id));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('vgfcard.show',compact('vgf','district','thana','ward'));
     }
 
     /**

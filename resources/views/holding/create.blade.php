@@ -26,7 +26,7 @@
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div>
-                                <div class="col-6" style="padding-left: 200px;">
+                                <div class="col-6">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
                                     <input class="form-control col-6 datepicker" name="holding_date" value="{{ old("holding_date") }}" id="holding_date" type="text" placeholder="মাস-দিন-বছর">
                                 </div>
@@ -271,10 +271,10 @@
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
-                                <label  class="form-label" for="edu_qual">শিক্ষাগত যোগ্যতা :-</label>
+                                <label  class="form-label" for="edu_qual0">শিক্ষাগত যোগ্যতা :-</label>
                                 <div class="row m-2">
                                     <div class="col-2">
-                                        <input class="form-check-input @error('edu_qual') is-invalid @enderror" type="checkbox" name="edu_qual[]" id="edu_qual1" value="1" {{old('edu_qual') == '1' ? 'checked' : ''}} />
+                                        <input class="form-check-input @error('edu_qual') is-invalid @enderror" type="checkbox" name="edu_qual[]" id="edu_qual1" value="1" {{(!empty(old('edu_qual')) == '1' ? 'checked' : '')}} />
                                         <label  class="form-label" for="edu_qual1">স্ব-শিক্ষিত</label>
                                     </div>
 

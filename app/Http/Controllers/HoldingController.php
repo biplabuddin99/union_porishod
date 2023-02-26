@@ -117,10 +117,15 @@ class HoldingController extends Controller
     public function show($id)
     {
         $hold = Holding::findOrFail(encryptor('decrypt',$id));
-        // $ed=$hold->edu_qual;
-        // $edu=explode(',',$array['ed']);
-        // return $edu;
-        return view('holding.show',compact('hold'));
+        $education = explode(',', $hold->edu_qual);
+        $Mobile = explode(',', $hold->mobile_bank);
+        $Govt_fac = explode(',', $hold->government_facilities);
+        $Digital_div = explode(',', $hold->digital_devices);
+        $Telecommunic = explode(',', $hold->telecommunications);
+        $Source_inc = explode(',', $hold->source_income);
+        $Business_tax = explode(',', $hold->business_taxes);
+        $Residence = explode(',', $hold->residence_type);
+        return view('holding.show',compact('hold','education','Mobile','Govt_fac','Digital_div','Telecommunic','Source_inc','Business_tax','Residence'));
     }
 
     /**
@@ -132,7 +137,15 @@ class HoldingController extends Controller
     public function edit($id)
     {
         $hold=Holding::findOrFail(encryptor('decrypt',$id));
-        return view('holding.edit',compact('hold'));
+        $education = explode(',', $hold->edu_qual);
+        $Mobile = explode(',', $hold->mobile_bank);
+        $Govt_fac = explode(',', $hold->government_facilities);
+        $Digital_div = explode(',', $hold->digital_devices);
+        $Telecommunic = explode(',', $hold->telecommunications);
+        $Source_inc = explode(',', $hold->source_income);
+        $Business_tax = explode(',', $hold->business_taxes);
+        $Residence = explode(',', $hold->residence_type);
+        return view('holding.edit',compact('hold','education','Mobile','Govt_fac','Digital_div','Telecommunic','Source_inc','Business_tax','Residence'));
     }
 
     /**

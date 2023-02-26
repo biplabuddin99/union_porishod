@@ -113,9 +113,13 @@ class OldageAllowanceController extends Controller
      * @param  \App\Models\OldageAllowance  $oldageAllowance
      * @return \Illuminate\Http\Response
      */
-    public function show(OldageAllowance $oldageAllowance)
+    public function show($id)
     {
-        //
+        $oldallowance = OldageAllowance::findOrFail(encryptor('decrypt',$id));
+        $district=District::all();
+        $thana=Thana::all();
+        $ward=Ward_no::all();
+        return view('oldage_allowance.show',compact('oldallowance','district','thana','ward'));
     }
 
     /**

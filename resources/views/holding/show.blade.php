@@ -92,9 +92,19 @@
             margin: 0px;
 
         }
+        .btn{
+            color: rgb(251, 248, 255);
+            background-color: rgb(65, 17, 236);
+        }
+        @media print{
+            .noprint{
+            display:none;
+        }
+}
     </style>
 </head>
 <body>
+    <a class="noprint" href="{{route(currentUser().'.holding.index')}}"><button class="btn">Back</button></a>
     <div class="wrapper">
         <div class="header" >
             <div class="photo">
@@ -200,11 +210,11 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">শিক্ষাগত যোগ্যতা :-</th>
                     <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->edu_qual=="1" ? "checked":"" }} type="checkbox"><label for="">স্ব-শিক্ষিত</label>&nbsp;&nbsp;
-                        <input value="2" {{ $hold->edu_qual=="2" ? "checked":"" }} type="checkbox"><label for="">প্রাথমিক</label>&nbsp;&nbsp;
-                        <input value="3" {{ $hold->edu_qual=="3" ? "checked":"" }} type="checkbox"><label for="">মাধ্যমিক</label>&nbsp;&nbsp;
-                        <input value="4" {{ $hold->edu_qual=="4" ? "checked":"" }} type="checkbox"><label for="">উচ্চ-মাধ্যমিক</label>&nbsp;&nbsp;
-                        <input value="5" {{ $hold->edu_qual=="5" ? "checked":"" }} type="checkbox"><label for="">উচ্চতর-ডিগ্রী</label></td>
+                        <input value="1" @if(in_array(1, $education)) checked @endif type="checkbox"><label for="">স্ব-শিক্ষিত</label>&nbsp;&nbsp;
+                        <input value="2" @if(in_array(2, $education)) checked @endif type="checkbox"><label for="">প্রাথমিক</label>&nbsp;&nbsp;
+                        <input value="3" @if(in_array(3, $education)) checked @endif type="checkbox"><label for="">মাধ্যমিক</label>&nbsp;&nbsp;
+                        <input value="4" @if(in_array(4, $education)) checked @endif type="checkbox"><label for="">উচ্চ-মাধ্যমিক</label>&nbsp;&nbsp;
+                        <input value="5" @if(in_array(5, $education)) checked @endif type="checkbox"><label for="">উচ্চতর-ডিগ্রী</label></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পরিবারের সদস্য :-</th>

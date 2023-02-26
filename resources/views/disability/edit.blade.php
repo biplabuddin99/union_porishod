@@ -29,60 +29,6 @@
                         <li class='text-danger'>আপনি যদি পূর্বে কোনো সনদ নিয়ে থাকেন, নিচের সার্চ বক্সে আপনার
                             ন্যাশনাল আইডি/জন্ম নিবন্ধন/পাসপোর্ট/পিন নং দিয়ে সার্চ করুন!</li>
                     </ul>
-
-                    <div class="col-md-12">
-                        <div class="row form-group">
-                            <label for="app_district_id" class="col-sm-1 control-label">জেলা<span
-                                    class="text-danger">*</span></label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_district_id">
-                                <select onchange="show_thana(this.value)" name="district_id" class="form-control" required="" id="districtid">
-                                    <option value="">জেলা</option>
-                                    @forelse($district as $dist)
-                                    <option value="{{ $dist->id }}">{{ $dist->name_bn }}</option>
-                                    @empty
-                                    <p>No District found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">জেলা নির্বাচন করুন....</span>
-
-                                <span id="app_district_id_feedback" class="help-block"></span> --}}
-                            </div>
-                            <label for="app_upazila_id" class="col-sm-1 control-label">থানা<span
-                                    class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_upazila_id_status">
-                                <select name="thana_id" class="form-control" required="" id="thanaid">
-                                    <option value="">থানা</option>
-                                    @forelse ($thana as $tha)
-                                    <option class="thana thana{{$tha->upazila_id}}" value="{{ $tha->id }}">{{ $tha->name_bn }}</option>
-                                    @empty
-                                    <p>No Thana found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">থানা নির্বাচন করুন....</span>
-
-                                <span id="app_upazila_id_feedback" class="help-block"></span> --}}
-                            </div>
-
-                            <label for="app_union_id" class="col-sm-1 control-label">ওয়ার্ড<span
-                                    class="text-danger">*</span></label>
-                            <div class="col-sm-3 bt-flabels__wrapper" id="app_union_id_status">
-                                <select name="ward_no_id" class="form-control" id="words">
-                                    <option value="" selected="selected">ওয়ার্ড নং</option>
-                                    @forelse ($ward as $w)
-                                    <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
-                                    @empty
-                                    <p>No Ward found</p>
-                                    @endforelse
-                                </select>
-                                {{-- <span class="bt-flabels__error-desc">ওয়ার্ড নং নির্বাচন করুন....</span>
-
-                                <span id="app_union_id_feedback" class="text-danger"></span> --}}
-                            </div>
-
-                        </div>
-                    </div>
-
                     <div class="input-group">
                         <input type="search" id="search-data" class="form-control"
                             placeholder="ন্যাশনাল আইডি নং অথবা জন্ম নিবন্ধন নং অথবা পাসপোর্ট নং অথবা পিন নং দিন ইংরেজিতে">
