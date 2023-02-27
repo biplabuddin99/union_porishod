@@ -52,7 +52,7 @@
                                     <div class="row m-2">
                                         <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
                                         <input class="form-control" type="text"
-                                        name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                        name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" placeholder="পিতা/ স্বামী">
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center">

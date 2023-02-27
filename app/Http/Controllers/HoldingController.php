@@ -210,12 +210,16 @@ class HoldingController extends Controller
             if($this->deleteImage($holding->signature_informant,$path))
                 $holding->signature_informant=$this->resizeImage($request->signature_informant,$path,true,200,200,false);
 
+            if($request->has('image') && $request->image)
+            if($this->deleteImage($holding->image,$path))
+                $holding->image=$this->resizeImage($request->image,$path,true,200,200,false);
+
             if($request->has('signature_collector') && $request->signature_collector)
             if($this->deleteImage($holding->signature_collector,$path))
                 $holding->signature_collector=$this->resizeImage($request->signature_collector,$path,true,200,200,false);
 
             $holding->save();
-            Toastr::success('holding Created Successfully!');
+            Toastr::success('holding Update Successfully!');
             return redirect(route('holding.index'));
             // dd($request);
         }

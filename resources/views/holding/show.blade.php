@@ -96,6 +96,16 @@
             color: rgb(251, 248, 255);
             background-color: rgb(65, 17, 236);
         }
+        .image{
+            position: absolute;
+            padding-left: 550px;
+            top: 150px;
+            left: 580px;
+            z-index: 2;
+        }
+        .imgreleted{
+            position: relative;
+        }
         @media print{
             .noprint{
             display:none;
@@ -121,9 +131,9 @@
             <div class="datediv"><b>তারিখঃ</b><input class="hdate" value="{{ $hold->holding_date }}" type="text"></div>
         </div>
         <div style="margin-top: 15px;">
-            <table style="width: 100%;">
+            <table class="imgreleted" style="width: 84%;">
                 <tr>
-                    <th style="width: 25%; text-align: left;">বাড়ির প্রধানের নাম :-</th>
+                    <th style="width: 30%; text-align: left;">বাড়ির প্রধানের নাম :-</th>
                     <td><input type="text" value="{{ $hold->head_household }}" class="binput"></td>
                 </tr>
                 <tr>
@@ -139,6 +149,9 @@
                     <td><input type="text" value="{{ $hold->husband_wife }}" class="binput"></td>
                 </tr>
             </table>
+            <div class="image">
+                <img height="100px" width="100px" src="{{ asset('uploads/holding/'.$hold->image)}}" alt="No IMAGE">
+            </div>
             <table style="width: 100%;">
                 <tr>
                     <th style="width: 25%; text-align: left;">নতুন হোল্ডিং নম্বর :-</th>
@@ -226,11 +239,23 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল ব্যাংক :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><label for="">নগদ</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">বিকাশ</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">রকেট</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">উপায়</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">অন্যান্য</label></td>
+                    <td style="border-style: solid; border-width: 1px;">
+                        <input type="checkbox" value="1" @if(in_array(1, $Mobile)) checked @endif><label for="">নগদ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="2" @if(in_array(2, $Mobile)) checked @endif><label for="">বিকাশ</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="3" @if(in_array(3, $Mobile)) checked @endif><label for="">রকেট</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="4" @if(in_array(4, $Mobile)) checked @endif><label for="">উপায়</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="5" @if(in_array(5, $Mobile)) checked @endif><label for="">অন্যান্য</label>
+                    </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">সরকারি সুবিধা :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><label for="">ভিজিএফ কার্ড</label><input type="checkbox"><label for="">বয়স্ক ভাতা</label><input type="checkbox"><label for="">মাতৃত্বকালীন ভাতা</label><input type="checkbox"><label for="">প্রতিবন্ধী ভাতা</label><input type="checkbox"><label for="">বিধবা ভাতা</label></td>
+                    <td style="border-style: solid; border-width: 1px;">
+                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিএফ কার্ড</label>
+                        <input type="checkbox" value="2" @if(in_array(2, $Govt_fac)) checked @endif><label for="">বয়স্ক ভাতা</label>
+                        <input type="checkbox" value="3" @if(in_array(3, $Govt_fac)) checked @endif><label for="">মাতৃত্বকালীন ভাতা</label>
+                        <input type="checkbox" value="4" @if(in_array(4, $Govt_fac)) checked @endif><label for="">প্রতিবন্ধী ভাতা</label>
+                        <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
+                    </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পরিবারের অবস্থা :-</th>
@@ -238,92 +263,105 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ডিজিটাল ডিভাইস :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><label for="">নরমাল মোবাইল</label><input type="checkbox"><label for="">স্মার্ট ফোন</label><input type="checkbox"><label for="">কম্পিউটার/ল্যাপটপ</label><input type="checkbox"><label for="">ইন্টারনেট</label><input type="checkbox"><label for="">টিভি</label></td>
+                    <td style="border-style: solid; border-width: 1px;">
+                        <input type="checkbox" value="1" @if(in_array(1, $Digital_div)) checked @endif><label for="">নরমাল মোবাইল</label>
+                        <input type="checkbox" value="2" @if(in_array(2, $Digital_div)) checked @endif><label for="">স্মার্ট ফোন</label>
+                        <input type="checkbox" value="3" @if(in_array(3, $Digital_div)) checked @endif><label for="">কম্পিউটার/ল্যাপটপ</label>
+                        <input type="checkbox" value="4" @if(in_array(4, $Digital_div)) checked @endif><label for="">ইন্টারনেট</label>
+                        <input type="checkbox" value="5" @if(in_array(5, $Digital_div)) checked @endif><label for="">টিভি</label>
+                    </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">টেলিযোগাযোগ :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><label for="">টেলিটক</label><input type="checkbox"><label for="">গ্রামীন</label><input type="checkbox"><label for="">এয়ারটেল/রবি</label><input type="checkbox"><label for="">বাংলালিংক</label><input type="checkbox"><label for="">টিএনটি</label></td>
+                    <td style="border-style: solid; border-width: 1px;">
+                        <input type="checkbox" value="1" @if(in_array(1, $Telecommunic)) checked @endif><label for="">গ্রামীন</label>
+                        <input type="checkbox" value="2" @if(in_array(2, $Telecommunic)) checked @endif><label for="">এয়ারটেল/রবি</label>
+                        <input type="checkbox" value="3" @if(in_array(3, $Telecommunic)) checked @endif><label for="">বাংলালিংক</label>
+                        <input type="checkbox" value="4" @if(in_array(4, $Telecommunic)) checked @endif><label for="">টিএনটি</label>
+                        <input type="checkbox" value="5" @if(in_array(5, $Telecommunic)) checked @endif><label for="">টেলিটক</label>
+                    </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পেশা বা আয়ের উৎস :-</th>
                     <td style="border-style: solid; border-width: 1px;">
                         {{-- {{ $hold->source_income }} --}}
-                        <input type="checkbox"><label for="">চাকুরী(সরকারী)</label>
-                        <input type="checkbox"><label for="">চাকুরী(বেসরকারী)</label>
-                        <input type="checkbox"><label for="">ব্যবসা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">কৃষি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        <input type="checkbox"><label for="">শিক্ষক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">প্রকৌশলী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">আইনজীবি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">চিকিৎসক</label><br>
-                        <input type="checkbox"><label for="">শ্রমিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">খাবার হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মৎস খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ক্ষুদ্র ও কুটির শিল্প</label><br>
-                        <input type="checkbox"><label for="">গবাদি পশুর খামার</label>
-                        <input type="checkbox"><label for="">গাড়ী চালক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মাঝারি শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">নারী উদ্যোক্তা</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">হাঁস-মুরগীর খামার</label>
-                        <input type="checkbox"><label for="">প্রবাসী</label>
+                        <input type="checkbox" value="1" @if(in_array(1, $Source_inc)) checked @endif><label for="">চাকুরী(সরকারী)</label>
+                        <input type="checkbox" value="2" @if(in_array(2, $Source_inc)) checked @endif><label for="">চাকুরী(বেসরকারী)</label>
+                        <input type="checkbox" value="3" @if(in_array(3, $Source_inc)) checked @endif><label for="">ব্যবসা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="4" @if(in_array(4, $Source_inc)) checked @endif><label for="">কৃষি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        <input type="checkbox" value="5" @if(in_array(5, $Source_inc)) checked @endif><label for="">শিক্ষক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="6" @if(in_array(6, $Source_inc)) checked @endif><label for="">প্রকৌশলী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="7" @if(in_array(7, $Source_inc)) checked @endif><label for="">আইনজীবি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="8" @if(in_array(8, $Source_inc)) checked @endif><label for="">চিকিৎসক</label><br>
+                        <input type="checkbox" value="9" @if(in_array(9, $Source_inc)) checked @endif><label for="">শ্রমিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="10" @if(in_array(10, $Source_inc)) checked @endif><label for="">খাবার হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="11" @if(in_array(11, $Source_inc)) checked @endif><label for="">মৎস খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="12" @if(in_array(12, $Source_inc)) checked @endif><label for="">ক্ষুদ্র ও কুটির শিল্প</label><br>
+                        <input type="checkbox" value="13" @if(in_array(13, $Source_inc)) checked @endif><label for="">গবাদি পশুর খামার</label>
+                        <input type="checkbox" value="14" @if(in_array(14, $Source_inc)) checked @endif><label for="">গাড়ী চালক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="15" @if(in_array(15, $Source_inc)) checked @endif><label for="">ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="16" @if(in_array(16, $Source_inc)) checked @endif><label for="">মাঝারি শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="17" @if(in_array(17, $Source_inc)) checked @endif><label for="">নারী উদ্যোক্তা</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="18" @if(in_array(18, $Source_inc)) checked @endif><label for="">হাঁস-মুরগীর খামার</label>
+                        <input type="checkbox" value="19" @if(in_array(19, $Source_inc)) checked @endif><label for="">প্রবাসী</label>
                     </td>
                 </tr>
 
                 <tr>
                     <th style="width: 25%; text-align: left;">ব্যবসায়িক করের উৎস :-</th>
                     <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox"><label for="">কৃষি খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মৎস খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">দুগ্ধ খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        <input type="checkbox"><label for="">হাঁস-মুরগীর খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">গবাদি পশুর খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মুদির দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">আর্থিক প্রতিষ্ঠান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ক্ষুদ্র ও কুটির শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মাঝারি শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        <input type="checkbox"><label for="">খাবার হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">প্রকৌশলী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">আইনজীবি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                        <input type="checkbox"><label for="">চিকিৎসক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ক্লিনিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ঔষদের দোকান</label><br>
-                        <input type="checkbox"><label for="">আবাসিক হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">মিষ্টির দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">বে-সরকারি হাসপাতাল</label><br>
-                        <input type="checkbox"><label for="">বে-সরকারি স্কুল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">কোচিং সেন্টার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">খাবরের হোটেল</label><br>
-                        <input type="checkbox"><label for="">হিমাগার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ধান ভাঙানোর কল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">আটার কল</label><br>
-                        <input type="checkbox"><label for="">তেলের কল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">স'মিল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">বিউটি পারলার</label><br>
-                        <input type="checkbox"><label for="">হেয়ার কাট সেলুন</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">লন্ড্রীর দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ইঞ্জিনিয়ারিং ফার্ম</label><br>
-                        <input type="checkbox"><label for="">শিল্প কারখানা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ইট ভাটা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">কনসালটেন্সি ফার্ম</label><br>
-                        <input type="checkbox"><label for="">গুদাম</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">রিক্সার মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">বাজার ইজারা</label><br>
-                        <input type="checkbox"><label for="">টেম্পোর মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">বাসের মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">ট্রাকের মালিক</label><br>
-                        <input type="checkbox"><label for="">পরিবহন এজেন্সী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">নৌযানের মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">অটো রিক্সার মালিক</label><br>
-                        <input type="checkbox"><label for="">স্টীমার/কার্গোর মালিক</label>&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">শিশু পার্ক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">বিনোদন পার্ক</label><br>
-                        <input type="checkbox"><label for="">পশু জবাইয়</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">১ম শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">২য় শ্রেণীর ঠিকাদার</label><br>
-                        <input type="checkbox"><label for="">৩য় শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"><label for="">অন্যান্য।</label><br>
-                        <input type="checkbox"><input type="text" value="" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা
+                        <input type="checkbox" value="1" @if(in_array(1, $Business_tax)) checked @endif><label for="">কৃষি খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="2" @if(in_array(2, $Business_tax)) checked @endif><label for="">মৎস খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="3" @if(in_array(3, $Business_tax)) checked @endif><label for="">দুগ্ধ খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        <input type="checkbox" value="4" @if(in_array(4, $Business_tax)) checked @endif><label for="">হাঁস-মুরগীর খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="5" @if(in_array(5, $Business_tax)) checked @endif><label for="">গবাদি পশুর খামার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="6" @if(in_array(6, $Business_tax)) checked @endif><label for="">মুদির দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="7" @if(in_array(7, $Business_tax)) checked @endif><label for="">আর্থিক প্রতিষ্ঠান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="8" @if(in_array(8, $Business_tax)) checked @endif><label for="">ক্ষুদ্র ও কুটির শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="9" @if(in_array(9, $Business_tax)) checked @endif><label for="">মাঝারি শিল্প</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        <input type="checkbox" value="10" @if(in_array(10, $Business_tax)) checked @endif><label for="">খাবার হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="11" @if(in_array(11, $Business_tax)) checked @endif><label for="">প্রকৌশলী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="12" @if(in_array(12, $Business_tax)) checked @endif><label for="">আইনজীবি</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        <input type="checkbox" value="13" @if(in_array(13, $Business_tax)) checked @endif><label for="">চিকিৎসক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="14" @if(in_array(14, $Business_tax)) checked @endif><label for="">ক্লিনিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="15" @if(in_array(15, $Business_tax)) checked @endif><label for="">ঔষদের দোকান</label><br>
+                        <input type="checkbox" value="16" @if(in_array(16, $Business_tax)) checked @endif><label for="">আবাসিক হোটেল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="17" @if(in_array(17, $Business_tax)) checked @endif><label for="">মিষ্টির দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="18" @if(in_array(18, $Business_tax)) checked @endif><label for="">বে-সরকারি হাসপাতাল</label><br>
+                        <input type="checkbox" value="19" @if(in_array(19, $Business_tax)) checked @endif><label for="">বে-সরকারি স্কুল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="20" @if(in_array(20, $Business_tax)) checked @endif><label for="">কোচিং সেন্টার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="21" @if(in_array(21, $Business_tax)) checked @endif><label for="">খাবরের হোটেল</label><br>
+                        <input type="checkbox" value="22" @if(in_array(22, $Business_tax)) checked @endif><label for="">হিমাগার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="23" @if(in_array(23, $Business_tax)) checked @endif><label for="">ধান ভাঙানোর কল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="24" @if(in_array(24, $Business_tax)) checked @endif><label for="">আটার কল</label><br>
+                        <input type="checkbox" value="25" @if(in_array(25, $Business_tax)) checked @endif><label for="">তেলের কল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="26" @if(in_array(26, $Business_tax)) checked @endif><label for="">স'মিল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="27" @if(in_array(27, $Business_tax)) checked @endif><label for="">বিউটি পারলার</label><br>
+                        <input type="checkbox" value="28" @if(in_array(28, $Business_tax)) checked @endif><label for="">হেয়ার কাট সেলুন</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="29" @if(in_array(29, $Business_tax)) checked @endif><label for="">লন্ড্রীর দোকান</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="30" @if(in_array(30, $Business_tax)) checked @endif><label for="">ইঞ্জিনিয়ারিং ফার্ম</label><br>
+                        <input type="checkbox" value="31" @if(in_array(31, $Business_tax)) checked @endif><label for="">শিল্প কারখানা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="32" @if(in_array(32, $Business_tax)) checked @endif><label for="">ইট ভাটা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="33" @if(in_array(33, $Business_tax)) checked @endif><label for="">কনসালটেন্সি ফার্ম</label><br>
+                        <input type="checkbox" value="34" @if(in_array(34, $Business_tax)) checked @endif><label for="">গুদাম</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="35" @if(in_array(35, $Business_tax)) checked @endif><label for="">রিক্সার মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="36" @if(in_array(36, $Business_tax)) checked @endif><label for="">বাজার ইজারা</label><br>
+                        <input type="checkbox" value="37" @if(in_array(37, $Business_tax)) checked @endif><label for="">টেম্পোর মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="38" @if(in_array(38, $Business_tax)) checked @endif><label for="">বাসের মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="39" @if(in_array(39, $Business_tax)) checked @endif><label for="">ট্রাকের মালিক</label><br>
+                        <input type="checkbox" value="40" @if(in_array(40, $Business_tax)) checked @endif><label for="">পরিবহন এজেন্সী</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="41" @if(in_array(41, $Business_tax)) checked @endif><label for="">নৌযানের মালিক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="42" @if(in_array(42, $Business_tax)) checked @endif><label for="">অটো রিক্সার মালিক</label><br>
+                        <input type="checkbox" value="43" @if(in_array(43, $Business_tax)) checked @endif><label for="">স্টীমার/কার্গোর মালিক</label>&nbsp;&nbsp;
+                        <input type="checkbox" value="44" @if(in_array(44, $Business_tax)) checked @endif><label for="">শিশু পার্ক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="45" @if(in_array(45, $Business_tax)) checked @endif><label for="">বিনোদন পার্ক</label><br>
+                        <input type="checkbox" value="46" @if(in_array(46, $Business_tax)) checked @endif><label for="">পশু জবাইয়</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="47" @if(in_array(47, $Business_tax)) checked @endif><label for="">১ম শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="48" @if(in_array(48, $Business_tax)) checked @endif><label for="">২য় শ্রেণীর ঠিকাদার</label><br>
+                        <input type="checkbox" value="49" @if(in_array(49, $Business_tax)) checked @endif><label for="">৩য় শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="50" @if(in_array(50, $Business_tax)) checked @endif><label for="">অন্যান্য।</label><br>
+                        <input type="checkbox" value="51" @if(in_array(51, $Business_tax)) checked @endif><input type="text" value="" class="sbinput"><label for="">করের পরিমান =</label>
+                        <input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা
                     </td>
                 </tr>
                 <tr>
@@ -332,7 +370,11 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">বসত বাড়ীর ধরন :-</th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><label for="">কাচা-ঘর</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">টিনসেট</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">আধা-পাকা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"><label for="">পাকা-ইমারত</label></td>
+                    <td style="border-style: solid; border-width: 1px;">
+                        <input type="checkbox" value="1" @if(in_array(1, $Residence)) checked @endif><label for="">কাচা-ঘর</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="2" @if(in_array(2, $Residence)) checked @endif><label for="">টিনসেট</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="3" @if(in_array(3, $Residence)) checked @endif><label for="">আধা-পাকা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="4" @if(in_array(4, $Residence)) checked @endif><label for="">পাকা-ইমারত</label></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">হোল্ডিং ট্যাক্স :-</th>
