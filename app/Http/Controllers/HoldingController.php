@@ -235,8 +235,10 @@ class HoldingController extends Controller
      * @param  \App\Models\Holding  $holding
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Holding $holding)
+    public function destroy($id)
     {
-        //
+        $cat= Holding::findOrFail(encryptor('decrypt',$id));
+        $cat->delete();
+        return redirect()->back();
     }
 }
