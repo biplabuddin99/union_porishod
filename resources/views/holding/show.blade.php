@@ -98,9 +98,8 @@
         }
         .image{
             position: absolute;
-            padding-left: 550px;
-            top: 150px;
-            left: 580px;
+            top: 0;
+            right: 0;
             z-index: 2;
         }
         .imgreleted{
@@ -130,8 +129,8 @@
             <div class="formnodiv"><b>ফরম নং -</b><input class="formno" value="{{ $hold->form_no }}" type="text"></div>
             <div class="datediv"><b>তারিখঃ</b><input class="hdate" value="{{ $hold->holding_date }}" type="text"></div>
         </div>
-        <div style="margin-top: 15px;">
-            <table class="imgreleted" style="width: 84%;">
+        <div style="position: relative; margin-top: 15px;">
+            <table class="imgreleted" style="width: 84%;min-height:105px;">
                 <tr>
                     <th style="width: 30%; text-align: left;">বাড়ির প্রধানের নাম :-</th>
                     <td><input type="text" value="{{ $hold->head_household }}" class="binput"></td>
