@@ -163,7 +163,7 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->disline_connection=$request->disline_connection;
             $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
             $all_onlineApplications->arsenic_free=$request->arsenic_free;
-            $all_onlineApplications->government_facilities=implode(',',$request->government_facilities);
+            $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
             $all_onlineApplications->type_application=$request->type_application;
     
             $all_onlineApplications->save();
