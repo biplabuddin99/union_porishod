@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trade_licenses', function (Blueprint $table) {
+        Schema::create('all_online_applications', function (Blueprint $table) {
             $table->id();
             $table->string('form_no')->nullable();
             $table->string('holding_date')->nullable();
@@ -36,32 +36,7 @@ return new class extends Migration
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
             $table->string('government_facilities')->nullable();
-
-            // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
-            $table->string('business_name');
-            $table->string('owner_proprietor');
-            $table->string('father_husband');
-            $table->string('trade_license_renewal');
-            $table->string('business_organization_structure');
-            $table->string('business_type');
-            $table->string('trade_license_renewal_fee');
-            $table->string('business_estimated_capital');
-            $table->string('annual_business_tax_levied');
-            $table->string('annual_business_tax_collected');
-            $table->string('annual_business_tax_due');
-            $table->string('holding_tax_update');
-            $table->string('vehicle_establishment_holding_no');
-            $table->string('street_nm');
-            $table->string('village_name');
-            $table->string('ward_no');
-            $table->string('name_union_parishad');
-            $table->string('post_office');
-            $table->string('upazila_thana');
-            $table->string('district');
-            $table->string('image')->nullable()->default('avater.jpg');
-            $table->string('nid_image')->nullable();
-            $table->string('image_holding')->nullable();
-            $table->string('status')->default(0);
+            $table->string('type_application')->nullable();
             $table->timestamps();
         });
     }
@@ -73,6 +48,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trade_licenses');
+        Schema::dropIfExists('all_online_applications');
     }
 };

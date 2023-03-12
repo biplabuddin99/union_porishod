@@ -289,7 +289,7 @@
                                 class="text-danger">*</span></label>
                         <div class="col-sm-3 bt-flabels__wrapper" id="present_ward_no_status">
                             <input type="text" name="present_ward_no" id="present_ward_no"
-                                value="" class="form-control" placeholder="ওয়ার্ড নং দিন" readonly/>
+                                value="" class="form-control" placeholder="ওয়ার্ড নং দিন" />
                         </div>
                     </div>
                 </div>
@@ -308,7 +308,7 @@
                                 class="text-danger">*</span></label>
                         <div class="col-sm-3 bt-flabels__wrapper" id="present_village_bn_status">
                             <input type="text" name="present_village_bn" id="present_village_bn"
-                                value="" class="form-control" placeholder="গ্রাম/মহল্লা" readonly/>
+                                value="" class="form-control" placeholder="গ্রাম/মহল্লা" />
                             {{-- <span class="bt-flabels__error-desc">গ্রাম/মহল্লা দিন বাংলায়....</span>
 
                             <span id="present_village_bn_feedback" class="help-block"></span> --}}

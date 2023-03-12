@@ -19,51 +19,16 @@
                             <a class="btn btn-success" href="#"><i class="bi bi-cloud-download"></i> Download</a>
                         </div> -->
                     </div>
-                        <!-- table bordered -->
-                        <form action="">
-                            <div class="row">
-                                <div class="col-md-2 mt-2">
-                                    <input type="text" class="form-control" name="name" placeholder="নাম">
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <input type="text" class="form-control" name="mobile" placeholder="মোবাইল">
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <select class="form-control form-select" name="word">
-                                        <option value="">ওয়ার্ড নং</option>
-                                        <option value="1">১ নং ওয়ার্ড</option>
-                                        <option value="2">২ নং ওয়ার্ড</option>
-                                        <option value="3">৩ নং ওয়ার্ড</option>
-                                        <option value="4">৪ নং ওয়ার্ড</option>
-                                        <option value="5">৫ নং ওয়ার্ড</option>
-                                        <option value="6">৬ নং ওয়ার্ড</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <input type="text" class="form-control" name="village" placeholder="গ্রাম">
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <input type="text" class="form-control datepicker" name="formdate" placeholder="তারিখ হইতে">
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <input type="text" class="form-control datepicker" name="todate" placeholder="তারিখ পর্যন্ত">
-                                </div>
-                                
-                                <div class="col-md-2 mt-2">
-                                    <a class="btn btn-success " href="#">খুজুন</a>
-                                </div>
-                            </div>
-                        </form>
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0 mt-5">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">{{__('ক্রমিক')}}</th>
-                                        <th scope="col">{{__('QR')}}</th>
+                                        <th scope="col">{{__('আবেদনকারীর নাম')}}</th>
                                         <th scope="col">{{__('ওয়ারিশান ব্যাক্তির নাম')}}</th>
-                                        <th scope="col">{{__('পিতা/ স্বামী')}}</th>
-                                        <th scope="col">{{__('মৃত্যু তারিখ')}}</th>
-                                        <th scope="col">{{__('গ্রাম/ রাস্তা')}}</th>
+                                        <th scope="col">{{__('মোবাইল')}}</th>
+                                        <th scope="col">{{__('মাতার নাম')}}</th>
+                                        <th scope="col">{{__('জেলা')}}</th>
                                         <th scope="col">{{__('ওয়ার্ড')}}</th>
                                         <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
                                     </tr>
@@ -72,12 +37,12 @@
                                     @forelse($warishan as $p)
                                     <tr class="text-center">
                                     <th scope="row">{{ ++$loop->index }}</th>
-                                        <td></td>
+                                        <td>{{$p->head_household}}</td>
                                         <td>{{$p->warishan_person_name}}</td>
-                                        <td>{{$p->fatherOrMother}}</td>
-                                        <td>{{$p->dath_date}}</td>
-                                        <td>{{$p->village}}</td>
-                                        <td>{{$p->ward_no_id}}</td>
+                                        <td>{{$p->phone}}</td>
+                                        <td>{{$p->warishan_mother_name}}</td>
+                                        <td>{{$p->district}}</td>
+                                        <td>{{$p->ward_no}}</td>
                                         <td class="white-space-nowrap">
                                             <a  href="{{route(currentUser().'.warishan.edit',encryptor('encrypt',$p->id))}}">
                                             <i class="bi bi-pencil-square"></i>

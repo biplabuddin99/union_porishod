@@ -8,6 +8,7 @@ use App\Models\Ward_no;
 use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
+use App\Models\All_onlineApplications;
 use Brian2694\Toastr\Facades\Toastr;
 use Exception;
 
@@ -48,18 +49,63 @@ class WarishanController extends Controller
     {
         try{
             $p=new Warishan;
+            $all= All_onlineApplications::where('id',$request->all_aplication)->first();
+            // $p->form_no=$request->form_no;
+            $p->holding_date=$all->holding_date;
+            $p->head_household=$all->head_household;
+            $p->husband_wife=$all->husband_wife;
+            $p->mother_name=$all->mother_name;
+            $p->gender=$all->gender;
+            $p->birth_date=$all->birth_date;
+            $p->voter_id_no=$all->voter_id_no;
+            $p->birth_registration_id=$all->birth_registration_id;
+            $p->religion=$all->religion;
+            $p->phone=$all->phone;
+            $p->edu_qual=$all->edu_qual;
+            $p->email=$all->email;
+            $p->source_income=$all->source_income;
+            $p->marital_status=$all->marital_status;
+            $p->internet_connection=$all->internet_connection;
+            $p->tube_well=$all->tube_well;
+            $p->disline_connection=$all->disline_connection;
+            $p->paved_bathroom=$all->paved_bathroom;
+            $p->arsenic_free=$all->arsenic_free;
+            $Govt_fac = explode(',', $all->government_facilities);
+            $p->government_facilities=implode(',',$Govt_fac);
 
+            // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
             $p->warishan_person_name=$request->warishan_person_name;
-            $p->dath_date=$request->dath_date;
-            $p->fatherOrMother=$request->fatherOrMother;
-            $p->village=$request->village;
-            $p->ward_no_id=$request->wordNo;
-            $p->division_id=$request->divisionName;
-            $p->district_id=$request->districtName;
-            $p->thana_id=$request->thana;
-            
+            $p->father_husband=$request->father_husband;
+            $p->warishan_mother_name=$request->warishan_mother_name;
+            $p->date_death_warishan=$request->date_death_warishan;
+            $p->update_holding_tax=$request->update_holding_tax;
+            $p->wife_number=$request->wife_number;
+            $p->son=$request->son;
+            $p->daughter=$request->daughter;
+            $p->total_warishan_members=$request->total_warishan_members;
+            $p->house_holding_no=$request->house_holding_no;
+            $p->street_nm=$request->street_nm;
+            $p->village_name=$request->village_name;
+            $p->ward_no=$request->ward_no;
+            $p->name_union_parishad=$request->name_union_parishad;
+            $p->post_office=$request->post_office;
+            $p->upazila_thana=$request->upazila_thana;
+            $p->district=$request->district;
+            $p->status=0;
+            if($request->has('image'))
+            $p->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
+
+            if($request->has('nid_image'))
+            $p->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
+
+            if($request->has('holding_image'))
+            $p->holding_image=$this->resizeImage($request->holding_image,'uploads/warishan',true,500,700,false);
+
+            if($request->has('image_death_certificate'))
+            $p->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
+
             if($p->save()){
-            Toastr::success('Warishan Create Successfully!');
+            Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!');
             return redirect()->route(currentUser().'.warishan.index');
             }else{
             Toastr::success('Please try Again!');
@@ -115,13 +161,33 @@ class WarishanController extends Controller
             $p=Warishan::findOrFail(encryptor('decrypt',$id));
 
             $p->warishan_person_name=$request->warishan_person_name;
-            $p->dath_date=$request->dath_date;
-            $p->fatherOrMother=$request->fatherOrMother;
-            $p->village=$request->village;
-            $p->ward_no_id=$request->wordNo;
-            $p->division_id=$request->divisionName;
-            $p->district_id=$request->districtName;
-            $p->thana_id=$request->thana;
+            $p->father_husband=$request->father_husband;
+            $p->mother_name=$request->mother_name;
+            $p->date_death_warishan=$request->date_death_warishan;
+            $p->update_holding_tax=$request->update_holding_tax;
+            $p->wife_number=$request->wife_number;
+            $p->son=$request->son;
+            $p->daughter=$request->daughter;
+            $p->total_warishan_members=$request->total_warishan_members;
+            $p->house_holding_no=$request->house_holding_no;
+            $p->street_nm=$request->street_nm;
+            $p->village_name=$request->village_name;
+            $p->ward_no=$request->ward_no;
+            $p->name_union_parishad=$request->name_union_parishad;
+            $p->post_office=$request->post_office;
+            $p->upazila_thana=$request->upazila_thana;
+            $p->district=$request->district;
+            if($request->has('image'))
+            $p->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
+
+            if($request->has('nid_image'))
+            $p->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
+
+            if($request->has('holding_image'))
+            $p->holding_image=$this->resizeImage($request->holding_image,'uploads/warishan',true,500,700,false);
+
+            if($request->has('image_death_certificate'))
+            $p->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
             if($p->save()){
             Toastr::success('Warishan Updated Successfully!');
             return redirect()->route(currentUser().'.warishan.index');

@@ -27,9 +27,8 @@
                                 <th>ব্যাক্তির নাম </th>
                                 <th>মাতা </th>
                                 <th>পিতা/স্বামী</th>
-                                <th>পিতা/স্বামী</th>
                                 <th>গ্রাম/ রাস্তা </th>
-                                <th>ওয়ার্ডঃ   </th>
+                                {{-- <th>ওয়ার্ডঃ   </th> --}}
                                 <th width="13%"> এক্সসান  </th>
                             </tr>
                         </thead>
@@ -38,17 +37,16 @@
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
                                 <td></td>
-                                <td>{{$c->person_name}}</td>
-                                <td>{{$c->mother}}</td>
-                                <td>{{$c->father}}</td>
-                                <td>{{$c->husband}}</td>
+                                <td>{{$c->head_household}}</td>
+                                <td>{{$c->mother_name}}</td>
+                                <td>{{$c->husband_wife}}</td>
                                 {{-- @if ($c->father)
                                    <td>{{$c->father}}</td>
                                 @else
                                     <td>{{$c->husband }}</td>
                                 @endif --}}
                                 <td>{{$c->village}}</td>
-                                <td>{{$c->ward_no?->ward_name_bn}}</td>
+                                {{-- <td>{{$c->ward_no?->ward_name_bn}}</td> --}}
                                 {{-- <td>@if($p->status == 1) {{__('Active') }} @else {{__('Inactive') }} @endif</td> --}}
                                 {{-- or <td>{{ $c->status == 1?"Active":"Inactive" }}</td> --}}
                                 <td class="white-space-nowrap">

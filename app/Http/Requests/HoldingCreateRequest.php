@@ -25,22 +25,22 @@ class HoldingCreateRequest extends FormRequest
     {
         return [
             'head_household' => 'required',
-            'father_name' => 'required',
+            'birth_registration_id' => 'required',
             'mother_name' => 'required',
-            'new_holding_no' => 'required|unique:holdings,new_holding_no',
-            'previous_holding_no' => 'required',
-            'village' => 'required',
+            // 'new_holding_no' => 'required|unique:holdings,new_holding_no',
+            // 'previous_holding_no' => 'required',
+            // 'village' => 'required',
             'ward_no' => 'required',
             'birth_date' => 'required',
             'voter_id_no' => 'required',
             'phone' => 'required',
             'gender' => 'required',
-            'digital_birth_cer' => 'required',
+            // 'digital_birth_cer' => 'required',
             'edu_qual' => 'required',
             'religion' => 'required',
             'source_income' => 'required',
-            'business_taxes' => 'required',
-            'business_amount_taxes' => 'required',
+            // 'business_taxes' => 'required',
+            // 'business_amount_taxes' => 'required',
             'residence_type' => 'required',
         ];
     }
@@ -49,7 +49,7 @@ class HoldingCreateRequest extends FormRequest
     {
         return [
             'head_household.required' => 'বাড়ির প্রধানের নাম পূরণ করুন',
-            'father_name.required' => 'পিতার নাম পূরণ করুন',
+            'birth_registration_id.required' => 'পিতার নাম পূরণ করুন',
             'mother_name.required' => 'মাতার নাম পূরণ করুন',
             'new_holding_no.required' => 'নতুন হোল্ডিং নম্বর পূরণ করুন',
             'new_holding_no.unique' => 'নতুন হোল্ডিং নম্বর আগে থেকেই আছে',

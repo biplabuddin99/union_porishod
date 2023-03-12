@@ -66,14 +66,22 @@
         </ul>
     </li>
 
+    <li class="sidebar-item">
+        <a href="{{route(currentUser().'.allapplication.create')}}" class='sidebar-link'>
+            <i class="bi bi-grid-fill"></i>
+            <span>{{__('অনলাইন আবেদন') }}</span>
+        </a>
+    </li>
+
     {{-- অনলাইন আবেদন --}}
-    <li class="sidebar-item has-sub">
+    {{-- <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-gear-fill"></i>
-            <span>{{__('অনলাইন আবেদন *')}}</span>
+            <span>{{__('আবেদন আগেরগুলো*')}}</span>
         </a>
         <ul class="submenu">
             <li class="py-1"><a href="{{route(currentUser().'.holding.create')}}">{{__(' নতুন হোল্ডিং নম্বর *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.allapplication.create')}}">{{__(' নতুন All *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান *')}}</a></li>
@@ -86,7 +94,7 @@
 
 
         </ul>
-    </li>
+    </li> --}}
     {{-- অনলাইন আবেদন শেষ --}}
 
 
@@ -119,7 +127,7 @@
             <span>{{__('গ্রাহক প্রোপাইল')}}</span>
         </a>
         <ul class="submenu">
-            <li class="py-1"><a href="#">{{__('হোল্ডিং নম্বর')}}</a></li>
+            <li class="py-1"><a href="{{route('hold_profile.list')}}">{{__('হোল্ডিং নম্বর')}}</a></li>
             <li class="py-1"><a href="#">{{__('ট্রেড লাইসেন্স')}}</a></li>
             <li class="py-1"><a href="#">{{__('সনদপত্র')}}</a></li>
             <li class="py-1"><a href="#">{{__('ওয়ারিশান')}}</a></li>

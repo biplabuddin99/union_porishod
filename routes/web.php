@@ -33,6 +33,7 @@ use App\Http\Controllers\TelecommunicationController as telecomunication;
 use App\Http\Controllers\SourceIncomeController as sourceincome;
 use App\Http\Controllers\SourcesBusinessTaxeController as sourcebusiness;
 use App\Http\Controllers\HousingTypeController as housingtype;
+use App\Http\Controllers\AllOnlineApplicationsController as allapplication;
 
 
 
@@ -82,6 +83,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('trade',trade::class,['as'=>'admin']);
         Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
         Route::resource('holding',holding::class,['as'=>'admin']);
+        Route::get('hold_profile',[holding::class,'profile'])->name('hold_profile.list');
+        Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
         Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);
@@ -91,6 +94,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/dis/search',[disablity::class,'getholding'])->name('dis.getholding');
         // Route::get('/porishod-settings',[porishodsettiong::class,'create'])->name('porishod.setting');
         Route::resource('porishodsettiong',porishodsettiong::class,['as'=>'admin']);
+        Route::resource('allapplication',allapplication::class,['as'=>'admin']);
+        Route::get('/application/{type}', [allapplication::class,'application_check'])->name('aplication.application_check');
 
         //extra route
         Route::resource('education',education::class,['as'=>'admin']);
