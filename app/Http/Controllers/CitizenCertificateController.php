@@ -10,10 +10,12 @@ use App\Models\Ward_no;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\All_onlineApplications;
+use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
 
 class CitizenCertificateController extends Controller
 {
+    use ImageHandleTraits;
     /**
      * Display a listing of the resource.
      *

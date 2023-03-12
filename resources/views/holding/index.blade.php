@@ -34,7 +34,7 @@
                                 <th>বাড়ি প্রধানের নাম</th>
                                 <th>মায়ের নাম</th>
                                 <th>বাড়ির হেল্ডিং নম্বর</th>
-                                <th>ভোটার আইডি নং</th>
+                                {{-- <th>ভোটার আইডি নং</th> --}}
                                 <th>মোবাইল নং</th>
                                 <th>প্রোপাইল</th>
                                 <th width="13%"> এক্সসান  </th>
@@ -47,13 +47,13 @@
                                 <td>{{$h->head_household}}</td>
                                 <td>{{$h->mother_name}}</td>
                                 <td>{{$h->house_holding_no}}</td>
-                                <td>{{$h->voter_id_no}}</td>
+                                {{-- <td>{{$h->voter_id_no}}</td> --}}
                                 <td>{{$h->phone}}</td>
                                 <td>
                                     <form action="{{route('holding_profile',encryptor('encrypt',$h->id))}}">
                                         @csrf
                                         @method('PATCH')
-                                        <input class="form-check-input m-2" type="checkbox" value="1" id="status" name="status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input class="form-check-input m-2" type="checkbox" value="1" id="status" name="status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <button type="submit" class="btn btn-primary">যুক্ত করুন</button>
                                         {{-- <label class="m-1" for=""><a href="">যুক্ত করুন</a></label> --}}
                                     </form>

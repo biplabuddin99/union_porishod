@@ -9,11 +9,13 @@ use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
 use App\Models\All_onlineApplications;
+use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
 use Exception;
 
 class WarishanController extends Controller
 {
+    use ImageHandleTraits;
     /**
      * Display a listing of the resource.
      *

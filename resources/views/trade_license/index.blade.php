@@ -36,7 +36,7 @@
                                 <th>ব্যবসা প্রতিষ্ঠানের নাম </th>
                                 <th>আবেদনকারীর নাম </th>
                                 <th>মোবাইল</th>
-                                <th>প্রোপাইটার </th>
+                                {{-- <th>প্রোপাইটার </th> --}}
                                 <th>প্রোপাইল </th>
                                 {{-- <th>প্রতিষ্ঠানের  বিবরন</th>
                                 <th>এলাকা / বাজার</th>
@@ -55,7 +55,7 @@
                                 <td>{{$c->business_name}}</td>
                                 <td>{{$c->head_household}}</td>
                                 <td>{{$c->phone}}</td>
-                                <td>{{$c->owner_proprietor}}</td>
+                                {{-- <td>{{$c->owner_proprietor}}</td> --}}
                                 <td>
                                     <form action="">
                                         @csrf
