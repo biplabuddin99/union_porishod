@@ -1,17 +1,26 @@
 @extends('layout.app')
-@section('pageTitle',trans('ট্রেড লাইসেন্স লিস্ট'))
+{{-- @section('pageTitle',trans('ট্রেড লাইসেন্স লিস্ট')) --}}
 
 @section('content')
 
-<!-- Bordered table start -->
+<section style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"
+                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
+                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ট্রেড লাইসেন্স তালিকা</h4>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
 
             <div class="card">
-                <div>
+                {{-- <div>
                 <a class="float-end" href="{{route(currentUser().'.trade.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
-                </div>
+                </div> --}}
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
                 @endif

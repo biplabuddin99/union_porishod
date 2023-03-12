@@ -1,24 +1,23 @@
 @extends('layout.app')
 
-@section('pageTitle',trans('ওয়ারিশান লিস্ট'))
+{{-- @section('pageTitle',trans('ওয়ারিশান লিস্ট')) --}}
 @section('pageSubTitle',trans('List'))
 
 @section('content')
-
-
-    <!-- Bordered table start -->
+<section style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"
+                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
+                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ওয়ারিশান তালিকা</h4>
+            </div>
+        </div>
+    </div>
+</section>
     <section class="section">
         <div class="row" id="table-bordered">
             <div class="col-12">
                 <div class="card">
-                    <div class="row p-2">
-                        <div class="col-md-6 text-start p-2">
-                            <a class="btn btn-success" href="{{route(currentUser().'.warishan.create')}}">আবেদন ফরম <i class="bi bi-plus-lg"></i></a>
-                        </div>
-                        <!-- <div class="col-md-6 text-end p-2">
-                            <a class="btn btn-success" href="#"><i class="bi bi-cloud-download"></i> Download</a>
-                        </div> -->
-                    </div>
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0 mt-5">
                                 <thead>
