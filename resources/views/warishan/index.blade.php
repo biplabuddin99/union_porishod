@@ -74,47 +74,4 @@
             
         </div>
     </section>
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <title>Repeat Table Rows based on Input Value</title>
-        <script>
-          function repeatRows() {
-            const input = document.getElementById('input');
-            const table = document.getElementById('table');
-    
-            // Clear existing rows
-            while (table.rows.length > 1) {
-              table.deleteRow(1);
-            }
-    
-            // Repeat rows based on input value
-            const repeatCount = parseInt(input.value);
-            for (let i = 1; i <= repeatCount; i++) {
-              const newRow = table.insertRow();
-              const serialCell = newRow.insertCell(0); // insert serial cell at position 0
-              const dataCell = newRow.insertCell(1); // insert data cell at position 1
-              serialCell.innerHTML = i; // set the content of the serial cell to the current serial number
-              dataCell.innerHTML = 'Row ' + i;
-            }
-          }
-        </script>
-      </head>
-      <body>
-        <label for="input">Enter Repeat Count:</label>
-        <input type="number" id="input" onblur="repeatRows()">
-    
-        <table id="table">
-          <tr>
-            <th>Serial</th> <!-- add a new table header for the serial column -->
-            <th>Data</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Row 5</td>
-          </tr>
-        </table>
-      </body>
-    </html>
 @endsection
