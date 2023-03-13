@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="total_warishan_members">উক্তব্যাক্তির মোট ওয়ারিশ সদস্য:-</label>
-                                    <input disabled class="form-control @error('total_warishan_members') is-invalid @enderror"
+                                    <input onblur="repeatRows()" class="form-control @error('total_warishan_members') is-invalid @enderror"
                                     name="total_warishan_members" id="total_warishan" value="{{ old('total_warishan_members') }}"  type="number" placeholder="মোট ওয়ারিশ সদস্য সংখ্যা">
                                     @if($errors->has('total_warishan_members'))
                                     <small class="d-block text-danger">
@@ -139,9 +139,9 @@
                                             <th>ভোটার আইডি</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="table">
                                       <tr>
-                                          <td style='text-align:center;'>1</td>
+                                          <td id="s" style='text-align:center;'>1</td>
                                           <td style='text-align:left;'>
                                                 <input type='text' name='name' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
                                           </td>
@@ -313,6 +313,25 @@
         var result = wife_count + sons + daughters;
 
         document.getElementById("total_warishan").value = result;
+      }
+
+      function repeatRows() {
+        const Total_warishan = document.getElementById('total_warishan');
+        const tableElement = document.getElementById('table');
+
+        // Clear existing rows
+        while (tableElement.rows.length > 1) {
+          tableElement.deleteRow(1);
+        }
+
+        // Repeat rows based on input value
+        const repeatCount = parseInt(Total_warishan.value);
+        for (let i = 1; i < repeatCount; i++) {
+          const clonedRow = tableElement.rows[0].cloneNode(true);
+          const serial=document.getElementById('s');
+          serial.innerHTML = i;
+          tableElement.appendChild(clonedRow);
+        }
       }
 </script>
 @endpush

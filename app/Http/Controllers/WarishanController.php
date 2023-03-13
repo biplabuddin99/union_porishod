@@ -23,8 +23,30 @@ class WarishanController extends Controller
      */
     public function index()
     {
-        $warishan = Warishan::all();
+        $warishan = Warishan::where('status',0)->get();
         return view('warishan.index',compact('warishan'));
+    }
+
+    public function profile()
+    {
+        $warishan=Warishan::where('status',1)->get();
+        return view('warishan.profile',compact('warishan'));
+    }
+
+    public function add_profile(Request $request, $id)
+    {
+        try{
+            $warishan=Warishan::findOrFail(encryptor('decrypt',$id));
+            $warishan->status=$request->status;
+            $warishan->save();
+            Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
+            return redirect(route(currentUser().'.warishan.index'));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+
+        }
+
     }
 
     /**

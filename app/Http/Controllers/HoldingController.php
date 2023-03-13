@@ -203,7 +203,7 @@ class HoldingController extends Controller
             $holding->paved_bathroom=$request->paved_bathroom;
             $holding->arsenic_free=$request->arsenic_free;
             // $Govt_fac = explode(',', $request->government_facilities);
-            $holding->government_facilities=implode(',',$government_facilities);
+            $holding->government_facilities=implode(',',$request->government_facilities);
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
             $holding->residence_type=$request->residence_type;
@@ -243,7 +243,7 @@ class HoldingController extends Controller
 
             $holding->save();
             Toastr::success('হোল্ডিং আপডেট সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route('holding.index'));
+            return redirect(route(currentUser().'.holding.index'));
             // dd($request);
         }
         catch (Exception $e){

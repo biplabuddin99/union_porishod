@@ -2,7 +2,7 @@
 {{-- @section('pageTitle',trans('হোল্ডিং আপডেট')) --}}
 
 @section('content')
-<section style="margin-top: 50px;">
+<section style="margin-top: 50px;"></section>
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center bg-warning"
@@ -22,6 +22,20 @@
                         <form action="{{route(currentUser().'.holding.update',encryptor('encrypt',$hold->id))}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
+                            <div class="row">
+                                {{-- <div class="col-6">
+                                    <label  class="form-label" for="form_no">ফরম নং -</label>
+                                    <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
+                                </div> --}}
+                                
+                                
+                                <div class="col-sm-2 col-lg-2">
+                                    <label  class="form-label" for="holding_date">তারিখ :-</label>
+                                </div>
+                                <div class="col-sm-2 col-lg-2 ms-0 ps-0">
+                                    <input class="form-control datepicker" name="holding_date" value="{{ old('holding_date',$hold->holding_date) }}" id="holding_date" type="text">
+                                </div>
+                            </div>
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="head_household">আবেদনকারীর নাম  :-</label>

@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12 text-center"
                 style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(29, 28, 28); padding-top: 5px;">নাগরিক সনদ তালিকা</h4>
+                <h4 style="color: rgb(29, 28, 28); padding-top: 5px;">নাগরিক সনদ প্রোপাইল</h4>
             </div>
         </div>
     </div>
@@ -28,7 +28,6 @@
                                 <th>ব্যাক্তির নাম </th>
                                 <th>মাতা </th>
                                 <th>পিতা/স্বামী</th>
-                                <th>প্রোপাইল </th>
                                 <th width="13%"> এক্সসান  </th>
                             </tr>
                         </thead>
@@ -40,28 +39,10 @@
                                 <td>{{$c->head_household}}</td>
                                 <td>{{$c->mother_name}}</td>
                                 <td>{{$c->husband_wife}}</td>
-                                <td>
-                                    <form action="{{route('citizens_profile',encryptor('encrypt',$c->id))}}">
-                                        @csrf
-                                        @method('PATCH')
-                                        <input class="form-check-input m-2" type="checkbox" value="1" id="status" name="status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button type="submit" class="btn btn-primary">যুক্ত করুন</button>
-                                    </form>
-                                </td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.citizen.show',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
-                                    <a href="{{route(currentUser().'.citizen.edit',encryptor('encrypt',$c->id))}}">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <a href="javascript:void()" onclick="$('#form{{$c->id}}').submit()">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.citizen.destroy',encryptor('encrypt',$c->id))}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
                                 </td>
                             </tr>
                             @empty

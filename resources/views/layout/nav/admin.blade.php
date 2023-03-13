@@ -107,7 +107,7 @@
         <ul class="submenu">
             <li class="py-1"><a href="{{route(currentUser().'.holding.index')}}">{{__('হোল্ডিং নম্বর তালিকা *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('সনদপত্র লিস্ট *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('নাগরিক সনদ লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.vgfcard.index')}}">{{__('ভিজিএফ কার্ড লিস্ট *')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.oldallowance.index')}}">{{__('বয়স্ক ভাতা লিস্ট *')}}</a></li>
@@ -128,9 +128,9 @@
         </a>
         <ul class="submenu">
             <li class="py-1"><a href="{{route('hold_profile.list')}}">{{__('হোল্ডিং নম্বর')}}</a></li>
-            <li class="py-1"><a href="#">{{__('ট্রেড লাইসেন্স')}}</a></li>
-            <li class="py-1"><a href="#">{{__('সনদপত্র')}}</a></li>
-            <li class="py-1"><a href="#">{{__('ওয়ারিশান')}}</a></li>
+            <li class="py-1"><a href="{{route('trade_profile.list')}}">{{__('ট্রেড লাইসেন্স')}}</a></li>
+            <li class="py-1"><a href="{{route('citizen_profile.list')}}">{{__('সনদপত্র')}}</a></li>
+            <li class="py-1"><a href="{{route('warishan_profile.list')}}">{{__('ওয়ারিশান')}}</a></li>
             <li class="py-1"><a href="#">{{__('ভিজিএফ কার্ড')}}</a></li>
             <li class="py-1"><a href="#">{{__('বয়স্ক ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('বিধবা ভাতা')}}</a></li>

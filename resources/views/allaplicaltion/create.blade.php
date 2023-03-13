@@ -27,9 +27,11 @@
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div> --}}
                                 
-                                <div class="col-4 me-0 pe-0">
-                                    <label  class="form-label col-2 m-0 p-0" for="holding_date">তারিখ :-</label>
-                                <div class="col-5 ms-0 ps-0">
+                                
+                                <div class="col-sm-2 col-lg-2">
+                                    <label  class="form-label" for="holding_date">তারিখ :-</label>
+                                </div>
+                                <div class="col-sm-2 col-lg-2 ms-0 ps-0">
                                     <input class="form-control datepicker" name="holding_date" value="<?php date_default_timezone_set('Asia/Dhaka'); $date = date('d-M-y'); echo $date; ?>" id="holding_date" type="text">
                                 </div>
                             </div>

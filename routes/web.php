@@ -79,9 +79,18 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('slider',SliderController::class,['as'=>'admin']);
         Route::resource('profile',profile::class,['as'=>'admin']);
         Route::resource('warishan',warishan::class,['as'=>'admin']);
+        Route::get('warishan_profile',[warishan::class,'profile'])->name('warishan_profile.list');
+        Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
+
         Route::resource('citizen',citizen::class,['as'=>'admin']);
+        Route::get('citizen_profile',[citizen::class,'profile'])->name('citizen_profile.list');
+        Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
+
         Route::resource('trade',trade::class,['as'=>'admin']);
-        Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
+        Route::get('trade_profile',[trade::class,'profile'])->name('trade_profile.list');
+        Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
+        // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
+
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold_profile',[holding::class,'profile'])->name('hold_profile.list');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
