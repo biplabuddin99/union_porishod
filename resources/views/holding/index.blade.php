@@ -58,19 +58,17 @@
                                         {{-- <label class="m-1" for=""><a href="">যুক্ত করুন</a></label> --}}
                                     </form>
                                 </td>
-                                <td class="white-space-nowrap">
+                                <td class="white-space-nowrap d-flex" style="border-style: none;">
                                     <a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                     <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
-                                    <a href="javascript:void()" onclick="$('#form{{$h->id}}').submit()">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                    <form id="form{{$h->id}}" action="{{route(currentUser().'.holding.destroy',encryptor('encrypt',$h->id))}}" method="post">
+                                    <form id="form{{$h->id}}" action="{{route(currentUser().'.holding.destroy',encryptor('encrypt',$h->id))}}" method="POST">
                                         @csrf
                                         @method('delete')
+                                        <button class="btn p-0 show_confirm" data-toggle="tooltip" type="submit"><i class='bi bi-trash-fill' style='color:red'></i></a></button>
                                     </form>
                                 </td>
                             </tr>

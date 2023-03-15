@@ -263,8 +263,10 @@ class TradeLicenseController extends Controller
      * @param  \App\Models\TradeLicense  $tradeLicense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TradeLicense $tradeLicense)
+    public function destroy( $id)
     {
-        //
+        $trade= TradeLicense::findOrFail(encryptor('decrypt',$id));
+        $trade->delete();
+        return redirect()->back();
     }
 }

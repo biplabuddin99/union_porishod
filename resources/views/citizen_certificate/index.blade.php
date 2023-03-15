@@ -48,19 +48,17 @@
                                         <button type="submit" class="btn btn-primary">যুক্ত করুন</button>
                                     </form>
                                 </td>
-                                <td class="white-space-nowrap">
+                                <td class="white-space-nowrap d-flex" style="border-style: none;">
                                     <a href="{{route(currentUser().'.citizen.show',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-eye-fill"></i>
-                                    </a>
+                                    </a>&nbsp;&nbsp;
                                     <a href="{{route(currentUser().'.citizen.edit',encryptor('encrypt',$c->id))}}">
                                         <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <a href="javascript:void()" onclick="$('#form{{$c->id}}').submit()">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.citizen.destroy',encryptor('encrypt',$c->id))}}" method="post">
+                                    </a>&nbsp;&nbsp;
+                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.citizen.destroy',encryptor('encrypt',$c->id))}}" method="POST">
                                         @csrf
                                         @method('delete')
+                                        <button class="btn p-0 show_confirm" data-toggle="tooltip" type="submit"><i class='bi bi-trash-fill' style='color:red'></i></a></button>
                                     </form>
                                 </td>
                             </tr>

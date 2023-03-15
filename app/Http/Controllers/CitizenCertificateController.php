@@ -258,8 +258,10 @@ class CitizenCertificateController extends Controller
      * @param  \App\Models\CitizenCertificate  $citizenCertificate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CitizenCertificate $citizenCertificate)
+    public function destroy($id)
     {
-        //
+        $citizen= CitizenCertificate::findOrFail(encryptor('decrypt',$id));
+        $citizen->delete();
+        return redirect()->back();
     }
 }

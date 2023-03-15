@@ -123,7 +123,32 @@
     </div>
 <script src="{{ asset('/assets/js/bootstrap.js') }}"></script>
 <script src="{{ asset('/assets/js/app.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.14/dist/sweetalert2.all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+    $('.show_confirm').click(function(event){
+        let form= $(this).closest('form');
+        event.preventDefault();
+        Swal.fire({
+            title: 'আপনি কি নিশ্চিত?',
+            text: "আপনি এটিকে ফিরিয়ে আনতে পারবেন না!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'হ্যাঁ, এটি ডিলিট!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+                Swal.fire(
+                'ডিলিট!',
+                'আপনার ফাইল মুছে ফেলা হয়েছে.',
+                'success'
+                )
+            }
+            })
+    });
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
