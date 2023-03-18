@@ -22,22 +22,24 @@
 <body>
 <div id="auth">
     <div class="row h-100">
-        <div class="col-lg-8 col-12">
-            <div id="auth-left">
-                <div class="auth-logo">
-                    <h3>ইউপি ম্যানেজেমেন্ট সিস্টেম</h3>
-                    {{-- <img src="{{ asset('./images/khulsi_club_logo.png')}}" width="100%" height="70px" alt=""> --}}
+        <div class="col-lg-6 col-sm-6 offset-3">
+            <div id="">
+                <div class="auth-logo text-center mt-5">
+                    <img  src="{{ asset('./images/Login-01.png')}}" width="120px" height="120px" alt="">
+                    <h5 style="color:rgb(16, 139, 239)" class="py-3">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
+                    <h2 style="color:rgb(16, 139, 239)" class="py-2">২নং চরপার্বতী ইউনিয়ন পরিষদ</h2>
+                    <h5 style="background-color: rgb(16, 139, 239); color:white;" class="p-3">কোম্পানীগঞ্জ,নোয়াখালী |</h5>
                 </div>
 
                 @yield('content')
 
             </div>
         </div>
-        <div class="col-lg-4 d-none d-lg-block">
+        {{-- <div class="col-lg-4 d-none d-lg-block">
             <div id="auth-right">
 
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 

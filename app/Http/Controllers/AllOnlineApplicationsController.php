@@ -59,10 +59,10 @@ class AllOnlineApplicationsController extends Controller
             return view('widow_allowance.create');
             break;
         case 9:
-            return view('vgfcard.create');
+            return view('other_information.create',compact('all'));
             break;
         default:
-            return view('vgfcard.create');
+            return view('other_information.create',compact('all'));
         }
     }
 

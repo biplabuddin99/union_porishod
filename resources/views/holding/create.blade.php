@@ -77,15 +77,80 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস:-</label>
-                                    <input class="form-control"
-                                    name="main_source_income" id="main_source_income" value="{{ old('main_source_income') }}"  type="text" placeholder="আয়ের প্রধান উৎস">
+                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস :-</label>
+                                    <select name="main_source_income" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">চাকুরী <sub>(সরকারী)</sub></option>
+                                        <option value="2">চাকুরী <sub>(বেসরকারী)</sub></option>
+                                        <option value="3">প্রবাসী</option>
+                                        <option value="4">শিক্ষক</option>
+                                        <option value="5">শ্রমিক</option>
+                                        <option value="6">কৃষি খামার</option>
+                                        <option value="7">মৎস খামার</option>
+                                        <option value="8">দুগ্ধ খামার</option>
+                                        <option value="9">হাঁস-মুরগীর খামার</option>
+                                        <option value="10">গবাদি পশুর খামার</option>
+                                        <option value="11">মুদির দোকান</option>
+                                        <option value="12">আর্থিক প্রতিষ্ঠান</option>
+                                        <option value="13">ক্ষুদ্র ও কুটির শিল্প</option>
+                                        <option value="14">মাঝারি শিল্প</option>
+                                        <option value="15">খাবার হোটেল</option>
+                                        <option value="16">প্রকৌশলী</option>
+                                        <option value="17">আইনজীবী</option>
+                                        <option value="18">চিকিৎসক</option>
+                                        <option value="19">ক্লিনিক</option>
+                                        <option value="20">ঔষদের দোকান</option>
+                                        <option value="21">আবাসিক হোটেল</option>
+                                        <option value="22">মিষ্টির দোকান</option>
+                                        <option value="23">বে-সরকারি হাসপাতাল</option>
+                                        <option value="24">বে-সরকারি স্কুল</option>
+                                        <option value="25">কোচিং সেন্টার</option>
+                                        <option value="26">খাবার হোটেল</option>
+                                        <option value="27">হিমাগার</option>
+                                        <option value="28">ধান ভাঙানোর কল</option>
+                                        <option value="29">আটার কল</option>
+                                        <option value="30">তেলের কল</option>
+                                        <option value="31">স’ মিল</option>
+                                        <option value="32">বিউটি পার্লার</option>
+                                        <option value="33">হেয়ার কাট সেলুন</option>
+                                        <option value="34">লন্ড্রীর দোকান</option>
+                                        <option value="35">ইন্জিনিয়ারিং ফার্ম</option>
+                                        <option value="36">শিল্প কারখানা</option>
+                                        <option value="37">ইট ভাটা</option>
+                                        <option value="38">কনসালটেন্সি ফার্ম</option>
+                                        <option value="39">গুদাম</option>
+                                        <option value="40">রিক্সার মালিক</option>
+                                        <option value="41">বাজার ইজারা</option>
+                                        <option value="42">টেম্পোর মালিক</option>
+                                        <option value="43">বাসের মালিক</option>
+                                        <option value="44">ট্রাকের মালিক</option>
+                                        <option value="45">পরিবহন এজেন্সি</option>
+                                        <option value="46">নৌযানের মালিক</option>
+                                        <option value="47">অটো-রিক্সার মালিক</option>
+                                        <option value="48">স্টীমার/কার্গোর মালিক</option>
+                                        <option value="49">শিশু পার্ক</option>
+                                        <option value="50">বিনোদন পার্ক</option>
+                                        <option value="51">জবাই পশু</option>
+                                        <option value="52">ঠিকাদার</option>
+                                        <option value="53">গাড়ী চালক</option>
+                                        <option value="54">অন্যান্য</option>
+                                    </select>
                                     {{-- @if($errors->has('main_source_income'))
-                                    <small class="d-block text-danger">
+                                    <small class="d-block text-danger text-center">
                                         {{ $errors->first('main_source_income') }}
                                     </small>
                                     @endif --}}
                                 </div>
+                                {{-- <div class="col-6">
+                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস:-</label>
+                                    <input class="form-control"
+                                    name="main_source_income" id="main_source_income" value="{{ old('main_source_income') }}"  type="text" placeholder="আয়ের প্রধান উৎস">
+                                    @if($errors->has('main_source_income'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('main_source_income') }}
+                                    </small>
+                                    @endif
+                                </div> --}}
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">

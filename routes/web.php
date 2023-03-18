@@ -16,6 +16,7 @@ use App\Http\Controllers\WarishanController as warishan;
 use App\Http\Controllers\CitizenCertificateController as citizen;
 use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
+use App\Http\Controllers\OtherInformationController as others;
 use App\Http\Controllers\PaymentReceiptController as payment;
 use App\Http\Controllers\DisabilityCertificateController as disablity;
 use App\Http\Controllers\OldageAllowanceController as oldallowance;
@@ -94,6 +95,9 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold_profile',[holding::class,'profile'])->name('hold_profile.list');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
+
+        Route::resource('others',others::class,['as'=>'admin']);
+
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
         Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);
@@ -115,7 +119,6 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('sourceincome',sourceincome::class,['as'=>'admin']);
         Route::resource('housingtype',housingtype::class,['as'=>'admin']);
         Route::resource('sourcebusiness',sourcebusiness::class,['as'=>'admin']);
-
 
 
     });
