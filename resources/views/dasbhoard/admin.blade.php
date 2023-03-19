@@ -1,264 +1,272 @@
 @extends('layout.app')
-@section('pageTitle',trans('Profile Statistics'))
+{{-- @section('pageTitle',trans('Profile Statistics')) --}}
 
 @section('content')
 
 <div class="page-content">
-    <section class="row">
-        <div class="col-12 col-lg-9">
+    <section class="row" style="border: 15px solid rgba(228, 217, 217, 0.685); padding: 10px">
+        <div class="col-12 col-lg-12 mt-5">
             <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <table class="table table-hover border border-primary">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="text-center bg-primary text-white">সর্বশেষ করদাতা</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar avatar-md">
+                                            {{-- <img src="{{ asset('/assets/images/faces/2.jpg') }}"> --}}
+                                        </div>
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">করিম উদ্দিন</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 290px;">
+                                    <button class="bg-primary rounded-circle text-white">২০</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar avatar-md">
+                                            {{-- <img src="{{ asset('/assets/images/faces/2.jpg') }}"> --}}
+                                        </div>
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">জামাল উদ্দিন</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 290px;">
+                                    <button class="bg-primary rounded-circle text-white">১০</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-3 col-lg-2 col-md-6">
+                    <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon purple mb-2">
-                                        <i class="iconly-boldShow"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">{{ __('Profile Views') }}</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
-                                </div>
+                                <h5>৮৬২৬৩</h5>
+                                <p>মোট কর</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
+                <div class="col-sm-3 col-lg-2 col-md-6">
+                    <div class="card" style="background-color: rgb(104, 221, 137); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon blue mb-2">
-                                        <i class="iconly-boldProfile"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
-                                </div>
+                                <h5>১১৭৮৬৫৯৫</h5>
+                                <p>মোট আদায়</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
+                <div class="col-sm-3 col-lg-2 col-md-6">
+                    <div class="card" style="background-color: rgb(244, 247, 56); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon green mb-2">
-                                        <i class="iconly-boldAdd-User"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Following</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
-                                </div>
+                                <h5>৩৫৯৬৯</h5>
+                                <p>বকেয়া কর</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-4 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon red mb-2">
-                                        <i class="iconly-boldBookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Profile Visit</h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-profile-visit"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-xl-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Profile Visit</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-6">
+                <div class="col-12 col-xl-6">
+                    <table class="table table-hover border border-primary">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="text-center bg-primary text-white">ভাতার সংখ্যা</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
                                     <div class="d-flex align-items-center">
-                                        <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="{{ asset('/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Europe</h5>
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">প্রতিবন্ধী ভাতা</p>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">862</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-europe"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <div class="d-flex align-items-center">
-                                        <svg class="bi text-success" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="{{ asset('/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">America</h5>
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">বয়স্ক ভাতা</p>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">375</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-america"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <div class="d-flex align-items-center">
-                                        <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="{{ asset('/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Indonesia</h5>
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">বিধবা ভাতা</p>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">1025</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-indonesia"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">মাতৃত্বকালীন ভাতা</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">অন্যান্য ভাতা</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">কোনটি নয় ভাতা</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">মোটঃ</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 250px;">
+                                    <button class="bg-primary rounded text-white">৮৮৮ জন</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-12 col-xl-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Latest Comments</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-lg">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Comment</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="{{ asset('/assets/images/faces/5.jpg') }}">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="{{ asset('/assets/images/faces/2.jpg') }}">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for
-                                                    this design?</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3">
-            <div class="card">
-                <div class="card-body py-4 px-4">
-                    <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl">
-                            <img src="{{ asset('/assets/images/faces/1.jpg') }}" alt="Face 1">
-                        </div>
-                        <div class="ms-3 name">
-                            <h5 class="font-bold">John Duck</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Recent Messages</h4>
-                </div>
-                <div class="card-content pb-4">
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ asset('/assets/images/faces/4.jpg') }}">
-                        </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">Hank Schrader</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
-                        </div>
-                    </div>
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ asset('/assets/images/faces/5.jpg') }}">
-                        </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">Dean Winchester</h5>
-                            <h6 class="text-muted mb-0">@imdean</h6>
-                        </div>
-                    </div>
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ asset('/assets/images/faces/1.jpg') }}">
-                        </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">John Dodol</h5>
-                            <h6 class="text-muted mb-0">@dodoljohn</h6>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Visitors Profile</h4>
-                </div>
-                <div class="card-body">
-                    <div id="chart-visitors-profile"></div>
+                <div class="col-12 col-xl-6">
+                    <table class="table table-hover border border-primary">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="text-center bg-primary text-white">ওয়ার্ড অনুসারে মোট করদাতা</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">১নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">২নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৩নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৪নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৫নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৬নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৭নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">৬ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৮নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">১৫ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">৯নং ওয়ার্ড</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">১১ জন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <p class="font-bold mb-0" style="padding-left: 10px;">মোটঃ</p>
+                                    </div>
+                                </td>
+                                <td style="padding-left: 260px;">
+                                    <button class="bg-primary rounded text-white">১১৫৬ জন</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
