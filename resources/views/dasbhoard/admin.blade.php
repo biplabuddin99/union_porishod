@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-xl-6">
+                <div class="col-sm-6 col-lg-12 col-xl-6">
                     <table class="table table-hover border border-primary">
                         <thead>
                             <tr>
@@ -91,7 +91,7 @@
                                     </div>
                                 </td>
                                 <td style="padding-left: 250px;">
-                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                    <button class="bg-primary rounded text-white">৫ জন</button>
                                 </td>
                             </tr>
                             <tr>
@@ -111,13 +111,13 @@
                                     </div>
                                 </td>
                                 <td style="padding-left: 250px;">
-                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                    <button class="bg-primary rounded text-white">২ জন</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <p class="font-bold mb-0" style="padding-left: 10px;">মাতৃত্বকালীন ভাতা</p>
+                                        <p class="font-bold mb-0">মাতৃত্বকালীন'ভাতা</p>
                                     </div>
                                 </td>
                                 <td style="padding-left: 250px;">
@@ -131,17 +131,17 @@
                                     </div>
                                 </td>
                                 <td style="padding-left: 250px;">
-                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                    <button class="bg-primary rounded text-white">৯ জন</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <p class="font-bold mb-0" style="padding-left: 10px;">কোনটি নয় ভাতা</p>
+                                        <p class="font-bold mb-0">কোনটি নয় ভাতা</p>
                                     </div>
                                 </td>
                                 <td style="padding-left: 250px;">
-                                    <button class="bg-primary rounded text-white">৮ জন</button>
+                                    <button class="bg-primary rounded text-white">৭ জন</button>
                                 </td>
                             </tr>
                             <tr>

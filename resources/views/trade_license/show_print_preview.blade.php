@@ -1,111 +1,181 @@
 @extends('layout.app')
-@section('pageTitle',trans('প্রিন্ট প্রি ভিউ'))
+{{-- @section('pageTitle',trans('প্রিন্ট প্রি ভিউ')) --}}
 
 @section('content')
-
-<!-- Bordered table start -->
-<section class="section">
-    <div class="row" id="table-bordered">
-        <div class="col-12">
-            <ul class="page-breadcrumb breadcrumb no-print">
-                <li>
-                    <a href="#">হোম </a>
-                    <i class="bi bi-circle-half"></i>
-                </li>
-
-                <li>
-                    <span>প্রিন্ট প্রি ভিউ</span>
-                </li>
-            </ul>
-
-            <div class="card">
-                <div class="container panel-body">
-                    <div class="page-content-inner">
-                        <div class="portlet light tasks-widget">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <span class="caption-subject font-dark sbold uppercase">ট্রেড লাইসেন্স নংঃ {{ $trade->id }}</span>
-                                </div>
-                            </div>
-                            <div class="portlet-body util-btn-margin-bottom-5">
-                                <form action="#" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
-                                    <div class="form-body">
-                                        <table class="table no-border">
-                                            <tr>
-                                                <td><strong>ব্যবসা প্রতিষ্ঠানের নাম </strong><br>{{ $trade->business_name }}</td>
-                                                <td><strong>প্রতিষ্ঠানের  বিবরন</strong><br>{{ $trade->organization_details }}</td>
-                                                <td rowspan="3"><strong>ফটো </strong><br>
-                                                    <img width="100" src="{{ asset('uploads/trade_license/') }}/{{ $trade->image }}" alt="" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>প্রোপাইটরের নাম </strong><br>{{ $trade->proprietor_name }}</td>
-                                                <td><strong>পিতা/স্বামী </strong><br>{{ $trade->father_husband }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>মোবাইল </strong><br>{{ $trade->phone }}</td>
-                                                <td><strong>আইডি নং</strong><br>{{ $trade->id_no }}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><strong>আনুমানিক মূল্য</strong><br>{{ $trade->estimated_price }}</td>
-                                                <td><strong>আদায়কৃত  ফ্রি </strong><br>{{ $trade->earned_free }}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><strong>গ্রাম/ রাস্তা</strong><br>{{ $trade->village_road }}</td>
-                                                <td><strong>ওয়ার্ড নং</strong><br>{{ $trade->ward_no_id }}</td>
-                                                <td rowspan="3"><strong></strong><br>
-                                                    <img width="100" src="" alt="" />QR Code hobe
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>পোস্ট অফিস</strong><br>{{ $trade->post_office }}</td>
-                                                <td><strong>থানা</strong><br>{{ $trade->thana_id }} </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>জেলা</strong><br>{{ $trade->district_id }}</td>
-                                                <td><strong>বিভাগ</strong><br> {{ $trade->division_id }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>প্রতিষ্ঠানের ঠিকানা</strong><br> {{ $trade->institution_address }}</td>
-
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="form-actions hidden-print">
-                                        <div class="row">
-                                            <div class="col-md-offset-2 col-md-10 mb-3">
-                                                <input type="button"  class="btn btn-warning cancel no-print" value="Back"/>
-                                                <input type="button" onclick="javascript:print();" class="btn btn-primary no-print" value="Print"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- <a href="#" class="btn btn-md btn-danger print_btn"><i class="bi bi-printer"></i></a> --}}
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
+<section>
+    <section style="margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
+                <div class="col-md-12 text-center"
+                    style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px; background-color: rgb(196, 213, 245);">
+                    <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>২নং চরপার্বতী ইউনিয়ন পরিষদ</strong></h4>
                 </div>
+                <h6 class="text-center">কোম্পানিগঞ্জ,নোয়াখালী</h6>
+                <h6 class="text-center">www.bdgl.online/charpatbotiup</h6>
             </div>
         </div>
-    </div>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PrintArea/2.4.1/jquery.PrintArea.min.js" referrerpolicy="no-referrer"></script>
-    <script>
-        $(document).ready(function(){
-            /*for print a page*/
-            $('.print_btn').click(function(){
-                w=window.open();
-                w.document.write($('.panel-body').html());
-                w.print();
-                w.close();
-            });
-        });
-    </script> --}}
+    </section>
+    <section style="margin-top: 5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <img height="150px" width="150px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
+                    <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>ট্রেডলাইসেন্স ইস্যুর বিবরন</strong></p>
+                    <p>ইস্যুর তারিখঃ 02/11/2023</p>
+                    <p>ইস্যুর সময়ঃ 10:11:26</p>
+                </div>
+                <div class="col-4 col-sm-4" style="padding-left: 110px; padding-top: 10px;">
+                    <img height="150px" width="150px" src="{{ asset('images/show_img/logo.png') }}" alt="">
+                    <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-ট্রেড লাইসেন্স</h4>
+                    {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
+                </div>
+                <div class="col-4" style="padding-left: 215px;">
+                    <img height="200px" width="130px"  src="{{ asset('images/show_img/picture.png') }}" alt="">
+                </div>
+            </div>
+            <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 10px;">লাইসেন্স নং:  TRAD/2CHUP/24066</h5>
+            <div class="row">
+                <p style="border-bottom: 3px solid rgb(73, 235, 8); border-top: 3px solid rgb(73, 235, 8); padding-top: 5px;">
+                    স্থানীয় সরকার (ইউনিয়ন পরিষদ) আইন,২০০৯(২০০৯ সনের ৬০ নং আইন) এর ধারা ৮৪-তে প্রদত্ত ক্ষমতাবলে সরকার প্রনীত আদর্শ কর তফসিল,২০১৬ এর ১০ অনুচ্ছেদ
+                    অনুযায়ী ব্যবসা,বৃদ্ধি,পেশা বা শিল্প প্রতিষ্ঠানের উপর আরোপিত কর আদায়ের লক্ষে নিন্মে বর্ণিত ব্যক্তির প্রতিষ্ঠানের আনুকুলে অত্র ট্রেড লাইসেন্সটি ইস্যু করা হলো।
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4);">
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">১।</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">ব্যাবসা প্রতিষ্ঠানের নাম :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">এসটিপি এগ্রো এন্টারপ্রাইস</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">2।</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">প্রতিষ্টানের মালিক/চেয়ারম্যান/এমডির নাম :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">মিজানুর রহমান</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">৩।</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">রহিম উদ্দিন হাওলাদার</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">৪।</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">মাতার নাম :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">মোসাঃ রুজিনা খানম</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">৫।</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">ব্যাবসার ধরন :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">কৃষি খামার ও সরবরাহকারী</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for="">৬।</span>
+            </div>
+            <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
+                <span  class="form-label" for="">প্রতিষ্ঠানের ঠিকানা :</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">হোল্ডিং নং :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">১৭৭</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">ওয়ার্ড নং :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">০২</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">নবগ্রাম</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">নবগ্রাম</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">ডাকঘর :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">ইটনাকোনা</span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-1">
+                <span  class="form-label" for=""></span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">জেলা :</span>
+            </div>
+            <div class="col-5">
+                <span  class="form-label" for="">নেয়াখালী</span>
+            </div>
+        </div>
+    </section>
 </section>
-<!-- Bordered table end -->
+
 
 
 @endsection

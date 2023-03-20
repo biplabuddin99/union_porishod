@@ -120,7 +120,7 @@
                 <img src="{{ asset('logo/Screenshot_3.png') }}" width="80px" height="80px" alt="Logo">
             </div>
             <div class="headcontent">
-                <h5 style="margin-top: 20px; margin-bottom: 5px;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h3>
+                <h6 style="margin-top: 20px; margin-bottom: 5px;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h6>
                 <h3 style="margin: 5px;">চিরাম ইউনিয়ন পরিষদ, বারহাট্টা, নেত্রকোণা</h1>
                 <h4 class="headbg" style="margin: auto;">ডিজিটাল তথ্য সংগ্রহ ফরম</h2>
             </div>
