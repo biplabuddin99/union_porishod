@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Warishan;
 use Illuminate\Http\Request;
 use App\Models\Ward_no;
+use App\Models\WarisanChild;
 use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Thana;
@@ -129,19 +130,31 @@ class WarishanController extends Controller
             $p->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
 
             if($p->save()){
-            Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!');
-            return redirect()->route(currentUser().'.warishan.index');
+                if($request->cname){
+                    foreach($request->cname as $key => $value){
+                        // dd($request->all());
+                        if($value){
+                        $cwarisan = new WarisanChild;
+                        $cwarisan->warisan_id=$p->id;
+                        $cwarisan->name=$request->cname[$key];
+                        $cwarisan->ralation=$request->crelation[$key];
+                        $cwarisan->birth_date=$request->cbirth_date[$key];
+                        $cwarisan->cnid=$request->cnid[$key];
+                        $cwarisan->save();
+                    }
+                    }
+                }
+                Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!!');
+                return redirect()->route(currentUser().'.warishan.index');
             }else{
-            Toastr::success('Please try Again!');
-            return redirect()->back();
-            }
+                Toastr::success('দয়করে আবার চেষ্টা করুন!');
+                return redirect()->back();
 
-        }
-        catch (Exception $e){
-            Toastr::success('Please try Again!');
+            }
+        }catch (Exception $e){
+            Toastr::success('দয়করে আবার চেষ্টা করুন!');
             dd($e);
             return back()->withInput();
-
         }
     }
 

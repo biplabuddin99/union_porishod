@@ -143,10 +143,10 @@
                                       <tr>
                                           <td class="smember" style='text-align:center;'>5</td>
                                           <td style='text-align:left;'>
-                                                <input type='text' name='name' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
+                                                <input type='text' name='cname[]' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
                                           </td>
                                           <td style='text-align:left;'>
-                                              <select class='cls_debit form-control' name="gender" style='border:none;'>
+                                              <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
                                                   <option value="">সম্পর্ক</option>
                                                   <option value="1">স্ত্রী</option>
                                                   <option value="2">ছেলে</option>
@@ -155,13 +155,12 @@
                                               </select>
                                           </td>
                                           <td style='text-align:left;'>
-                                            <input class="form-control datepicker" name="holding_date" style='border:none;' value="" id="holding_date" type="text" placeholder="জন্ম তারিখ">
+                                            <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date') }}" id="cbirth_date" type="date" placeholder="জন্ম তারিখ">
                                          </td>
                                           <td style='text-align:left;'>
-                                            <input class="form-control" name="nid" id="nid" style='border:none;' value="{{ old('nid') }}"  type="text" placeholder="ভোটার আইডি">
+                                            <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid') }}"  type="text" placeholder="ভোটার আইডি">
                                          </td>
                                       </tr>
-                                      <tr id="add_row"></tr>
                                     </tbody>
                                 </table>
                             </div>
