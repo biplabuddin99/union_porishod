@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
     {
         User::create(array(
                 "name"=>"admin",
-                "email"=>"khulsiclaub@khulsiclub.com",
+                "email"=>"union@porishod.com",
                 "contact_no"=>"16247",
                 "role_id"=>"1",
                 "password"=>Hash::make("admin"),

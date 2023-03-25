@@ -19,7 +19,7 @@ class CompanySeeder extends Seeder
     public function run()
     {
         Company::create(array(
-                "name"=>"khulsiclaub",
+                "name"=>"union porishad",
                 "contact"=>"16247",
                 "status"=>"1",
                 "created_at"=>Carbon::now()

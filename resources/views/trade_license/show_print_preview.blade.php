@@ -56,7 +56,7 @@
                     <span  class="form-label" for="">ব্যাবসা প্রতিষ্ঠানের নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">এসটিপি এগ্রো এন্টারপ্রাইস</span>
+                    <span  class="form-label" for="">{{ $trade->business_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -67,7 +67,7 @@
                     <span  class="form-label" for="">প্রতিষ্টানের মালিক/চেয়ারম্যান/এমডির নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মিজানুর রহমান</span>
+                    <span  class="form-label" for="">{{ $trade->owner_proprietor }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -78,7 +78,7 @@
                     <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">রহিম উদ্দিন হাওলাদার</span>
+                    <span  class="form-label" for="">{{ $trade->father_husband }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -100,7 +100,7 @@
                     <span  class="form-label" for="">ব্যাবসার ধরন :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কৃষি খামার ও সরবরাহকারী</span>
+                    <span  class="form-label" for="">{{ $trade->business_type }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -119,7 +119,7 @@
                     <span  class="form-label" for="">হোল্ডিং নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">১৭৭</span>
+                    <span  class="form-label" for="">{{ $trade->vehicle_establishment_holding_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -130,7 +130,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০২</span>
+                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -141,7 +141,7 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নবগ্রাম</span>
+                    <span  class="form-label" for="">{{ $trade->street_nm }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -152,7 +152,7 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইটনাকোনা</span>
+                    <span  class="form-label" for="">{{ $trade->post_office }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -163,7 +163,7 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
+                    <span  class="form-label" for="">{{ $trade->upazila_thana }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -174,7 +174,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নেয়াখালী</span>
+                    <span  class="form-label" for="">{{ $trade->district }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -207,7 +207,7 @@
                     <span  class="form-label" for="">ফোন/মোবাইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">018866554426</span>
+                    <span  class="form-label" for="">{{ $trade->phone }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -218,7 +218,7 @@
                     <span  class="form-label" for=""> ইমেইল(যদি থাকে) :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">kamal@gmail.com</span>
+                    <span  class="form-label" for="">{{ $trade->email }}</span>
                 </div>
             </div>
             <div class="row m-2">

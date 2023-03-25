@@ -18,7 +18,7 @@ class BranchSeeder extends Seeder
     public function run()
     {
         Branch::create(array(
-                "name"=>"khulsiclaub",
+                "name"=>"union porishod",
                 "contact"=>"16247",
                 "status"=>"1",
                 "company_id"=>"1",

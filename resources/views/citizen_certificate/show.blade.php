@@ -4,7 +4,7 @@
 @section('content')
 <div id="result_show">
     <section style="font-size: 12px">
-        <section style="margin-top: 30px;">
+        <section style="margin-top: 40px;">
             <div class="container">
                 <div class="row">
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </section>
-        <section style="margin-top: 5px;">
+        <section style="margin-top: 10px;">
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -49,17 +49,17 @@
         </section>
         <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4); position: relative;">
             <div class="bgimage">
-                <img style="background-repeat: no-repeat; position: absolute; height: 600px; width: auto; align-items: center; padding-left: 500px; padding-top: 300px;" 
+                <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 490px; padding-top: 83px;" 
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
             <div class="row m-2">
                 <div class="col-1">
                     <span  class="form-label" for="">১।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ব্যাবসা প্রতিষ্ঠানের নাম :</span>
+                    <span  class="form-label" for="">ব্যক্তির নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">এসটিপি এগ্রো এন্টারপ্রাইস</span>
+                    <span  class="form-label" for="">মো নিজাম উদ্দিন</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -67,7 +67,7 @@
                     <span  class="form-label" for="">2।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">প্রতিষ্টানের মালিক/চেয়ারম্যান/এমডির নাম :</span>
+                    <span  class="form-label" for="">পিতার নাম :</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">মিজানুর রহমান</span>
@@ -78,7 +78,7 @@
                     <span  class="form-label" for="">৩।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
+                    <span  class="form-label" for="">মাতার নাম :</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">রহিম উদ্দিন হাওলাদার</span>
@@ -89,10 +89,10 @@
                     <span  class="form-label" for="">৪।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মাতার নাম :</span>
+                    <span  class="form-label" for="">জন্ম তারিখ :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মোসাঃ রুজিনা খানম</span>
+                    <span  class="form-label" for="">০২.০৮.২০২২</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -100,18 +100,40 @@
                     <span  class="form-label" for="">৫।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ব্যাবসার ধরন :</span>
+                    <span  class="form-label" for="">ভোটার আইডি/ডিজিটাল জন্ম নিবন্ধন :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কৃষি খামার ও সরবরাহকারী</span>
+                    <span  class="form-label" for="">৯৮৪৪৪৩৩৭৭৩</span>
                 </div>
             </div>
             <div class="row m-2">
                 <div class="col-1">
                     <span  class="form-label" for="">৬।</span>
                 </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">পেশা :</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">ছাত্র</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-1">
+                    <span  class="form-label" for="">৭।</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">ধর্ম :</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">ইসলাম</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-1">
+                    <span  class="form-label" for="">৮।</span>
+                </div>
                 <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for="">প্রতিষ্ঠানের ঠিকানা :</span>
+                    <span  class="form-label" for="">স্থায়ী ঠিকানা :</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -182,24 +204,10 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৭।</span>
+                    <span  class="form-label" for="">৯।</span>
                 </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">এনআইডি/পাসপোর্ট/জন্ম নিব: নং:</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">৩২৭৪২৭৭০৮০</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">বিআইএন নং :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">0</span>
+                <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
+                    <span  class="form-label" for="">যোগাযোগ মাধ্যম :</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -210,7 +218,7 @@
                     <span  class="form-label" for="">ফোন/মোবাইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">018866554426</span>
+                    <span  class="form-label" for="">০১৮৮৮৮৮০২৮</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -218,7 +226,7 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for=""> ইমেইল(যদি থাকে) :</span>
+                    <span  class="form-label" for="">ইমেইল :</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">kamal@gmail.com</span>
@@ -226,163 +234,24 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৮।</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">অর্থবছর <strong>(নবায়নকৃত)</strong> :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">২০২২-২০২৩</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for="">৯।</span>
-                </div>
-                <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for="">মালিকের স্থায়ী ঠিকানা :</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">হোল্ডিং নং :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">১০২৮</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">ওয়ার্ড নং :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">০৪</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">নবগ্রাম</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">ডাকঘর :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">ইটনাকোনা</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">থানা :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">জেলা :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">নেয়াখালী</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
                     <span  class="form-label" for="">১০।</span>
                 </div>
                 <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for=""> ট্রেড লাইসেন্স নবায়ন ফি <strong>(বার্ষিক)</strong> :</span>
+                    <span  class="form-label" for=""> নাগরিক সনদ ফি :</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">৩০০.০০টাকা</span>
                 </div>
             </div>
             <div class="row m-2">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">লাইসেন্স/নবায়ন ফি :</span>
+                <div class="col-5">
+                    <span  class="form-label" for="">সংশোধনী ফি :</span>
                 </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">২,০০০.০০</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">সাইনবোর্ড কর :</span>
-                </div>
-                <div class="col-2">
-                    <span  class="form-label" for="">৩৬০.০০</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">সারচার্জ :</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">০</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">ভ্যাট :</span>
-                </div>
-                <div class="col-2">
-                    <span  class="form-label" for="">১৬৪.০০</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">আয়কর/উৎসেকর :</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">১০০০.০০</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">ফর্ম ফি :</span>
-                </div>
-                <div class="col-2">
-                    <span  class="form-label" for="">১০০.০০</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">সংশোধন ফি :</span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for="">০</span>
-                </div>
-                <div class="col-2">
-                    <span  class="form-label" for=""><strong>সর্বমোট :</strong></span>
-                </div>
-                <div class="col-3">
-                    <span  class="form-label" for=""><strong>৩৬২৮৪.০০ টাকা ।</strong></span>
+                <div class="col-5">
+                    <span  class="form-label" for="">২ টাকা</span>
                 </div>
             </div>
         </div>
@@ -390,20 +259,20 @@
         <section>
             <div class="row">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
-                <p> <strong>অত্র ট্রেড লাইসেন্স এর মেয়াদ ৩০ শে জুন,২০২৩ পর্যন্ত ।</strong> আমি তাহার সার্বিক কল্যান ও ব্যাবসায়িক উন্নতি কামনা করি ।</p>
+                <p>আমি তাহার সার্বিক কল্যান  উন্নতি কামনা করি ।</p>
                </div>
             </div>
             <div class="row">
                 <div class="col-8"></div>
-                <div class="col-4" style="color: rgb(18, 5, 133); padding-top:10px">
+                <div class="col-4" style="color: rgb(18, 5, 133); padding-top:20px">
                     <div class="row"><strong>(কাজী মোহাম্মদ হানিফ)</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
                     <div class="row">২নং চরপার্বতী ইউনিযন পরিষদ</div>
                     <div class="row" style="padding-left: 30px">কোম্পানিগঞ্জ, নোয়াখালী</div>
                 </div>
             </div>
-            <div class="font-bold row" style="padding-top:20px">
-                <h5 class="text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন ||</h5>
+            <div class="font-bold row" style="padding-top:30px">
+                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন ||</h5>
             </div>
         </section>
     </section>

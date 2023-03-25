@@ -164,9 +164,10 @@ class WarishanController extends Controller
      * @param  \App\Models\Warishan  $warishan
      * @return \Illuminate\Http\Response
      */
-    public function show(Warishan $warishan)
+    public function show($id)
     {
-        //
+        $warisan=Warishan::findOrFail(encryptor('decrypt',$id));
+        return view('warishan.show',compact('warisan'));
     }
 
     /**

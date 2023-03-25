@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('upazilas', function (Blueprint $table) {
+        Schema::create('unions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('district_id')->nullable()->index()->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            $table->unsignedBigInteger('upazila_id')->nullable()->index()->foreign('upazila_id')->references('id')->on('upazilas')->onDelete('cascade');
             $table->string('name');
             $table->string('name_bn')->nullable();
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upazilas');
+        Schema::dropIfExists('unions');
     }
 };

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             DivisionSeeder::class,
             DistrictSeeder::class,
+            UpazilaSeeder::class,
+            UnionSeeder::class,
             SettingsSeeder::class,
             CompanySeeder::class,
             BranchSeeder::class,

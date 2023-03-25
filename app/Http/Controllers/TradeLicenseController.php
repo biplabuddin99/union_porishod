@@ -164,7 +164,7 @@ class TradeLicenseController extends Controller
     public function edit($id)
     {
         $division=Division::all();
-        $district=District::all();
+        $district=District::where('id',encryptor('decrypt',$id))->select('id','name','bn_name')->get();
         $thana=Thana::all();
         $ward=Ward_no::all();
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));

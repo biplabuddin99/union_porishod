@@ -48,6 +48,9 @@
                                         </form>
                                     </td>
                                     <td class="white-space-nowrap d-flex" style="border-style: none;">
+                                        <a href="{{route(currentUser().'.warishan.show',encryptor('encrypt',$p->id))}}">
+                                            <i class="bi bi-eye-fill"></i>
+                                        </a>&nbsp;&nbsp;
                                         <a  href="{{route(currentUser().'.warishan.edit',encryptor('encrypt',$p->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                         </a>&nbsp;&nbsp;
