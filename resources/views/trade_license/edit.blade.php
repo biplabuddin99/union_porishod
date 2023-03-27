@@ -493,25 +493,30 @@
                                 </div>
                             </div>
                             <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
-                                    <input class="form-control @error('upazila_thana') is-invalid @enderror"
-                                    name="upazila_thana" id="upazila_thana" value="{{ old('upazila_thana',$trade->upazila_thana) }}"  type="text" placeholder="উপজেলা/থানা">
-                                    {{-- @if($errors->has('upazila_thana'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('upazila_thana') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="district">জেলা:-</label>
-                                    <input class="form-control @error('district') is-invalid @enderror"
-                                    name="district" id="district" value="{{ old('district',$trade->district) }}"  type="text" placeholder="জেলা">
+                                <div class="col-lg-6 col-md-4 col-sm-4">
+                                    <label for="district">জেলা:-</label>
+                                    <select id="district_id" name="district_id" class="form-select search_district_eid">
+                                        <option value="">নির্বাচন করুন</option>
+                                        @foreach ($districts as $district)
+                                        <option value="{{ $district->id }}"{{$trade->district_id == $district->id ? 'selected' : ''}}>{{ $district->name_bn }}</option>
+                                        @endforeach
+                                    </select>
                                     @if($errors->has('district'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('district') }}
                                     </small>
                                     @endif
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-sm-4">
+                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
+                                    <select id="upazila_id" name="upazila_id" class="form-select search_district_eid">
+                                        <option value="">নির্বাচন করুন</option>
+                                    </select>
+                                    {{-- @if($errors->has('upazila_thana'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('upazila_thana') }}
+                                    </small>
+                                    @endif --}}
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -552,4 +557,28 @@
         </div>
     </div>
 </section>
+<script>
+    // District wise Upazilla Change
+    $(document).ready(function() {
+        $('.search_district_eid').select2();
+        $('#district_id').on('change', function() {
+            var district_id = $(this).val();
+            console.log();
+            if (district_id) {
+                $.ajax({
+                    url: "{{ url('/upzilla/ajax') }}/" + district_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#upazila_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#upazila_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
 @endsection

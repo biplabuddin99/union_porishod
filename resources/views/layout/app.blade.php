@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" referrerpolicy="no-referrer" />
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   {{-- tostr css --}}
   <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 <script
@@ -166,6 +166,32 @@
   <script>
       $('.dropify').dropify();
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    // District wise Upazilla Change
+    $(document).ready(function() {
+        $('.search_district').select2();
+        $('#district_id').on('change', function() {
+            var district_id = $(this).val();
+            console.log();
+            if (district_id) {
+                $.ajax({
+                    url: "{{ url('/upzilla/ajax') }}/" + district_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#upazila_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#upazila_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -23,8 +23,8 @@
                     <div class="col-4">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                         <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>ট্রেডলাইসেন্স ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ 02/11/2023</p>
-                        <p>ইস্যুর সময়ঃ 10:11:26</p>
+                        <p>ইস্যুর তারিখঃ {{ $trade->holding_date }}</p>
+                        <p>ইস্যুর সময়ঃ {{ $trade->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-4 col-sm-4" style="padding-left: 110px; padding-top: 5px;">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/logo.png') }}" alt="">
@@ -32,7 +32,7 @@
                         {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
-                        <img height="160px" width="100px"  src="{{ asset('images/show_img/picture.png') }}" alt="">
+                        <img height="130px" width="100px"  src="{{ asset('uploads/trade_license/image/thumb') }}/{{ $trade->image }}" alt="">
                     </div>
                     <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">লাইসেন্স নং:  TRAD/2CHUP/24066</h5>
                 </div>
@@ -130,7 +130,8 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
+                    <span  class="form-label" for="">০৪</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->ward_no }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -141,7 +142,8 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->street_nm }}</span>
+                    <span  class="form-label" for="">নবগ্রাম</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->street_nm }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -152,7 +154,8 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->post_office }}</span>
+                    <span  class="form-label" for="">ইনটেকা</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->post_office }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -163,7 +166,8 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->upazila_thana }}</span>
+                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->upazila_thana }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -174,7 +178,8 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->district }}</span>
+                    <span  class="form-label" for="">নোয়াখালী</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->district }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -185,7 +190,7 @@
                     <span  class="form-label" for="">এনআইডি/পাসপোর্ট/জন্ম নিব: নং:</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">৩২৭৪২৭৭০৮০</span>
+                    <span  class="form-label" for="">এনআইডি:{{ $trade->voter_id_no }} / জন্ম নিব: {{ $trade->birth_registration_id }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -229,7 +234,21 @@
                     <span  class="form-label" for="">অর্থবছর <strong>(নবায়নকৃত)</strong> :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">২০২২-২০২৩</span>
+                    @if ($trade->trade_license_renewal==1)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৩-২০২৪</span>
+                    @elseif($trade->trade_license_renewal==2)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৪-২০২৫</span>
+                    @elseif($trade->trade_license_renewal==3)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৫-২০২৬</span>
+                    @elseif($trade->trade_license_renewal==4)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৬-২০২৭</span>
+                    @elseif($trade->trade_license_renewal==5)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৭-২০২৮</span>
+                    @elseif($trade->trade_license_renewal==6)
+                    <span  class="form-label" for="">অর্থ বছর ২০২৮-২০২৯</span>
+                    @else
+                        কোন অর্থবছর পাওয়া যায় নি
+                    @endif
                 </div>
             </div>
             <div class="row m-2">
@@ -248,7 +267,8 @@
                     <span  class="form-label" for="">হোল্ডিং নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">১০২৮</span>
+                    <span  class="form-label" for="">৯৮৪৩৭</span>
+                    {{-- <span  class="form-label" for="">{{ $trade->vehicle_establishment_holding_no }}</span> --}}
                 </div>
             </div>
             <div class="row m-2">
@@ -259,7 +279,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০৪</span>
+                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -270,7 +290,7 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নবগ্রাম</span>
+                    <span  class="form-label" for="">{{ $trade->village_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -281,7 +301,7 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইটনাকোনা</span>
+                    <span  class="form-label" for="">{{ $trade->post_office }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -303,7 +323,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নেয়াখালী</span>
+                    <span  class="form-label" for="">{{ $district_id->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -322,7 +342,7 @@
                     <span  class="form-label" for="">লাইসেন্স/নবায়ন ফি :</span>
                 </div>
                 <div class="col-3">
-                    <span  class="form-label" for="">২,০০০.০০</span>
+                    <span  class="form-label" for="">{{ $trade->trade_license_renewal_fee }}</span>
                 </div>
                 <div class="col-3">
                     <span  class="form-label" for="">সাইনবোর্ড কর :</span>

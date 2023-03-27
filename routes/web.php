@@ -24,6 +24,7 @@ use App\Http\Controllers\WidowAllowanceController as widowallowance;
 use App\Http\Controllers\MaternityAllowanceController as maternityallowance;
 use App\Http\Controllers\VgfCardController as vgfcard;
 use App\Http\Controllers\PorishodSettingController as porishodsettiong;
+use App\Http\Controllers\AllOnlineApplicationsController as allapplication;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -34,7 +35,7 @@ use App\Http\Controllers\TelecommunicationController as telecomunication;
 use App\Http\Controllers\SourceIncomeController as sourceincome;
 use App\Http\Controllers\SourcesBusinessTaxeController as sourcebusiness;
 use App\Http\Controllers\HousingTypeController as housingtype;
-use App\Http\Controllers\AllOnlineApplicationsController as allapplication;
+
 
 
 
@@ -65,6 +66,9 @@ Route::get('/logout', [auth::class,'singOut'])->name('logOut');
 Route::get('/registration', [front::class,'mem_regi'])->name('member.registration');
 Route::post('/registration/save', [front::class,'mem_regi_store'])->name('member.registration.store');
 Route::get('/registration/success/{id}', [front::class,'mem_regi_success'])->name('member.registration.success');
+
+/*AJAX Call */
+Route::get('/upzilla/ajax/{district_id}', [allapplication::class, 'loadUpazillaAjax'])->name('loadupazila.ajax');
 
 Route::group(['middleware'=>isAdmin::class],function(){
     Route::prefix('admin')->group(function(){

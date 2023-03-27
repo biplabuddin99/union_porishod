@@ -58,10 +58,11 @@ class TradeLicenseController extends Controller
     public function create()
     {
         $division=Division::all();
-        $district=District::all();
+        $districts=District::all();
+        // return $districts;
         $thana=Thana::all();
         $ward=Ward_no::all();
-        return view('trade_license.create',compact('division','district','thana','ward'));
+        return view('trade_license.create',compact('division','districts','thana','ward'));
     }
 
     /**
@@ -117,8 +118,8 @@ class TradeLicenseController extends Controller
             $trade->ward_no=$request->ward_no;
             $trade->name_union_parishad=$request->name_union_parishad;
             $trade->post_office=$request->post_office;
-            $trade->upazila_thana=$request->upazila_thana;
-            $trade->district=$request->district;
+            $trade->upazila_id=$request->upazila_id;
+            $trade->district_id=$request->district_id;
             $trade->status=0;
 
             if($request->has('image'))
@@ -152,7 +153,10 @@ class TradeLicenseController extends Controller
     public function show($id)
     {
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
-        return view('trade_license.show_print_preview',compact('trade'));
+        $district_id=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
+        // return $district;
+        // return $trade;
+        return view('trade_license.show_print_preview',compact('trade','district_id'));
     }
 
     /**
@@ -164,12 +168,12 @@ class TradeLicenseController extends Controller
     public function edit($id)
     {
         $division=Division::all();
-        $district=District::where('id',encryptor('decrypt',$id))->select('id','name','bn_name')->get();
+        $districts=District::all();
         $thana=Thana::all();
         $ward=Ward_no::all();
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
         $Govt_fac = explode(',', $trade->government_facilities);
-        return view('trade_license.edit',compact('trade','Govt_fac','division','district','thana','ward'));
+        return view('trade_license.edit',compact('trade','Govt_fac','division','districts','thana','ward'));
     }
 
     /**
@@ -224,8 +228,8 @@ class TradeLicenseController extends Controller
             $trade->ward_no=$request->ward_no;
             $trade->name_union_parishad=$request->name_union_parishad;
             $trade->post_office=$request->post_office;
-            $trade->upazila_thana=$request->upazila_thana;
-            $trade->district=$request->district;
+            $trade->upazila_id=$request->upazila_id;
+            $trade->district_id=$request->district_id;
             $trade->status=0;
 
             $path='uploads/trade_license/nid';

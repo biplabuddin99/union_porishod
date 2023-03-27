@@ -56,8 +56,8 @@ return new class extends Migration
             $table->string('ward_no');
             $table->string('name_union_parishad');
             $table->string('post_office');
-            $table->string('upazila_thana');
-            $table->string('district');
+            $table->integer('upazila_id');
+            $table->integer('district_id');
             $table->string('image')->nullable()->default('avater.jpg');
             $table->string('nid_image')->nullable();
             $table->string('image_holding')->nullable();

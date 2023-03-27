@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class District extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $table = 'districts';
+
     public function division(){
         return $this->belongsTo(Division::class);
     }

@@ -6,24 +6,22 @@ use App\Models\All_onlineApplications;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Exception;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
 
 class AllOnlineApplicationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
+    public function loadUpazillaAjax($district_id)
+    {
+        $upazilas = Upazila::where('district_id', $district_id)->select('id','name','name_bn')->get();
+        return response()->json($upazilas, 200);
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('allaplicaltion.create');
@@ -38,7 +36,9 @@ class AllOnlineApplicationsController extends Controller
            return view('holding.create',compact('all'));
            break;
         case 2:
-            return view('trade_license.create',compact('all'));
+            $districts=District::select('id','name','name_bn')->get();
+            // return $districts;
+            return view('trade_license.create',compact('all','districts'));
             break;
         case 3:
             return view('warishan.create',compact('all'));
@@ -66,12 +66,7 @@ class AllOnlineApplicationsController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         try{
@@ -108,23 +103,13 @@ class AllOnlineApplicationsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\All_onlineApplications  $all_onlineApplications
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(All_onlineApplications $all_onlineApplications)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\All_onlineApplications  $all_onlineApplications
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $all= All_onlineApplications::where('id',$id)->first();
@@ -132,13 +117,7 @@ class AllOnlineApplicationsController extends Controller
         return view('allaplicaltion.edit',compact('all','Govt_fac'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\All_onlineApplications  $all_onlineApplications
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request,$id)
     {
         try{
@@ -176,12 +155,7 @@ class AllOnlineApplicationsController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\All_onlineApplications  $all_onlineApplications
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(All_onlineApplications $all_onlineApplications)
     {
         //
