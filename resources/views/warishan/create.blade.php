@@ -141,7 +141,7 @@
                                     </thead>
                                     <tbody id="table">
                                       <tr>
-                                          <td class="smember" style='text-align:center;'>5</td>
+                                          <td class="smember" style='text-align:center;'>1</td>
                                           <td style='text-align:left;'>
                                                 <input type='text' name='cname[]' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
                                           </td>

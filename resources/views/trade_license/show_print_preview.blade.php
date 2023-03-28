@@ -312,7 +312,7 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
+                    <span  class="form-label" for="">{{ $upazilas->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -323,7 +323,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $district_id->name_bn }}</span>
+                    <span  class="form-label" for="">{{ $districts->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">

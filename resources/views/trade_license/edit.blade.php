@@ -510,7 +510,9 @@
                                 <div class="col-lg-6 col-md-4 col-sm-4">
                                     <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
                                     <select id="upazila_id" name="upazila_id" class="form-select search_district_eid">
-                                        <option value="">নির্বাচন করুন</option>
+                                        @foreach ($upazilas as $upazila)
+                                        <option value="{{ $upazila->id }}"{{$trade->upazila_id == $upazila->id ? 'selected' : ''}}>{{ $upazila->name_bn }}</option> 
+                                        @endforeach
                                     </select>
                                     {{-- @if($errors->has('upazila_thana'))
                                     <small class="d-block text-danger">

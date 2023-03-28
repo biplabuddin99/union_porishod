@@ -204,15 +204,30 @@
                         <th>ভোটার আইডি নম্বর</th>
                         <th>মন্তব্য</th>
                         </tr>
+                        @if ($warisan->warisan_children)
+                        @foreach ($warisan->warisan_children as $c)
                         <tr class="text-center">
-                        <td>1</td>
-                        <td>কামাল উদ্দিন</td>
-                        <td>ছেলে</td>
-                        <td>০৮-০৪-২০২৩</td>
-                        <td>১২৩৪৫৬৭৬৮৭</td>
-                        <td>জীবীত</td>
-                        </tr>
-                        <tr class="text-center">
+                            <td>{{++$loop->index}}</td>
+                            <td>{{ $c->name }}</td>
+                            <td>
+                                @if ($c->ralation ==1)
+                                স্ত্রী
+                                @elseif ($c->ralation ==2)
+                                ছেলে
+                                @elseif ($c->ralation ==3)
+                                মেয়ে
+                                @elseif ($c->ralation ==4)
+                                অন্যান্য
+                                @endif
+                            </td>
+                            <td>{{ $c->birth_date }}</td>
+                            <td>{{ $c->cnid }}</td>
+                            <td>জীবীত</td>
+                        </tr>                           
+                        @endforeach
+                            
+                        @endif
+                        {{-- <tr class="text-center">
                         <td>2</td>
                         <td>জামাল উদ্দিন</td>
                         <td>ছেলে</td>
@@ -243,7 +258,7 @@
                             <td>০৮-০৪-২০২৩</td>
                             <td>১২৩৪৫৬৭৬৮৭</td>
                             <td>জীবীত</td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </div>
                 <div class="row m-2">

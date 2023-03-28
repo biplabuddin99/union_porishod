@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use App\Models\All_onlineApplications;
+use App\Models\Settings\Location\Upazila;
 use Exception;
 
 class TradeLicenseController extends Controller
@@ -153,10 +154,11 @@ class TradeLicenseController extends Controller
     public function show($id)
     {
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
-        $district_id=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
+        $districts=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->first();
         // return $district;
         // return $trade;
-        return view('trade_license.show_print_preview',compact('trade','district_id'));
+        return view('trade_license.show_print_preview',compact('trade','districts','upazilas'));
     }
 
     /**
@@ -169,11 +171,12 @@ class TradeLicenseController extends Controller
     {
         $division=Division::all();
         $districts=District::all();
-        $thana=Thana::all();
         $ward=Ward_no::all();
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
+        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->get();
+        // return $upazilas;
         $Govt_fac = explode(',', $trade->government_facilities);
-        return view('trade_license.edit',compact('trade','Govt_fac','division','districts','thana','ward'));
+        return view('trade_license.edit',compact('trade','Govt_fac','division','districts','upazilas','ward'));
     }
 
     /**

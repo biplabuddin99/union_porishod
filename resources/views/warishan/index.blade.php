@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="table-responsive">
-                        <table class="table table-bordered mb-0 mt-5">
+                        <table class="table" id="table1">
                             <thead>
                                 <tr class="text-center">
                                     <th scope="col">{{__('ক্রমিক')}}</th>

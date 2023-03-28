@@ -18,7 +18,7 @@
                 </div>
                 <!-- table bordered -->
                 <div class="table-responsive">
-                    <table class="table table-bordered mb-0">
+                    <table class="table" id="table1">
                         <thead>
                             <tr>
                                 <th scope="col">{{__('#SL')}}</th>
