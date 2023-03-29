@@ -103,7 +103,9 @@ class TradeLicenseController extends Controller
              // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $trade->business_name=$request->business_name;
             $trade->owner_proprietor=$request->owner_proprietor;
-            $trade->father_husband=$request->father_husband;
+            $trade->trade_husband_name=$request->trade_husband_name;
+            $trade->trade_fathername=$request->trade_fathername;
+            $trade->trade_mothername=$request->trade_mothername;
             $trade->trade_license_renewal=$request->trade_license_renewal;
             $trade->business_organization_structure=$request->business_organization_structure;
             $trade->business_type=$request->business_type;
@@ -215,7 +217,9 @@ class TradeLicenseController extends Controller
              // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $trade->business_name=$request->business_name;
             $trade->owner_proprietor=$request->owner_proprietor;
-            $trade->father_husband=$request->father_husband;
+            $trade->trade_husband_name=$request->trade_husband_name;
+            $trade->trade_fathername=$request->trade_fathername;
+            $trade->trade_mothername=$request->trade_mothername;
             $trade->trade_license_renewal=$request->trade_license_renewal;
             $trade->business_organization_structure=$request->business_organization_structure;
             $trade->business_type=$request->business_type;

@@ -23,8 +23,8 @@
                     <div class="col-4">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                         <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>নাগরিক সনদ ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ 02/11/2023</p>
-                        <p>ইস্যুর সময়ঃ 10:11:26</p>
+                        <p>ইস্যুর তারিখঃ {{ $citizen->holding_date }}</p>
+                        <p>ইস্যুর সময়ঃ {{ $citizen->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-4 col-sm-4" style="padding-left: 110px; padding-top: 5px;">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/logo.png') }}" alt="">
@@ -32,9 +32,9 @@
                         {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
-                        <img height="160px" width="100px"  src="{{ asset('images/show_img/picture.png') }}" alt="">
+                        <img height="160px" width="100px"  src="{{ asset('uploads/citizen_certificate/image/thumb') }}/{{ $citizen->image }}" alt="">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">নাগরিক সনদ নং:  CHITIZENS/2CHUP/24066</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">নাগরিক সনদ নং:  CHITIZENS/2CHUP/00{{ $citizen->id }}</h5>
                 </div>
                 <div class="row">
                     <p style="border-bottom: 3px solid rgb(73, 235, 8); border-top: 3px solid rgb(73, 235, 8); padding-top: 5px;">
@@ -59,7 +59,7 @@
                     <span  class="form-label" for="">ব্যক্তির নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মো নিজাম উদ্দিন</span>
+                    <span  class="form-label" for="">{{ $citizen->head_household }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -81,7 +81,7 @@
                     <span  class="form-label" for="">মাতার নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">রহিম উদ্দিন হাওলাদার</span>
+                    <span  class="form-label" for="">{{ $citizen->mother_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -92,7 +92,7 @@
                     <span  class="form-label" for="">জন্ম তারিখ :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০২.০৮.২০২২</span>
+                    <span  class="form-label" for="">{{ $citizen->birth_date }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -103,7 +103,7 @@
                     <span  class="form-label" for="">ভোটার আইডি/ডিজিটাল জন্ম নিবন্ধন :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">৯৮৪৪৪৩৩৭৭৩</span>
+                    <span  class="form-label" for="">ভোটার আইডি:{{ $citizen->voter_id_no }}/জন্ম নিবন্ধন:{{ $citizen->birth_registration_id }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -114,7 +114,45 @@
                     <span  class="form-label" for="">পেশা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ছাত্র</span>
+                    <span  class="form-label" for="">
+                        @if ($citizen->source_income ==1)
+                        শিক্ষক
+                        @elseif ($citizen->source_income ==2)
+                        শিক্ষার্থী
+                        @elseif ($citizen->source_income ==3)
+                        সরকারি চাকুরীজীবি
+                        @elseif ($citizen->source_income ==4)
+                        বে-সরকারি চাকুরীজীবি
+                        @elseif ($citizen->source_income ==5)
+                        গৃহীনি
+                        @elseif ($citizen->source_income ==6)
+                        কৃষক
+                        @elseif ($citizen->source_income ==7)
+                        ব্যবসা
+                        @elseif ($citizen->source_income ==8)
+                        প্রকৌশলি
+                        @elseif ($citizen->source_income ==9)
+                        আইনজীবী
+                        @elseif ($citizen->source_income ==10)
+                        চিকিৎসক
+                        @elseif ($citizen->source_income ==11)
+                        সেবিকা
+                        @elseif ($citizen->source_income ==12)
+                        দলিল লেখক
+                        @elseif ($citizen->source_income ==13)
+                        শ্রমিক
+                        @elseif ($citizen->source_income ==14)
+                        ঠিকাদার
+                        @elseif ($citizen->source_income ==15)
+                        মৎস চাষী
+                        @elseif ($citizen->source_income ==16)
+                        গাড়ি চালক
+                        @elseif ($citizen->source_income ==17)
+                        প্রবাসী
+                        @elseif ($citizen->source_income ==18)
+                        অন্যান্য
+                        @endif
+                    </span>
                 </div>
             </div>
             <div class="row m-2">
@@ -125,7 +163,19 @@
                     <span  class="form-label" for="">ধর্ম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইসলাম</span>
+                    <span  class="form-label" for="">
+                        @if ($citizen->religion ==1)
+                        ইসলাম
+                        @elseif ($citizen->religion ==2)
+                        হিন্দু
+                        @elseif ($citizen->religion ==3)
+                        বৌদ্ধ
+                        @elseif ($citizen->religion ==4)
+                        খ্রিষ্টান
+                        @elseif ($citizen->religion ==5)
+                        উপজাতি
+                        @endif
+                    </span>
                 </div>
             </div>
             <div class="row m-2">
@@ -144,7 +194,7 @@
                     <span  class="form-label" for="">হোল্ডিং নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">১৭৭</span>
+                    <span  class="form-label" for="">{{ $citizen->house_holding_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -155,7 +205,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০২</span>
+                    <span  class="form-label" for="">{{ $citizen->ward_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -166,7 +216,7 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নবগ্রাম</span>
+                    <span  class="form-label" for="">{{ $citizen->street_nm }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -177,7 +227,7 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইটনাকোনা</span>
+                    <span  class="form-label" for="">{{ $citizen->post_office }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -188,7 +238,7 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
+                    <span  class="form-label" for="">{{ $citizen->upazila_thana }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -199,7 +249,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নেয়াখালী</span>
+                    <span  class="form-label" for="">{{ $citizen->district }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -218,7 +268,7 @@
                     <span  class="form-label" for="">ফোন/মোবাইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০১৮৮৮৮৮০২৮</span>
+                    <span  class="form-label" for="">{{ $citizen->phone }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -229,7 +279,7 @@
                     <span  class="form-label" for="">ইমেইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">kamal@gmail.com</span>
+                    <span  class="form-label" for="">{{ $citizen->email }}</span>
                 </div>
             </div>
             <div class="row m-2">

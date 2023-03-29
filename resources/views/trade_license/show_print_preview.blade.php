@@ -34,7 +34,7 @@
                     <div class="col-4" style="padding-left: 215px;">
                         <img height="130px" width="100px"  src="{{ asset('uploads/trade_license/image/thumb') }}/{{ $trade->image }}" alt="">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">লাইসেন্স নং:  TRAD/2CHUP/24066</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">লাইসেন্স নং:  TRAD/2CHUP/00{{ $trade->id }}</h5>
                 </div>
                 <div class="row">
                     <p style="border-bottom: 3px solid rgb(73, 235, 8); border-top: 3px solid rgb(73, 235, 8); padding-top: 5px;">
@@ -78,7 +78,7 @@
                     <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->father_husband }}</span>
+                    <span  class="form-label" for="">পিতা:{{ $trade->trade_fathername }}/ স্বামী:{{ $trade->trade_husband_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -89,7 +89,7 @@
                     <span  class="form-label" for="">মাতার নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মোসাঃ রুজিনা খানম</span>
+                    <span  class="form-label" for="">{{ $trade->trade_mothername }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -130,8 +130,8 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">০৪</span>
-                    {{-- <span  class="form-label" for="">{{ $trade->ward_no }}</span> --}}
+                    {{-- <span  class="form-label" for="">০৪</span> --}}
+                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -142,8 +142,8 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নবগ্রাম</span>
-                    {{-- <span  class="form-label" for="">{{ $trade->street_nm }}</span> --}}
+                    {{-- <span  class="form-label" for="">নবগ্রাম</span> --}}
+                    <span  class="form-label" for="">{{ $trade->street_nm }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -154,8 +154,8 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইনটেকা</span>
-                    {{-- <span  class="form-label" for="">{{ $trade->post_office }}</span> --}}
+                    {{-- <span  class="form-label" for="">ইনটেকা</span> --}}
+                    <span  class="form-label" for="">{{ $trade->post_office }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -166,8 +166,8 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">কোম্পানিগঞ্জ</span>
-                    {{-- <span  class="form-label" for="">{{ $trade->upazila_thana }}</span> --}}
+                    {{-- <span  class="form-label" for="">কোম্পানিগঞ্জ</span> --}}
+                    <span  class="form-label" for="">{{ $upazilas->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -178,8 +178,8 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">নোয়াখালী</span>
-                    {{-- <span  class="form-label" for="">{{ $trade->district }}</span> --}}
+                    {{-- <span  class="form-label" for="">নোয়াখালী</span> --}}
+                    <span  class="form-label" for="">{{ $districts->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">

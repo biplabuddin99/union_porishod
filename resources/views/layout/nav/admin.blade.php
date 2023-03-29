@@ -102,18 +102,19 @@
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-gear-fill"></i>
-            <span>{{__('অনলাইন আবেদন তালিকা *')}}</span>
+            <span>{{__('অনলাইন আবেদন তালিকা')}}</span>
         </a>
         <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.holding.index')}}">{{__('হোল্ডিং নম্বর তালিকা *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স  লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('নাগরিক সনদ লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান   লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.vgfcard.index')}}">{{__('ভিজিএফ কার্ড লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.oldallowance.index')}}">{{__('বয়স্ক ভাতা লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.widowallowance.index')}}">{{__('বিধবা ভাতা লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.disablity.index')}}">{{__('প্রতিবন্ধী ভাতা লিস্ট *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.maternityallowance.index')}}">{{__('মাতৃত্বকালীন ভাতা লিস্ট *')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.holding.index')}}">{{__('হোল্ডিং নম্বর')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.trade.index')}}">{{__('ট্রেড লাইসেন্স')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.citizen.index')}}">{{__('নাগরিক সনদ')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.warishan.index')}}">{{__('ওয়ারিশান')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.vgfcard.index')}}">{{__('ভিজিএফ কার্ড')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.oldallowance.index')}}">{{__('বয়স্ক ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.widowallowance.index')}}">{{__('বিধবা ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.disablity.index')}}">{{__('প্রতিবন্ধী ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.maternityallowance.index')}}">{{__('মাতৃত্বকালীন ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route(currentUser().'.attesteation.index')}}">{{__('পরিবারের সদস্য প্রত্যয়ন')}}</a></li>
             <li class="py-1"><a href="#">{{__('অন্যান্য লিস্ট')}}</a></li>
 
         </ul>
@@ -136,6 +137,7 @@
             <li class="py-1"><a href="#">{{__('বিধবা ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('প্রতিবন্ধী ভাতা')}}</a></li>
             <li class="py-1"><a href="#">{{__('মাতৃত্বকালীন ভাতা')}}</a></li>
+            <li class="py-1"><a href="{{route('attesteation_profile.list')}}">{{__('পরিবারের সদস্য প্রত্যয়ন')}}</a></li>
             <li class="py-1"><a href="#">{{__('অন্যান্য')}}</a></li>
 
         </ul>

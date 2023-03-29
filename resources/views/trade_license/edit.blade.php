@@ -298,12 +298,34 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="father_husband">পিতা/স্বমীর নাম:-</label>
+                                    <label  class="form-label" for="trade_husband_name">স্বমীর নাম:-</label>
                                     <input class="form-control"
-                                    name="father_husband" id="father_husband" value="{{ old('father_husband',$trade->father_husband) }}"  type="text" placeholder="পিতা/স্বমীর নাম">
-                                    {{-- @if($errors->has('father_husband'))
+                                    name="trade_husband_name" id="trade_husband_name" value="{{ old('trade_husband_name',$trade->trade_husband_name) }}"  type="text" placeholder="স্বমীর নাম">
+                                    {{-- @if($errors->has('trade_husband_name'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('father_husband') }}
+                                        {{ $errors->first('trade_husband_name') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="trade_fathername">পিতার নাম:-</label>
+                                    <input class="form-control @error('trade_fathername') is-invalid @enderror"
+                                    name="trade_fathername" id="trade_fathername" value="{{ old('trade_fathername',$trade->trade_fathername) }}"  type="text" placeholder="পিতার নাম">
+                                    @if($errors->has('trade_fathername'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('trade_fathername') }}
+                                    </small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="trade_mothername">মাতার নাম:-</label>
+                                    <input class="form-control"
+                                    name="trade_mothername" id="trade_mothername" value="{{ old('trade_mothername',$trade->trade_mothername) }}"  type="text" placeholder="মাতার নাম">
+                                    {{-- @if($errors->has('trade_mothername'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('trade_mothername') }}
                                     </small>
                                     @endif --}}
                                 </div>

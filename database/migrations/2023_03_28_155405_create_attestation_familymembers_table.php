@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trade_licenses', function (Blueprint $table) {
+        Schema::create('attestation_familymembers', function (Blueprint $table) {
             $table->id();
-            $table->string('form_no')->nullable();
             $table->string('holding_date')->nullable();
             $table->string('head_household')->nullable();
             $table->string('husband_wife')->nullable();
@@ -37,34 +36,33 @@ return new class extends Migration
             $table->string('arsenic_free')->nullable();
             $table->string('government_facilities')->nullable();
 
-            // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
-            $table->string('business_name');
-            $table->string('owner_proprietor');
-            $table->string('trade_husband_name');
-            $table->string('trade_fathername');
-            $table->string('trade_mothername');
-            $table->string('trade_license_renewal');
-            $table->string('business_organization_structure');
-            $table->string('business_type');
-            $table->string('trade_license_renewal_fee');
-            $table->string('business_estimated_capital');
-            $table->string('annual_business_tax_levied');
-            $table->string('annual_business_tax_collected');
-            $table->string('annual_business_tax_due');
-            $table->string('holding_tax_update');
-            $table->string('vehicle_establishment_holding_no');
-            $table->string('street_nm');
-            $table->string('village_name');
-            $table->string('ward_no');
-            $table->string('name_union_parishad');
-            $table->string('post_office');
-            $table->integer('upazila_id');
-            $table->integer('district_id');
-            $table->string('image')->nullable()->default('avater.jpg');
+            // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
+            $table->string('familyhead_name')->nullable();
+            $table->string('father_husband')->nullable();
+            $table->string('attesteation_mother_name')->nullable();
+            $table->date('attesteation_birth_date')->nullable();
+            $table->integer('update_holding_tax')->nullable();
+            $table->integer('wife_number')->nullable();
+            $table->integer('son')->nullable();
+            $table->integer('daughter')->nullable();
+            $table->integer('total_warishan_members')->nullable();
+            $table->string('applicant_relationship_family')->nullable();
+            $table->integer('total_family_members')->nullable();
+            $table->string('house_holding_no')->nullable();
+            $table->string('street_nm')->nullable();
+            $table->string('village_name')->nullable();
+            $table->string('ward_no')->nullable();
+            $table->string('name_union_parishad')->nullable();
+            $table->string('post_office')->nullable();
+            $table->string('upazila_thana')->nullable();
+            $table->string('district')->nullable();
             $table->string('nid_image')->nullable();
-            $table->string('image_holding')->nullable();
+            $table->string('holding_image')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_death_certificate')->nullable();
             $table->string('status')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -75,6 +73,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trade_licenses');
+        Schema::dropIfExists('attestation_familymembers');
     }
 };

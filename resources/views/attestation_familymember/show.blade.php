@@ -1,5 +1,4 @@
 @extends('layout.app')
-{{-- @section('pageTitle',trans('প্রিন্ট প্রি ভিউ')) --}}
 
 @section('content')
 <div id="result_show">
@@ -22,26 +21,26 @@
                 <div class="row">
                     <div class="col-4">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
-                        <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>ওয়ারিশান ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ {{ $warisan->holding_date }}</p>
-                        <p>ইস্যুর সময়ঃ {{ $warisan->created_at->format("h:i:s A") }}</p>
+                        <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>পারিবারিক সনদ ইস্যুর বিবরন</strong></p>
+                        <p>ইস্যুর তারিখঃ {{ $attestation->holding_date }}</p>
+                        <p>ইস্যুর সময়ঃ {{ $attestation->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-4 col-sm-4" style="padding-left: 110px; padding-top: 5px;">
                         <img height="130px" width="130px" src="{{ asset('images/show_img/logo.png') }}" alt="">
-                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-ওয়ারিশান সনদ</h4>
+                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-পারিবারিক সনদ</h4>
                         {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
-                        <img height="160px" width="100px"  src="{{ asset('uploads/warishan/thumb') }}/{{ $warisan->image }}" alt="">
+                        <img height="140px" width="120px"  src="{{ asset('uploads/attestation/thumb') }}/{{ $attestation->image }}" alt="">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">ওয়ারিশান সনদ নং:  SHARER/2CHUP/00{{ $warisan->id }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">পারিবারিক সনদ নং:  SHARER/2CHUP/00{{ $attestation->id }}</h5>
                 </div>
                 <div class="row">
                     <p class="text-center" style="border-bottom: 2px solid rgb(73, 235, 8); border-top: 2px solid rgb(73, 235, 8); padding-top: 5px;">
-                        উত্তরাধিকারী আইনে মৃত ব্যক্তির সম্পত্তি উত্তরাধিকারীরাই অংশীদার বা ওয়ারিশ। নিন্মে বর্ণিত ব্যক্তি ওয়ারিশান সনদের সকল তথ্য উল্লেখ করা হলো।
+                        পারিবারিক আইনে বাড়ির প্রধান ব্যাক্তি বাবাই পরিবারের প্রধান। নিন্মে বর্ণিত ব্যক্তির পারিবারিক সনদের সকল তথ্য উল্লেখ করা হলো।
                     </p>
-                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, উক্ত ব্যাক্তি জন্মসূত্রে বাংলাদেশের নাগরিক ও অত্র ইউনিয়নের স্থায়ী বাসীন্দা ছিলেন।<br/>
-                        তিনি একজন ভাল মানুষ ছিলেন এবং আমার পরিচিত ছিল। 
+                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, উক্ত ব্যাক্তি জন্মসূত্রে বাংলাদেশের নাগরিক ও অত্র ইউনিয়নের স্থায়ী বাসীন্দা। এলাকায় তিনি একজন ভাল<br/>
+                        মানুষ হিসেবে সু-পরিচিত আছে। আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কার্যকলাপে জড়িত নহে। 
                     </p>
                 </div>
             </div>
@@ -55,10 +54,10 @@
                         <span  class="form-label" for="">১।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">মৃতব্যাক্তির নাম :</span>
+                        <span  class="form-label" for="">পরিবারের প্রধান ব্যাক্তির নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->warishan_person_name }}</span>
+                        <span  class="form-label" for="">{{ $attestation->familyhead_name }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -69,7 +68,7 @@
                         <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->father_husband }}</span>
+                        <span  class="form-label" for="">{{ $attestation->father_husband }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -80,7 +79,7 @@
                         <span  class="form-label" for="">মাতার নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->warishan_mother_name }}</span>
+                        <span  class="form-label" for="">{{ $attestation->attesteation_mother_name }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -88,18 +87,112 @@
                         <span  class="form-label" for="">৪।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">মৃতব্যাক্তির সহিত আবেদনকারীর সম্পর্ক :</span>
+                        <span  class="form-label" for="">জন্ম তারিখ :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">ছেলে</span>
+                        <span  class="form-label" for="">{{ $attestation->attesteation_birth_date }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
                     <div class="col-1">
                         <span  class="form-label" for="">৫।</span>
                     </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">ভোটার আইডি/ডিজিটাল জন্ম নিবন্ধন :</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">ভোটার আইডি:{{ $attestation->voter_id_no }}/জন্ম নিবন্ধন:{{ $attestation->birth_registration_id }}</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-1">
+                        <span  class="form-label" for="">৬।</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">পেশা :</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">
+                            @if ($attestation->source_income ==1)
+                            শিক্ষক
+                            @elseif ($attestation->source_income ==2)
+                            শিক্ষার্থী
+                            @elseif ($attestation->source_income ==3)
+                            সরকারি চাকুরীজীবি
+                            @elseif ($attestation->source_income ==4)
+                            বে-সরকারি চাকুরীজীবি
+                            @elseif ($attestation->source_income ==5)
+                            গৃহীনি
+                            @elseif ($attestation->source_income ==6)
+                            কৃষক
+                            @elseif ($attestation->source_income ==7)
+                            ব্যবসা
+                            @elseif ($attestation->source_income ==8)
+                            প্রকৌশলি
+                            @elseif ($attestation->source_income ==9)
+                            আইনজীবী
+                            @elseif ($attestation->source_income ==10)
+                            চিকিৎসক
+                            @elseif ($attestation->source_income ==11)
+                            সেবিকা
+                            @elseif ($attestation->source_income ==12)
+                            দলিল লেখক
+                            @elseif ($attestation->source_income ==13)
+                            শ্রমিক
+                            @elseif ($attestation->source_income ==14)
+                            ঠিকাদার
+                            @elseif ($attestation->source_income ==15)
+                            মৎস চাষী
+                            @elseif ($attestation->source_income ==16)
+                            গাড়ি চালক
+                            @elseif ($attestation->source_income ==17)
+                            প্রবাসী
+                            @elseif ($attestation->source_income ==18)
+                            অন্যান্য
+                            @endif
+                        </span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-1">
+                        <span  class="form-label" for="">৭।</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">ধর্ম :</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">
+                            @if ($attestation->religion ==1)
+                            ইসলাম
+                            @elseif ($attestation->religion ==2)
+                            হিন্দু
+                            @elseif ($attestation->religion ==3)
+                            বৌদ্ধ
+                            @elseif ($attestation->religion ==4)
+                            খ্রিষ্টান
+                            @elseif ($attestation->religion ==5)
+                            উপজাতি
+                            @endif
+                        </span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-1">
+                        <span  class="form-label" for="">৮।</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">পরিবারের সহিত আবেদনকারীর সম্পর্ক :</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">{{ $attestation->applicant_relationship_family }}</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-1">
+                        <span  class="form-label" for="">৯।</span>
+                    </div>
                     <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                        <span  class="form-label" for="">মৃত ব্যাক্তির স্থায়ী ঠিকানা :</span>
+                        <span  class="form-label" for="">পরিবারের প্রধান ব্যাক্তির স্থায়ী ঠিকানা :</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -110,13 +203,13 @@
                         <span  class="form-label" for="">হোল্ডিং নং :</span>
                     </div>
                     <div class="col-3">
-                        <span  class="form-label" for="">{{ $warisan->house_holding_no }}</span>
+                        <span  class="form-label" for="">{{ $attestation->house_holding_no }}</span>
                     </div>
                     <div class="col-3">
                         <span  class="form-label" for="">ওয়ার্ড নং :</span>
                     </div>
                     <div class="col-2">
-                        <span  class="form-label" for="">{{ $warisan->ward_no }}</span>
+                        <span  class="form-label" for="">{{ $attestation->ward_no }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -127,13 +220,13 @@
                         <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                     </div>
                     <div class="col-3">
-                        <span  class="form-label" for="">{{ $warisan->village_name }}</span>
+                        <span  class="form-label" for="">{{ $attestation->village_name }}</span>
                     </div>
                     <div class="col-3">
                         <span  class="form-label" for="">ডাকঘর :</span>
                     </div>
                     <div class="col-2">
-                        <span  class="form-label" for="">{{ $warisan->post_office }}</span>
+                        <span  class="form-label" for="">{{ $attestation->post_office }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -144,46 +237,24 @@
                         <span  class="form-label" for="">থানা :</span>
                     </div>
                     <div class="col-3">
-                        <span  class="form-label" for="">{{ $warisan->upazila_thana }}</span>
+                        <span  class="form-label" for="">{{ $attestation->upazila_thana }}</span>
                     </div>
                     <div class="col-3">
                         <span  class="form-label" for="">জেলা :</span>
                     </div>
                     <div class="col-2">
-                        <span  class="form-label" for="">{{ $warisan->district }}</span>
+                        <span  class="form-label" for="">{{ $attestation->district }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
                     <div class="col-1">
-                        <span  class="form-label" for="">৬।</span>
+                        <span  class="form-label" for="">১০।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">উক্তব্যাক্তির মৃত্যু তারিখ :</span>
+                        <span  class="form-label" for="">পরিবারের মোট সদস্য সংখ্যা :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for=""></span>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-1">
-                        <span  class="form-label" for="">৭।</span>
-                    </div>
-                    <div class="col-5">
-                        <span  class="form-label" for="">মৃত্যু নিবন্ধন সনদ নং :</span>
-                    </div>
-                    <div class="col-5">
-                        <span  class="form-label" for="">২৭৩</span>
-                    </div>
-                </div>
-                <div class="row m-2">
-                    <div class="col-1">
-                        <span  class="form-label" for="">৮।</span>
-                    </div>
-                    <div class="col-5">
-                        <span  class="form-label" for="">মৃত ব্যাক্তির উত্তরাধিকারী সদস্য :</span>
-                    </div>
-                    <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->total_warishan_members }}</span>
+                        <span  class="form-label" for="">{{ $attestation->total_family_members }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -191,7 +262,7 @@
                         <span  class="form-label" for="">৯।</span>
                     </div>
                     <div class="col-7">
-                        <span  class="form-label" for="">তিনি মৃত্যুকালে নিম্নলিখিত উত্তরাধিকারী রাখিয়া মৃত্যুবরণ করেন । </span>
+                        <span  class="form-label" for="">উক্ত পরিবারের নিম্নলিখিত সদস্য সমূহ আছে তাহার বিবরণ দেয়া হলো :- </span>
                     </div>
                 </div>
                 <div class="row m-2" style="position: relative !important;">
@@ -204,8 +275,8 @@
                         <th>ভোটার আইডি নম্বর</th>
                         <th>মন্তব্য</th>
                         </tr>
-                        @if ($warisan->warisan_children)
-                        @foreach ($warisan->warisan_children as $c)
+                        @if ($attestation->attestation_familymember_children)
+                        @foreach ($attestation->attestation_familymember_children as $c)
                         <tr class="text-center">
                             <td>{{++$loop->index}}</td>
                             <td>{{ $c->name }}</td>
@@ -231,7 +302,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-12">
-                        <h6>মৃত ব্যাক্তির ৬ (ছয়) জন উত্তরাধিকারী সদস্য ছাড়া আর কোন উত্তরাধিকারী অংশীদার নাই। উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে তা প্রমান হলে,আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া যাবে। আমি নিম্নস্বাক্ষরকারী ২ নং ওয়ার্ড ইউপি সদস্য / কাউন্সিলর দ্বারা সত্যায়ন পূর্বক উক্ত ব্যাক্তির ওয়ারিশান সনদ প্রদান করিলাম।</h6>
+                        <h6>উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে তা প্রমান হলে,আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া যাবে। আমি নিম্নস্বাক্ষরকারী ২ নং ওয়ার্ড ইউপি সদস্য / কাউন্সিলর দ্বারা সত্যায়ন পূর্বক উক্ত ব্যাক্তির ওয়ারিশান সনদ প্রদান করিলাম।</h6>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ use Brian2694\Toastr\Facades\Toastr;
 use Exception;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Thana;
+use App\Models\Ward_no;
 
 class AllOnlineApplicationsController extends Controller
 {
@@ -47,19 +49,31 @@ class AllOnlineApplicationsController extends Controller
             return view('citizen_certificate.create',compact('all'));
             break;
         case 5:
-            return view('vgfcard.create',compact('all'));
+            $district=District::all();
+            $thana=Thana::all();
+            $ward=Ward_no::all();
+            return view('vgfcard.create',compact('all','district','thana','ward'));
             break;
         case 6:
-            return view('oldage_allowance.create');
+            $district=District::all();
+            $thana=Thana::all();
+            $ward=Ward_no::all();
+            return view('oldage_allowance.create',compact('all','district','thana','ward'));
             break;
         case 7:
-            return view('disability.create');
+            $district=District::all();
+            $thana=Thana::all();
+            $ward=Ward_no::all();
+            return view('disability.create',compact('all','district','thana','ward'));
             break;
         case 8:
-            return view('widow_allowance.create');
+            $district=District::all();
+            $thana=Thana::all();
+            $ward=Ward_no::all();
+            return view('widow_allowance.create',compact('all','district','thana','ward'));
             break;
         case 9:
-            return view('other_information.create',compact('all'));
+            return view('attestation_familymember.create',compact('all'));
             break;
         default:
             return view('other_information.create',compact('all'));

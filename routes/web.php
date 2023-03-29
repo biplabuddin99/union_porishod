@@ -25,6 +25,7 @@ use App\Http\Controllers\MaternityAllowanceController as maternityallowance;
 use App\Http\Controllers\VgfCardController as vgfcard;
 use App\Http\Controllers\PorishodSettingController as porishodsettiong;
 use App\Http\Controllers\AllOnlineApplicationsController as allapplication;
+use App\Http\Controllers\AttestationFamilymemberController as attesteation;
 
 //extra
 use App\Http\Controllers\EducationalQualificationController as education;
@@ -101,7 +102,10 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 
         Route::resource('others',others::class,['as'=>'admin']);
-
+        Route::resource('attesteation',attesteation::class,['as'=>'admin']);
+        Route::get('attesteation_profile',[attesteation::class,'profile'])->name('attesteation_profile.list');
+        Route::get('/attesteations_profile/{id}',[attesteation::class,'add_profile'])->name('attesteations_profile');
+        
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
         Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);

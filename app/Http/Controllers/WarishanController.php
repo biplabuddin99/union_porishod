@@ -183,7 +183,8 @@ class WarishanController extends Controller
         $thana = Thana::all();
         $word = Ward_no::all();
         $warishan = Warishan::findOrFail(encryptor('decrypt',$id));
-        return view('warishan.edit',compact('division','district','thana','warishan','word'));
+        $Govt_fac = explode(',', $warishan->government_facilities);
+        return view('warishan.edit',compact('division','district','thana','warishan','word','Govt_fac'));
     }
 
     /**

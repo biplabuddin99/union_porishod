@@ -294,8 +294,8 @@
                                         <label  class="form-label" for="type_application7">প্রতিবন্ধী ভাতা</label>
                                     </div>
                                     <div class="row ps-5">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="9" {{old('type_application',$all->type_application) == '9' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application9">অন্যান্য</label>
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application10" value="10" {{old('type_application',$all->type_application) == '10' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application10">অন্যান্য</label>
                                     </div>
 
                                 </div>
@@ -315,6 +315,10 @@
                                     <div class="row">
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application8" value="8" {{old('type_application',$all->type_application) == '8' ? 'checked' : ''}}>
                                         <label  class="form-label" for="type_application8">বিধবা ভাতা</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="9" {{old('type_application',$all->type_application) == '9' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">পরিবার সদস্যের প্রত্যয়ন</label>
                                     </div>
 
                                 </div>
