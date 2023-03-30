@@ -43,7 +43,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                            href="https://bdgl.online/">Bangladesh Digital Gateway Ltd.</a></p>
+                            href="https://bdgl.online/">BDGL.</a></p>
                     </div>
                 </div>
             </div>
