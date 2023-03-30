@@ -16,7 +16,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <div class="avatar avatar-md">
                                             {{-- <img src="{{ asset('/assets/images/faces/2.jpg') }}"> --}}
@@ -24,12 +24,12 @@
                                         <p class="font-bold mb-0" style="padding-left: 10px;">করিম উদ্দিন</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 290px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded-circle text-white">২০</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <div class="avatar avatar-md">
                                             {{-- <img src="{{ asset('/assets/images/faces/2.jpg') }}"> --}}
@@ -37,7 +37,7 @@
                                         <p class="font-bold mb-0" style="padding-left: 10px;">জামাল উদ্দিন</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 290px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded-circle text-white">১০</button>
                                 </td>
                             </tr>
@@ -85,72 +85,72 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">প্রতিবন্ধী ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৫ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">বয়স্ক ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৮ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">বিধবা ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">২ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0">মাতৃত্বকালীন'ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৮ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">অন্যান্য ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৯ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0">কোনটি নয় ভাতা</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৭ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">মোটঃ</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 250px;">
+                                <td  class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৮৮৮ জন</button>
                                 </td>
                             </tr>
@@ -166,102 +166,102 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">১নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">২নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৩নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৪নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৫নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৬নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৭নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">৬ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৮নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">১৫ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">৯নং ওয়ার্ড</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">১১ জন</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="w-75">
                                     <div class="d-flex align-items-center">
                                         <p class="font-bold mb-0" style="padding-left: 10px;">মোটঃ</p>
                                     </div>
                                 </td>
-                                <td style="padding-left: 260px;">
+                                <td class="w-25 text-end">
                                     <button class="bg-primary rounded text-white">১১৫৬ জন</button>
                                 </td>
                             </tr>
