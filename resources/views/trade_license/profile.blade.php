@@ -43,7 +43,7 @@
                             @forelse($trade as $c)
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/trade_license/')}}/{{ $c->image}}" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/trade_license/image/')}}/{{ $c->image}}" alt=""></td>
                                 {{-- <td></td> --}}
                                 <td>{{$c->business_name}}</td>
                                 <td>{{$c->head_household}}</td>

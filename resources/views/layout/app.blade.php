@@ -112,11 +112,11 @@
                 <div class="container">
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-start">
-                            <p>2021 &copy; Muktodhara Technology LTD</p>
+                            <p>2021 &copy; Bangladesh Digital Gateway Ltd</p>
                         </div>
                         <div class="float-end">
                             <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="#">Muktodhara Technology LTD.</a></p>
+                                href="https://bdgl.online/">Bangladesh Digital Gateway Ltd.</a></p>
                         </div>
                     </div>
                 </div>

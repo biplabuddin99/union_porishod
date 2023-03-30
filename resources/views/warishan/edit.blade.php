@@ -370,7 +370,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="total_warishan_members">উক্তব্যাক্তির মোট ওয়ারিশ সদস্য:-</label>
                                         <input readonly class="form-control @error('total_warishan_members') is-invalid @enderror"
-                                        name="total_warishan_members" id="total_warishan" value="{{ old('total_warishan_members') }}"  type="number" placeholder="মোট ওয়ারিশ সদস্য সংখ্যা">
+                                        name="total_warishan_members" id="total_warishan" value="{{ old('total_warishan_members',$warishan->total_warishan_members) }}"  type="number" placeholder="মোট ওয়ারিশ সদস্য সংখ্যা">
                                         @if($errors->has('total_warishan_members'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('total_warishan_members') }}
@@ -393,8 +393,10 @@
                                             </tr>
                                         </thead>
                                         <tbody id="table">
+                                            @if ($warishan->warisan_children)
+                                            @foreach ($warishan->warisan_children as $c)
                                           <tr>
-                                              <td class="smember" style='text-align:center;'>1</td>
+                                              <td class="smember" style='text-align:center;'>{{++$loop->index}}</td>
                                               <td style='text-align:left;'>
                                                     <input type='text' name='cname[]' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
                                               </td>
@@ -414,6 +416,9 @@
                                                 <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid') }}"  type="text" placeholder="ভোটার আইডি">
                                              </td>
                                           </tr>
+                                          @endforeach
+                            
+                                          @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -535,11 +540,6 @@
                                 </div>
                                 <div class="container-fluid">
                                     <div class="row">
-                                      <div class="col-sm-9">
-                                        <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.allapplication.edit',$all->id)}}">
-                                            পূর্ববর্তী
-                                        </a>
-                                      </div>
                                       <div class="col-sm-3 text-end">
                                         <button type="submit" style="background-color: rgb(214, 153, 153);">Submit</button>
                                         <span class="btn or">or</span>
@@ -554,6 +554,38 @@
           </div>
       </div>
   </section>
-  <!-- // Basic multiple Column Form section end -->
 
 @endsection
+@push('scripts')
+<script>
+          function addNumbers() {
+        var wife_count = document.getElementById("wife_count").value?parseFloat(document.getElementById("wife_count").value):0;
+        var sons = document.getElementById("sons").value?parseFloat(document.getElementById("sons").value):0;
+        var daughters = document.getElementById("daughters").value?parseFloat(document.getElementById("daughters").value):0;
+        var result = wife_count + sons + daughters;
+
+        document.getElementById("total_warishan").value = result;
+        repeatRows(result)
+      }
+
+      function repeatRows(e) {
+        //const Total_warishan = document.getElementById('total_warishan');
+        const tableElement = document.getElementById('table');
+
+        // Clear existing rows
+        while (tableElement.rows.length > 1) {
+          tableElement.deleteRow(1);
+        }
+
+        // Repeat rows based on input value
+        const repeatCount = e;
+        for (let is = 0; is < (repeatCount-1); is++) {
+          const clonedRow = tableElement.rows[0].cloneNode(true);
+          tableElement.appendChild(clonedRow);
+          const serial=document.getElementsByClassName("smember");
+          serial[is].innerHTML = is + 1;
+          
+        }
+      }
+</script>
+@endpush

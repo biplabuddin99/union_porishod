@@ -35,11 +35,19 @@
 
             </div>
         </div>
-        {{-- <div class="col-lg-4 d-none d-lg-block">
-            <div id="auth-right">
-
+        <footer class="no-print mt-5">
+            <div class="container">
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Bangladesh Digital Gateway Ltd</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                            href="https://bdgl.online/">Bangladesh Digital Gateway Ltd.</a></p>
+                    </div>
+                </div>
             </div>
-        </div> --}}
+        </footer>
     </div>
 </div>
 
