@@ -41,7 +41,7 @@ return new class extends Migration
             $table->string('warishan_person_name')->nullable();
             $table->string('father_husband')->nullable();
             $table->string('warishan_mother_name')->nullable();
-            $table->date('date_death_warishan')->nullable();
+            $table->string('date_death_warishan')->nullable();
             $table->integer('update_holding_tax')->nullable();
             $table->integer('wife_number')->nullable();
             $table->integer('son')->nullable();

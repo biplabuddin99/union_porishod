@@ -38,12 +38,12 @@ return new class extends Migration
             $table->string('government_facilities')->nullable();
 
             // নাগরিক সনদ আবেদনের অন্যান্য তথ্য
-            $table->string('permanent_resident');
+            $table->string('permanent_resident')->nullable();
             $table->string('citizen_bangladesh')->nullable();
             $table->string('voters_union')->nullable();
             $table->string('involved_anti_state')->nullable();
-            $table->string('update_holdingtax');
-            $table->string('house_holding_no');
+            $table->string('update_holdingtax')->nullable();
+            $table->string('house_holding_no')->nullable();
             $table->string('street_nm')->nullable();
             $table->string('village_name')->nullable();
             $table->string('ward_no')->nullable();

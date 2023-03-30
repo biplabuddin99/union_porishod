@@ -73,31 +73,6 @@
         </a>
     </li>
 
-    {{-- অনলাইন আবেদন --}}
-    {{-- <li class="sidebar-item has-sub">
-        <a href="#" class='sidebar-link'>
-            <i class="bi bi-gear-fill"></i>
-            <span>{{__('আবেদন আগেরগুলো*')}}</span>
-        </a>
-        <ul class="submenu">
-            <li class="py-1"><a href="{{route(currentUser().'.holding.create')}}">{{__(' নতুন হোল্ডিং নম্বর *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.allapplication.create')}}">{{__(' নতুন All *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.trade.create')}}">{{__('নতুন ট্রেড লাইসেন্স *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.citizen.create')}}">{{__('নতুন সনদপত্র *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.warishan.create')}}">{{__('নতুন ওয়ারিশান *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.vgfcard.create')}}">{{__('নতুন ভিজিএফ কার্ড *')}}</a></li>
-            <li class="py-1"><a href="{{route(currentUser().'.oldallowance.create')}}">{{__('নতুন বয়স্ক ভাতা *')}}</a></li>
-            <li class="py-1"><a href="{{ route(currentUser().'.widowallowance.create') }}">{{__('নতুন বিধবা ভাতা *')}}</a></li>
-            <li class="py-1"><a href="{{ route(currentUser().'.disablity.create') }}">{{__('নতুন প্রতিবন্ধী ভাতা *')}}</a></li>
-            <li class="py-1"><a href="{{ route(currentUser().'.maternityallowance.create') }}">{{__('নতুন মাতৃত্বকালীন ভাতা *')}}</a></li>
-            <li class="py-1"><a href="#">{{__('নতুন অন্যান্য')}}</a></li>
-
-
-        </ul>
-    </li> --}}
-    {{-- অনলাইন আবেদন শেষ --}}
-
-
     {{-- আবেদন তালিকা--}}
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>

@@ -277,7 +277,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="warishan_person_name">ওয়ারিশান ব্যাক্তির নাম:-</label>
                                         <input class="form-control @error('warishan_person_name') is-invalid @enderror"
-                                        name="warishan_person_name" id="warishan_person_name" value="{{ old('warishan_person_name') }}"  type="text" placeholder="ওয়ারিশান ব্যাক্তির নাম">
+                                        name="warishan_person_name" id="warishan_person_name" value="{{ old('warishan_person_name',$warishan->warishan_person_name) }}"  type="text" placeholder="ওয়ারিশান ব্যাক্তির নাম">
                                         @if($errors->has('warishan_person_name'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('warishan_person_name') }}
@@ -287,7 +287,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="father_husband">পিতা/স্বামীর নাম:-</label>
                                         <input class="form-control @error('father_husband') is-invalid @enderror"
-                                        name="father_husband" id="father_husband" value="{{ old('father_husband') }}"  type="text" placeholder="পিতা/স্বামীর নাম">
+                                        name="father_husband" id="father_husband" value="{{ old('father_husband',$warishan->father_husband) }}"  type="text" placeholder="পিতা/স্বামীর নাম">
                                         @if($errors->has('father_husband'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('father_husband') }}
@@ -299,7 +299,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="warishan_mother_name">মাতার নাম:-</label>
                                         <input class="form-control"
-                                        name="warishan_mother_name" id="warishan_mother_name" value="{{ old('warishan_mother_name') }}"  type="text" placeholder="মাতার নাম">
+                                        name="warishan_mother_name" id="warishan_mother_name" value="{{ old('warishan_mother_name',$warishan->warishan_mother_name) }}"  type="text" placeholder="মাতার নাম">
                                         {{-- @if($errors->has('warishan_mother_name'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('warishan_mother_name') }}
@@ -308,7 +308,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label  class="form-label" for="date_death_warishan">ওয়ারিশাান ব্যাক্তির মৃত্যু তারিখ :-</label>
-                                        <input class="form-control datepicker" name="date_death_warishan" value="" id="date_death_warishan" type="text" placeholder="যদি মারা যায়">
+                                        <input class="form-control datepicker" name="date_death_warishan" value="{{ old('date_death_warishan',$warishan->date_death_warishan) }}" id="date_death_warishan" type="text" placeholder="যদি মারা যায়">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -328,7 +328,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="wife_number">ওয়ারিশান ব্যাক্তির স্ত্রী কয়জন?:-</label>
                                         <input id="wife_count" onkeyup="addNumbers()" class="form-control @error('wife_number') is-invalid @enderror"
-                                        name="wife_number" id="wife_number" value="{{ old('wife_number') }}"  type="number" placeholder="স্ত্রী সংখ্যা দিন">
+                                        name="wife_number" id="wife_number" value="{{ old('wife_number',$warishan->wife_number) }}"  type="number" placeholder="স্ত্রী সংখ্যা দিন">
                                         @if($errors->has('wife_number'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('wife_number') }}
@@ -347,7 +347,7 @@
                                                         <label class="form-check-label" for="son">ছেলে</label>
                                                     </div>
                                                     <div class="col-8">
-                                                        <input type="number" id="sons" onkeyup="addNumbers()" class="form-control" name="son" min="0" placeholder="সংখ্যা দিন">
+                                                        <input type="number" id="sons" onkeyup="addNumbers()" class="form-control" name="son" min="0" value="{{ old('son',$warishan->son) }}" placeholder="সংখ্যা দিন">
                                                     </div>
                                                 </div>
     
@@ -359,7 +359,7 @@
                                                         <label class="form-check-label" for="daughter">মেয়ে</label>
                                                     </div>
                                                     <div class="col-8">
-                                                        <input type="number" id="daughters" onkeyup="addNumbers()" class="form-control" name="daughter" min="0" placeholder="সংখ্যা দিন">
+                                                        <input type="number" id="daughters" onkeyup="addNumbers()" class="form-control" name="daughter" value="{{ old('daughter',$warishan->daughter) }}" min="0" placeholder="সংখ্যা দিন">
                                                     </div>
                                                 </div>
                                             </div>
@@ -395,30 +395,29 @@
                                         <tbody id="table">
                                             @if ($warishan->warisan_children)
                                             @foreach ($warishan->warisan_children as $c)
-                                          <tr>
-                                              <td class="smember" style='text-align:center;'>{{++$loop->index}}</td>
-                                              <td style='text-align:left;'>
-                                                    <input type='text' name='cname[]' class='form-control' value='' style='border:none;' maxlength='100' placeholder="নাম"/>
-                                              </td>
-                                              <td style='text-align:left;'>
-                                                  <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
-                                                      <option value="">সম্পর্ক</option>
-                                                      <option value="1">স্ত্রী</option>
-                                                      <option value="2">ছেলে</option>
-                                                      <option value="3">মেয়ে</option>
-                                                      <option value="4">অন্যান্য</option>
-                                                  </select>
-                                              </td>
-                                              <td style='text-align:left;'>
-                                                <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date') }}" id="cbirth_date" type="date" placeholder="জন্ম তারিখ">
-                                             </td>
-                                              <td style='text-align:left;'>
-                                                <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid') }}"  type="text" placeholder="ভোটার আইডি">
-                                             </td>
-                                          </tr>
-                                          @endforeach
-                            
-                                          @endif
+                                                <tr>
+                                                    <td class="smember" style='text-align:center;'>{{++$loop->index}}</td>
+                                                    <td style='text-align:left;'>
+                                                        <input type='text' name='cname[]' class='form-control' value='{{ $c->name }}' style='border:none;' maxlength='100' placeholder="নাম"/>
+                                                    </td>
+                                                    <td style='text-align:left;'>
+                                                        <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
+                                                            <option value="">সম্পর্ক</option>
+                                                            <option value="1"  {{ old('crelation', $c->ralation)=="1" ? "selected":""}}>স্ত্রী</option>
+                                                            <option value="2" {{ old('crelation', $c->ralation)=="2" ? "selected":""}}>ছেলে</option>
+                                                            <option value="3" {{ old('crelation', $c->ralation)=="3" ? "selected":""}}>মেয়ে</option>
+                                                            <option value="4" {{ old('crelation', $c->ralation)=="4" ? "selected":""}}>অন্যান্য</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style='text-align:left;'>
+                                                        <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date',$c->birth_date) }}" id="cbirth_date" type="date" placeholder="জন্ম তারিখ">
+                                                    </td>
+                                                    <td style='text-align:left;'>
+                                                        <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid',$c->cnid) }}"  type="text" placeholder="ভোটার আইডি">
+                                                    </td>
+                                                </tr>
+                                            @endforeach  
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -429,7 +428,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="house_holding_no">বাড়ির হেল্ডিং নম্বর:-</label>
                                         <input class="form-control @error('house_holding_no') is-invalid @enderror"
-                                        name="house_holding_no" id="house_holding_no" value="{{ old('house_holding_no') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
+                                        name="house_holding_no" id="house_holding_no" value="{{ old('house_holding_no',$warishan->house_holding_no) }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
                                         {{-- @if($errors->has('house_holding_no'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('house_holding_no') }}
@@ -439,7 +438,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
                                         <input class="form-control @error('street_nm') is-invalid @enderror"
-                                        name="street_nm" id="street_nm" value="{{ old('street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
+                                        name="street_nm" id="street_nm" value="{{ old('street_nm',$warishan->street_nm) }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
                                         @if($errors->has('street_nm'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('street_nm') }}
@@ -451,7 +450,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
                                         <input class="form-control @error('village_name') is-invalid @enderror"
-                                        name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
+                                        name="village_name" id="village_name" value="{{ old('village_name',$warishan->village_name) }}"  type="text" placeholder="গ্রামের নাম">
                                         {{-- @if($errors->has('village_name'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('village_name') }}
@@ -461,7 +460,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="ward_no">ওয়ার্ড:-</label>
                                         <input class="form-control @error('ward_no') is-invalid @enderror"
-                                        name="ward_no" id="ward_no" value="{{ old('ward_no') }}"  type="text" placeholder="ওয়ার্ড">
+                                        name="ward_no" id="ward_no" value="{{ old('ward_no',$warishan->ward_no) }}"  type="text" placeholder="ওয়ার্ড">
                                         @if($errors->has('ward_no'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('ward_no') }}
@@ -473,7 +472,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="name_union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
                                         <input class="form-control @error('name_union_parishad') is-invalid @enderror"
-                                        name="name_union_parishad" id="name_union_parishad" value="{{ old('name_union_parishad') }}"  type="text" placeholder="ইউনিয়ন পরিষদের নাম">
+                                        name="name_union_parishad" id="name_union_parishad" value="{{ old('name_union_parishad',$warishan->name_union_parishad) }}"  type="text" placeholder="ইউনিয়ন পরিষদের নাম">
                                         {{-- @if($errors->has('name_union_parishad'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('name_union_parishad') }}
@@ -483,7 +482,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="post_office">ডাকঘর:-</label>
                                         <input class="form-control @error('post_office') is-invalid @enderror"
-                                        name="post_office" id="post_office" value="{{ old('post_office') }}"  type="text" placeholder="ডাকঘর">
+                                        name="post_office" id="post_office" value="{{ old('post_office',$warishan->post_office) }}"  type="text" placeholder="ডাকঘর">
                                         @if($errors->has('post_office'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('post_office') }}
@@ -495,7 +494,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
                                         <input class="form-control @error('upazila_thana') is-invalid @enderror"
-                                        name="upazila_thana" id="upazila_thana" value="{{ old('upazila_thana') }}"  type="text" placeholder="উপজেলা/থানা">
+                                        name="upazila_thana" id="upazila_thana" value="{{ old('upazila_thana',$warishan->upazila_thana) }}"  type="text" placeholder="উপজেলা/থানা">
                                         {{-- @if($errors->has('upazila_thana'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('upazila_thana') }}
@@ -505,7 +504,7 @@
                                     <div class="col-6">
                                         <label  class="form-label" for="district">জেলা:-</label>
                                         <input class="form-control @error('district') is-invalid @enderror"
-                                        name="district" id="district" value="{{ old('district') }}"  type="text" placeholder="জেলা">
+                                        name="district" id="district" value="{{ old('district',$warishan->district) }}"  type="text" placeholder="জেলা">
                                         @if($errors->has('district'))
                                         <small class="d-block text-danger">
                                             {{ $errors->first('district') }}
