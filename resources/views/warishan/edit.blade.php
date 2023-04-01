@@ -25,8 +25,8 @@
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div> --}}
-                                
-                                    
+
+
                                     <div class="col-sm-2 col-lg-2">
                                         <label  class="form-label" for="holding_date">তারিখ :-</label>
                                     </div>
@@ -350,7 +350,7 @@
                                                         <input type="number" id="sons" onkeyup="addNumbers()" class="form-control" name="son" min="0" value="{{ old('son',$warishan->son) }}" placeholder="সংখ্যা দিন">
                                                     </div>
                                                 </div>
-    
+
                                             </div>
                                             <div class="col-6">
                                                 <div class="row">
@@ -397,6 +397,7 @@
                                             @foreach ($warishan->warisan_children as $c)
                                                 <tr>
                                                     <td class="smember" style='text-align:center;'>{{++$loop->index}}</td>
+                                                    <input type="hidden" name="id[]" value="{{$c->id}}">
                                                     <td style='text-align:left;'>
                                                         <input type='text' name='cname[]' class='form-control' value='{{ $c->name }}' style='border:none;' maxlength='100' placeholder="নাম"/>
                                                     </td>
@@ -416,7 +417,7 @@
                                                         <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid',$c->cnid) }}"  type="text" placeholder="ভোটার আইডি">
                                                     </td>
                                                 </tr>
-                                            @endforeach  
+                                            @endforeach
                                             @endif
                                         </tbody>
                                     </table>
@@ -567,24 +568,24 @@
         repeatRows(result)
       }
 
-      function repeatRows(e) {
-        //const Total_warishan = document.getElementById('total_warishan');
-        const tableElement = document.getElementById('table');
+    //   function repeatRows(e) {
+    //     //const Total_warishan = document.getElementById('total_warishan');
+    //     const tableElement = document.getElementById('table');
 
-        // Clear existing rows
-        while (tableElement.rows.length > 1) {
-          tableElement.deleteRow(1);
-        }
+    //     // Clear existing rows
+    //     while (tableElement.rows.length > 1) {
+    //       tableElement.deleteRow(1);
+    //     }
 
-        // Repeat rows based on input value
-        const repeatCount = e;
-        for (let is = 0; is < (repeatCount-1); is++) {
-          const clonedRow = tableElement.rows[0].cloneNode(true);
-          tableElement.appendChild(clonedRow);
-          const serial=document.getElementsByClassName("smember");
-          serial[is].innerHTML = is + 1;
-          
-        }
-      }
+    //     // Repeat rows based on input value
+    //     const repeatCount = e;
+    //     for (let is = 0; is < (repeatCount-1); is++) {
+    //       const clonedRow = tableElement.rows[0].cloneNode(true);
+    //       tableElement.appendChild(clonedRow);
+    //       const serial=document.getElementsByClassName("smember");
+    //       serial[is].innerHTML = is + 1;
+
+    //     }
+    //   }
 </script>
 @endpush

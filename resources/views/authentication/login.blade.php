@@ -2,7 +2,7 @@
 
 @section('content')
 <section style="border: 15px solid rgba(228, 217, 217, 0.685); padding: 10px">
-<div class="responsive p-4"> 
+<div class="responsive p-4">
     @if(Session::has('response'))
     {!!Session::get('response')['message']!!}
     @endif
@@ -32,12 +32,12 @@
             @endif
         </div>
         <div class="row">
-            <div class="col-8">                                        
+            <div class="col-8">
                 <input class="form-check-input" type="checkbox" name="" id="remark" value="" />
                 <label  class="form-label" for="remark"><h4>Remember me</h4></label>
             </div>
-            <div class="col-lg-4 col-sm-4">
-                <button type="submit" class="btn btn-success btn-block btn-lg shadow-lg mt-2">Login</button>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-end">
+                <button type="submit" class="btn btn-success text-end mt-2">Login</button>
             </div>
         </div>
     </form>

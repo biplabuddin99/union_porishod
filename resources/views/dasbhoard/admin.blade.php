@@ -44,7 +44,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-sm-3 col-lg-2 col-md-6">
+                <div class="col-sm-6 col-lg-2 col-md-4">
                     <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
@@ -54,17 +54,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3 col-lg-2 col-md-6">
+                <div class="col-sm-6 col-lg-2 col-md-4">
                     <div class="card" style="background-color: rgb(104, 221, 137); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <h5>১১৭৮৬৫৯৫</h5>
+                                <h5>১১৭৮৬৫</h5>
                                 <p>মোট আদায়</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3 col-lg-2 col-md-6">
+                <div class="col-sm-6 col-lg-2 col-md-4">
                     <div class="card" style="background-color: rgb(244, 247, 56); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-12 col-xl-6">
+                <div class="col-sm-6 col-lg-6 col-md-6 col-xl-6">
                     <table class="table table-hover border border-primary">
                         <thead>
                             <tr>
@@ -157,7 +157,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-sm-6 col-lg-6 col-md-6 col-xl-6">
                     <table class="table table-hover border border-primary">
                         <thead>
                             <tr>

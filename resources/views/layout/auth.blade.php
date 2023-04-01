@@ -22,7 +22,7 @@
 <body>
 <div id="auth">
     <div class="row h-100">
-        <div class="col-lg-6 col-sm-6 offset-3">
+        <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-sm-3">
             <div id="">
                 <div class="auth-logo text-center mt-5">
                     <img  src="{{ asset('./images/Login-01.png')}}" width="120px" height="120px" alt="">
