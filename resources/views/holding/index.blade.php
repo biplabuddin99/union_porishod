@@ -31,8 +31,8 @@
                         <thead>
                             <tr>
                                 <th width="3%"> ক্রমিক </th>
+                                <th>ছবি</th>
                                 <th>বাড়ি প্রধানের নাম</th>
-                                <th>মায়ের নাম</th>
                                 <th>বাড়ির হেল্ডিং নম্বর</th>
                                 <th>মোবাইল নং</th>
                                 <th>প্রোপাইল</th>
@@ -43,8 +43,8 @@
                             @forelse($hold as $h)
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
+                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
                                 <td>{{$h->head_household}}</td>
-                                <td>{{$h->mother_name}}</td>
                                 <td>{{$h->house_holding_no}}</td>
                                 <td>{{$h->phone}}</td>
                                 <td>

@@ -26,8 +26,7 @@
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div> --}}
-                                
-                                
+
                                 <div class="col-sm-2 col-lg-2">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
                                 </div>
@@ -49,7 +48,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
                                     <input class="form-control" type="text"
-                                    name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                    name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" placeholder="পিতা/ স্বামী">
                                 </div>
                             </div>
                             <div class="row m-2">

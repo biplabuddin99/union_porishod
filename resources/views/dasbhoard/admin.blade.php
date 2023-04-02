@@ -7,7 +7,7 @@
     <section class="row" style="border: 15px solid rgba(228, 217, 217, 0.685); padding: 10px">
         <div class="col-12 col-lg-12 mt-5">
             <div class="row">
-                <div class="col-sm-6 col-lg-6 col-md-6">
+                <div class="col-sm-6 col-lg-3 col-md-6">
                     <table class="table table-hover border border-primary">
                         <thead>
                             <tr>
@@ -44,7 +44,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-sm-6 col-lg-2 col-md-4">
+                <div class="col-sm-6 col-lg-3 col-md-4">
                     <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-2 col-md-4">
+                <div class="col-sm-6 col-lg-3 col-md-4">
                     <div class="card" style="background-color: rgb(104, 221, 137); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-2 col-md-4">
+                <div class="col-sm-6 col-lg-3 col-md-4">
                     <div class="card" style="background-color: rgb(244, 247, 56); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
