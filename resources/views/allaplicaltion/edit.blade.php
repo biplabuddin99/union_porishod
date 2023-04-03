@@ -279,25 +279,16 @@
                                 <div class="col-6">
                                     <div class="row ps-5">
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application1" value="1" {{old('type_application',$all->type_application) == '1' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application1">হোল্ডিং নাম্বার</label> 
+                                        <label  class="form-label" for="type_application1">হোল্ডিং নাম্বার</label>
                                     </div>
                                     <div class="row ps-5">
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application3" value="3" {{old('type_application',$all->type_application) == '3' ? 'checked' : ''}}>
                                         <label  class="form-label" for="type_application3">ওয়ারিশান সনদ</label>
                                     </div>
-                                    <div class="row ps-5">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="5" {{old('type_application',$all->type_application) == '5' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application5">ভিজিএফ কার্ড</label>
+                                    <div class="row  ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application',$all->type_application) == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">পরিবারিক সনদ</label>
                                     </div>
-                                    <div class="row ps-5">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application7" value="7" {{old('type_application',$all->type_application) == '7' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application7">প্রতিবন্ধী ভাতা</label>
-                                    </div>
-                                    <div class="row ps-5">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application10" value="10" {{old('type_application',$all->type_application) == '10' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application10">অন্যান্য</label>
-                                    </div>
-
                                 </div>
                                 <div class="col-6">
                                     <div class="row">
@@ -309,16 +300,41 @@
                                         <label  class="form-label" for="type_application4">নাগরিক সনদ</label>
                                     </div>
                                     <div class="row">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application6" value="6" {{old('type_application',$all->type_application) == '6' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application6">বয়স্ক ভাতা</label>
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application',$all->type_application) == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">ভিজিএফ কার্ড</label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row border border-2 m-2 p-3">
+                                <div class="col-6">
+                                    <div class="row ps-5">
+                                        <a class="mt-2" href="#">ভিজিডি কার্ড</a>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <a class="mt-2" href="#">ভিডব্লিউবি কার্ড</a>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <a class="mt-2" href="#">প্রতিবন্ধী ভাতা</a>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <a class="mt-2" href="#">মাতৃত্বকালীন ভাতা</a>
+                                    </div>
+
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <a class="mt-2" href="#">রেশন কার্ড</a>
                                     </div>
                                     <div class="row">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application8" value="8" {{old('type_application',$all->type_application) == '8' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application8">বিধবা ভাতা</label>
+                                        <a class="mt-2" href="#">বয়স্ক ভাতা</a>
                                     </div>
                                     <div class="row">
-                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="9" {{old('type_application',$all->type_application) == '9' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application9">পরিবার সদস্যের প্রত্যয়ন</label>
+                                        <a class="mt-2" href="#">বিধবা ভাতা</a>
+                                    </div>
+                                    <div class="row">
+                                        <a class="mt-2" href="#">অন্যান্য</a>
                                     </div>
 
                                 </div>
