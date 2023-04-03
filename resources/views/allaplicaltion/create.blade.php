@@ -311,31 +311,31 @@
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
                                     <div class="row ps-5">
-                                        <a href="#"><label  class="form-label" for="type_application7">ভিজিডি কার্ড</label></a>
+                                        <a class="mt-2" href="#">ভিজিডি কার্ড</a>
                                     </div>
                                     <div class="row ps-5">
-                                        <a href="#"><label  class="form-label" for="type_application7">ভিডব্লিউবি কার্ড</label></a>
+                                        <a class="mt-2" href="#">ভিডব্লিউবি কার্ড</a>
                                     </div>
                                     <div class="row ps-5">
-                                        <a href="#"><label  class="form-label" for="type_application7">প্রতিবন্ধী ভাতা</label></a>
+                                        <a class="mt-2" href="#">প্রতিবন্ধী ভাতা</a>
                                     </div>
                                     <div class="row ps-5">
-                                        <a href="#"><label  class="form-label" for="type_application7">মাতৃত্বকালীন ভাতা</label></a>
+                                        <a class="mt-2" href="#">মাতৃত্বকালীন ভাতা</a>
                                     </div>
 
                                 </div>
                                 <div class="col-6">
                                     <div class="row">
-                                        <a href="#"><label  class="form-label" for="type_application7">রেশন কার্ড</label></a>
+                                        <a class="mt-2" href="#">রেশন কার্ড</a>
                                     </div>
                                     <div class="row">
-                                        <a href="#"><label  class="form-label" for="type_application6">বয়স্ক ভাতা</label></a>
+                                        <a class="mt-2" href="#">বয়স্ক ভাতা</a>
                                     </div>
                                     <div class="row">
-                                        <a href="#"><label  class="form-label" for="type_application8">বিধবা ভাতা</label></a>
+                                        <a class="mt-2" href="#">বিধবা ভাতা</a>
                                     </div>
                                     <div class="row">
-                                        <a href="#"><label  class="form-label" for="type_application9">অন্যান্য</label></a>
+                                        <a class="mt-2" href="#">অন্যান্য</a>
                                     </div>
 
                                 </div>
