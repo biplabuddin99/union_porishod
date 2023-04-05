@@ -91,6 +91,7 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->holding_date=$request->holding_date;
             $all_onlineApplications->head_household=$request->head_household;
             $all_onlineApplications->husband_wife=$request->husband_wife;
+            $all_onlineApplications->father_name=$request->father_name;
             $all_onlineApplications->mother_name=$request->mother_name;
             $all_onlineApplications->gender=$request->gender;
             $all_onlineApplications->birth_date=$request->birth_date;
@@ -104,6 +105,7 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->marital_status=$request->marital_status;
             $all_onlineApplications->internet_connection=$request->internet_connection;
             $all_onlineApplications->tube_well=$request->tube_well;
+            $all_onlineApplications->freedom_fighter=$request->freedom_fighter;
             $all_onlineApplications->disline_connection=$request->disline_connection;
             $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
             $all_onlineApplications->arsenic_free=$request->arsenic_free;
@@ -142,6 +144,7 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->holding_date=$request->holding_date;
             $all_onlineApplications->head_household=$request->head_household;
             $all_onlineApplications->husband_wife=$request->husband_wife;
+            $all_onlineApplications->father_name=$request->father_name;
             $all_onlineApplications->mother_name=$request->mother_name;
             $all_onlineApplications->gender=$request->gender;
             $all_onlineApplications->birth_date=$request->birth_date;
@@ -157,6 +160,7 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->tube_well=$request->tube_well;
             $all_onlineApplications->disline_connection=$request->disline_connection;
             $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
+            $all_onlineApplications->freedom_fighter=$request->freedom_fighter;
             $all_onlineApplications->arsenic_free=$request->arsenic_free;
             $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
             $all_onlineApplications->type_application=$request->type_application;

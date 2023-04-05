@@ -141,16 +141,6 @@
                                     </small>
                                     @endif --}}
                                 </div>
-                                {{-- <div class="col-6">
-                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস:-</label>
-                                    <input class="form-control"
-                                    name="main_source_income" id="main_source_income" value="{{ old('main_source_income') }}"  type="text" placeholder="আয়ের প্রধান উৎস">
-                                    @if($errors->has('main_source_income'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('main_source_income') }}
-                                    </small>
-                                    @endif
-                                </div> --}}
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
@@ -178,7 +168,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="estimated_value_house">বাড়ির আনুমানিক মূল্য:-</label>
                                     <input class="form-control @error('estimated_value_house') is-invalid @enderror"
-                                    name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house') }}"  type="text" placeholder="বাড়ির আনুমানিক মূল্য">
+                                    name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house') }}"  type="number" placeholder="বাড়ির আনুমানিক মূল্য">
                                     {{-- @if($errors->has('estimated_value_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('estimated_value_house') }}
@@ -188,7 +178,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="tax_levied_annually_house">বাড়ির বার্ষিক ধার্যকৃত কর:-</label>
                                     <input class="form-control @error('tax_levied_annually_house') is-invalid @enderror"
-                                    name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house') }}"  type="text" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
+                                    name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house') }}"  type="number" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
                                     @if($errors->has('tax_levied_annually_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('tax_levied_annually_house') }}
@@ -196,16 +186,16 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row m-2">
+                            {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_tax_collected_house">বাড়ির বার্ষিক আদায়কৃত কর:-</label>
                                     <input class="form-control @error('annual_tax_collected_house') is-invalid @enderror"
                                     name="annual_tax_collected_house" id="annual_tax_collected_house" value="{{ old('annual_tax_collected_house') }}"  type="text" placeholder="বাড়ির বার্ষিক আদায়কৃত কর">
-                                    {{-- @if($errors->has('annual_tax_collected_house'))
+                                    @if($errors->has('annual_tax_collected_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('annual_tax_collected_house') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_house_tax_arrears">বাড়ির বার্ষিক বকেয়া কর:-</label>
@@ -217,7 +207,7 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row m-3">
                                 <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>
@@ -326,11 +316,17 @@
                             <div class="row m-0 p-0">
                                     <div class="image-overlay">
                                         <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি:-</label>
-                                            <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding/default.jpg') }}" class="form-control dropify">
-                                        <div class="overlay">
-                                            <div class="text-center">ছবি দিতে ক্লিক করুন</div>
-                                        </div>
+                                        <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding/default.jpg') }}" class="form-control dropify">
                                     </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="text-center">
+                                    <b>
+                                        আমি ঘোষনা করিতেছি যে, <br/>
+                                        আমার দেয়া উপরে বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা প্রমানিত হলে,  <br/>
+                                        আমি তাহার জন্য আইনত দায়ী থাকিব।
+                                    </b>
+                                </div>
                             </div>
                             <div class="container-fluid">
                                 <div class="row">

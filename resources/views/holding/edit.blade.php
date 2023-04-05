@@ -27,8 +27,7 @@
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div> --}}
-                                
-                                
+
                                 <div class="col-sm-2 col-lg-2">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
                                 </div>
@@ -51,6 +50,28 @@
                                     <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
                                     <input class="form-control" type="text"
                                     name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                    <input class="form-control @error('father_name') is-invalid @enderror" type="text"
+                                    name="father_name" value="{{ old('father_name',$hold->father_name) }}" id="father_name" placeholder="পিতার নাম">
+                                    @if($errors->has('father_name'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('father_name') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
+                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date',$hold->birth_date) }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    @if($errors->has('birth_date'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('birth_date') }}
+                                    </small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -81,12 +102,16 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
-                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date',$hold->birth_date) }}"  type="text" placeholder="মাস-দিন-সাল">
-                                    @if($errors->has('birth_date'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('birth_date') }}
+                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা :-</label>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1" {{ old('freedom_fighter', $hold->freedom_fighter)=="1" ? "selected":""}}>বীর মুক্তিযোদ্ধা</option>
+                                        <option value="2" {{ old('freedom_fighter', $hold->freedom_fighter)=="2" ? "selected":""}}>বীরাঙ্গনা</option>
+                                        <option value="3" {{ old('freedom_fighter', $hold->freedom_fighter)=="3" ? "selected":""}}>নাই</option>
+                                    </select>
+                                    @if($errors->has('freedom_fighter'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('freedom_fighter') }}
                                     </small>
                                     @endif
                                 </div>
@@ -162,7 +187,7 @@
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email',$hold->email) }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা বা আয়ের উৎস :-</label>
+                                    <label  class="form-label" for="source_inc">পেশা :-</label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('source_income', $hold->source_income)=="1" ? "selected":""}}>শিক্ষক</option>
@@ -272,6 +297,14 @@
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" @if(in_array(5, $Govt_fac)) checked @endif />
                                         <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
                                     </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities6" value="6" @if(in_array(6, $Govt_fac)) checked @endif/>
+                                        <label  class="form-label" for="government_facilities6">রেশন কার্ড</label>
+                                    </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" @if(in_array(7, $Govt_fac)) checked @endif/>
+                                        <label  class="form-label" for="government_facilities7">ভিজিডি কার্ড</label>
+                                    </div>
                                 </div>
 
                             </div>
@@ -323,11 +356,66 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস:-</label>
-                                    <input class="form-control"
-                                    name="main_source_income" id="main_source_income" value="{{ old('main_source_income',$hold->main_source_income) }}"  type="text" placeholder="আয়ের প্রধান উৎস">
+                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস :-</label>
+                                    <select name="main_source_income" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1" {{ old('main_source_income', $hold->main_source_income)=="1" ? "selected":""}}>চাকুরী <sub>(সরকারী)</sub></option>
+                                        <option value="2" {{ old('main_source_income', $hold->main_source_income)=="2" ? "selected":""}}>চাকুরী <sub>(বেসরকারী)</sub></option>
+                                        <option value="3" {{ old('main_source_income', $hold->main_source_income)=="3" ? "selected":""}}>প্রবাসী</option>
+                                        <option value="4" {{ old('main_source_income', $hold->main_source_income)=="4" ? "selected":""}}>শিক্ষক</option>
+                                        <option value="5" {{ old('main_source_income', $hold->main_source_income)=="5" ? "selected":""}}>শ্রমিক</option>
+                                        <option value="6" {{ old('main_source_income', $hold->main_source_income)=="6" ? "selected":""}}>কৃষি খামার</option>
+                                        <option value="7" {{ old('main_source_income', $hold->main_source_income)=="7" ? "selected":""}}>মৎস খামার</option>
+                                        <option value="8" {{ old('main_source_income', $hold->main_source_income)=="8" ? "selected":""}}>দুগ্ধ খামার</option>
+                                        <option value="9" {{ old('main_source_income', $hold->main_source_income)=="9" ? "selected":""}}>হাঁস-মুরগীর খামার</option>
+                                        <option value="10" {{ old('main_source_income', $hold->main_source_income)=="10" ? "selected":""}}>গবাদি পশুর খামার</option>
+                                        <option value="11" {{ old('main_source_income', $hold->main_source_income)=="11" ? "selected":""}}>মুদির দোকান</option>
+                                        <option value="12" {{ old('main_source_income', $hold->main_source_income)=="12" ? "selected":""}}>আর্থিক প্রতিষ্ঠান</option>
+                                        <option value="13" {{ old('main_source_income', $hold->main_source_income)=="13" ? "selected":""}}>ক্ষুদ্র ও কুটির শিল্প</option>
+                                        <option value="14" {{ old('main_source_income', $hold->main_source_income)=="14" ? "selected":""}}>মাঝারি শিল্প</option>
+                                        <option value="15" {{ old('main_source_income', $hold->main_source_income)=="15" ? "selected":""}}>খাবার হোটেল</option>
+                                        <option value="16" {{ old('main_source_income', $hold->main_source_income)=="16" ? "selected":""}}>প্রকৌশলী</option>
+                                        <option value="17" {{ old('main_source_income', $hold->main_source_income)=="17" ? "selected":""}}>আইনজীবী</option>
+                                        <option value="18" {{ old('main_source_income', $hold->main_source_income)=="18" ? "selected":""}}>চিকিৎসক</option>
+                                        <option value="19" {{ old('main_source_income', $hold->main_source_income)=="19" ? "selected":""}}>ক্লিনিক</option>
+                                        <option value="20" {{ old('main_source_income', $hold->main_source_income)=="20" ? "selected":""}}>ঔষদের দোকান</option>
+                                        <option value="21" {{ old('main_source_income', $hold->main_source_income)=="21" ? "selected":""}}>আবাসিক হোটেল</option>
+                                        <option value="22" {{ old('main_source_income', $hold->main_source_income)=="22" ? "selected":""}}>মিষ্টির দোকান</option>
+                                        <option value="23" {{ old('main_source_income', $hold->main_source_income)=="23" ? "selected":""}}>বে-সরকারি হাসপাতাল</option>
+                                        <option value="24" {{ old('main_source_income', $hold->main_source_income)=="24" ? "selected":""}}>বে-সরকারি স্কুল</option>
+                                        <option value="25" {{ old('main_source_income', $hold->main_source_income)=="25" ? "selected":""}}>কোচিং সেন্টার</option>
+                                        <option value="26" {{ old('main_source_income', $hold->main_source_income)=="26" ? "selected":""}}>খাবার হোটেল</option>
+                                        <option value="27" {{ old('main_source_income', $hold->main_source_income)=="27" ? "selected":""}}>হিমাগার</option>
+                                        <option value="28" {{ old('main_source_income', $hold->main_source_income)=="28" ? "selected":""}}>ধান ভাঙানোর কল</option>
+                                        <option value="29" {{ old('main_source_income', $hold->main_source_income)=="29" ? "selected":""}}>আটার কল</option>
+                                        <option value="30" {{ old('main_source_income', $hold->main_source_income)=="30" ? "selected":""}}>তেলের কল</option>
+                                        <option value="31" {{ old('main_source_income', $hold->main_source_income)=="31" ? "selected":""}}>স’ মিল</option>
+                                        <option value="32" {{ old('main_source_income', $hold->main_source_income)=="32" ? "selected":""}}>বিউটি পার্লার</option>
+                                        <option value="33" {{ old('main_source_income', $hold->main_source_income)=="33" ? "selected":""}}>হেয়ার কাট সেলুন</option>
+                                        <option value="34" {{ old('main_source_income', $hold->main_source_income)=="34" ? "selected":""}}>লন্ড্রীর দোকান</option>
+                                        <option value="35" {{ old('main_source_income', $hold->main_source_income)=="35" ? "selected":""}}>ইন্জিনিয়ারিং ফার্ম</option>
+                                        <option value="36" {{ old('main_source_income', $hold->main_source_income)=="36" ? "selected":""}}>শিল্প কারখানা</option>
+                                        <option value="37" {{ old('main_source_income', $hold->main_source_income)=="37" ? "selected":""}}>ইট ভাটা</option>
+                                        <option value="38" {{ old('main_source_income', $hold->main_source_income)=="38" ? "selected":""}}>কনসালটেন্সি ফার্ম</option>
+                                        <option value="39" {{ old('main_source_income', $hold->main_source_income)=="39" ? "selected":""}}>গুদাম</option>
+                                        <option value="40" {{ old('main_source_income', $hold->main_source_income)=="40" ? "selected":""}}>রিক্সার মালিক</option>
+                                        <option value="41" {{ old('main_source_income', $hold->main_source_income)=="41" ? "selected":""}}>বাজার ইজারা</option>
+                                        <option value="42" {{ old('main_source_income', $hold->main_source_income)=="42" ? "selected":""}}>টেম্পোর মালিক</option>
+                                        <option value="43" {{ old('main_source_income', $hold->main_source_income)=="43" ? "selected":""}}>বাসের মালিক</option>
+                                        <option value="44" {{ old('main_source_income', $hold->main_source_income)=="44" ? "selected":""}}>ট্রাকের মালিক</option>
+                                        <option value="45" {{ old('main_source_income', $hold->main_source_income)=="45" ? "selected":""}}>পরিবহন এজেন্সি</option>
+                                        <option value="46" {{ old('main_source_income', $hold->main_source_income)=="46" ? "selected":""}}>নৌযানের মালিক</option>
+                                        <option value="47" {{ old('main_source_income', $hold->main_source_income)=="47" ? "selected":""}}>অটো-রিক্সার মালিক</option>
+                                        <option value="48" {{ old('main_source_income', $hold->main_source_income)=="48" ? "selected":""}}>স্টীমার/কার্গোর মালিক</option>
+                                        <option value="49" {{ old('main_source_income', $hold->main_source_income)=="49" ? "selected":""}}>শিশু পার্ক</option>
+                                        <option value="50" {{ old('main_source_income', $hold->main_source_income)=="50" ? "selected":""}}>বিনোদন পার্ক</option>
+                                        <option value="51" {{ old('main_source_income', $hold->main_source_income)=="51" ? "selected":""}}>জবাই পশু</option>
+                                        <option value="52" {{ old('main_source_income', $hold->main_source_income)=="52" ? "selected":""}}>ঠিকাদার</option>
+                                        <option value="53" {{ old('main_source_income', $hold->main_source_income)=="53" ? "selected":""}}>গাড়ী চালক</option>
+                                        <option value="54" {{ old('main_source_income', $hold->main_source_income)=="54" ? "selected":""}}>অন্যান্য</option>
+                                    </select>
                                     {{-- @if($errors->has('main_source_income'))
-                                    <small class="d-block text-danger">
+                                    <small class="d-block text-danger text-center">
                                         {{ $errors->first('main_source_income') }}
                                     </small>
                                     @endif --}}
@@ -359,7 +447,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="estimated_value_house">বাড়ির আনুমানিক মূল্য:-</label>
                                     <input class="form-control @error('estimated_value_house') is-invalid @enderror"
-                                    name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house',$hold->estimated_value_house) }}"  type="text" placeholder="বাড়ির আনুমানিক মূল্য">
+                                    name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house',$hold->estimated_value_house) }}"  type="number" placeholder="বাড়ির আনুমানিক মূল্য">
                                     {{-- @if($errors->has('estimated_value_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('estimated_value_house') }}
@@ -369,7 +457,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="tax_levied_annually_house">বাড়ির বার্ষিক ধার্যকৃত কর:-</label>
                                     <input class="form-control @error('tax_levied_annually_house') is-invalid @enderror"
-                                    name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house',$hold->tax_levied_annually_house) }}"  type="text" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
+                                    name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house',$hold->tax_levied_annually_house) }}"  type="number" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
                                     @if($errors->has('tax_levied_annually_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('tax_levied_annually_house') }}
@@ -377,16 +465,16 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row m-2">
+                            {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_tax_collected_house">বাড়ির বার্ষিক আদায়কৃত কর:-</label>
                                     <input class="form-control @error('annual_tax_collected_house') is-invalid @enderror"
                                     name="annual_tax_collected_house" id="annual_tax_collected_house" value="{{ old('annual_tax_collected_house',$hold->annual_tax_collected_house) }}"  type="text" placeholder="বাড়ির বার্ষিক আদায়কৃত কর">
-                                    {{-- @if($errors->has('annual_tax_collected_house'))
+                                    @if($errors->has('annual_tax_collected_house'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('annual_tax_collected_house') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_house_tax_arrears">বাড়ির বার্ষিক বকেয়া কর:-</label>
@@ -398,7 +486,7 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row m-3">
                                 <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>

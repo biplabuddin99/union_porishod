@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('holding_date')->nullable();
             $table->string('head_household')->nullable();
             $table->string('husband_wife')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('freedom_fighter')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('gender')->nullable();
             $table->string('birth_date')->nullable();
@@ -46,8 +48,8 @@ return new class extends Migration
             $table->string('percentage_cultivated_land')->nullable();
             $table->string('estimated_value_house')->nullable();
             $table->string('tax_levied_annually_house')->nullable();
-            $table->string('annual_tax_collected_house')->nullable();
-            $table->string('annual_house_tax_arrears')->nullable();
+            // $table->string('annual_tax_collected_house')->nullable();
+            // $table->string('annual_house_tax_arrears')->nullable();
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
             $table->string('house_holding_no')->nullable();
             $table->string('street_nm')->nullable();

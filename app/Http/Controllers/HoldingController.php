@@ -72,6 +72,8 @@ class HoldingController extends Controller
             $holding->holding_date=$all->holding_date;
             $holding->head_household=$all->head_household;
             $holding->husband_wife=$all->husband_wife;
+            $holding->father_name=$all->father_name;
+            $holding->freedom_fighter=$all->freedom_fighter;
             $holding->mother_name=$all->mother_name;
             $holding->gender=$all->gender;
             $holding->birth_date=$all->birth_date;
@@ -100,8 +102,8 @@ class HoldingController extends Controller
             $holding->percentage_cultivated_land=$request->percentage_cultivated_land;
             $holding->estimated_value_house=$request->estimated_value_house;
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
-            $holding->annual_tax_collected_house=$request->annual_tax_collected_house;
-            $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
+            // $holding->annual_tax_collected_house=$request->annual_tax_collected_house;
+            // $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
             $holding->house_holding_no=$request->house_holding_no;
             $holding->street_nm=$request->street_nm;
@@ -186,6 +188,8 @@ class HoldingController extends Controller
             $holding->holding_date=$request->holding_date;
             $holding->head_household=$request->head_household;
             $holding->husband_wife=$request->husband_wife;
+            $holding->father_name=$request->father_name;
+            $holding->freedom_fighter=$request->freedom_fighter;
             $holding->mother_name=$request->mother_name;
             $holding->gender=$request->gender;
             $holding->birth_date=$request->birth_date;
@@ -214,8 +218,8 @@ class HoldingController extends Controller
             $holding->percentage_cultivated_land=$request->percentage_cultivated_land;
             $holding->estimated_value_house=$request->estimated_value_house;
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
-            $holding->annual_tax_collected_house=$request->annual_tax_collected_house;
-            $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
+            // $holding->annual_tax_collected_house=$request->annual_tax_collected_house;
+            // $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
             $holding->house_holding_no=$request->house_holding_no;
             $holding->street_nm=$request->street_nm;

@@ -22,16 +22,16 @@
                         <form action="{{route(currentUser().'.allapplication.update',$all->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
-                            {{-- <div class="row">
-                                <div class="col-6">
+                            <div class="row">
+                                {{-- <div class="col-6">
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
-                                </div>
+                                </div> --}}
                                 <div class="col-6">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
-                                    <input class="form-control col-6 datepicker" name="holding_date" value="<?php date_default_timezone_set('Asia/Dhaka'); $date = date('d-M-y'); echo $date; ?>" id="holding_date" type="text">
+                                    <input class="form-control col-6 datepicker" name="holding_date" value="{{ old('holding_date',$all->holding_date) }}" id="holding_date" type="text">
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="head_household">আবেদনকারীর নাম  :-</label>
@@ -47,6 +47,28 @@
                                     <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
                                     <input class="form-control" type="text"
                                     name="husband_wife" value="{{ old('husband_wife',$all->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                    <input class="form-control @error('father_name') is-invalid @enderror" type="text"
+                                    name="father_name" value="{{ old('father_name',$all->father_name) }}" id="father_name" placeholder="পিতার নাম">
+                                    @if($errors->has('father_name'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('father_name') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
+                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date',$all->birth_date) }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    @if($errors->has('birth_date'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('birth_date') }}
+                                    </small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -77,12 +99,16 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
-                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date',$all->birth_date) }}"  type="text" placeholder="মাস-দিন-সাল">
-                                    @if($errors->has('birth_date'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('birth_date') }}
+                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা :-</label>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1" {{ old('freedom_fighter', $all->freedom_fighter)=="1" ? "selected":""}}>বীর মুক্তিযোদ্ধা</option>
+                                        <option value="2" {{ old('freedom_fighter', $all->freedom_fighter)=="2" ? "selected":""}}>বীরাঙ্গনা</option>
+                                        <option value="3" {{ old('freedom_fighter', $all->freedom_fighter)=="3" ? "selected":""}}>নাই</option>
+                                    </select>
+                                    @if($errors->has('freedom_fighter'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('freedom_fighter') }}
                                     </small>
                                     @endif
                                 </div>
@@ -158,7 +184,7 @@
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email',$all->email) }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা বা আয়ের উৎস :-</label>
+                                    <label  class="form-label" for="source_inc">পেশা :-</label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('source_income', $all->source_income)=="1" ? "selected":""}}>শিক্ষক</option>
@@ -268,8 +294,15 @@
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" @if(in_array(5, $Govt_fac)) checked @endif />
                                         <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
                                     </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities6" value="6" @if(in_array(6, $Govt_fac)) checked @endif/>
+                                        <label  class="form-label" for="government_facilities6">রেশন কার্ড</label>
+                                    </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" @if(in_array(7, $Govt_fac)) checked @endif/>
+                                        <label  class="form-label" for="government_facilities7">ভিজিডি কার্ড</label>
+                                    </div>
                                 </div>
-
                             </div>
                             <div class="row m-3">
                                 <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আপনি কেন আবেদনটি করতে চান? </h4>
@@ -303,8 +336,6 @@
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application',$all->type_application) == '6' ? 'checked' : ''}}>
                                         <label  class="form-label" for="type_application5">ভিজিএফ কার্ড</label>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
@@ -321,7 +352,6 @@
                                     <div class="row ps-5">
                                         <a class="mt-2" href="#">মাতৃত্বকালীন ভাতা</a>
                                     </div>
-
                                 </div>
                                 <div class="col-6">
                                     <div class="row">
@@ -336,7 +366,6 @@
                                     <div class="row">
                                         <a class="mt-2" href="#">অন্যান্য</a>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row m-3">

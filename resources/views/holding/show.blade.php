@@ -70,7 +70,7 @@
                     <span  class="form-label" for="">পিতার নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মিজানুর রহমান</span>
+                    <span  class="form-label" for="">{{ $hold->father_name }}</span>
                 </div>
             </div>
             <div class="row m-2">

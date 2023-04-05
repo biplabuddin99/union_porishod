@@ -53,6 +53,28 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
+                                    <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                    <input class="form-control @error('father_name') is-invalid @enderror" type="text"
+                                    name="father_name" value="{{ old('father_name') }}" id="father_name" placeholder="পিতার নাম">
+                                    @if($errors->has('father_name'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('father_name') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
+                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    @if($errors->has('birth_date'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('birth_date') }}
+                                    </small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
                                     <label  class="form-label" for="mother_name">মাতার নাম :-</label>
                                     <input class="form-control @error('mother_name') is-invalid @enderror" type="text"
                                     name="mother_name" value="{{ old('mother_name') }}" id="mother_name" placeholder="মাতার নাম">
@@ -79,12 +101,16 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
-                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="মাস-দিন-সাল">
-                                    @if($errors->has('birth_date'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('birth_date') }}
+                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা :-</label>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">বীর মুক্তিযোদ্ধা</option>
+                                        <option value="2">বীরাঙ্গনা</option>
+                                        <option value="3">নাই</option>
+                                    </select>
+                                    @if($errors->has('freedom_fighter'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('freedom_fighter') }}
                                     </small>
                                     @endif
                                 </div>
@@ -160,7 +186,7 @@
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা বা আয়ের উৎস :-</label>
+                                    <label  class="form-label" for="source_inc">পেশা :-</label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">শিক্ষক</option>
@@ -244,8 +270,8 @@
                                 </div>
                             </div>
                             <div class="border border-2 m-2 p-3">
+                                <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
                                 <div class="row m-2">
-                                    <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
                                         <label  class="form-label" for="government_facilities1">ভিজিএফ কার্ড</label>
@@ -269,6 +295,14 @@
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
                                         <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
+                                    </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities6" value="6" {{old('government_facilities') == '6' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="government_facilities6">রেশন কার্ড</label>
+                                    </div>
+                                    <div class="col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" {{old('government_facilities') == '7' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="government_facilities7">ভিজিডি কার্ড</label>
                                     </div>
                                 </div>
 
