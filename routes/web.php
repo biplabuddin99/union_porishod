@@ -70,6 +70,7 @@ Route::get('/registration/success/{id}', [front::class,'mem_regi_success'])->nam
 
 /*AJAX Call */
 Route::get('/upzilla/ajax/{district_id}', [allapplication::class, 'loadUpazillaAjax'])->name('loadupazila.ajax');
+Route::get('/union/ajax/{upazila_id}', [allapplication::class, 'loadUnionAjax'])->name('loadunion.ajax');
 
 Route::group(['middleware'=>isAdmin::class],function(){
     Route::prefix('admin')->group(function(){
@@ -105,7 +106,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('attesteation',attesteation::class,['as'=>'admin']);
         Route::get('attesteation_profile',[attesteation::class,'profile'])->name('attesteation_profile.list');
         Route::get('/attesteations_profile/{id}',[attesteation::class,'add_profile'])->name('attesteations_profile');
-        
+
         Route::resource('payment',payment::class,['as'=>'admin']);
         Route::resource('disablity',disablity::class,['as'=>'admin']);
         Route::resource('oldallowance',oldallowance::class,['as'=>'admin']);

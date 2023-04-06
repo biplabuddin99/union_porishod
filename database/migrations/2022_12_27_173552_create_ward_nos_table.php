@@ -71,18 +71,6 @@ return new class extends Migration
                 'ward_name'=>'12no Ward',
                 'ward_name_bn'=>'১২ নং ওয়ার্ড',
             ],
-            [
-                'ward_name'=>'13no Ward',
-                'ward_name_bn'=>'১৩ নং ওয়ার্ড',
-            ],
-            [
-                'ward_name'=>'14no Ward',
-                'ward_name_bn'=>'১৪ নং ওয়ার্ড',
-            ],
-            [
-                'ward_name'=>'15no Ward',
-                'ward_name_bn'=>'১৫ নং ওয়ার্ড',
-            ],
         ]);
     }
 

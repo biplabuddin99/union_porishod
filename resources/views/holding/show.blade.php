@@ -205,7 +205,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->ward_no }}</span>
+                    <span  class="form-label" for="">{{ $wards->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -238,7 +238,7 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->upazila_thana }}</span>
+                    <span  class="form-label" for="">{{ $upazilas->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -249,7 +249,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->district }}</span>
+                    <span  class="form-label" for="">{{ $districts->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">

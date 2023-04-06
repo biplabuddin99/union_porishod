@@ -179,7 +179,7 @@
         $('.search_district').select2();
         $('#district_id').on('change', function() {
             var district_id = $(this).val();
-            console.log();
+            // console.log();
             if (district_id) {
                 $.ajax({
                     url: "{{ url('/upzilla/ajax') }}/" + district_id,
@@ -190,6 +190,24 @@
                         var d = $('#upazila_id').empty();
                         $.each(data, function(key, value) {
                             $('#upazila_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+        $('#upazila_id').on('change', function() {
+            var upazila_id = $(this).val();
+            // console.log();
+            if (upazila_id) {
+                $.ajax({
+                    url: "{{ url('/union/ajax') }}/" + upazila_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#union_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#union_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
                         });
                     },
                 });

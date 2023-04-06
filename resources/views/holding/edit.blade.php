@@ -502,14 +502,69 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
-                                    <input class="form-control @error('street_nm') is-invalid @enderror"
-                                    name="street_nm" id="street_nm" value="{{ old('street_nm',$hold->street_nm) }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
-                                    @if($errors->has('street_nm'))
+                                    <label  class="form-label" for="post_office">ডাকঘর:-</label>
+                                    <input class="form-control @error('post_office') is-invalid @enderror"
+                                    name="post_office" id="post_office" value="{{ old('post_office',$hold->post_office) }}"  type="text" placeholder="ডাকঘর">
+                                    @if($errors->has('post_office'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('street_nm') }}
+                                        {{ $errors->first('post_office') }}
                                     </small>
                                     @endif
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label for="district">জেলা:-</label>
+                                    <select id="district_id" name="district_id" class="form-select search_district_eid">
+                                        <option value="">নির্বাচন করুন</option>
+                                        @foreach ($districts as $district)
+                                        <option value="{{ $district->id }}"{{$hold->district_id == $district->id ? 'selected' : ''}}>{{ $district->name_bn }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if($errors->has('district'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('district') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
+                                    <select id="upazila_id" name="upazila_id" class="form-select search_district_eid">
+                                        @foreach ($upazilas as $upazila)
+                                        <option value="{{ $upazila->id }}"{{$hold->upazila_id == $upazila->id ? 'selected' : ''}}>{{ $upazila->name_bn }}</option>
+                                        @endforeach
+                                    </select>
+                                    {{-- @if($errors->has('upazila_thana'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('upazila_thana') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="union_id">ইউনিয়ন পরিষদের নাম:-</label>
+                                    <select id="union_id" name="union_id" class="form-select search_district_eid">
+                                        @foreach ($unions as $union)
+                                        <option value="{{ $union->id }}"{{$hold->union_id == $union->id ? 'selected' : ''}}>{{ $union->name_bn }}</option>
+                                        @endforeach
+                                    </select>
+                                    {{-- @if($errors->has('upazila_thana'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('upazila_thana') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="ward_id">ওয়ার্ড:-</label>
+                                    <select name="ward_id" class="form-select search_district" id="ward_id">
+                                        <option value="" selected="selected">ওয়ার্ড নং</option>
+                                        @forelse ($wards as $w)
+                                        <option value="{{ $w->id }}" {{$hold->ward_id == $w->id ? 'selected' : ''}}>{{ $w->ward_name_bn }}</option>
+                                        @empty
+                                        <p>No Ward found</p>
+                                        @endforelse
+                                    </select>
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -524,56 +579,12 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="ward_no">ওয়ার্ড:-</label>
-                                    <input class="form-control @error('ward_no') is-invalid @enderror"
-                                    name="ward_no" id="ward_no" value="{{ old('ward_no',$hold->village_name) }}"  type="text" placeholder="ওয়ার্ড">
-                                    @if($errors->has('ward_no'))
+                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
+                                    <input class="form-control @error('street_nm') is-invalid @enderror"
+                                    name="street_nm" id="street_nm" value="{{ old('street_nm',$hold->street_nm) }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
+                                    @if($errors->has('street_nm'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('ward_no') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="name_union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
-                                    <input class="form-control @error('name_union_parishad') is-invalid @enderror"
-                                    name="name_union_parishad" id="name_union_parishad" value="{{ old('name_union_parishad',$hold->name_union_parishad) }}"  type="text" placeholder="ইউনিয়ন পরিষদের নাম">
-                                    {{-- @if($errors->has('name_union_parishad'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('name_union_parishad') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="post_office">ডাকঘর:-</label>
-                                    <input class="form-control @error('post_office') is-invalid @enderror"
-                                    name="post_office" id="post_office" value="{{ old('post_office',$hold->post_office) }}"  type="text" placeholder="ডাকঘর">
-                                    @if($errors->has('post_office'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('post_office') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
-                                    <input class="form-control @error('upazila_thana') is-invalid @enderror"
-                                    name="upazila_thana" id="upazila_thana" value="{{ old('upazila_thana',$hold->upazila_thana) }}"  type="text" placeholder="উপজেলা/থানা">
-                                    {{-- @if($errors->has('upazila_thana'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('upazila_thana') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="district">জেলা:-</label>
-                                    <input class="form-control @error('district') is-invalid @enderror"
-                                    name="district" id="district" value="{{ old('district',$hold->district) }}"  type="text" placeholder="জেলা">
-                                    @if($errors->has('district'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('district') }}
+                                        {{ $errors->first('street_nm') }}
                                     </small>
                                     @endif
                                 </div>
@@ -616,5 +627,28 @@
         </div>
     </div>
 </section>
-
+<script>
+    // District wise Upazilla Change
+    $(document).ready(function() {
+        $('.search_district_eid').select2();
+        $('#district_id').on('change', function() {
+            var district_id = $(this).val();
+            console.log();
+            if (district_id) {
+                $.ajax({
+                    url: "{{ url('/upzilla/ajax') }}/" + district_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#upazila_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#upazila_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
 @endsection

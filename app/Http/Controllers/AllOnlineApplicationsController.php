@@ -9,6 +9,7 @@ use Exception;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Thana;
+use App\Models\Settings\Location\Union;
 use App\Models\Ward_no;
 
 class AllOnlineApplicationsController extends Controller
@@ -23,6 +24,11 @@ class AllOnlineApplicationsController extends Controller
         $upazilas = Upazila::where('district_id', $district_id)->select('id','name','name_bn')->get();
         return response()->json($upazilas, 200);
     }
+    public function loadUnionAjax($upazila_id)
+    {
+        $unions = Union::where('upazila_id', $upazila_id)->select('id','name','name_bn')->get();
+        return response()->json($unions, 200);
+    }
 
     public function create()
     {
@@ -35,7 +41,9 @@ class AllOnlineApplicationsController extends Controller
         // dd($all);
         switch ($all->type_application) {
         case 1:
-           return view('holding.create',compact('all'));
+            $ward=Ward_no::all();
+            $districts=District::select('id','name','name_bn')->get();
+           return view('holding.create',compact('all','ward','districts'));
            break;
         case 2:
             $districts=District::select('id','name','name_bn')->get();

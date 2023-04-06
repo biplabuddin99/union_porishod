@@ -9,6 +9,10 @@ use PhpParser\Node\Stmt\Return_;
 use App\Http\Traits\ImageHandleTraits;
 use App\Models\All_onlineApplications;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
+use App\Models\Ward_no;
 use Exception;
 
 class HoldingController extends Controller
@@ -108,11 +112,11 @@ class HoldingController extends Controller
             $holding->house_holding_no=$request->house_holding_no;
             $holding->street_nm=$request->street_nm;
             $holding->village_name=$request->village_name;
-            $holding->ward_no=$request->ward_no;
-            $holding->name_union_parishad=$request->name_union_parishad;
+            $holding->ward_id=$request->ward_id;
+            $holding->union_id=$request->union_id;
             $holding->post_office=$request->post_office;
-            $holding->upazila_thana=$request->upazila_thana;
-            $holding->district=$request->district;
+            $holding->upazila_id=$request->upazila_id;
+            $holding->district_id=$request->district_id;
             $holding->status=0;
             if($request->has('image'))
             $holding->image=$this->resizeImage($request->image,'uploads/holding',true,300,300,false);
@@ -143,15 +147,11 @@ class HoldingController extends Controller
     public function show($id)
     {
         $hold = Holding::findOrFail(encryptor('decrypt',$id));
-        $education = explode(',', $hold->edu_qual);
-        $Mobile = explode(',', $hold->mobile_bank);
         $Govt_fac = explode(',', $hold->government_facilities);
-        $Digital_div = explode(',', $hold->digital_devices);
-        $Telecommunic = explode(',', $hold->telecommunications);
-        $Source_inc = explode(',', $hold->source_income);
-        $Business_tax = explode(',', $hold->business_taxes);
-        $Residence = explode(',', $hold->residence_type);
-        return view('holding.show',compact('hold','education','Mobile','Govt_fac','Digital_div','Telecommunic','Source_inc','Business_tax','Residence'));
+        $districts=District::where('id',$hold->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$hold->upazila_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$hold->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        return view('holding.show',compact('hold','Govt_fac','districts','upazilas','wards'));
     }
 
     /**
@@ -163,15 +163,12 @@ class HoldingController extends Controller
     public function edit($id)
     {
         $hold=Holding::findOrFail(encryptor('decrypt',$id));
-        $education = explode(',', $hold->edu_qual);
-        $Mobile = explode(',', $hold->mobile_bank);
+        $districts=District::select('id','name','name_bn')->get();
+        $upazilas=Upazila::where('id',$hold->upazila_id)->select('id','name','name_bn')->get();
+        $unions=Union::where('id',$hold->union_id)->select('id','name','name_bn')->get();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         $Govt_fac = explode(',', $hold->government_facilities);
-        $Digital_div = explode(',', $hold->digital_devices);
-        $Telecommunic = explode(',', $hold->telecommunications);
-        $Source_inc = explode(',', $hold->source_income);
-        $Business_tax = explode(',', $hold->business_taxes);
-        $Residence = explode(',', $hold->residence_type);
-        return view('holding.edit',compact('hold','education','Mobile','Govt_fac','Digital_div','Telecommunic','Source_inc','Business_tax','Residence'));
+        return view('holding.edit',compact('hold','Govt_fac','districts','upazilas','unions','wards'));
     }
 
     /**
@@ -224,11 +221,11 @@ class HoldingController extends Controller
             $holding->house_holding_no=$request->house_holding_no;
             $holding->street_nm=$request->street_nm;
             $holding->village_name=$request->village_name;
-            $holding->ward_no=$request->ward_no;
-            $holding->name_union_parishad=$request->name_union_parishad;
+            $holding->ward_id=$request->ward_id;
+            $holding->union_id=$request->union_id;
             $holding->post_office=$request->post_office;
-            $holding->upazila_thana=$request->upazila_thana;
-            $holding->district=$request->district;
+            $holding->upazila_id=$request->upazila_id;
+            $holding->district_id=$request->district_id;
             $holding->status=0;
 
             $path='uploads/holding';
