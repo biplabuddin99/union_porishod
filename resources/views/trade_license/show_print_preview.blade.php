@@ -32,7 +32,7 @@
                         {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
-                        <img height="130px" width="100px"  src="{{ asset('uploads/trade_license/image/thumb') }}/{{ $trade->image }}" alt="">
+                        <img height="130px" width="100px"  src="{{ asset('uploads/trade_license/image/thumb') }}/{{ $trade->image }}" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
                     <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">লাইসেন্স নং:  TRAD/2CHUP/00{{ $trade->id }}</h5>
                 </div>
@@ -46,7 +46,7 @@
         </section>
         <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4); position: relative;">
             <div class="bgimage">
-                <img style="background-repeat: no-repeat; position: absolute; height: 600px; width: auto; align-items: center; padding-left: 500px; padding-top: 300px;" 
+                <img style="background-repeat: no-repeat; position: absolute; height: 600px; width: auto; align-items: center; padding-left: 500px; padding-top: 300px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
             <div class="row m-2">
                 <div class="col-1">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-5">
                     {{-- <span  class="form-label" for="">০৪</span> --}}
-                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
+                    <span  class="form-label" for="">{{ $wards->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -279,7 +279,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $trade->ward_no }}</span>
+                    <span  class="form-label" for="">{{ $wards->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">

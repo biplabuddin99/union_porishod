@@ -55,8 +55,8 @@ return new class extends Migration
             $table->string('vehicle_establishment_holding_no')->nullable();
             $table->string('street_nm')->nullable();
             $table->string('village_name')->nullable();
-            $table->string('ward_no')->nullable();
-            $table->string('name_union_parishad')->nullable();
+            $table->string('ward_id')->nullable();
+            $table->string('union_id')->nullable();
             $table->string('post_office')->nullable();
             $table->integer('upazila_id')->nullable();
             $table->integer('district_id')->nullable();

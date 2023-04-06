@@ -12,6 +12,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use App\Models\All_onlineApplications;
 use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use Exception;
 
 class TradeLicenseController extends Controller
@@ -118,8 +119,8 @@ class TradeLicenseController extends Controller
             $trade->vehicle_establishment_holding_no=$request->vehicle_establishment_holding_no;
             $trade->street_nm=$request->street_nm;
             $trade->village_name=$request->village_name;
-            $trade->ward_no=$request->ward_no;
-            $trade->name_union_parishad=$request->name_union_parishad;
+            $trade->ward_id=$request->ward_id;
+            $trade->union_id=$request->union_id;
             $trade->post_office=$request->post_office;
             $trade->upazila_id=$request->upazila_id;
             $trade->district_id=$request->district_id;
@@ -158,9 +159,10 @@ class TradeLicenseController extends Controller
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
         $districts=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
         $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$trade->ward_id)->select('id','ward_name','ward_name_bn')->first();
         // return $district;
         // return $trade;
-        return view('trade_license.show_print_preview',compact('trade','districts','upazilas'));
+        return view('trade_license.show_print_preview',compact('trade','districts','upazilas','wards'));
     }
 
     /**
@@ -171,14 +173,14 @@ class TradeLicenseController extends Controller
      */
     public function edit($id)
     {
-        $division=Division::all();
-        $districts=District::all();
-        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
         $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->get();
+        $unions=Union::where('id',$trade->union_id)->select('id','name','name_bn')->get();
         // return $upazilas;
         $Govt_fac = explode(',', $trade->government_facilities);
-        return view('trade_license.edit',compact('trade','Govt_fac','division','districts','upazilas','ward'));
+        return view('trade_license.edit',compact('trade','Govt_fac','districts','upazilas','wards','unions'));
     }
 
     /**
@@ -232,8 +234,8 @@ class TradeLicenseController extends Controller
             $trade->vehicle_establishment_holding_no=$request->vehicle_establishment_holding_no;
             $trade->street_nm=$request->street_nm;
             $trade->village_name=$request->village_name;
-            $trade->ward_no=$request->ward_no;
-            $trade->name_union_parishad=$request->name_union_parishad;
+            $trade->ward_id=$request->ward_id;
+            $trade->union_id=$request->union_id;
             $trade->post_office=$request->post_office;
             $trade->upazila_id=$request->upazila_id;
             $trade->district_id=$request->district_id;

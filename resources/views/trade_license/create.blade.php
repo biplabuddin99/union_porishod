@@ -197,56 +197,12 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="vehicle_establishment_holding_no">গাড়ি/প্রতিষ্ঠানের হেল্ডিং নম্বর:-</label>
+                                    <label  class="form-label" for="vehicle_establishment_holding_no">ব্যাবসা/প্রতিষ্ঠানের হেল্ডিং নম্বর:-</label>
                                     <input class="form-control @error('vehicle_establishment_holding_no') is-invalid @enderror"
                                     name="vehicle_establishment_holding_no" id="vehicle_establishment_holding_no" value="{{ old('vehicle_establishment_holding_no') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
                                     {{-- @if($errors->has('vehicle_establishment_holding_no'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('vehicle_establishment_holding_no') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
-                                    <input class="form-control @error('street_nm') is-invalid @enderror"
-                                    name="street_nm" id="street_nm" value="{{ old('street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
-                                    @if($errors->has('street_nm'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('street_nm') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
-                                    <input class="form-control @error('village_name') is-invalid @enderror"
-                                    name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
-                                    {{-- @if($errors->has('village_name'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('village_name') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="ward_no">ওয়ার্ড:-</label>
-                                    <input class="form-control @error('ward_no') is-invalid @enderror"
-                                    name="ward_no" id="ward_no" value="{{ old('ward_no') }}"  type="text" placeholder="ওয়ার্ড">
-                                    @if($errors->has('ward_no'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('ward_no') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="name_union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
-                                    <input class="form-control @error('name_union_parishad') is-invalid @enderror"
-                                    name="name_union_parishad" id="name_union_parishad" value="{{ old('name_union_parishad') }}"  type="text" placeholder="ইউনিয়ন পরিষদের নাম">
-                                    {{-- @if($errors->has('name_union_parishad'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('name_union_parishad') }}
                                     </small>
                                     @endif --}}
                                 </div>
@@ -262,7 +218,7 @@
                                 </div>
                             </div>
                             <div class="row m-2">
-                                <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="col-6">
                                     <label for="district">জেলা:-</label>
                                     <select id="district_id" name="district_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
@@ -276,7 +232,7 @@
                                     </small>
                                     @endif
                                 </div>
-                                <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="col-6">
                                     <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
                                     <select id="upazila_id" name="upazila_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
@@ -287,6 +243,54 @@
                                     </small>
                                     @endif --}}
                                 </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
+                                    <select id="union_id" name="union_id" class="form-select search_district">
+                                        <option value="">নির্বাচন করুন</option>
+                                    </select>
+                                    {{-- @if($errors->has('upazila_thana'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('upazila_thana') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="ward_id">ওয়ার্ড:-</label>
+                                    <select name="ward_id" class="form-select search_district" id="ward_id">
+                                        <option value="" selected="selected">ওয়ার্ড নং</option>
+                                        @forelse ($ward as $w)
+                                        <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
+                                        @empty
+                                        <p>No Ward found</p>
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
+                                    <input class="form-control @error('village_name') is-invalid @enderror"
+                                    name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
+                                    {{-- @if($errors->has('village_name'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('village_name') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+
+                                <div class="col-6">
+                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
+                                    <input class="form-control @error('street_nm') is-invalid @enderror"
+                                    name="street_nm" id="street_nm" value="{{ old('street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
+                                    @if($errors->has('street_nm'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('street_nm') }}
+                                    </small>
+                                    @endif
+                                </div>
+
                             </div>
                             <div class="row m-3">
                                 <h5 class="" style="color: rgb(13, 134, 29); padding-top: 5px;">অতিরিক্ত সংযোজনঃ- </h5>
