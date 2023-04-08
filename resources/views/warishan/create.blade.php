@@ -58,7 +58,7 @@
                                     <input class="form-control datepicker" name="date_death_warishan" value="" id="date_death_warishan" type="text" placeholder="যদি মারা যায়">
                                 </div>
                             </div>
-                            <div class="row m-2">
+                            {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="update_holding_tax">হালনাগাদ হোল্ডিং কর:-</label>
                                     <select name="update_holding_tax" class="form-select @error('update_holding_tax') is-invalid @enderror">
@@ -82,9 +82,9 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row m-2">
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <label  class="form-label" for="estimated_value_house">ওয়ারিশান ব্যাক্তির সন্তান কয়জন?:-</label>
                                     <div class="row">
                                         <div class="col-6">
@@ -111,12 +111,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <input class="form-control @error('estimated_value_house') is-invalid @enderror"
-                                    name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house') }}"  type="text" placeholder="বাড়ির আনুমানিক মূল্য"> --}}
-                                </div>
+                                </div> --}}
                                 <div class="col-6">
                                     <label  class="form-label" for="total_warishan_members">উক্তব্যাক্তির মোট ওয়ারিশ সদস্য:-</label>
-                                    <input readonly class="form-control @error('total_warishan_members') is-invalid @enderror"
+                                    <input class="form-control @error('total_warishan_members') is-invalid @enderror" onkeyup="repeatRows()"
                                     name="total_warishan_members" id="total_warishan" value="{{ old('total_warishan_members') }}"  type="number" placeholder="মোট ওয়ারিশ সদস্য সংখ্যা">
                                     @if($errors->has('total_warishan_members'))
                                     <small class="d-block text-danger">
@@ -305,17 +303,17 @@
 @endsection
 @push('scripts')
 <script>
-          function addNumbers() {
-        var wife_count = document.getElementById("wife_count").value?parseFloat(document.getElementById("wife_count").value):0;
-        var sons = document.getElementById("sons").value?parseFloat(document.getElementById("sons").value):0;
-        var daughters = document.getElementById("daughters").value?parseFloat(document.getElementById("daughters").value):0;
-        var result = wife_count + sons + daughters;
+    //     function addNumbers() {
+    //     var wife_count = document.getElementById("wife_count").value?parseFloat(document.getElementById("wife_count").value):0;
+    //     var sons = document.getElementById("sons").value?parseFloat(document.getElementById("sons").value):0;
+    //     var daughters = document.getElementById("daughters").value?parseFloat(document.getElementById("daughters").value):0;
+    //     var result = wife_count + sons + daughters;
 
-        document.getElementById("total_warishan").value = result;
-        repeatRows(result)
-      }
+    //     document.getElementById("total_warishan").value = result;
+    //     repeatRows(result)
+    //   }
 
-      function repeatRows(e) {
+      function repeatRows() {
         //const Total_warishan = document.getElementById('total_warishan');
         const tableElement = document.getElementById('table');
 
@@ -325,13 +323,12 @@
         }
 
         // Repeat rows based on input value
-        const repeatCount = e;
+        const repeatCount = document.getElementById("total_warishan").value;
         for (let is = 0; is < (repeatCount-1); is++) {
           const clonedRow = tableElement.rows[0].cloneNode(true);
           tableElement.appendChild(clonedRow);
           const serial=document.getElementsByClassName("smember");
           serial[is].innerHTML = is + 1;
-          
         }
       }
 </script>

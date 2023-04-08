@@ -42,10 +42,10 @@ return new class extends Migration
             $table->string('father_husband')->nullable();
             $table->string('warishan_mother_name')->nullable();
             $table->string('date_death_warishan')->nullable();
-            $table->integer('update_holding_tax')->nullable();
-            $table->integer('wife_number')->nullable();
-            $table->integer('son')->nullable();
-            $table->integer('daughter')->nullable();
+            // $table->integer('update_holding_tax')->nullable();
+            // $table->integer('wife_number')->nullable();
+            // $table->integer('son')->nullable();
+            // $table->integer('daughter')->nullable();
             $table->integer('total_warishan_members')->nullable();
             $table->string('house_holding_no')->nullable();
             $table->string('street_nm')->nullable();

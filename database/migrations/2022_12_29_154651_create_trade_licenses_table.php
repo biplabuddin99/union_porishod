@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('owner_proprietor')->nullable();
             $table->string('trade_husband_name')->nullable();
             $table->string('trade_fathername')->nullable();
+            $table->integer('type_ownership_organization')->nullable();
             $table->string('trade_mothername')->nullable();
             $table->string('trade_license_renewal')->nullable();
             $table->string('business_organization_structure')->nullable();
@@ -49,9 +50,9 @@ return new class extends Migration
             $table->string('trade_license_renewal_fee')->nullable();
             $table->string('business_estimated_capital')->nullable();
             $table->string('annual_business_tax_levied')->nullable();
-            $table->string('annual_business_tax_collected')->nullable();
-            $table->string('annual_business_tax_due')->nullable();
-            $table->string('holding_tax_update')->nullable();
+            // $table->string('annual_business_tax_collected')->nullable();
+            // $table->string('annual_business_tax_due')->nullable();
+            // $table->string('holding_tax_update')->nullable();
             $table->string('vehicle_establishment_holding_no')->nullable();
             $table->string('street_nm')->nullable();
             $table->string('village_name')->nullable();

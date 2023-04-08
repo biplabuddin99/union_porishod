@@ -96,31 +96,78 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="business_organization_structure">ব্যবসা প্রতিষ্ঠানের কাঠামো:-</label>
-                                    <select name="business_organization_structure" class="form-select">
+                                    <label  class="form-label" for="type_ownership_organization">প্রতিষ্ঠানের মালিকানার ধরন:-</label>
+                                    <select name="type_ownership_organization" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">কাঁচাঘর</option>
-                                        <option value="2">টিনসেট</option>
-                                        <option value="3">আধা-পাকা</option>
-                                        <option value="4">পাকা-ইমারত</option>
-                                        <option value="5">২য় তলা বাড়ি</option>
-                                        <option value="৬">৩য় তলা বাড়ি</option>
+                                        <option value="1">একক</option>
+                                        <option value="2">যৌথ</option>
+                                        <option value="3">কোম্পানি</option>
                                     </select>
-                                    {{-- @if($errors->has('business_organization_structure'))
+                                    {{-- @if($errors->has('type_ownership_organization'))
                                     <small class="d-block text-danger text-center">
-                                        {{ $errors->first('business_organization_structure') }}
+                                        {{ $errors->first('type_ownership_organization') }}
                                     </small>
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="business_type">ব্যবসায়িক ধরন:-</label>
-                                    <input class="form-control @error('business_type') is-invalid @enderror"
+                                    <select name="business_type" class="form-select @error('business_type') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">কৃষি খামার</option>
+                                        <option value="2">মুদির দোকান</option>
+                                        <option value="3">আবাসিক হোটেল</option>
+                                        <option value="4">খাবারের হোটেল</option>
+                                        <option value="5">স’মিল</option>
+                                        <option value="6">শিল্প কারখানা</option>
+                                        <option value="7">বাজার ইজারা</option>
+                                        <option value="8">নৌযানের মালিক</option>
+                                        <option value="9">পশু জবাই</option>
+                                        <option value="10">দুগ্ধ খামার</option>
+                                        <option value="11">ক্ষুদ্র ও কুটির শিল্প</option>
+                                        <option value="12">বেসরকারী হাসপাতাল</option>
+                                        <option value="13">ধান ভাঙানোর কল</option>
+                                        <option value="14">হেয়ার কাট সেলুন</option>
+                                        <option value="15">কনসালটেন্সি ফার্ম</option>
+                                        <option value="16">বাসের মালিক</option>
+                                        <option value="17">স্টীমার/কার্গোর মালিক</option>
+                                        <option value="18">গবাদি পশুর খামার</option>
+                                        <option value="19">খাবার হোটেল</option>
+                                        <option value="20">ঔষদের দোকান</option>
+                                        <option value="21">কোচিং সেন্টার</option>
+                                        <option value="22">মৎস্য খামার</option>
+                                        <option value="23">আর্থিক প্রতিষ্ঠান</option>
+                                        <option value="24">মিষ্টির দোকান</option>
+                                        <option value="25">হিমাগার</option>
+                                        <option value="26">বিউটি পার্লার</option>
+                                        <option value="27">ইট ভাটা</option>
+                                        <option value="28">ঠিকাদার</option>
+                                        <option value="29">হাঁস-মুরগীর খামার</option>
+                                        <option value="30">মাঝারি শিল্প</option>
+                                        <option value="31">ক্লিনিক</option>
+                                        <option value="32">বে-সরকারী স্কুল</option>
+                                        <option value="33">আটার কল</option>
+                                        <option value="34">লন্ড্রীর দোকান</option>
+                                        <option value="35">গুদাম</option>
+                                        <option value="36">শিশু পার্ক</option>
+                                        <option value="37">ইঞ্জিনিয়ারিং ফার্ম</option>
+                                        <option value="38">তেলের কল</option>
+                                        <option value="39">পরিবহন এজেন্সি</option>
+                                        <option value="40">বিনোদন পার্ক</option>
+                                        <option value="41">শিক্ষক</option>
+                                        <option value="42">অন্যান্য</option>
+                                    </select>
+                                    @if($errors->has('business_type'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('business_type') }}
+                                    </small>
+                                    @endif
+                                    {{-- <input class="form-control @error('business_type') is-invalid @enderror"
                                     name="business_type" id="business_type" value="{{ old('business_type') }}"  type="text" placeholder="ব্যবসায়িক ধরন">
                                     @if($errors->has('business_type'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('business_type') }}
                                     </small>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -157,6 +204,23 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
+                                    <label  class="form-label" for="business_organization_structure">ব্যবসা প্রতিষ্ঠানের কাঠামো:-</label>
+                                    <select name="business_organization_structure" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">কাঁচাঘর</option>
+                                        <option value="2">টিনসেট</option>
+                                        <option value="3">আধা-পাকা</option>
+                                        <option value="4">পাকা-ইমারত</option>
+                                        <option value="5">২য় তলা বাড়ি</option>
+                                        <option value="6">৩য় তলা বাড়ি</option>
+                                    </select>
+                                    {{-- @if($errors->has('business_organization_structure'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('business_organization_structure') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                                {{-- <div class="col-6">
                                     <label  class="form-label" for="annual_business_tax_collected">ব্যবসায়িক বার্ষিক আদায়কৃত কর:-</label>
                                     <input class="form-control @error('annual_business_tax_collected') is-invalid @enderror"
                                     name="annual_business_tax_collected" id="annual_business_tax_collected" value="{{ old('annual_business_tax_collected') }}"  type="text" placeholder="ব্যবসায়িক বার্ষিক আদায়কৃত কর">
@@ -165,18 +229,18 @@
                                         {{ $errors->first('annual_business_tax_collected') }}
                                     </small>
                                     @endif
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="row m-2">
+                            {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_business_tax_due">ব্যবসায়িক বার্ষিক বকেয়া কর:-</label>
                                     <input class="form-control @error('annual_business_tax_due') is-invalid @enderror"
                                     name="annual_business_tax_due" id="annual_business_tax_due" value="{{ old('annual_business_tax_due') }}"  type="text" placeholder="বাড়ির বার্ষিক আদায়কৃত কর">
-                                    {{-- @if($errors->has('annual_business_tax_due'))
+                                    @if($errors->has('annual_business_tax_due'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('annual_business_tax_due') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="holding_tax_update">হালনাগাদ হেল্ডিং কর:-</label>
@@ -185,13 +249,13 @@
                                         <option value="1">আছে</option>
                                         <option value="2">নাই</option>
                                     </select>
-                                    {{-- @if($errors->has('holding_tax_update'))
+                                    @if($errors->has('holding_tax_update'))
                                     <small class="d-block text-danger text-center">
                                         {{ $errors->first('holding_tax_update') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row m-3">
                                 <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>
@@ -270,7 +334,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
+                                    <label  class="form-label" for="village_name">গ্রাম/পাড়া/মহল্লা:-</label>
                                     <input class="form-control @error('village_name') is-invalid @enderror"
                                     name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
                                     {{-- @if($errors->has('village_name'))
@@ -310,10 +374,16 @@
                                     <div class="image-overlay">
                                         <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি:-</label>
                                             <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding/default.jpg') }}" class="form-control dropify">
-                                        <div class="overlay">
-                                            <div class="text-center">ছবি দিতে ক্লিক করুন</div>
-                                        </div>
                                     </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="text-center">
+                                    <b>
+                                        আমি ঘোষনা করিতেছি যে, <br/>
+                                        আমার দেয়া উপরে বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা প্রমানিত হলে,  <br/>
+                                        আমি তাহার জন্য আইনত দায়ী থাকিব।
+                                    </b>
+                                </div>
                             </div>
                             <div class="container-fluid">
                                 <div class="row">

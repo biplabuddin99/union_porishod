@@ -105,6 +105,7 @@ class TradeLicenseController extends Controller
             $trade->business_name=$request->business_name;
             $trade->owner_proprietor=$request->owner_proprietor;
             $trade->trade_husband_name=$request->trade_husband_name;
+            $trade->type_ownership_organization=$request->type_ownership_organization;
             $trade->trade_fathername=$request->trade_fathername;
             $trade->trade_mothername=$request->trade_mothername;
             $trade->trade_license_renewal=$request->trade_license_renewal;
@@ -113,9 +114,9 @@ class TradeLicenseController extends Controller
             $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
             $trade->business_estimated_capital=$request->business_estimated_capital;
             $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
-            $trade->annual_business_tax_collected=$request->annual_business_tax_collected;
-            $trade->annual_business_tax_due=$request->annual_business_tax_due;
-            $trade->holding_tax_update=$request->holding_tax_update;
+            // $trade->annual_business_tax_collected=$request->annual_business_tax_collected;
+            // $trade->annual_business_tax_due=$request->annual_business_tax_due;
+            // $trade->holding_tax_update=$request->holding_tax_update;
             $trade->vehicle_establishment_holding_no=$request->vehicle_establishment_holding_no;
             $trade->street_nm=$request->street_nm;
             $trade->village_name=$request->village_name;
@@ -220,6 +221,7 @@ class TradeLicenseController extends Controller
             $trade->business_name=$request->business_name;
             $trade->owner_proprietor=$request->owner_proprietor;
             $trade->trade_husband_name=$request->trade_husband_name;
+            $trade->type_ownership_organization=$request->type_ownership_organization;
             $trade->trade_fathername=$request->trade_fathername;
             $trade->trade_mothername=$request->trade_mothername;
             $trade->trade_license_renewal=$request->trade_license_renewal;
@@ -228,9 +230,9 @@ class TradeLicenseController extends Controller
             $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
             $trade->business_estimated_capital=$request->business_estimated_capital;
             $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
-            $trade->annual_business_tax_collected=$request->annual_business_tax_collected;
-            $trade->annual_business_tax_due=$request->annual_business_tax_due;
-            $trade->holding_tax_update=$request->holding_tax_update;
+            // $trade->annual_business_tax_collected=$request->annual_business_tax_collected;
+            // $trade->annual_business_tax_due=$request->annual_business_tax_due;
+            // $trade->holding_tax_update=$request->holding_tax_update;
             $trade->vehicle_establishment_holding_no=$request->vehicle_establishment_holding_no;
             $trade->street_nm=$request->street_nm;
             $trade->village_name=$request->village_name;

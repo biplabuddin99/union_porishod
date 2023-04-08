@@ -349,31 +349,78 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="business_organization_structure">ব্যবসা প্রতিষ্ঠানের কাঠামো:-</label>
-                                    <select name="business_organization_structure" class="form-select">
+                                    <label  class="form-label" for="type_ownership_organization">প্রতিষ্ঠানের মালিকানার ধরন:-</label>
+                                    <select name="type_ownership_organization" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('business_organization_structure', $trade->business_organization_structure)=="1" ? "selected":""}}>কাঁচাঘর</option>
-                                        <option value="2" {{ old('business_organization_structure', $trade->business_organization_structure)=="2" ? "selected":""}}>টিনসেট</option>
-                                        <option value="3" {{ old('business_organization_structure', $trade->business_organization_structure)=="3" ? "selected":""}}>আধা-পাকা</option>
-                                        <option value="4" {{ old('business_organization_structure', $trade->business_organization_structure)=="4" ? "selected":""}}>পাকা-ইমারত</option>
-                                        <option value="5" {{ old('business_organization_structure', $trade->business_organization_structure)=="5" ? "selected":""}}>২য় তলা বাড়ি</option>
-                                        <option value="6" {{ old('business_organization_structure', $trade->business_organization_structure)=="6" ? "selected":""}}>৩য় তলা বাড়ি</option>
+                                        <option value="1" {{ old('type_ownership_organization', $trade->type_ownership_organization)=="1" ? "selected":""}}>একক</option>
+                                        <option value="2" {{ old('type_ownership_organization', $trade->type_ownership_organization)=="2" ? "selected":""}}>যৌথ</option>
+                                        <option value="3" {{ old('type_ownership_organization', $trade->type_ownership_organization)=="3" ? "selected":""}}>কোম্পানি</option>
                                     </select>
-                                    {{-- @if($errors->has('business_organization_structure'))
+                                    {{-- @if($errors->has('type_ownership_organization'))
                                     <small class="d-block text-danger text-center">
-                                        {{ $errors->first('business_organization_structure') }}
+                                        {{ $errors->first('type_ownership_organization') }}
                                     </small>
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="business_type">ব্যবসায়িক ধরন:-</label>
-                                    <input class="form-control @error('business_type') is-invalid @enderror"
+                                    <select name="business_type" class="form-select @error('business_type') is-invalid @enderror search_district_eid">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1" {{ old('business_type', $trade->business_type)=="1" ? "selected":""}}>কৃষি খামার</option>
+                                        <option value="2" {{ old('business_type', $trade->business_type)=="2" ? "selected":""}}>মুদির দোকান</option>
+                                        <option value="3" {{ old('business_type', $trade->business_type)=="3" ? "selected":""}}>আবাসিক হোটেল</option>
+                                        <option value="4" {{ old('business_type', $trade->business_type)=="4" ? "selected":""}}>খাবারের হোটেল</option>
+                                        <option value="5" {{ old('business_type', $trade->business_type)=="5" ? "selected":""}}>স’মিল</option>
+                                        <option value="6" {{ old('business_type', $trade->business_type)=="6" ? "selected":""}}>শিল্প কারখানা</option>
+                                        <option value="7" {{ old('business_type', $trade->business_type)=="7" ? "selected":""}}>বাজার ইজারা</option>
+                                        <option value="8" {{ old('business_type', $trade->business_type)=="8" ? "selected":""}}>নৌযানের মালিক</option>
+                                        <option value="9" {{ old('business_type', $trade->business_type)=="9" ? "selected":""}}>পশু জবাই</option>
+                                        <option value="10" {{ old('business_type', $trade->business_type)=="10" ? "selected":""}}>দুগ্ধ খামার</option>
+                                        <option value="11" {{ old('business_type', $trade->business_type)=="11" ? "selected":""}}>ক্ষুদ্র ও কুটির শিল্প</option>
+                                        <option value="12" {{ old('business_type', $trade->business_type)=="12" ? "selected":""}}>বেসরকারী হাসপাতাল</option>
+                                        <option value="13" {{ old('business_type', $trade->business_type)=="13" ? "selected":""}}>ধান ভাঙানোর কল</option>
+                                        <option value="14" {{ old('business_type', $trade->business_type)=="14" ? "selected":""}}>হেয়ার কাট সেলুন</option>
+                                        <option value="15" {{ old('business_type', $trade->business_type)=="15" ? "selected":""}}>কনসালটেন্সি ফার্ম</option>
+                                        <option value="16" {{ old('business_type', $trade->business_type)=="16" ? "selected":""}}>বাসের মালিক</option>
+                                        <option value="17" {{ old('business_type', $trade->business_type)=="17" ? "selected":""}}>স্টীমার/কার্গোর মালিক</option>
+                                        <option value="18" {{ old('business_type', $trade->business_type)=="18" ? "selected":""}}>গবাদি পশুর খামার</option>
+                                        <option value="19" {{ old('business_type', $trade->business_type)=="19" ? "selected":""}}>খাবার হোটেল</option>
+                                        <option value="20" {{ old('business_type', $trade->business_type)=="20" ? "selected":""}}>ঔষদের দোকান</option>
+                                        <option value="21" {{ old('business_type', $trade->business_type)=="21" ? "selected":""}}>কোচিং সেন্টার</option>
+                                        <option value="22" {{ old('business_type', $trade->business_type)=="22" ? "selected":""}}>মৎস্য খামার</option>
+                                        <option value="23" {{ old('business_type', $trade->business_type)=="23" ? "selected":""}}>আর্থিক প্রতিষ্ঠান</option>
+                                        <option value="24" {{ old('business_type', $trade->business_type)=="24" ? "selected":""}}>মিষ্টির দোকান</option>
+                                        <option value="25" {{ old('business_type', $trade->business_type)=="25" ? "selected":""}}>হিমাগার</option>
+                                        <option value="26" {{ old('business_type', $trade->business_type)=="26" ? "selected":""}}>বিউটি পার্লার</option>
+                                        <option value="27" {{ old('business_type', $trade->business_type)=="27" ? "selected":""}}>ইট ভাটা</option>
+                                        <option value="28" {{ old('business_type', $trade->business_type)=="28" ? "selected":""}}>ঠিকাদার</option>
+                                        <option value="29" {{ old('business_type', $trade->business_type)=="29" ? "selected":""}}>হাঁস-মুরগীর খামার</option>
+                                        <option value="30" {{ old('business_type', $trade->business_type)=="30" ? "selected":""}}>মাঝারি শিল্প</option>
+                                        <option value="31" {{ old('business_type', $trade->business_type)=="31" ? "selected":""}}>ক্লিনিক</option>
+                                        <option value="32" {{ old('business_type', $trade->business_type)=="32" ? "selected":""}}>বে-সরকারী স্কুল</option>
+                                        <option value="33" {{ old('business_type', $trade->business_type)=="33" ? "selected":""}}>আটার কল</option>
+                                        <option value="34" {{ old('business_type', $trade->business_type)=="34" ? "selected":""}}>লন্ড্রীর দোকান</option>
+                                        <option value="35" {{ old('business_type', $trade->business_type)=="35" ? "selected":""}}>গুদাম</option>
+                                        <option value="36" {{ old('business_type', $trade->business_type)=="36" ? "selected":""}}>শিশু পার্ক</option>
+                                        <option value="37" {{ old('business_type', $trade->business_type)=="37" ? "selected":""}}>ইঞ্জিনিয়ারিং ফার্ম</option>
+                                        <option value="38" {{ old('business_type', $trade->business_type)=="38" ? "selected":""}}>তেলের কল</option>
+                                        <option value="39" {{ old('business_type', $trade->business_type)=="39" ? "selected":""}}>পরিবহন এজেন্সি</option>
+                                        <option value="40" {{ old('business_type', $trade->business_type)=="40" ? "selected":""}}>বিনোদন পার্ক</option>
+                                        <option value="41" {{ old('business_type', $trade->business_type)=="41" ? "selected":""}}>শিক্ষক</option>
+                                        <option value="42" {{ old('business_type', $trade->business_type)=="42" ? "selected":""}}>অন্যান্য</option>
+                                    </select>
+                                    @if($errors->has('business_type'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('business_type') }}
+                                    </small>
+                                    @endif
+                                    {{-- <input class="form-control @error('business_type') is-invalid @enderror"
                                     name="business_type" id="business_type" value="{{ old('business_type',$trade->business_type) }}"  type="text" placeholder="ব্যবসায়িক ধরন">
                                     @if($errors->has('business_type'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('business_type') }}
                                     </small>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -410,6 +457,23 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
+                                    <label  class="form-label" for="business_organization_structure">ব্যবসা প্রতিষ্ঠানের কাঠামো:-</label>
+                                    <select name="business_organization_structure" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1" {{ old('business_organization_structure', $trade->business_organization_structure)=="1" ? "selected":""}}>কাঁচাঘর</option>
+                                        <option value="2" {{ old('business_organization_structure', $trade->business_organization_structure)=="2" ? "selected":""}}>টিনসেট</option>
+                                        <option value="3" {{ old('business_organization_structure', $trade->business_organization_structure)=="3" ? "selected":""}}>আধা-পাকা</option>
+                                        <option value="4" {{ old('business_organization_structure', $trade->business_organization_structure)=="4" ? "selected":""}}>পাকা-ইমারত</option>
+                                        <option value="5" {{ old('business_organization_structure', $trade->business_organization_structure)=="5" ? "selected":""}}>২য় তলা বাড়ি</option>
+                                        <option value="6" {{ old('business_organization_structure', $trade->business_organization_structure)=="6" ? "selected":""}}>৩য় তলা বাড়ি</option>
+                                    </select>
+                                    {{-- @if($errors->has('business_organization_structure'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('business_organization_structure') }}
+                                    </small>
+                                    @endif --}}
+                                </div>
+                                {{-- <div class="col-6">
                                     <label  class="form-label" for="annual_business_tax_collected">ব্যবসায়িক বার্ষিক আদায়কৃত কর:-</label>
                                     <input class="form-control @error('annual_business_tax_collected') is-invalid @enderror"
                                     name="annual_business_tax_collected" id="annual_business_tax_collected" value="{{ old('annual_business_tax_collected',$trade->annual_business_tax_collected) }}"  type="text" placeholder="ব্যবসায়িক বার্ষিক আদায়কৃত কর">
@@ -418,18 +482,18 @@
                                         {{ $errors->first('annual_business_tax_collected') }}
                                     </small>
                                     @endif
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="row m-2">
+                            {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_business_tax_due">ব্যবসায়িক বার্ষিক বকেয়া কর:-</label>
                                     <input class="form-control @error('annual_business_tax_due') is-invalid @enderror"
                                     name="annual_business_tax_due" id="annual_business_tax_due" value="{{ old('annual_business_tax_due',$trade->annual_business_tax_due) }}"  type="text" placeholder="বাড়ির বার্ষিক আদায়কৃত কর">
-                                    {{-- @if($errors->has('annual_business_tax_due'))
+                                    @if($errors->has('annual_business_tax_due'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('annual_business_tax_due') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="holding_tax_update">হালনাগাদ হেল্ডিং কর:-</label>
@@ -438,13 +502,13 @@
                                         <option value="1" {{ old('holding_tax_update',$trade->holding_tax_update)=="1" ? "selected":""}}>আছে</option>
                                         <option value="2" {{ old('holding_tax_update',$trade->holding_tax_update)=="2" ? "selected":""}}>নাই</option>
                                     </select>
-                                    {{-- @if($errors->has('holding_tax_update'))
+                                    @if($errors->has('holding_tax_update'))
                                     <small class="d-block text-danger text-center">
                                         {{ $errors->first('holding_tax_update') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row m-3">
                                 <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>
@@ -527,7 +591,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
+                                    <label  class="form-label" for="village_name">গ্রাম/পাড়া/মহল্লা:-</label>
                                     <input class="form-control @error('village_name') is-invalid @enderror"
                                     name="village_name" id="village_name" value="{{ old('village_name',$trade->village_name) }}"  type="text" placeholder="গ্রামের নাম">
                                     {{-- @if($errors->has('village_name'))
