@@ -342,11 +342,15 @@
             <span>{{__('সেটিংস')}}</span>
         </a>
         <ul class="submenu">
-            <li class="">
-                <a href="{{route(currentUser().'.porishodsettiong.index')}}" class='sidebar-link'>
+            <li class="submenu-item sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
-                    <span>{{__('পরিষদ সেটিংস') }}</span>
+                    {{__('পরিষদ সেটিংস')}}
                 </a>
+                <ul class="submenu">
+                    <li class="py-1"><a href="{{route(currentUser().'.porishodsettiong.index')}}">{{__('তালিকা')}}</a></li>
+                    <li class="py-1"><a href="{{route(currentUser().'.admin.create')}}">{{__('নতুন ব্যবহারকারী')}}</a></li>
+                </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">
                 <a href="#" class='sidebar-link'>
