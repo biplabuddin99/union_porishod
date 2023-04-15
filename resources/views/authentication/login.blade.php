@@ -1,12 +1,12 @@
 @extends('layout.auth')
 
 @section('content')
-<section style="border: 15px solid rgba(228, 217, 217, 0.685); padding: 10px">
+<section style="border: 3px solid rgba(104, 157, 201, 0.774); padding: 10px">
 <div class="responsive p-4">
     @if(Session::has('response'))
     {!!Session::get('response')['message']!!}
     @endif
-    <h4 class="py-2">Login To Your Account</h4>
+    <h5 class="py-2">Login to Your Account</h5>
     <form action="{{route('login.check')}}" method="post">
         @csrf
         <div class="form-group position-relative has-icon-left mb-3">
@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-8">
                 <input class="form-check-input" type="checkbox" name="" id="remark" value="" />
-                <label  class="form-label" for="remark"><h4>Remember me</h4></label>
+                <label  class="form-label" for="remark"><h5>Remember me</h5></label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-end">
                 <button type="submit" class="btn btn-success text-end mt-2">Login</button>
@@ -42,8 +42,8 @@
         </div>
     </form>
     <div class="">
-        <h3 style="color:black" class="py-2">Forgot Your password?</h3>
-        <h5 style="color:black">no worries,click <a href="#">here</a> to reset your password.</h5>
+        <p style="color:black" class="py-2">Forgot Your password?</p>
+        <p style="color:black">Click <a href="#">here</a> to reset your password.</p>
         {{-- <p class="text-gray-600 m-0">Don't have an account? <a href="{{route('register')}}" class="font-bold">Sign
                 up</a>.</p>
         <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p> --}}

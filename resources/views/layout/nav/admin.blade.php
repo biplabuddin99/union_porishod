@@ -1,12 +1,11 @@
 
-
-<ul class="menu">
-    {{-- <li class="sidebar-item">
+<ul class="menu" style="margin-top: 200px;">
+    <li class="sidebar-item">
         <a href="{{route(currentUser().'.dashboard')}}" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>{{__('ড্যাশবোর্ড') }}</span>
         </a>
-    </li> --}}
+    </li>
 
     <!-- আবেদন-->
     <li class="sidebar-item has-sub">

@@ -4,7 +4,13 @@
 @section('content')
 
 <div class="page-content">
-    <section class="row" style="border: 15px solid rgba(228, 217, 217, 0.685); padding: 10px">
+    <div class="auth-logo text-center mt-5">
+        <div class="row">
+            <h4 style="background-color: rgb(16, 139, 239);; color:white;" class="py-3 mt-0">২নং চরপার্বতী ইউনিয়ন পরিষদ</h4>
+            <h6 style="color:rgb(12, 11, 11);" class="p-3">কোম্পানীগঞ্জ,নোয়াখালী ।</h6>
+        </div>
+    </div>
+    <section class="row" style="border: 3px solid rgba(104, 157, 201, 0.774); padding: 10px">
         <div class="col-12 col-lg-12 mt-5">
             <div class="row">
                 <div class="col-sm-6 col-lg-3 col-md-6">
@@ -65,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 col-md-4">
-                    <div class="card" style="background-color: rgb(244, 247, 56); color:white; max-height: 160px;">
+                    <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
                                 <h5>৩৫৯৬৯</h5>
