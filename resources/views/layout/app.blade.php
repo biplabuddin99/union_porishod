@@ -117,13 +117,13 @@
             <footer class="no-print">
                 <div class="container">
                     <div class="footer clearfix mb-0 text-muted">
-                        <div class="float-start">
-                            <p>2021 &copy; Bangladesh Digital Gateway Ltd</p>
+                        <div class="text-center">
+                            <p>&copy; 2021 Developed and Maintained by bdgl.online</p>
                         </div>
-                        <div class="float-end">
+                        {{-- <div class="float-end">
                             <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
                                 href="https://bdgl.online/">BDGL.</a></p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </footer>

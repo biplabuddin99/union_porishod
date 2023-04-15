@@ -1,6 +1,6 @@
-
-<ul class="menu" style="margin-top: 200px;">
-    <li class="sidebar-item">
+<ul class="menu" style="margin-top: 70px;">
+    <p style="background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774);" class="py-2 px-1 mb-0">স্মার্ট ইউপি ম্যানেজমেন্ট সিস্টেম</p>
+    <li class="sidebar-item" style="margin-top: 100px;">
         <a href="{{route(currentUser().'.dashboard')}}" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>{{__('ড্যাশবোর্ড') }}</span>
@@ -342,7 +342,7 @@
             <span>{{__('সেটিংস')}}</span>
         </a>
         <ul class="submenu">
-            <li class="submenu-item sidebar-item has-sub">
+            <li class="">
                 <a href="{{route(currentUser().'.porishodsettiong.index')}}" class='sidebar-link'>
                     <i class="bi bi-gear"></i>
                     <span>{{__('পরিষদ সেটিংস') }}</span>
