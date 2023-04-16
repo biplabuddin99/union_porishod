@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PorishodSetting;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Traits\ImageHandleTraits;
 use Exception;
 
 class PorishodSettingController extends Controller
 {
+    use ImageHandleTraits;
     public function index()
     {
         $porishod=PorishodSetting::all();
@@ -29,12 +31,13 @@ class PorishodSettingController extends Controller
     {
         try{
             $porishods=PorishodSetting::findOrFail(encryptor('decrypt',$id));
-            $porishods->division_name_en=$request->divisionName;
-            $porishods->division_name_bn=$request->divisionBn;
-            $porishods->district_name_en=$request->districtName;
-            $porishods->district_name_bn=$request->districtBn;
-            $porishods->postoffice_name_en=$request->postofficeName;
-            $porishods->postoffice_name_bn=$request->postofficeBn;
+            $path='uploads/logo_folder';
+            if($request->has('logo') && $request->logo)
+            if($this->deleteImage($porishods->logo,$path))
+            $porishods->logo=$this->resizeImage($request->logo,$path,true,200,200,false);
+            $porishods->union_name=$request->union_name;
+            $porishods->district_name=$request->district_name;
+            $porishods->upazila_name=$request->upazila_name;
             $porishods->save();
             Toastr::success('পরিষদ সেটিং সফলভাবে আপডেট হয়েছে!');
             return redirect(route(currentUser().'.porishodsettiong.index'));

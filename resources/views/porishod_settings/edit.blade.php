@@ -20,62 +20,47 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form" method="post" action="{{route(currentUser().'.porishodsettiong.update',encryptor('encrypt',$porishod->id))}}">
+                            <form class="form" method="post" action="{{route(currentUser().'.porishodsettiong.update',encryptor('encrypt',$porishod->id))}}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 <input type="hidden" name="uptoken" value="{{encryptor('encrypt',$porishod->id)}}">
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="divisionName">Division Name</label>
-                                            <input type="text" id="divisionName" class="form-control" value="{{ old('divisionName',$porishod->division_name_en)}}" name="divisionName">
-                                            @if($errors->has('divisionName'))
-                                                <span class="text-danger"> {{ $errors->first('divisionName') }}</span>
+                                            <label for="union_name">Union Name</label>
+                                            <input type="text" id="union_name" class="form-control" value="{{ old('union_name',$porishod->union_name)}}" name="union_name">
+                                            @if($errors->has('union_name'))
+                                                <span class="text-danger"> {{ $errors->first('union_name') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="divisionBn">Division Bangla</label>
-                                            <input type="text" id="divisionBn" class="form-control" value="{{ old('divisionBn',$porishod->division_name_bn)}}" name="divisionBn">
+                                            <label for="upazila_name">Upazila Name</label>
+                                            <input type="text" id="upazila_name" class="form-control" value="{{ old('upazila_name',$porishod->upazila_name)}}" name="upazila_name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="districtName">District Name</label>
-                                            <input type="text" id="districtName" class="form-control" value="{{ old('districtName',$porishod->district_name_en)}}" name="districtName">
-                                            @if($errors->has('districtName'))
-                                                <span class="text-danger"> {{ $errors->first('districtName') }}</span>
+                                            <label for="district_name">District Name</label>
+                                            <input type="text" id="district_name" class="form-control" value="{{ old('district_name',$porishod->district_name)}}" name="district_name">
+                                            @if($errors->has('district_name'))
+                                                <span class="text-danger"> {{ $errors->first('district_name') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="districtBn">District Bangla</label>
-                                            <input type="text" id="districtBn" class="form-control" value="{{ old('districtBn',$porishod->district_name_bn)}}" name="districtBn">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="postofficeName">Post Office Name</label>
-                                            <input type="text" id="postofficeName" class="form-control" value="{{ old('postofficeName',$porishod->postoffice_name_en)}}" name="postofficeName">
-                                            @if($errors->has('postofficeName'))
-                                                <span class="text-danger"> {{ $errors->first('postofficeName') }}</span>
+                                            <label  class="form-label" for="logo">logo</label>
+                                            <input type="file" name="logo" value="" data-default-file="{{ asset('uploads/logo_folder') }}/{{ $porishod->logo }}" class="form-control dropify">
+                                            @if($errors->has('logo'))
+                                                <span class="text-danger"> {{ $errors->first('logo') }}</span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="postofficeBn">Post Office Bangla</label>
-                                            <input type="text" id="postofficeBn" class="form-control" value="{{ old('postofficeBn',$porishod->postoffice_name_bn)}}" name="postofficeBn">
-                                        </div>
-                                    </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>

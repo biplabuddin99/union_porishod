@@ -1,7 +1,7 @@
 @extends('layout.auth')
 
 @section('content')
-<h1 class="auth-title">Sign Up</h1>
+<h5 class="auth-title">Sign Up</h5>
 @if(Session::has('response'))
     {!!Session::get('response')['message']!!}
 @endif

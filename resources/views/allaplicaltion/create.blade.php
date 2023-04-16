@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <form action="{{route(currentUser().'.allapplication.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="row">
+                            <div class="row m-2">
                                 {{-- <div class="col-6">
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">

@@ -27,21 +27,23 @@
                 <div class="table-responsive">
                     <table class="table table-bordered mb-0">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="col">{{__('#SL')}}</th>
-                                <th scope="col">{{__('Division')}}</th>
-                                <th scope="col">{{__('district')}}</th>
-                                <th scope="col">{{__('Post Office')}}</th>
+                                <th scope="col">{{__('Logo')}}</th>
+                                <th scope="col">{{__('Union Name')}}</th>
+                                <th scope="col">{{__('Upazila Name')}}</th>
+                                <th scope="col">{{__('District Name')}}</th>
                                 <th class="white-space-nowrap">{{__('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($porishod as $d)
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="row">{{ ++$loop->index }}</th>
-                                <td>{{$d->division_name_en}}</td>
-                                <td>{{$d->district_name_en}}</td>
-                                <td>{{$d->postoffice_name_en}}</td>
+                                <td><img width="50px" height="50px" src="{{ asset('uploads/logo_folder') }}/{{ $d->logo }}" alt=""></td>
+                                <td>{{$d->union_name}}</td>
+                                <td>{{$d->upazila_name}}</td>
+                                <td>{{$d->district_name}}</td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.porishodsettiong.edit',encryptor('encrypt',$d->id))}}">
                                         <i class="bi bi-pencil-square"></i>

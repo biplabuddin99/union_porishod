@@ -15,23 +15,19 @@ return new class extends Migration
     {
         Schema::create('porishod_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('division_name_en');
-            $table->string('division_name_bn');
-            $table->string('district_name_en');
-            $table->string('district_name_bn');
-            $table->string('postoffice_name_en');
-            $table->string('postoffice_name_bn');
+            $table->string('logo');
+            $table->string('union_name');
+            $table->string('district_name');
+            $table->string('upazila_name');
             $table->timestamps();
         });
 
         DB::table('porishod_settings')->insert([
 
-            'division_name_en'=>'chittagong',
-            'division_name_bn'=>'১ নং ওয়ার্ড',
-            'district_name_en'=>'Noakhali',
-            'district_name_bn'=>'১ নং ওয়ার্ড',
-            'postoffice_name_en'=>'Hatiya',
-            'postoffice_name_bn'=>'১ নং ওয়ার্ড',
+            'logo'=>'logo.png',
+            'union_name'=>'চিরাম ইউনিয়ন পরিষদ',
+            'district_name'=>'নেত্রকোণা',
+            'upazila_name'=>'বারহাট্টা',
 
 
     ]);
