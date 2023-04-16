@@ -267,6 +267,65 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="row border border-2 m-2 p-3">
+                                <label  class="form-label" for="mobile_bank"><b>মোবাইল ব্যাংক</b></label>
+                                <div class="row m-2">
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" @if(in_array(1, $Mobile_bank)) checked @endif/>
+                                        <label  class="form-label" for="mobile_bank1">নগদ</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2" @if(in_array(2, $Mobile_bank)) checked @endif/>
+                                        <label  class="form-label" for="mobile_bank2">বিকাশ</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3" @if(in_array(3, $Mobile_bank)) checked @endif/>
+                                        <label  class="form-label" for="mobile_bank3">রকেট</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4" @if(in_array(4, $Mobile_bank)) checked @endif/>
+                                        <label  class="form-label" for="mobile_bank4">উপায়</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5" @if(in_array(5, $Mobile_bank)) checked @endif/>
+                                        <label  class="form-label" for="mobile_bank5">অন্যান্য</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border border-2 m-2 p-3">
+                                <label  class="form-label" for=""><b>ডিজিটাল ডিভাইস</b></label>
+                                <div class="row m-2">
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" @if(in_array(1, $Digital_devices)) checked @endif/>
+                                        <label  class="form-label" for="digital_devices1">স্মার্ট ফোন</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" @if(in_array(2, $Digital_devices)) checked @endif/>
+                                        <label  class="form-label" for="digital_devices2">ল্যাপটপ</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" @if(in_array(3, $Digital_devices)) checked @endif/>
+                                        <label  class="form-label" for="digital_devices3">কম্পিউটার</label>
+                                    </div>
+
+                                    <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" @if(in_array(4, $Digital_devices)) checked @endif/>
+                                        <label  class="form-label" for="digital_devices4">অন্যান্য</label>
+                                    </div>
+
+                                    {{-- <div class=" col-sm-3 col-lg-2">
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
+                                        <label  class="form-label" for="digital_devices5">টিভি</label>
+                                    </div> --}}
+                                </div>
+
+                            </div>
                             <div class="border border-2 m-2 p-3">
                                 <div class="row m-2">
                                     <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>

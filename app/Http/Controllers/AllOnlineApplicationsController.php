@@ -118,6 +118,8 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->disline_connection=$request->disline_connection;
             $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
             $all_onlineApplications->arsenic_free=$request->arsenic_free;
+            $all_onlineApplications->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $all_onlineApplications->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
             $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
             $all_onlineApplications->type_application=$request->type_application;
 
@@ -140,8 +142,10 @@ class AllOnlineApplicationsController extends Controller
     public function edit($id)
     {
         $all= All_onlineApplications::where('id',$id)->first();
+        $Mobile_bank = explode(',', $all->mobile_bank);
+        $Digital_devices = explode(',', $all->digital_devices);
         $Govt_fac = explode(',', $all->government_facilities);
-        return view('allaplicaltion.edit',compact('all','Govt_fac'));
+        return view('allaplicaltion.edit',compact('all','Mobile_bank','Digital_devices','Govt_fac'));
     }
 
 
@@ -171,6 +175,8 @@ class AllOnlineApplicationsController extends Controller
             $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
             $all_onlineApplications->freedom_fighter=$request->freedom_fighter;
             $all_onlineApplications->arsenic_free=$request->arsenic_free;
+            $all_onlineApplications->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $all_onlineApplications->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
             $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
             $all_onlineApplications->type_application=$request->type_application;
 
