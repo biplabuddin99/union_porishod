@@ -99,6 +99,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
+        Route::get('hold_primary',[holding::class,'primaryIndex'])->name('hold_primary.list');
         Route::get('hold_profile',[holding::class,'profile'])->name('hold_profile.list');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 

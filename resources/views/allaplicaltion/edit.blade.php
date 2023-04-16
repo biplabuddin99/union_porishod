@@ -22,7 +22,7 @@
                         <form action="{{route(currentUser().'.allapplication.update',$all->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
-                            <div class="row">
+                            <div class="row m-2">
                                 {{-- <div class="col-6">
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
@@ -104,7 +104,7 @@
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('freedom_fighter', $all->freedom_fighter)=="1" ? "selected":""}}>বীর মুক্তিযোদ্ধা</option>
                                         <option value="2" {{ old('freedom_fighter', $all->freedom_fighter)=="2" ? "selected":""}}>বীরাঙ্গনা</option>
-                                        <option value="3" {{ old('freedom_fighter', $all->freedom_fighter)=="3" ? "selected":""}}>নাই</option>
+                                        <option value="3" {{ old('freedom_fighter', $all->freedom_fighter)=="3" ? "selected":""}}>অন্যান্য</option>
                                     </select>
                                     @if($errors->has('freedom_fighter'))
                                     <small class="d-block text-danger text-center">

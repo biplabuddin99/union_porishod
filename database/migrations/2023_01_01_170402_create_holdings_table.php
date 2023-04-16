@@ -37,6 +37,8 @@ return new class extends Migration
             $table->string('disline_connection')->nullable();
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
+            $table->string('mobile_bank')->nullable();
+            $table->string('digital_devices')->nullable();
             $table->string('government_facilities')->nullable();
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য

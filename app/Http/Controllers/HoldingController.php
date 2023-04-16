@@ -23,6 +23,14 @@ class HoldingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function primaryIndex()
+    {
+        $hold=Holding::first();
+        $Mobile = explode(',', $hold->mobile_bank);
+        $Digital_devices = explode(',', $hold->digital_devices);
+        $Govt_fac = explode(',', $hold->government_facilities);
+        return view('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices'));
+    }
     public function index()
     {
         $hold=Holding::where('status',0)->get();
@@ -96,6 +104,10 @@ class HoldingController extends Controller
             $holding->arsenic_free=$all->arsenic_free;
             $Govt_fac = explode(',', $all->government_facilities);
             $holding->government_facilities=implode(',',$Govt_fac);
+            $Mobile = explode(',', $all->mobile_bank);
+            $holding->mobile_bank=implode(',',$Mobile);
+            $Digital_devices = explode(',', $all->digital_devices);
+            $holding->digital_devices=implode(',',$Digital_devices);
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
             $holding->residence_type=$request->residence_type;
@@ -129,12 +141,11 @@ class HoldingController extends Controller
 
             $holding->save();
             Toastr::success('হোল্ডিং সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route(currentUser().'.holding.index'));
+            return redirect(route(currentUser().'.hold_primary.list'));
             // dd($request);
         }
         catch (Exception $e){
             return back()->withInput();
-
         }
     }
 
@@ -249,7 +260,6 @@ class HoldingController extends Controller
         }
         catch (Exception $e){
             return back()->withInput();
-
         }
     }
 
