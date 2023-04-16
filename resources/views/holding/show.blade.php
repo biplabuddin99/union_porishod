@@ -99,12 +99,21 @@
                 <div class="col-1">
                     <span  class="form-label" for="">৫।</span>
                 </div>
+                @if($hold->voter_id_no)
                 <div class="col-5">
-                    <span  class="form-label" for="">ভোটার আইডি/ডিজিটাল জন্ম নিবন্ধন :</span>
+                    <span  class="form-label" for="">ভোটার আইডি :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ভোটার আইডি:{{ $hold->voter_id_no }}/জন্ম নিবন্ধন:{{ $hold->birth_registration_id }}</span>
+                    <span  class="form-label" for="">{{ $hold->voter_id_no }}</span>
                 </div>
+                @else
+                <div class="col-5">
+                    <span  class="form-label" for="">ডিজিটাল জন্ম নিবন্ধন :</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">{{ $hold->birth_registration_id }}</span>
+                </div>
+                @endif
             </div>
             <div class="row m-2">
                 <div class="col-1">

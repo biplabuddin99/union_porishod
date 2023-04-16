@@ -28,7 +28,7 @@
                                 </div> --}}
 
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="holding_date">তারিখ :-</label>
+                                    <label  class="form-label" for="holding_date"><b>তারিখ</b> </label>
                                 </div>
                                 <div class="col-sm-2 col-lg-2 ms-0 ps-0">
                                     <input class="form-control datepicker" name="holding_date" value="<?php date_default_timezone_set('Asia/Dhaka'); $date = date('d-M-y'); echo $date; ?>" id="holding_date" type="text">
@@ -36,7 +36,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="head_household">আবেদনকারীর নাম  :-</label>
+                                    <label  class="form-label" for="head_household"><b>আবেদনকারীর নাম</b></label>
                                     <input class="form-control @error('head_household') is-invalid @enderror" type="text"
                                     name="head_household" value="{{ old('head_household') }}" id="head_household" placeholder="আবেদনকারীর নাম">
                                     @if($errors->has('head_household'))
@@ -46,14 +46,14 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
+                                    <label  class="form-label" for="husband_wife"><b>স্বামী/স্ত্রীর নাম</b></label>
                                     <input class="form-control" type="text"
                                     name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" placeholder="পিতা/ স্বামী">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                    <label  class="form-label" for="father_name"><b>পিতার নাম</b></label>
                                     <input class="form-control @error('father_name') is-invalid @enderror" type="text"
                                     name="father_name" value="{{ old('father_name') }}" id="father_name" placeholder="পিতার নাম">
                                     @if($errors->has('father_name'))
@@ -63,19 +63,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
-                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="মাস-দিন-সাল">
-                                    @if($errors->has('birth_date'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('birth_date') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="mother_name">মাতার নাম :-</label>
+                                    <label  class="form-label" for="mother_name"><b>মাতার নাম</b></label>
                                     <input class="form-control @error('mother_name') is-invalid @enderror" type="text"
                                     name="mother_name" value="{{ old('mother_name') }}" id="mother_name" placeholder="মাতার নাম">
                                     @if($errors->has('mother_name'))
@@ -84,8 +72,20 @@
                                     </small>
                                     @endif
                                 </div>
+                            </div>
+                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="gender1" for="cars">লিঙ্গের অবস্থা :-</label>
+                                    <label  class="form-label" for="birth_date"><b>জন্ম তারিখ</b></label>
+                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    @if($errors->has('birth_date'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('birth_date') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="gender1" for="cars"><b>লিঙ্গের অবস্থা</b></label>
                                     <select name="gender" id="gender1" class="form-select @error('gender') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">পুরুষ</option>
@@ -101,21 +101,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা :-</label>
-                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">বীর মুক্তিযোদ্ধা</option>
-                                        <option value="2">বীরাঙ্গনা</option>
-                                        <option value="3">নাই</option>
-                                    </select>
-                                    @if($errors->has('freedom_fighter'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('freedom_fighter') }}
-                                    </small>
-                                    @endif
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি নং :-</label>
+                                    <label  class="form-label" for="voter_id_no"><b>ভোটার আইডি নং</b></label>
                                     <input class="form-control @error('voter_id_no') is-invalid @enderror" type="text" name="voter_id_no" id="voter_id_no" value="{{ old('voter_id_no') }}" placeholder="ভোটার আইডি নং">
                                     @if($errors->has('voter_id_no'))
                                     <small class="d-block text-danger">
@@ -123,10 +109,8 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_registration_id">জন্ম নিবন্ধন আইডি:-</label>
+                                    <label  class="form-label" for="birth_registration_id"><b>জন্ম নিবন্ধন আইডি</b></label>
                                     <input class="form-control @error('birth_registration_id') is-invalid @enderror" type="text"
                                     name="birth_registration_id" value="{{ old('birth_registration_id') }}" id="birth_registration_id" placeholder="জন্মনিবন্ধন আইডি">
                                     @if($errors->has('birth_registration_id'))
@@ -135,8 +119,24 @@
                                     </small>
                                     @endif
                                 </div>
+                            </div>
+                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="rel">ধর্ম :-</label>
+                                    <label  class="form-label" for="rel"><b>মুক্তিযোদ্ধা</b></label>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">বীর মুক্তিযোদ্ধা</option>
+                                        <option value="2">বীরাঙ্গনা</option>
+                                        <option value="3">অন্যান্য</option>
+                                    </select>
+                                    @if($errors->has('freedom_fighter'))
+                                    <small class="d-block text-danger text-center">
+                                        {{ $errors->first('freedom_fighter') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="rel"><b>ধর্ম</b></label>
                                     <select name="religion" class="form-select @error('religion') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">ইসলাম</option>
@@ -154,7 +154,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="phone">মোবাইল নম্বর :-</label>
+                                    <label  class="form-label" for="phone"><b>মোবাইল নম্বর</b></label>
                                     <input class="form-control @error('phone') is-invalid @enderror"
                                     name="phone" id="phone" value="{{ old('phone') }}"  type="text" placeholder="মোবাইল নম্বর">
                                     @if($errors->has('phone'))
@@ -164,7 +164,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="edu_qual0">শিক্ষাগত যোগ্যতা :-</label>
+                                    <label  class="form-label" for="edu_qual0"><b>শিক্ষাগত যোগ্যতা</b></label>
                                     <select name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">স্ব-শিক্ষিত</option>
@@ -182,11 +182,11 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="email">ই-মেইল <small>(যদি থাকে)</small> :-</label>
+                                    <label  class="form-label" for="email"><b>ই-মেইল</b><small>(যদি থাকে)</small> </label>
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা :-</label>
+                                    <label  class="form-label" for="source_inc"><b>পেশা</b></label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">শিক্ষক</option>
@@ -217,7 +217,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="marit" for="cars">বৈবাহিক অবস্থা :- </label>
+                                    <label class="form-label" for="marit" for="cars"><b>বৈবাহিক অবস্থা</b></label>
                                     <select name="marital_status" id="marit" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">বিবাহিত</option>
@@ -225,7 +225,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="internet" for="cars">ইন্টারনেট সংযোগ:- </label>
+                                    <label class="form-label" for="internet" for="cars"><b>ইন্টারনেট সংযোগ</b></label>
                                     <select name="internet_connection" id="internet" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
@@ -235,7 +235,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="tube_well">নলকূপ :- </label>
+                                    <label class="form-label" for="tube_well"><b>নলকূপ</b></label>
                                     <select name="tube_well" id="tube_well" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
@@ -243,7 +243,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="disline_connection">ডিসলাইন সংযোগ:- </label>
+                                    <label class="form-label" for="disline_connection"><b>ডিসলাইন সংযোগ</b></label>
                                     <select name="disline_connection" id="disline_connection" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
@@ -253,7 +253,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="paved_bathroom">বাথরুম:-</label>
+                                    <label class="form-label" for="paved_bathroom"><b>বাথরুম</b></label>
                                     <select name="paved_bathroom" id="paved_bathroom" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">কাঁচা</option>
@@ -261,7 +261,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="arsenic_free">আর্সেনিকমুক্ত:- </label>
+                                    <label class="form-label" for="arsenic_free"><b>আর্সেনিকমুক্ত</b></label>
                                     <select name="arsenic_free" id="arsenic_free" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
@@ -270,7 +270,7 @@
                                 </div>
                             </div>
                             <div class="border border-2 m-2 p-3">
-                                <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
+                                <label  class="form-label" for="government_facilities"><b>সরকারি সুবিধা</b></label>
                                 <div class="row m-2">
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
