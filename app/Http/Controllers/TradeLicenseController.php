@@ -23,6 +23,14 @@ class TradeLicenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function primaryIndex($id)
+    {
+        $trade=TradeLicense::where('id',$id)->first();
+        $Mobile = explode(',', $trade->mobile_bank);
+        $Digital_devices = explode(',', $trade->digital_devices);
+        $Govt_fac = explode(',', $trade->government_facilities);
+        return view('trade_license.primary_index',compact('trade','Mobile','Govt_fac','Digital_devices'));
+    }
     public function index()
     {
         $trade=TradeLicense::where('status',0)->get();
@@ -137,6 +145,7 @@ class TradeLicenseController extends Controller
             $trade->image_holding=$this->resizeImage($request->image_holding,'uploads/trade_license/holding',true,500,700,false);
             if($trade->save()){
                 Toastr::success('ট্রেড লাইসেন্স সফলভাবে তৈরি করা হয়েছে !!');
+                return redirect(route('trade_primary.list',$trade->id));
                 return redirect()->route(currentUser().'.trade.index');
             }else{
                 Toastr::info('আবার চেষ্টা করুন!');

@@ -272,10 +272,6 @@
             </table>
             <table style="width: 100%;">
                 <tr>
-                    <th style="width: 25%; text-align: left;">ধর্ম </th>
-                    <td style="border-style: solid; border-width: 1px;"><input value="1" {{ $hold->religion=="1" ? "checked":"" }} type="checkbox"><label for="">ইসলাম</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="2" {{ $hold->religion=="2" ? "checked":"" }} type="checkbox"><label for="">হিন্দু</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="3" {{ $hold->religion=="3" ? "checked":"" }} type="checkbox"><label for="">বৌদ্ধ</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="4" {{ $hold->religion=="4" ? "checked":"" }} type="checkbox"><label for="">খ্রিষ্টান</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="5" {{ $hold->religion=="5" ? "checked":"" }} type="checkbox"><label for="">অন্যান্য</label></td>
-                </tr>
-                <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল ব্যাংক </th>
                     <td style="border-style: solid; border-width: 1px;">
                         <input type="checkbox" value="1" @if(in_array(1, $Mobile)) checked @endif><label for="">নগদ</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -303,10 +299,6 @@
                         <input type="checkbox" value="4" @if(in_array(4, $Govt_fac)) checked @endif><label for="">প্রতিবন্ধী ভাতা</label>
                         <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
                     </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">পরিবারের অবস্থা </th>
-                    <td style="border-style: solid; border-width: 1px;"><input type="checkbox" value="1" {{ $hold->family_status=="1" ? "checked":"" }}><label for="">হতদরিদ্র</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="2" {{ $hold->family_status=="2" ? "checked":"" }}><label for="">নিন্ম-মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="3" {{ $hold->family_status=="3" ? "checked":"" }}><label for="">মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="4" {{ $hold->family_status=="4" ? "checked":"" }}><label for="">উচ্চ-মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="5" {{ $hold->family_status=="5" ? "checked":"" }}><label for="">উচ্চবৃত্ত</label></td>
                 </tr>
                 {{-- <tr>
                     <th style="width: 25%; text-align: left;">পেশা বা আয়ের উৎস </th>

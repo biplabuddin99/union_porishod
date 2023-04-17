@@ -94,6 +94,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
 
         Route::resource('trade',trade::class,['as'=>'admin']);
+        Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
         Route::get('trade_profile',[trade::class,'profile'])->name('trade_profile.list');
         Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
         // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');

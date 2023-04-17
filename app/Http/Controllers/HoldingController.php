@@ -156,7 +156,6 @@ class HoldingController extends Controller
             $holding->save();
             Toastr::success('হোল্ডিং সফলভাবে সম্পন্ন হয়েছে!');
             return redirect(route('hold_primary.list',$holding->id));
-            // return redirect(route(currentUser().'.hold_primary.list',$holding->id));
             // dd($request);
         }
         catch (Exception $e){
