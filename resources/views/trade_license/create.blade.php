@@ -194,7 +194,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="annual_business_tax_levied">ব্যবসায়িক বার্ষিক র্ধাযকৃত কর:-</label>
+                                    <label  class="form-label" for="annual_business_tax_levied">ব্যবসায়িক বার্ষিক ধার্যকৃত কর:-</label>
                                     <input class="form-control @error('annual_business_tax_levied') is-invalid @enderror"
                                     name="annual_business_tax_levied" id="annual_business_tax_levied" value="{{ old('annual_business_tax_levied') }}"  type="text" placeholder="ব্যবসায়িক বার্ষিক র্ধাযকৃত কর">
                                     {{-- @if($errors->has('annual_business_tax_levied'))
