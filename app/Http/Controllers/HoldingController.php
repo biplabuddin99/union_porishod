@@ -194,7 +194,10 @@ class HoldingController extends Controller
         $unions=Union::where('id',$hold->union_id)->select('id','name','name_bn')->get();
         $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         $Govt_fac = explode(',', $hold->government_facilities);
-        return view('holding.edit',compact('hold','Govt_fac','districts','upazilas','unions','wards'));
+        $Mobile_bank = explode(',', $hold->mobile_bank);
+        $Digital_devices = explode(',', $hold->digital_devices);
+        $Business_taxes = explode(',', $hold->business_taxes);
+        return view('holding.edit',compact('hold','Govt_fac','Mobile_bank','Digital_devices','Business_taxes','districts','upazilas','unions','wards'));
     }
 
     /**
@@ -230,13 +233,16 @@ class HoldingController extends Controller
             $holding->paved_bathroom=$request->paved_bathroom;
             $holding->arsenic_free=$request->arsenic_free;
             // $Govt_fac = explode(',', $request->government_facilities);
-            $holding->government_facilities=implode(',',$request->government_facilities);
+            $holding->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $holding->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $holding->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
             $holding->residence_type=$request->residence_type;
             $holding->house_room=$request->house_room;
             $holding->family_status=$request->family_status;
-            $holding->main_source_income=$request->main_source_income;
+            // $holding->main_source_income=$request->main_source_income;
+            $holding->business_taxes=$request->business_taxes?implode(',',$request->business_taxes):'';
             $holding->percentage_house_land=$request->percentage_house_land;
             $holding->percentage_cultivated_land=$request->percentage_cultivated_land;
             $holding->estimated_value_house=$request->estimated_value_house;
