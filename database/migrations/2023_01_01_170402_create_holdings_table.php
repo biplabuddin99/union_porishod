@@ -45,7 +45,8 @@ return new class extends Migration
             $table->string('residence_type')->nullable();
             $table->string('house_room')->nullable();
             $table->string('family_status')->nullable();
-            $table->string('main_source_income')->nullable();
+            // $table->string('main_source_income')->nullable();
+            $table->string('business_taxes')->nullable();
             $table->string('percentage_house_land')->nullable();
             $table->string('percentage_cultivated_land')->nullable();
             $table->string('estimated_value_house')->nullable();

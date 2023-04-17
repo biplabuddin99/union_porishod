@@ -18,6 +18,11 @@
             padding-left: 130px;
             padding-top: 8px;
         }
+        .mujib{
+            position: absolute;
+            padding-left: 180px;
+            padding-top: 8px;
+        }
         .headcontent{
             text-align: center;
             padding-left: 80px;
@@ -107,16 +112,17 @@
     </style>
 </head>
 <body>
-    <a class="noprint" href="{{route(currentUser().'.holding.index')}}"><button class="btn">Back</button></a>
+    <a class="noprint" href="{{route(currentUser().'.allapplication.create')}}"><button class="btn">Back</button></a>
     <div class="wrapper">
         <div class="header" >
             <div class="photo">
-                <img src="{{ asset('logo/Screenshot_3.png') }}" width="80px" height="80px" alt="Logo">
+                <img src="{{ asset('logo/logo-01.png') }}" width="80px" height="80px" alt="Logo">
             </div>
             <div class="headcontent">
-                <h5 style="margin-top: 20px; margin-bottom: 5px;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
-                <h3 style="margin: 5px;">চিরাম ইউনিয়ন পরিষদ, বারহাট্টা, নেত্রকোণা</h3>
-                <h5 style="margin: 5px;">bdgl.online/chhiramup</h5>
+                <img class="mujib" src="{{ asset('logo/mujib_logo-01.png') }}" width="80px" height="80px" alt="Logo">
+                <h5 style="margin-top: 20px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
+                <h3 style="margin: 5px; color: rgb(23, 36, 158);">চিরাম ইউনিয়ন পরিষদ, বারহাট্টা, নেত্রকোণা</h3>
+                <h5 style="margin: 5px; color: rgb(226, 125, 31);">bdgl.online/chhiramup</h5>
                 <h4 class="headbg" style="margin: auto;">আবেদন হোল্ডিং নম্বর</h2>
             </div>
         </div>
@@ -234,85 +240,37 @@
                     <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->arsenic_free == 1 ) আছে @else নাই @endif</td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">নতুন হোল্ডিং নম্বর </th>
-                    <td><input type="text" value="{{ $hold->new_holding_no }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">আগের হোল্ডিং নম্বর </th>
+                    <th style="width: 25%; text-align: left;">বাড়ির ধরন</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->residence_type == 1 ) কাঁচাঘর @elseif ($hold->residence_type ==2)টিনসেট @elseif ($hold->residence_type ==3)আধা-পাঁকা @elseif ($hold->residence_type ==4)পাঁকা-ইমারত @elseif($hold->residence_type ==5)২য় তলা বাড়ী @elseif($hold->residence_type ==6)৩য় তলা বাড়ী@endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির রুম/ঘর</th>
+                    <td><input type="text" value="{{ $hold->house_room }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">পারিবারিক অবস্থা</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->family_status == 1 ) হতদরিদ্র @elseif ($hold->family_status ==2)নিন্ম-মধ্যবৃত্ত @elseif ($hold->family_status ==3)মধ্যবৃত্ত @elseif ($hold->family_status ==4)উচ্চ-মধ্যবৃত্ত @elseif($hold->family_status ==5)উচ্চবৃত্ত @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির হেল্ডিং নম্বর</th>
                     <td><input type="text" value="{{ $hold->previous_holding_no }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">গ্রাম/পাড়া/মহল্লা </th>
-                    <td><input type="text" value="{{ $hold->village }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ওয়ার্ড নং </th>
-                    <td><input type="text" value="{{ $hold->ward_no }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">ডাকঘর </th>
+                    <td><input type="text" value="{{ $hold->post_office }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">জেলা </th>
+                    <td><input type="text" value="{{ $hold->district_id }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
-                    <td><input type="text" value="{{ $hold->birth_date }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ভোটার আইডি নং </th>
-                    <td><input type="text" value="{{ $hold->voter_id_no }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">উপজেলা/থানা</th>
+                    <td><input type="text" value="{{ $hold->upazila_id }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদের নাম </th>
+                    <td><input type="text" value="{{ $hold->union_id }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">মোবাইল নম্বর </th>
-                    <td><input type="text" value="{{ $hold->phone }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ই-মেইল </th>
-                    <td><input type="text" value="{{ $hold->email }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বৈবাহিক অবস্থা </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->marital_status=="1" ? "checked":"" }} type="checkbox"><label for="">বিবাহিত</label>
-                        <input value="2" {{ $hold->marital_status=="2" ? "checked":"" }} type="checkbox"><label for="">অবিবাহিত</label>
-                    </td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গের অবস্থা </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->gender=="1" ? "checked":"" }} type="checkbox"><label for="">পুরুষ</label>
-                        <input value="2" {{ $hold->gender=="2" ? "checked":"" }} type="checkbox"><label for="">মহিলা</label>
-                        <input value="3" {{ $hold->gender=="3" ? "checked":"" }} type="checkbox"><label for="">হিজলা</label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">ডিজিটাল জন্ম নিবন্ধন </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->digital_birth_cer=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input value="2" {{ $hold->digital_birth_cer=="2" ? "checked":"" }} type="checkbox"><label for="">নাই</label></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">পাকা বাথরুম </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->paved_bathroom=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input value="2" {{ $hold->paved_bathroom=="2" ? "checked":"" }} type="checkbox"><label for="">নাই</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বিদেশে থাকে প্রবাসী </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->expatriate=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input value="2" {{ $hold->expatriate=="2" ? "checked":"" }} type="checkbox"><label for="">নাই</label>
-                    </td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বিদ্যুৎ সংযোগ </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" {{ $hold->power_connection=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input value="2" {{ $hold->power_connection=="2" ? "checked":"" }} type="checkbox"><label for="">নাই
-                        </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">নলকুপ </th>
-                    <td style="border-style: solid; border-width: 1px;"><input  value="1" {{ $hold->tube_well=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;<input  value="2" {{ $hold->tube_well=="2" ? "checked":"" }} type="checkbox"><label for="">নাই</label></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ব্যাংক হিসাব </th>
-                    <td style="border-style: solid; border-width: 1px;"><input value="1" {{ $hold->bank=="1" ? "checked":"" }} type="checkbox"><label for="">আছে</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="2" {{ $hold->bank=="2" ? "checked":"" }} type="checkbox"><label for="">নাই</td>
+                    <th style="width: 25%; text-align: left;">ওয়ার্ড </th>
+                    <td><input type="text" value="{{ $hold->ward_id }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">গ্রামের নাম</th>
+                    <td><input type="text" value="{{ $hold->village_name }}" class="binput"></td>
                 </tr>
             </table>
             <table style="width: 100%;">
-                {{-- <tr>
-                    <th style="width: 25%; text-align: left;">শিক্ষাগত যোগ্যতা </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input value="1" @if(in_array(1, $education)) checked @endif type="checkbox"><label for="">স্ব-শিক্ষিত</label>&nbsp;&nbsp;
-                        <input value="2" @if(in_array(2, $education)) checked @endif type="checkbox"><label for="">প্রাথমিক</label>&nbsp;&nbsp;
-                        <input value="3" @if(in_array(3, $education)) checked @endif type="checkbox"><label for="">মাধ্যমিক</label>&nbsp;&nbsp;
-                        <input value="4" @if(in_array(4, $education)) checked @endif type="checkbox"><label for="">উচ্চ-মাধ্যমিক</label>&nbsp;&nbsp;
-                        <input value="5" @if(in_array(5, $education)) checked @endif type="checkbox"><label for="">উচ্চতর-ডিগ্রী</label></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">পরিবারের সদস্য </th>
-                    <td style="border-style: solid; border-width: 1px;"><label for="">পুরুষ সদস্য</label><input type="text" value="{{ $hold->family_male }}" class="sinput"><label for="">নারী সদস্য</label><input type="text" value="{{ $hold->family_female }}" class="sinput"><label for="">মোট সদস্য</label><input type="text"  value="{{ $hold->family_total }}" class="sinput"><input value="1" {{ $hold->single_joint_family=="1" ? "checked":"" }} type="checkbox"><label for="">একক পরিবার</label><input value="2" {{ $hold->single_joint_family=="2" ? "checked":"" }} type="checkbox"><label for="">যৌথ পরিবার</label></td>
-                </tr> --}}
                 <tr>
                     <th style="width: 25%; text-align: left;">ধর্ম </th>
                     <td style="border-style: solid; border-width: 1px;"><input value="1" {{ $hold->religion=="1" ? "checked":"" }} type="checkbox"><label for="">ইসলাম</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="2" {{ $hold->religion=="2" ? "checked":"" }} type="checkbox"><label for="">হিন্দু</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="3" {{ $hold->religion=="3" ? "checked":"" }} type="checkbox"><label for="">বৌদ্ধ</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="4" {{ $hold->religion=="4" ? "checked":"" }} type="checkbox"><label for="">খ্রিষ্টান</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="5" {{ $hold->religion=="5" ? "checked":"" }} type="checkbox"><label for="">অন্যান্য</label></td>
@@ -351,26 +309,6 @@
                     <td style="border-style: solid; border-width: 1px;"><input type="checkbox" value="1" {{ $hold->family_status=="1" ? "checked":"" }}><label for="">হতদরিদ্র</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="2" {{ $hold->family_status=="2" ? "checked":"" }}><label for="">নিন্ম-মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="3" {{ $hold->family_status=="3" ? "checked":"" }}><label for="">মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="4" {{ $hold->family_status=="4" ? "checked":"" }}><label for="">উচ্চ-মধ্যবৃত্ত</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="5" {{ $hold->family_status=="5" ? "checked":"" }}><label for="">উচ্চবৃত্ত</label></td>
                 </tr>
                 {{-- <tr>
-                    <th style="width: 25%; text-align: left;">ডিজিটাল ডিভাইস </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Digital_div)) checked @endif><label for="">নরমাল মোবাইল</label>
-                        <input type="checkbox" value="2" @if(in_array(2, $Digital_div)) checked @endif><label for="">স্মার্ট ফোন</label>
-                        <input type="checkbox" value="3" @if(in_array(3, $Digital_div)) checked @endif><label for="">কম্পিউটার/ল্যাপটপ</label>
-                        <input type="checkbox" value="4" @if(in_array(4, $Digital_div)) checked @endif><label for="">ইন্টারনেট</label>
-                        <input type="checkbox" value="5" @if(in_array(5, $Digital_div)) checked @endif><label for="">টিভি</label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">টেলিযোগাযোগ </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Telecommunic)) checked @endif><label for="">গ্রামীন</label>
-                        <input type="checkbox" value="2" @if(in_array(2, $Telecommunic)) checked @endif><label for="">এয়ারটেল/রবি</label>
-                        <input type="checkbox" value="3" @if(in_array(3, $Telecommunic)) checked @endif><label for="">বাংলালিংক</label>
-                        <input type="checkbox" value="4" @if(in_array(4, $Telecommunic)) checked @endif><label for="">টিএনটি</label>
-                        <input type="checkbox" value="5" @if(in_array(5, $Telecommunic)) checked @endif><label for="">টেলিটক</label>
-                    </td>
-                </tr>
-                <tr>
                     <th style="width: 25%; text-align: left;">পেশা বা আয়ের উৎস </th>
                     <td style="border-style: solid; border-width: 1px;">
                         {{ $hold->source_income }}
@@ -394,7 +332,7 @@
                         <input type="checkbox" value="18" @if(in_array(18, $Source_inc)) checked @endif><label for="">হাঁস-মুরগীর খামার</label>
                         <input type="checkbox" value="19" @if(in_array(19, $Source_inc)) checked @endif><label for="">প্রবাসী</label>
                     </td>
-                </tr>
+                </tr> --}}
 
                 <tr>
                     <th style="width: 25%; text-align: left;">ব্যবসায়িক করের উৎস </th>
@@ -419,7 +357,7 @@
                         <input type="checkbox" value="18" @if(in_array(18, $Business_tax)) checked @endif><label for="">বে-সরকারি হাসপাতাল</label><br>
                         <input type="checkbox" value="19" @if(in_array(19, $Business_tax)) checked @endif><label for="">বে-সরকারি স্কুল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="20" @if(in_array(20, $Business_tax)) checked @endif><label for="">কোচিং সেন্টার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="21" @if(in_array(21, $Business_tax)) checked @endif><label for="">খাবরের হোটেল</label><br>
+                        <input type="checkbox" value="21" @if(in_array(21, $Business_tax)) checked @endif><label for="">ঠিকাদার</label><br>
                         <input type="checkbox" value="22" @if(in_array(22, $Business_tax)) checked @endif><label for="">হিমাগার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="23" @if(in_array(23, $Business_tax)) checked @endif><label for="">ধান ভাঙানোর কল</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="24" @if(in_array(24, $Business_tax)) checked @endif><label for="">আটার কল</label><br>
@@ -444,67 +382,56 @@
                         <input type="checkbox" value="43" @if(in_array(43, $Business_tax)) checked @endif><label for="">স্টীমার/কার্গোর মালিক</label>&nbsp;&nbsp;
                         <input type="checkbox" value="44" @if(in_array(44, $Business_tax)) checked @endif><label for="">শিশু পার্ক</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="45" @if(in_array(45, $Business_tax)) checked @endif><label for="">বিনোদন পার্ক</label><br>
-                        <input type="checkbox" value="46" @if(in_array(46, $Business_tax)) checked @endif><label for="">পশু জবাইয়</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{-- <input type="checkbox" value="46" @if(in_array(46, $Business_tax)) checked @endif><label for="">পশু জবাইয়</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="47" @if(in_array(47, $Business_tax)) checked @endif><label for="">১ম শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="checkbox" value="48" @if(in_array(48, $Business_tax)) checked @endif><label for="">২য় শ্রেণীর ঠিকাদার</label><br>
-                        <input type="checkbox" value="49" @if(in_array(49, $Business_tax)) checked @endif><label for="">৩য় শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="49" @if(in_array(49, $Business_tax)) checked @endif><label for="">৩য় শ্রেণীর ঠিকাদার</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
                         <input type="checkbox" value="50" @if(in_array(50, $Business_tax)) checked @endif><label for="">অন্যান্য।</label><br>
-                        <input type="checkbox" value="51" @if(in_array(51, $Business_tax)) checked @endif><input type="text" value="" class="sbinput"><label for="">করের পরিমান =</label>
-                        <input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা
+                        {{-- <input type="checkbox" value="51" @if(in_array(51, $Business_tax)) checked @endif><input type="text" value="" class="sbinput"><label for="">করের পরিমান =</label>
+                        <input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা --}}
                     </td>
-                </tr> --}}
+                </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">অন্যান্য করের উৎস </th>
                     <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><input value="{{ $hold->sources_other_taxes }}" type="text" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->other_taxes_amount }}" type="text" class="sbinput">টাকা</td>
                 </tr>
-                {{-- <tr>
-                    <th style="width: 25%; text-align: left;">বসত বাড়ীর ধরন </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Residence)) checked @endif><label for="">কাচা-ঘর</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="2" @if(in_array(2, $Residence)) checked @endif><label for="">টিনসেট</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="3" @if(in_array(3, $Residence)) checked @endif><label for="">আধা-পাকা</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="4" @if(in_array(4, $Residence)) checked @endif><label for="">পাকা-ইমারত</label></td>
-                </tr> --}}
                 <tr>
                     <th style="width: 25%; text-align: left;">হোল্ডিং ট্যাক্স </th>
                     <td style="border-style: solid; border-width: 1px;"><label for="">বাড়ির আনুমানিক দাম=</label><input value="{{ $hold->approximate_price_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করযোগ্য মুল্য =</label><input value="{{ $hold->annual_taxable_value }}" type="text" class="sbsinput">টাকা<br>
-                        <label for="">&nbsp;&nbsp;বাড়ির করযোগ্য মুল্য=</label><input value="{{ $hold->taxable_value_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করের পরিমান =</label><input value="{{ $hold->annual_tax_amount }}" type="text" class="sbsinput">টাকা</td>
+                        {{-- <label for="">&nbsp;&nbsp;বাড়ির করযোগ্য মুল্য=</label><input value="{{ $hold->taxable_value_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করের পরিমান =</label><input value="{{ $hold->annual_tax_amount }}" type="text" class="sbsinput">টাকা --}}</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">সর্বমোট ট্যাক্স </th>
                     <td style="border-style: solid; border-width: 1px;"><label for="">হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স + অন্যান্য ট্যাক্স =</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা</td>
                 </tr>
             </table>
-            <div style="margin-top: 2rem;">
-                <div class="formnodiv"><b>তথ্য প্রধানকারীর স্বাক্ষর </b><img width="70px" height="50px" class="float-first" src="{{asset('uploads/holding/'.$hold->signature_informant)}}" alt=""></div>
-                <div class="infodiv"><b>তথ্য সংগ্রহকারীর স্বাক্ষর </b><img width="70px" height="50px" class="float-first" src="{{asset('uploads/holding/'.$hold->signature_collector)}}" alt=""></div>
-            </div>
-            <table style="width: 100%; margin-top: 1rem;">
-                <tr >
-                    <td style=" width: 35%;">
-
-                        <div style="margin-bottom: 1rem; font-size: 11px;">
-                            <div class="fhead"><h5 style="margin-bottom: 5px;">সার্বিক সহযোগিতায়</h5></div>
-                            <img  class="fphoto" src="{{ asset('./logo/Screenshot_6.jpg') }}" width="40px" alt="">
-                            <div style="text-align: center;" class="rightcontent">
-                                <h5 style="padding: 0px; margin: 0px;">\\ আল্লাহ সর্বশক্তিমান \\</h5>
-                                <h5 style="padding: 0px; margin: 0px;">বাংলাদেশ ডিজিটাল গেটওয়ে লিমিটেড</h5>
-                                <h4 style="padding: 0px; margin: 0px;">Bangladesh Digital Getway Limited</h4>
-                                <h5 style="padding: 0px; margin: 0px;">www.bdgl.online</h5>
-                            </div>
-                            <p style="margin: 0px;"><h5 style="margin: 0px;"><b>Dhaka Office:</b> H-76, (1st Floor),New Airport Road,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amtoli, Banani, Dhaka-1212.</h5></p>
-                        </div>
-                    </td>
-                    <td style="text-align: center;"><img src="{{ asset('logo/Screenshot_5.jpg') }}" width="30%" height="auto" alt=""></td>
-                    <td style="text-align: center; width: 28%;">
-                        <h5 style="padding: 0px; margin: 0px;">আদেশক্রমে</h5>
-                        <h4 style="padding: 0px; margin: 0px;">(মোঃ সাইদুর রহমান চৌধুরী)</h4>
-                        <h6 style="padding: 0px; margin: 0px;">চেয়ারম্যান</h6>
-                        <h6 style="padding: 0px; margin: 0px;">চিরাম ইউনিয়ন পরিষদ</h6>
-                        <h6 style="padding: 0px; margin: 0px;">বারহাট্টা, নেত্রকোণা।</h6>
-                    </td>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির আনুমানিক মূল্য</th>
+                    <td><input type="text" value="{{ $hold->estimated_value_house }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">বাড়ির বার্ষিক ধার্যকৃত কর</th>
+                    <td><input type="text" value="{{ $hold->tax_levied_annually_house }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির জমি শতাংশ</th>
+                    <td><input type="text" value="{{ $hold->percentage_house_land }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">আবাদী জমি শতাংশ</th>
+                    <td><input type="text" value="{{ $hold->percentage_cultivated_land }}" class="binput"></td>
                 </tr>
             </table>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 25%; text-align: left;"></th>
+                    <td style="border-style: solid; border-width: 1px;"><label for=""><span style="background-color:rgb(1, 4, 7); color: rgb(244, 247, 250); padding: 5px 5px 3px 5px; margin-left: 0px;">সর্বমোট ট্যাক্স</span> হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স =</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা</td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;"></th>
+                    <td style="border-style: solid; border-width: 1px;"><label for="">কথায়:</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা মাত্র</td>
+                </tr>
+            </table>
+            <div style="margin-top: .7rem; margin-left: 11rem; color: rgb(16, 123, 224);">
+                আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হলে, আমি তাহার জন্য আইনগত দায়ী থাকিব।</span>
+            </div>
         </div>
     </div>
 </body>

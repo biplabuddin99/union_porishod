@@ -14,6 +14,7 @@ use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
 use App\Models\Ward_no;
 use Exception;
+use PDF;
 
 class HoldingController extends Controller
 {
@@ -23,14 +24,26 @@ class HoldingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function primaryIndex()
+    public function primaryIndex($id)
     {
-        $hold=Holding::first();
+        $hold=Holding::where('id',$id)->first();
         $Mobile = explode(',', $hold->mobile_bank);
         $Digital_devices = explode(',', $hold->digital_devices);
         $Govt_fac = explode(',', $hold->government_facilities);
-        return view('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices'));
+        $Business_tax = explode(',', $hold->business_taxes);
+        return view('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices','Business_tax'));
     }
+
+    // public function generatePDF()
+    // {
+    //     $hold=Holding::first();
+    //     $Mobile = explode(',', $hold->mobile_bank);
+    //     $Digital_devices = explode(',', $hold->digital_devices);
+    //     $Govt_fac = explode(',', $hold->government_facilities);
+    //     $Business_tax = explode(',', $hold->business_taxes);
+    //     $pdf = PDF::loadView('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices','Business_tax'));
+    //     return $pdf->download('holding.pdf');
+    // }
     public function index()
     {
         $hold=Holding::where('status',0)->get();
@@ -113,7 +126,8 @@ class HoldingController extends Controller
             $holding->residence_type=$request->residence_type;
             $holding->house_room=$request->house_room;
             $holding->family_status=$request->family_status;
-            $holding->main_source_income=$request->main_source_income;
+            // $holding->main_source_income=$request->main_source_income;
+            $holding->business_taxes=$request->business_taxes?implode(',',$request->business_taxes):'';
             $holding->percentage_house_land=$request->percentage_house_land;
             $holding->percentage_cultivated_land=$request->percentage_cultivated_land;
             $holding->estimated_value_house=$request->estimated_value_house;
@@ -141,7 +155,8 @@ class HoldingController extends Controller
 
             $holding->save();
             Toastr::success('হোল্ডিং সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route(currentUser().'.hold_primary.list'));
+            return redirect(route('hold_primary.list',$holding->id));
+            // return redirect(route(currentUser().'.hold_primary.list',$holding->id));
             // dd($request);
         }
         catch (Exception $e){

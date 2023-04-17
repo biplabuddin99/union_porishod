@@ -314,7 +314,7 @@
                                     <label  class="form-label" for="residence_type">বাড়ির ধরন :-</label>
                                     <select name="residence_type" class="form-select @error('residence_type') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('residence_type', $hold->residence_type)=="1" ? "selected":""}}>কাচা-ঘর</option>
+                                        <option value="1" {{ old('residence_type', $hold->residence_type)=="1" ? "selected":""}}>কাঁচা-ঘর</option>
                                         <option value="2" {{ old('residence_type', $hold->residence_type)=="2" ? "selected":""}}>টিনসেট</option>
                                         <option value="3" {{ old('residence_type', $hold->residence_type)=="3" ? "selected":""}}>আধা-পাকা</option>
                                         <option value="4" {{ old('residence_type', $hold->residence_type)=="4" ? "selected":""}}>পাকা ইমারত</option>
