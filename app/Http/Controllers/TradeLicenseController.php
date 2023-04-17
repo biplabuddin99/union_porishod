@@ -108,6 +108,10 @@ class TradeLicenseController extends Controller
             $trade->arsenic_free=$all->arsenic_free;
             $Govt_fac = explode(',', $all->government_facilities);
             $trade->government_facilities=implode(',',$Govt_fac);
+            $Mobile = explode(',', $all->mobile_bank);
+            $trade->mobile_bank=implode(',',$Mobile);
+            $Digital_devices = explode(',', $all->digital_devices);
+            $trade->digital_devices=implode(',',$Digital_devices);
 
              // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $trade->business_name=$request->business_name;
@@ -190,7 +194,9 @@ class TradeLicenseController extends Controller
         $unions=Union::where('id',$trade->union_id)->select('id','name','name_bn')->get();
         // return $upazilas;
         $Govt_fac = explode(',', $trade->government_facilities);
-        return view('trade_license.edit',compact('trade','Govt_fac','districts','upazilas','wards','unions'));
+        $Mobile_bank = explode(',', $trade->mobile_bank);
+        $Digital_devices = explode(',', $trade->digital_devices);
+        return view('trade_license.edit',compact('trade','Govt_fac','Mobile_bank','Digital_devices','districts','upazilas','wards','unions'));
     }
 
     /**
@@ -225,6 +231,8 @@ class TradeLicenseController extends Controller
             $trade->arsenic_free=$request->arsenic_free;
             // $Govt_fac = explode(',', $request->government_facilities);
             $trade->government_facilities=implode(',',$request->government_facilities);
+            $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $trade->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
 
              // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $trade->business_name=$request->business_name;

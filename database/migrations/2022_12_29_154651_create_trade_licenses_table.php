@@ -35,6 +35,8 @@ return new class extends Migration
             $table->string('disline_connection')->nullable();
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
+            $table->string('mobile_bank')->nullable();
+            $table->string('digital_devices')->nullable();
             $table->string('government_facilities')->nullable();
 
             // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
@@ -64,6 +66,7 @@ return new class extends Migration
             $table->string('image')->nullable()->default('avater.jpg');
             $table->string('nid_image')->nullable();
             $table->string('image_holding')->nullable();
+            $table->string('trade_license_fee')->nullable();
             $table->string('status')->default(0);
             $table->timestamps();
         });

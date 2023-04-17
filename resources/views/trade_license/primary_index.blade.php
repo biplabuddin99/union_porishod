@@ -138,7 +138,7 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পিতার নাম </th>
-                    <td><input type="text" value="{{ $trade->father_name }}" class="binput"></td>
+                    <td><input type="text" value="{{ $trade->trade_fathername }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মাতার নাম </th>
@@ -361,38 +361,19 @@
                         <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
                     </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <th style="width: 25%; text-align: left;">অন্যান্য করের উৎস </th>
                     <td style="border-style: solid; border-width: 1px;">
                         <input type="checkbox"><input value="{{ $trade->sources_other_taxes }}" type="text" class="sbinput">
                         <label for="">করের পরিমান =</label><input value="{{ $trade->other_taxes_amount }}" type="text" class="sbinput">টাকা</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">হোল্ডিং ট্যাক্স </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <label for="">ব্যবসায়িক আনুমানিক মূলধন=</label>
-                        <input value="{{ $trade->business_estimated_capital }}" type="text" class="sbsinput">টাকা,&nbsp;
-                        <label for="">ব্যবসায়িক বার্ষিক ধার্যকৃত কর =</label>
-                        <input value="{{ $trade->annual_business_tax_levied }}" type="text" class="sbsinput">টাকা<br>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">সর্বমোট ট্যাক্স </th>
-                    <td style="border-style: solid; border-width: 1px;"><label for="">হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স + অন্যান্য ট্যাক্স =</label><input value="{{ $trade->total_tax }}" type="text" class="sbinput">টাকা</td>
-                </tr>
+                </tr> --}}
             </table>
             <table style="width: 100%;">
                 <tr>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির আনুমানিক মূল্য</th>
-                    <td><input type="text" value="{{ $trade->estimated_value_house }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left;">বাড়ির বার্ষিক ধার্যকৃত কর</th>
-                    <td><input type="text" value="{{ $trade->tax_levied_annually_house }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির জমি শতাংশ</th>
-                    <td><input type="text" value="{{ $trade->percentage_house_land }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left;">আবাদী জমি শতাংশ</th>
-                    <td><input type="text" value="{{ $trade->percentage_cultivated_land }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ব্যবসায়িক আনুমানিক মূলধন</th>
+                    <td><input type="text" value="{{ $trade->business_estimated_capital }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">ব্যবসায়িক ধার্যকৃত কর</th>
+                    <td><input type="text" value="{{ $trade->annual_business_tax_levied }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">ট্রেড লাইসেন্স নবায়ন ফি</th>
