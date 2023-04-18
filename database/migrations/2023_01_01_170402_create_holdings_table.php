@@ -66,6 +66,8 @@ return new class extends Migration
             $table->string('birth_registration_image')->nullable();
             $table->string('image')->nullable();
             $table->string('holding_certificate_fee')->nullable();
+            $table->string('approval_date')->nullable();
+            $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
             $table->timestamps();
         });

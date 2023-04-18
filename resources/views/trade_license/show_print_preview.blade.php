@@ -10,10 +10,10 @@
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
                     <div class="col-md-12 text-center"
                         style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px; background-color: rgb(196, 213, 245);">
-                        <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>২নং চরপার্বতী ইউনিয়ন পরিষদ</strong></h4>
+                        <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>চিরাম ইউনিয়ন পরিষদ</strong></h4>
                     </div>
-                    <h6 class="text-center">কোম্পানিগঞ্জ,নোয়াখালী</h6>
-                    <h6 class="text-center">www.bdgl.online/charpatbotiup</h6>
+                    <h6 class="text-center">বারহাট্টা,নেত্রকোণা</h6>
+                    <h6 class="text-center">www.bdgl.online/chhiramup</h6>
                 </div>
             </div>
         </section>
@@ -413,10 +413,10 @@
             <div class="row">
                 <div class="col-8"></div>
                 <div class="col-4" style="color: rgb(18, 5, 133); padding-top:10px">
-                    <div class="row"><strong>(কাজী মোহাম্মদ হানিফ)</strong></div>
+                    <div class="row"><strong>(মো: সাইদুর রহমান চৌধুরী)</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
-                    <div class="row">২নং চরপার্বতী ইউনিযন পরিষদ</div>
-                    <div class="row" style="padding-left: 30px">কোম্পানিগঞ্জ, নোয়াখালী</div>
+                    <div class="row" style="padding-left: 30px">চিরাম ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 40px">বারহাট্টা,নেত্রকোণা</div>
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:20px">

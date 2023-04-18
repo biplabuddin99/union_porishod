@@ -177,7 +177,7 @@
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="tax_levied_annually_house"><b>বাড়ির বার্ষিক ধার্যকৃত কর</b></label>
-                                    <input class="form-control @error('tax_levied_annually_house') is-invalid @enderror"
+                                    <input readonly class="form-control @error('tax_levied_annually_house') is-invalid @enderror"
                                     name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house') }}"  type="number" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
                                     @if($errors->has('tax_levied_annually_house'))
                                     <small class="d-block text-danger">

@@ -48,13 +48,77 @@
                                 <td>{{$h->house_holding_no}}</td>
                                 <td>{{$h->phone}}</td>
                                 <td>
-                                    <form action="{{route('holding_profile',encryptor('encrypt',$h->id))}}">
-                                        @csrf
-                                        @method('PATCH')
-                                        <input class="form-check-input m-2" type="checkbox" value="1" id="status" name="status">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button type="submit" class="btn btn-primary">যুক্ত করুন</button>
-                                        {{-- <label class="m-1" for=""><a href="">যুক্ত করুন</a></label> --}}
-                                    </form>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $h->id }}">যুক্ত করুন</button>
+                                    <div class="modal fade" id="modal{{ $h->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $h->id }}Title" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 800px;">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="#modal{{ $h->id }}Title">আবেদন নম্বর # {{ $h->id }}</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <table class="table table-inverse table-responsive">
+                                                                <thead class="thead-inverse">
+                                                                    <tr><p class="text-center bg-primary text-white p-2">তথ্য ভুল থাকলে বাতিল করুন এবং তথ্য সঠিক হলে অনুমোদন করুন</p></tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>আবেদনকারীর নাম:</td>
+                                                                            <td>{{ $h->head_household }}</td>
+                                                                            <td>আবেদন তারিখ:</td>
+                                                                            <td>{{ $h->holding_date }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>পিতার নাম:</td>
+                                                                            <td>{{ $h->father_name }}</td>
+                                                                            <td>মাতার নাম:</td>
+                                                                            <td>{{ $h->mother_name }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ভোটার আইডি:</td>
+                                                                            <td>{{ $h->voter_id_no }}</td>
+                                                                            <td>মোবাইল নম্বর:</td>
+                                                                            <td>{{ $h->phone }}</td>
+                                                                        </tr>
+                                                                        <form action="{{route('holding_profile',encryptor('encrypt',$h->id))}}">
+                                                                            @csrf
+                                                                            @method('PATCH')
+                                                                            <tr>
+                                                                                <td>হোল্ডিং নাম্বার সনদ ফি</td>
+                                                                                <td><input id="" name="holding_certificate_fee" type="number" placeholder="হোল্ডিং নাম্বার সনদ ফি"></td>
+                                                                                <td>বাড়ির বার্ষিক ধার্যকৃত কর</td>
+                                                                                <td><input name="tax_levied_annually_house" type="number" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>অনুমেদনের তারিখ</td>
+                                                                                <td><input name="approval_date" type="date"></td>
+                                                                                <td>বাতিলের কারণ</td>
+                                                                                <td><textarea name="cancel_reason" id="" placeholder="কেন বাতিল হচ্ছে মন্তব্য দিন"></textarea></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td><button type="submit" class="btn btn-warning">বাতিল</button></td>
+                                                                                <td><button type="submit" class="btn btn-primary">অনুমোদন</button></td>
+                                                                            </tr>
+                                                                        </form>
+                                                                    </tbody>
+                                                                </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td class="white-space-nowrap d-flex" style="border-style: none;">
                                     <a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">

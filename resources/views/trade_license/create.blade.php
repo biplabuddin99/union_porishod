@@ -173,8 +173,8 @@
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="trade_license_renewal_fee">ট্রেড লাইসেন্স নবায়ন ফি:-</label>
-                                    <input class="form-control @error('trade_license_renewal_fee') is-invalid @enderror"
-                                    name="trade_license_renewal_fee" id="trade_license_renewal_fee" value="{{ old('trade_license_renewal_fee') }}"  type="text" placeholder="ট্রেড লাইসেন্স নবায়ন ফি">
+                                    <input disabled class="form-control @error('trade_license_renewal_fee') is-invalid @enderror"
+                                    name="trade_license_renewal_fee" id="trade_license_renewal_fee" value="{{ old('trade_license_renewal_fee') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কর্তৃক পূরণকৃত">
                                     {{-- @if($errors->has('trade_license_renewal_fee'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('trade_license_renewal_fee') }}
@@ -195,8 +195,8 @@
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_business_tax_levied">ব্যবসায়িক বার্ষিক ধার্যকৃত কর:-</label>
-                                    <input class="form-control @error('annual_business_tax_levied') is-invalid @enderror"
-                                    name="annual_business_tax_levied" id="annual_business_tax_levied" value="{{ old('annual_business_tax_levied') }}"  type="text" placeholder="ব্যবসায়িক বার্ষিক র্ধাযকৃত কর">
+                                    <input disabled class="form-control @error('annual_business_tax_levied') is-invalid @enderror"
+                                    name="annual_business_tax_levied" id="annual_business_tax_levied" value="{{ old('annual_business_tax_levied') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কর্তৃক পূরণকৃত">
                                     {{-- @if($errors->has('annual_business_tax_levied'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('annual_business_tax_levied') }}

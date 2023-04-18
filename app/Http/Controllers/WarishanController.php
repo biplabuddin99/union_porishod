@@ -27,10 +27,10 @@ class WarishanController extends Controller
     public function primaryIndex($id)
     {
         $warishan=Warishan::where('id',$id)->first();
-        $districts=District::select('id','name','name_bn')->get();
-        $upazilas=Upazila::where('id',$warishan->upazila_id)->select('id','name','name_bn')->get();
-        $unions=Union::where('id',$warishan->union_id)->select('id','name','name_bn')->get();
-        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
+        $districts=District::where('id',$warishan->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$warishan->upazila_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$warishan->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        $unions=Union::where('id',$warishan->union_id)->select('id','name','name_bn')->first();
         $Mobile = explode(',', $warishan->mobile_bank);
         $Digital_devices = explode(',', $warishan->digital_devices);
         $Govt_fac = explode(',', $warishan->government_facilities);
@@ -54,7 +54,10 @@ class WarishanController extends Controller
     {
         try{
             $warishan=Warishan::findOrFail(encryptor('decrypt',$id));
-            $warishan->status=$request->status;
+            $warishan->warisan_certificate_fee=$request->warisan_certificate_fee;
+            $warishan->approval_date=$request->approval_date;
+            $warishan->cancel_reason=$request->cancel_reason;
+            $warishan->status=$request->cancel_reason==""?1:2;
             $warishan->save();
             Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.warishan.index'));
@@ -190,7 +193,10 @@ class WarishanController extends Controller
     public function show($id)
     {
         $warisan=Warishan::findOrFail(encryptor('decrypt',$id));
-        return view('warishan.show',compact('warisan'));
+        $districts=District::where('id',$warisan->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$warisan->upazila_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$warisan->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        return view('warishan.show',compact('warisan','districts','upazilas','wards'));
     }
 
     /**

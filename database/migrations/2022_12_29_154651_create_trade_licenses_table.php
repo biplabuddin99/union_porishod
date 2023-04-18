@@ -68,6 +68,8 @@ return new class extends Migration
             $table->string('nid_image')->nullable();
             $table->string('image_holding')->nullable();
             $table->string('trade_license_fee')->nullable();
+            $table->string('approval_date')->nullable();
+            $table->string('cancel_reson')->nullable();
             $table->string('status')->default(0);
             $table->timestamps();
         });

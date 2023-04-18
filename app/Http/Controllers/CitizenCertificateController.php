@@ -7,6 +7,8 @@ use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\Thana;
 use App\Models\Ward_no;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\All_onlineApplications;
@@ -21,6 +23,20 @@ class CitizenCertificateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function primaryIndex($id)
+    {
+        $citizen=CitizenCertificate::where('id',$id)->first();
+        $districts=District::where('id',$citizen->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$citizen->upazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$citizen->union_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->first();
+        $Mobile = explode(',', $citizen->mobile_bank);
+        $Digital_devices = explode(',', $citizen->digital_devices);
+        $Govt_fac = explode(',', $citizen->government_facilities);
+        $Business_tax = explode(',', $citizen->business_taxes);
+        return view('citizen_certificate.primary_index',compact('citizen','Mobile','Govt_fac','Digital_devices','Business_tax','districts','upazilas','unions','wards'));
+    }
+
     public function index()
     {
         $citizen=CitizenCertificate::where('status',0)->get();
@@ -37,7 +53,10 @@ class CitizenCertificateController extends Controller
     {
         try{
             $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
-            $citizen->status=$request->status;
+            $citizen->citizen_certificate_fee=$request->citizen_certificate_fee;
+            $citizen->approval_date=$request->approval_date;
+            $citizen->cancel_reason=$request->cancel_reason;
+            $citizen->status=$request->cancel_reason==""?1:2;
             $citizen->save();
             Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.citizen.index'));
@@ -79,6 +98,7 @@ class CitizenCertificateController extends Controller
             $citizen->holding_date=$all->holding_date;
             $citizen->head_household=$all->head_household;
             $citizen->husband_wife=$all->husband_wife;
+            $citizen->father_name=$all->father_name;
             $citizen->mother_name=$all->mother_name;
             $citizen->gender=$all->gender;
             $citizen->birth_date=$all->birth_date;
@@ -95,8 +115,13 @@ class CitizenCertificateController extends Controller
             $citizen->disline_connection=$all->disline_connection;
             $citizen->paved_bathroom=$all->paved_bathroom;
             $citizen->arsenic_free=$all->arsenic_free;
+            $citizen->freedom_fighter=$all->freedom_fighter;
             $Govt_fac = explode(',', $all->government_facilities);
             $citizen->government_facilities=implode(',',$Govt_fac);
+            $Mobile = explode(',', $all->mobile_bank);
+            $citizen->mobile_bank=implode(',',$Mobile);
+            $Digital_devices = explode(',', $all->digital_devices);
+            $citizen->digital_devices=implode(',',$Digital_devices);
 
             // নাগরিক ‍সনদ আবেদনের অন্যান্য তথ্য
             $citizen->permanent_resident=$request->permanent_resident;
@@ -107,11 +132,11 @@ class CitizenCertificateController extends Controller
             $citizen->house_holding_no=$request->house_holding_no;
             $citizen->street_nm=$request->street_nm;
             $citizen->village_name=$request->village_name;
-            $citizen->ward_no=$request->ward_no;
-            $citizen->name_union_parishad=$request->name_union_parishad;
+            $citizen->ward_id=$request->ward_id;
+            $citizen->union_id=$request->union_id;
             $citizen->post_office=$request->post_office;
-            $citizen->upazila_thana=$request->upazila_thana;
-            $citizen->district=$request->district;
+            $citizen->upazila_id=$request->upazila_id;
+            $citizen->district_id=$request->district_id;
             $citizen->status=0;
             if($request->has('image'))
             $citizen->image=$this->resizeImage($request->image,'uploads/citizen_certificate/image',true,300,300,false);
@@ -126,7 +151,7 @@ class CitizenCertificateController extends Controller
             $citizen->image_birth_certificate=$this->resizeImage($request->image_birth_certificate,'uploads/citizen_certificate/birth',true,500,700,false);
             if($citizen->save()){
                 Toastr::success('নাগরিক সনদের আবেদন সফলভাবে সম্পন্ন হয়েছে!!');
-                return redirect()->route(currentUser().'.citizen.index');
+                return redirect(route('citizen_primary.list',$citizen->id));
             }else{
                 Toastr::info('Please try Again!');
                 return redirect()->back();
@@ -182,6 +207,8 @@ class CitizenCertificateController extends Controller
            $citizen->holding_date=$request->holding_date;
            $citizen->head_household=$request->head_household;
            $citizen->husband_wife=$request->husband_wife;
+           $citizen->father_name=$request->father_name;
+           $citizen->freedom_fighter=$request->freedom_fighter;
            $citizen->mother_name=$request->mother_name;
            $citizen->gender=$request->gender;
            $citizen->birth_date=$request->birth_date;
@@ -200,6 +227,8 @@ class CitizenCertificateController extends Controller
            $citizen->arsenic_free=$request->arsenic_free;
         //    $Govt_fac = explode(',', $all->government_facilities);
            $citizen->government_facilities=implode(',',$request->government_facilities);
+           $citizen->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+           $citizen->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
 
            // নাগরিক ‍সনদ আবেদনের অন্যান্য তথ্য
            $citizen->permanent_resident=$request->permanent_resident;
@@ -210,11 +239,11 @@ class CitizenCertificateController extends Controller
            $citizen->house_holding_no=$request->house_holding_no;
            $citizen->street_nm=$request->street_nm;
            $citizen->village_name=$request->village_name;
-           $citizen->ward_no=$request->ward_no;
-           $citizen->name_union_parishad=$request->name_union_parishad;
+           $citizen->ward_id=$request->ward_id;
+           $citizen->union_id=$request->union_id;
            $citizen->post_office=$request->post_office;
-           $citizen->upazila_thana=$request->upazila_thana;
-           $citizen->district=$request->district;
+           $citizen->upazila_id=$request->upazila_id;
+           $citizen->district_id=$request->district_id;
            $citizen->status=0;
 
             $path='uploads/citizen_certificate/nid';

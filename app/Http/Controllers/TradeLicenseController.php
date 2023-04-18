@@ -47,7 +47,11 @@ class TradeLicenseController extends Controller
     {
         try{
             $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
-            $trade->status=$request->status;
+            $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
+            $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
+            $trade->approval_date=$request->approval_date;
+            $trade->cancel_reson=$request->cancel_reson;
+            $trade->status=$request->cancel_reson==""?1:2;
             $trade->save();
             Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.trade.index'));

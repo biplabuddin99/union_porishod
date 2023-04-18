@@ -63,6 +63,9 @@ return new class extends Migration
             $table->string('holding_image')->nullable();
             $table->string('image')->nullable();
             $table->string('image_death_certificate')->nullable();
+            $table->string('approval_date')->nullable();
+            $table->string('cancel_reason')->nullable();
+            $table->string('warisan_certificate_fee')->nullable();
             $table->string('status')->default(0);
             $table->timestamps();
             $table->softDeletes();

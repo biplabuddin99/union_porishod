@@ -63,7 +63,11 @@ class HoldingController extends Controller
     {
         try{
             $holding=Holding::findOrFail(encryptor('decrypt',$id));
-            $holding->status=$request->status;
+            $holding->holding_certificate_fee=$request->holding_certificate_fee;
+            $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
+            $holding->approval_date=$request->approval_date;
+            $holding->cancel_reason=$request->cancel_reason;
+            $holding->status=$request->cancel_reason==""?1:2;
             $holding->save();
             Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.holding.index'));
