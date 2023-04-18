@@ -334,7 +334,7 @@
                                     <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
                                     <div class="col-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" @if(in_array(1, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities1">ভিজিএফ কার্ড</label>
+                                        <label  class="form-label" for="government_facilities1">ভিজিডি কার্ড</label>
                                     </div>
 
                                     <div class="col-2">
@@ -362,7 +362,7 @@
                                     </div>
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" @if(in_array(7, $Govt_fac)) checked @endif/>
-                                        <label  class="form-label" for="government_facilities7">ভিজিডি কার্ড</label>
+                                        <label  class="form-label" for="government_facilities7">মুক্তিযোদ্ধা ভাতা</label>
                                     </div>
                                 </div>
 

@@ -52,7 +52,9 @@ class AllOnlineApplicationsController extends Controller
             return view('trade_license.create',compact('all','districts','ward'));
             break;
         case 3:
-            return view('warishan.create',compact('all'));
+            $ward=Ward_no::all();
+            $districts=District::select('id','name','name_bn')->get();
+            return view('warishan.create',compact('all','districts','ward'));
             break;
         case 4:
             return view('citizen_certificate.create',compact('all'));

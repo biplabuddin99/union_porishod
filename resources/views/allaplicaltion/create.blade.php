@@ -333,7 +333,7 @@
                                 <div class="row m-2">
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="government_facilities1">ভিজিএফ কার্ড</label>
+                                        <label  class="form-label" for="government_facilities1">ভিজিডি কার্ড</label>
                                     </div>
 
                                     <div class=" col-sm-3 col-lg-2">
@@ -361,7 +361,7 @@
                                     </div>
                                     <div class="col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" {{old('government_facilities') == '7' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities7">ভিজিডি কার্ড</label>
+                                        <label  class="form-label" for="government_facilities7">মুক্তিযোদ্ধা ভাতা</label>
                                     </div>
                                 </div>
 

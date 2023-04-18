@@ -27,11 +27,15 @@ class HoldingController extends Controller
     public function primaryIndex($id)
     {
         $hold=Holding::where('id',$id)->first();
+        $districts=District::select('id','name','name_bn')->get();
+        $upazilas=Upazila::where('id',$hold->upazila_id)->select('id','name','name_bn')->get();
+        $unions=Union::where('id',$hold->union_id)->select('id','name','name_bn')->get();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         $Mobile = explode(',', $hold->mobile_bank);
         $Digital_devices = explode(',', $hold->digital_devices);
         $Govt_fac = explode(',', $hold->government_facilities);
         $Business_tax = explode(',', $hold->business_taxes);
-        return view('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices','Business_tax'));
+        return view('holding.primary_index',compact('hold','Mobile','Govt_fac','Digital_devices','Business_tax','districts'));
     }
 
     // public function generatePDF()

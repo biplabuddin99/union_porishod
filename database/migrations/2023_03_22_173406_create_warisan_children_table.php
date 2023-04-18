@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('warisan_children', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('warisan_id')->nullable();
-            $table->string('name');
-            $table->string('ralation');
-            $table->string('birth_date');
-            $table->string('cnid');
+            $table->string('name')->nullable();
+            $table->string('ralation')->nullable();
+            $table->string('birth_date')->nullable();
+            $table->string('cnid')->nullable();
+            $table->string('ccomments')->nullable();
             $table->timestamps();
         });
     }

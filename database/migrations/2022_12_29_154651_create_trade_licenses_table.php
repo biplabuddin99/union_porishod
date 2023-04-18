@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('disline_connection')->nullable();
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
+            $table->string('freedom_fighter')->nullable();
             $table->string('mobile_bank')->nullable();
             $table->string('digital_devices')->nullable();
             $table->string('government_facilities')->nullable();

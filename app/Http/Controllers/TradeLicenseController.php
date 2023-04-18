@@ -106,6 +106,7 @@ class TradeLicenseController extends Controller
             $trade->disline_connection=$all->disline_connection;
             $trade->paved_bathroom=$all->paved_bathroom;
             $trade->arsenic_free=$all->arsenic_free;
+            $trade->freedom_fighter=$all->freedom_fighter;
             $Govt_fac = explode(',', $all->government_facilities);
             $trade->government_facilities=implode(',',$Govt_fac);
             $Mobile = explode(',', $all->mobile_bank);
@@ -150,7 +151,6 @@ class TradeLicenseController extends Controller
             if($trade->save()){
                 Toastr::success('ট্রেড লাইসেন্স সফলভাবে তৈরি করা হয়েছে !!');
                 return redirect(route('trade_primary.list',$trade->id));
-                return redirect()->route(currentUser().'.trade.index');
             }else{
                 Toastr::info('আবার চেষ্টা করুন!');
                 return redirect()->back();

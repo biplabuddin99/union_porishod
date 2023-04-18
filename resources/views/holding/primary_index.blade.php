@@ -293,11 +293,13 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">সরকারি সুবিধা </th>
                     <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিএফ কার্ড</label>
+                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিডি কার্ড</label>
                         <input type="checkbox" value="2" @if(in_array(2, $Govt_fac)) checked @endif><label for="">বয়স্ক ভাতা</label>
                         <input type="checkbox" value="3" @if(in_array(3, $Govt_fac)) checked @endif><label for="">মাতৃত্বকালীন ভাতা</label>
                         <input type="checkbox" value="4" @if(in_array(4, $Govt_fac)) checked @endif><label for="">প্রতিবন্ধী ভাতা</label>
                         <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
+                        <input type="checkbox" value="5" @if(in_array(6, $Govt_fac)) checked @endif><label for="">রেশন কার্ড</label>
+                        <input type="checkbox" value="5" @if(in_array(7, $Govt_fac)) checked @endif><label for="">মুক্তিযোদ্ধা ভাতা</label>
                     </td>
                 </tr>
                 {{-- <tr>
@@ -383,19 +385,18 @@
                         <input value="{{ $hold->business_amount_taxes }}" type="text" class="sbinput">টাকা --}}
                     </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <th style="width: 25%; text-align: left;">অন্যান্য করের উৎস </th>
                     <td style="border-style: solid; border-width: 1px;"><input type="checkbox"><input value="{{ $hold->sources_other_taxes }}" type="text" class="sbinput"><label for="">করের পরিমান =</label><input value="{{ $hold->other_taxes_amount }}" type="text" class="sbinput">টাকা</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">হোল্ডিং ট্যাক্স </th>
-                    <td style="border-style: solid; border-width: 1px;"><label for="">বাড়ির আনুমানিক দাম=</label><input value="{{ $hold->approximate_price_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করযোগ্য মুল্য =</label><input value="{{ $hold->annual_taxable_value }}" type="text" class="sbsinput">টাকা<br>
-                        {{-- <label for="">&nbsp;&nbsp;বাড়ির করযোগ্য মুল্য=</label><input value="{{ $hold->taxable_value_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করের পরিমান =</label><input value="{{ $hold->annual_tax_amount }}" type="text" class="sbsinput">টাকা --}}</td>
+                    <td style="border-style: solid; border-width: 1px;"><label for="">বাড়ির আনুমানিক দাম=</label><input value="{{ $hold->approximate_price_house }}" type="text" class="sbsinput">টাকা,&nbsp;<label for="">বার্ষিক করযোগ্য মুল্য =</label><input value="{{ $hold->annual_taxable_value }}" type="text" class="sbsinput">টাকা</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">সর্বমোট ট্যাক্স </th>
                     <td style="border-style: solid; border-width: 1px;"><label for="">হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স + অন্যান্য ট্যাক্স =</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা</td>
-                </tr>
+                </tr> --}}
             </table>
             <table style="width: 100%;">
                 <tr>

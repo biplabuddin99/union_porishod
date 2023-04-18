@@ -86,6 +86,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('slider',SliderController::class,['as'=>'admin']);
         Route::resource('profile',profile::class,['as'=>'admin']);
         Route::resource('warishan',warishan::class,['as'=>'admin']);
+        Route::get('/warishan_primary/{id}',[warishan::class,'primaryIndex'])->name('warishan_primary.list');
         Route::get('warishan_profile',[warishan::class,'profile'])->name('warishan_profile.list');
         Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
 

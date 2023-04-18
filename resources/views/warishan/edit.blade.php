@@ -388,6 +388,7 @@
                                                 <th>সম্পর্ক</th>
                                                 <th>জন্ম তারিখ</th>
                                                 <th>ভোটার আইডি</th>
+                                                <th>মন্তব্য</th>
                                             </tr>
                                         </thead>
                                         <tbody id="table">
@@ -403,16 +404,23 @@
                                                         <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
                                                             <option value="">সম্পর্ক</option>
                                                             <option value="1"  {{ old('crelation', $c->ralation)=="1" ? "selected":""}}>স্ত্রী</option>
-                                                            <option value="2" {{ old('crelation', $c->ralation)=="2" ? "selected":""}}>ছেলে</option>
-                                                            <option value="3" {{ old('crelation', $c->ralation)=="3" ? "selected":""}}>মেয়ে</option>
-                                                            <option value="4" {{ old('crelation', $c->ralation)=="4" ? "selected":""}}>অন্যান্য</option>
+                                                            <option value="2" {{ old('crelation', $c->relation)=="2" ? "selected":""}}>ছেলে</option>
+                                                            <option value="3" {{ old('crelation', $c->relation)=="3" ? "selected":""}}>মেয়ে</option>
+                                                            <option value="4" {{ old('crelation', $c->relation)=="4" ? "selected":""}}>অন্যান্য</option>
                                                         </select>
                                                     </td>
                                                     <td style='text-align:left;'>
-                                                        <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date',$c->birth_date) }}" id="cbirth_date" type="date" placeholder="জন্ম তারিখ">
+                                                        <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date',$c->birth_date) }}" id="cbirth_date" type="date" placeholder="মন্তব্য">
                                                     </td>
                                                     <td style='text-align:left;'>
                                                         <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid',$c->cnid) }}"  type="text" placeholder="ভোটার আইডি">
+                                                    </td>
+                                                    <td style='text-align:left;'>
+                                                        <select class='cls_debit form-control' name="ccomments[]" style='border:none;'>
+                                                            <option value="">সম্পর্ক</option>
+                                                            <option value="1"  {{ old('ccomments', $c->ccomments)=="1" ? "selected":""}}>জীবিত</option>
+                                                            <option value="2" {{ old('ccomments', $c->ccomments)=="2" ? "selected":""}}>মৃত</option>
+                                                        </select>
                                                     </td>
                                                 </tr>
                                             @endforeach

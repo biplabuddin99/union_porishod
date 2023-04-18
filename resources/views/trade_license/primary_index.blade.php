@@ -59,7 +59,7 @@
             padding-left: 360px;
         }
         .hdate{
-            width: 50%;
+            width: 60%;
             outline: 0;
             border-style: none;
         }
@@ -354,11 +354,13 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">সরকারি সুবিধা </th>
                     <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিএফ কার্ড</label>
+                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিডি কার্ড</label>
                         <input type="checkbox" value="2" @if(in_array(2, $Govt_fac)) checked @endif><label for="">বয়স্ক ভাতা</label>
                         <input type="checkbox" value="3" @if(in_array(3, $Govt_fac)) checked @endif><label for="">মাতৃত্বকালীন ভাতা</label>
                         <input type="checkbox" value="4" @if(in_array(4, $Govt_fac)) checked @endif><label for="">প্রতিবন্ধী ভাতা</label>
                         <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
+                        <input type="checkbox" value="5" @if(in_array(6, $Govt_fac)) checked @endif><label for="">রেশন কার্ড</label>
+                        <input type="checkbox" value="5" @if(in_array(7, $Govt_fac)) checked @endif><label for="">মুক্তিযোদ্ধা ভাতা</label>
                     </td>
                 </tr>
                 {{-- <tr>

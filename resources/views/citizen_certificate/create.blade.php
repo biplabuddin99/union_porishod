@@ -1,22 +1,21 @@
 @extends('layout.app')
-
 @section('content')
+<section style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"
+                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
+                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">নাগরিক সনদের অন্যান্য তথ্য</h4>
+            </div>
+        </div>
+    </div>
+</section>
   <section id="multiple-column-form">
-    <div class="row match-height">
-        <div class="container">
-            <section style="margin-top: 50px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center"
-                            style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                            <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">নাগরিক সনদের অন্যান্য তথ্য</h4>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="page-content-inner">
-                <div class="portlet light tasks-widget ">
-                    <div class="portlet-body util-btn-margin-bottom-5">
+      <div class="row match-height">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
                         <form action="{{route(currentUser().'.citizen.store')}}" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                             <input type="hidden" name="all_aplication" value="{{$all->id}}">
                             @csrf
@@ -225,15 +224,12 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </section>
 
 @endsection
+

@@ -12,6 +12,8 @@ use App\Models\Settings\Location\Thana;
 use App\Models\All_onlineApplications;
 use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use Exception;
 
 class WarishanController extends Controller
@@ -22,6 +24,20 @@ class WarishanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function primaryIndex($id)
+    {
+        $warishan=Warishan::where('id',$id)->first();
+        $districts=District::select('id','name','name_bn')->get();
+        $upazilas=Upazila::where('id',$warishan->upazila_id)->select('id','name','name_bn')->get();
+        $unions=Union::where('id',$warishan->union_id)->select('id','name','name_bn')->get();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
+        $Mobile = explode(',', $warishan->mobile_bank);
+        $Digital_devices = explode(',', $warishan->digital_devices);
+        $Govt_fac = explode(',', $warishan->government_facilities);
+        $Business_tax = explode(',', $warishan->business_taxes);
+        return view('warishan.primary_index',compact('warishan','Mobile','Govt_fac','Digital_devices','Business_tax','districts','upazilas','unions','wards'));
+    }
+
     public function index()
     {
         $warishan = Warishan::where('status',0)->get();
@@ -78,6 +94,7 @@ class WarishanController extends Controller
             // $p->form_no=$request->form_no;
             $p->holding_date=$all->holding_date;
             $p->head_household=$all->head_household;
+            $p->father_name=$all->father_name;
             $p->husband_wife=$all->husband_wife;
             $p->mother_name=$all->mother_name;
             $p->gender=$all->gender;
@@ -95,8 +112,13 @@ class WarishanController extends Controller
             $p->disline_connection=$all->disline_connection;
             $p->paved_bathroom=$all->paved_bathroom;
             $p->arsenic_free=$all->arsenic_free;
+            $p->freedom_fighter=$all->freedom_fighter;
             $Govt_fac = explode(',', $all->government_facilities);
             $p->government_facilities=implode(',',$Govt_fac);
+            $Mobile = explode(',', $all->mobile_bank);
+            $p->mobile_bank=implode(',',$Mobile);
+            $Digital_devices = explode(',', $all->digital_devices);
+            $p->digital_devices=implode(',',$Digital_devices);
 
             // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
             $p->warishan_person_name=$request->warishan_person_name;
@@ -111,11 +133,11 @@ class WarishanController extends Controller
             $p->house_holding_no=$request->house_holding_no;
             $p->street_nm=$request->street_nm;
             $p->village_name=$request->village_name;
-            $p->ward_no=$request->ward_no;
-            $p->name_union_parishad=$request->name_union_parishad;
+            $p->ward_id=$request->ward_id;
+            $p->union_id=$request->union_id;
             $p->post_office=$request->post_office;
-            $p->upazila_thana=$request->upazila_thana;
-            $p->district=$request->district;
+            $p->upazila_id=$request->upazila_id;
+            $p->district_id=$request->district_id;
             $p->status=0;
             if($request->has('image'))
             $p->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
@@ -140,12 +162,13 @@ class WarishanController extends Controller
                         $cwarisan->ralation=$request->crelation[$key];
                         $cwarisan->birth_date=$request->cbirth_date[$key];
                         $cwarisan->cnid=$request->cnid[$key];
+                        $cwarisan->ccomments=$request->ccomments[$key];
                         $cwarisan->save();
                     }
                     }
                 }
                 Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!!');
-                return redirect()->route(currentUser().'.warishan.index');
+                return redirect(route('warishan_primary.list',$p->id));
             }else{
                 Toastr::success('দয়করে আবার চেষ্টা করুন!');
                 return redirect()->back();
