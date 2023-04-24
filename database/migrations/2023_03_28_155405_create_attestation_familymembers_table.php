@@ -35,6 +35,7 @@ return new class extends Migration
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
             $table->string('government_facilities')->nullable();
+            $table->string('bank_acc')->nullable();
 
             // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
             $table->string('familyhead_name')->nullable();
@@ -54,6 +55,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_death_certificate')->nullable();
             $table->string('status')->default(0);
+            $table->integer('approved_by')->nullable();
+            $table->integer('chairman_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

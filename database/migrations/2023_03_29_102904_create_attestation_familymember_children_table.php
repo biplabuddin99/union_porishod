@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('ralation');
             $table->string('birth_date');
-            $table->string('cnid');
+            $table->string('cnid')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

@@ -63,37 +63,38 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="website">ওয়েবসাইট</label>
+                                                    <input type="text" id="website" name="website" value="{{old('website',$porishod->website)}}" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="contact_no">যোগাযোগের নম্বর</label>
+                                                    <input type="text" id="contact_no" name="contact_no" value="{{old('contact_no',$porishod->contact_no)}}" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="email">ইমেইল</label>
+                                                    <input type="text" id="email" name="email" value="{{old('email',$porishod->email)}}" class="form-control" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label  class="form-label" for="logo">লোগো</label>
                                             <input type="file" name="logo" value="" data-default-file="{{ asset('uploads/logo_folder') }}/{{ $porishod->logo }}" class="form-control dropify">
-                                            @if($errors->has('logo'))
-                                                <span class="text-danger"> {{ $errors->first('logo') }}</span>
-                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label  class="form-label" for="formlogo">সনদপত্র লোগো</label>
+                                            <input type="file" name="formlogo" value="" data-default-file="{{ asset('uploads/logo_folder') }}/{{ $porishod->formlogo }}" class="form-control dropify">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="website">ওয়েবসাইট</label>
-                                            <input type="text" id="website" name="website" value="{{old('website',$porishod->website)}}" class="form-control" required />
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="contact_no">যোগাযোগের নম্বর</label>
-                                            <input type="text" id="contact_no" name="contact_no" value="{{old('contact_no',$porishod->contact_no)}}" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="email">ইমেইল</label>
-                                            <input type="text" id="email" name="email" value="{{old('email',$porishod->email)}}" class="form-control" />
-                                        </div>
-                                    </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="fb_page">ফেইসবুক পেজ </label>
@@ -114,20 +115,19 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="holding_prefix">হোল্ডিং নম্বর পেরফিক্স</label>
-                                            <input type="text" id="holding_prefix" name="holding_prefix" value="{{old('holding_prefix',$porishod->holding_prefix)}}" class="form-control" required />
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
                                             <label for="slogan">স্লোগান</label>
                                             <input type="text" id="slogan" name="slogan" value="{{old('slogan',$porishod->slogan)}}" class="form-control" required />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="chairman_name">চেয়ারম্যান</label>
-                                            <input type="text" id="chairman_name" name="chairman_name" value="{{old('chairman_name',$porishod->chairman_name)}}" class="form-control" required />
+                                            <label for="chairman_id">চেয়ারম্যান</label>
+                                            <select id="chairman_id" name="chairman_id" class="form-select">
+                                                <option value="">নির্বাচন করুন</option>
+                                                @foreach ($chairman as $c)
+                                                <option value="{{ $c->id }}" @if(old('chairman_id',$porishod->chairman_id)==$c->id) selected @endif>{{ $c->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             BranchSeeder::class,
             UserSeeder::class,
+            DigitalDeviceSeeder::class,
+            EducationalQualificationSeeder::class,
+            GovernmentFacilitySeeder::class,
+            MobileBankSeeder::class,
+            ProfessionSeeder::class,
+            HousingTypeSeeder::class,
+            IncomeSourceSeeder::class,
         ]);
     }
 }

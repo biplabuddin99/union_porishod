@@ -75,6 +75,7 @@
                                           <th>সম্পর্ক</th>
                                           <th>জন্ম তারিখ</th>
                                           <th>ভোটার আইডি</th>
+                                          <th>মন্তব্য</th>
                                       </tr>
                                   </thead>
                                   <tbody id="table">
@@ -97,6 +98,9 @@
                                        </td>
                                         <td style='text-align:left;'>
                                           <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid') }}"  type="text" placeholder="ভোটার আইডি">
+                                       </td>
+                                        <td style='text-align:left;'>
+                                          <input class="form-control" name="comment[]" id="comment" style='border:none;' value="{{ old('comment') }}"  type="text" placeholder="মন্তব্য">
                                        </td>
                                     </tr>
                                   </tbody>
@@ -264,6 +268,9 @@
                             <td style='text-align:left;'>\
                                 <input class='form-control' name='cnid[]' style='border:none;' value='{{ old('cnid') }}'  type='text' placeholder='ভোটার আইডি'>\
                             </td>\
+                            <td style='text-align:left;'>\
+                                <input class='form-control' name='comment[]' style='border:none;' value='{{ old('comment') }}'  type='text' placeholder='মন্তব্য'>\
+                            </td>
                         </tr>";
         $('#table').append(clonedRow);
       }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Settings\Location\District;
 use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
+use App\Models\Chairman;
 
 class PorishodSetting extends Model
 {
@@ -20,5 +21,8 @@ class PorishodSetting extends Model
     }
     public function union(){
         return $this->belongsTo(Union::class,'union_id','id');
+    }
+    public function chairman(){
+        return $this->belongsTo(Chairman::class,'chairman_id','id');
     }
 }

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('porishod_settings', function (Blueprint $table) {
             $table->id();
             $table->string('logo')->nullable();
+            $table->string('formlogo')->nullable();
             $table->string('slogan')->nullable();
-            $table->string('chairman_name')->nullable();
-            $table->string('holding_prefix')->nullable();
+            $table->string('chairman_id')->nullable();
             $table->string('website')->nullable();
             $table->string('contact_no')->nullable();
             $table->string('email')->nullable();
@@ -34,18 +34,16 @@ return new class extends Migration
         DB::table('porishod_settings')->insert([
 
             'logo'=>'logo.png',
+            'formlogo'=>'mujib_logo-01.png',
             'slogan'=>'সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন',
-            'chairman_name'=>'মো: সাইদুর রহমান চৌধুরী',
+            'chairman_id'=>'1',
             'website'=>'www.bdgl.online/chhiramup',
             'contact_no'=>'0101',
             'email'=>'union@email.com',
-            'holding_prefix'=>'CHITIZENS/2CHUP/',
             'union_id'=>'4456',
             'district_id'=>'64',
             'upazila_id'=>'482',
-
-
-    ]);
+        ]);
     }
 
     /**

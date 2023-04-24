@@ -32,7 +32,7 @@ trait ImageHandleTraits{
     }
 
     public function resizeImage($image, $path,$resize=false,$w=0,$h=0,$ratio=false){
-        $imageName = time() . "." . $this->checkValidImage($image);
+        $imageName = rand(111,999).time() . "." . $this->checkValidImage($image);
         $destinationPath = public_path("$path");
         if (!File::exists($destinationPath.'/thumb')) {
             File::makeDirectory($destinationPath.'/thumb', 0775, true, true);

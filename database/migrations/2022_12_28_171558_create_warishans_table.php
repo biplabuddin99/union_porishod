@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('disline_connection')->nullable();
             $table->integer('paved_bathroom')->nullable();
             $table->string('arsenic_free')->nullable();
+            $table->string('bank_acc')->nullable();
             $table->string('freedom_fighter')->nullable();
             $table->string('mobile_bank')->nullable();
             $table->string('digital_devices')->nullable();
@@ -67,6 +68,10 @@ return new class extends Migration
             $table->string('cancel_reason')->nullable();
             $table->string('warisan_certificate_fee')->nullable();
             $table->string('status')->default(0);
+            $table->integer('approved_by')->nullable();
+            $table->integer('chairman_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

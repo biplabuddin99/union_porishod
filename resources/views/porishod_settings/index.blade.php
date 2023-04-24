@@ -55,6 +55,15 @@
                                         <label for="union_id">টুইটার: </label>
                                         {{$porishod->twitter}}<br>
                                        
+                                        <label for="union_id">স্লোগান: </label>
+                                        {{$porishod->slogan}}<br>
+                                       
+                                        <label for="union_id">হোল্ডিং নম্বর পেরফিক্স: </label>
+                                        {{$porishod->holding_prefix}}<br>
+
+                                        <label for="union_id">চেয়ারম্যান: </label>
+                                        {{$porishod->chairman?->name}}<br>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -64,35 +73,20 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label  class="form-label" for="logo">লোগো</label>
-                                        <input type="file" name="logo" value="" data-default-file="{{ asset('uploads/logo_folder') }}/{{ $porishod->logo }}" class="form-control dropify">
-                                        @if($errors->has('logo'))
-                                            <span class="text-danger"> {{ $errors->first('logo') }}</span>
-                                        @endif
+                                        <img src="{{ asset('uploads/logo_folder') }}/{{ $porishod->logo }}" alt="" class="w-50">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                       
-                                        <label for="union_id">স্লোগান: </label>
-                                        {{$porishod->slogan}}<br>
-                                       
-                                        <label for="union_id">হোল্ডিং নম্বর পেরফিক্স: </label>
-                                        {{$porishod->holding_prefix}}<br>
-                                       
+                                        <label  class="form-label" for="logo">সনদপত্র লোগো</label>
+                                        <img src="{{ asset('uploads/logo_folder') }}/{{ $porishod->formlogo }}" alt="" class="w-50">
                                     </div>
                                 </div>
                             </div>
                             
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="chairman_name">চেয়ারম্যান:</label>
-                                {{$porishod->chairman_name}}
-                            </div>
-                        </div>
-                    </div>
+                    
                     
                 </div>
             </div>

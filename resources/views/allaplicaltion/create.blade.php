@@ -25,7 +25,7 @@
                                 </div> --}}
 
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="holding_date"><b>তারিখ</b> </label>
+                                    <label  class="form-label" for="holding_date"><b>আবেদনের তারিখ</b> </label>
                                 </div>
                                 <div class="col-sm-2 col-lg-2 ms-0 ps-0">
                                     <input class="form-control datepicker" name="holding_date" value="<?= date('d-m-Y'); ?>" id="holding_date" type="text">
@@ -34,12 +34,10 @@
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="head_household"><b>আবেদনকারীর নাম</b></label>
-                                    <input class="form-control @error('head_household') is-invalid @enderror" type="text"
+                                    <input required class="form-control @error('head_household') is-invalid @enderror" type="text"
                                     name="head_household" value="{{ old('head_household') }}" id="head_household" placeholder="আবেদনকারীর নাম">
                                     @if($errors->has('head_household'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('head_household') }}
-                                    </small>
+                                        <small class="d-block text-danger">{{ $errors->first('head_household') }}</small>
                                     @endif
                                 </div>
                                 <div class="col-6">
@@ -47,8 +45,7 @@
                                     <input class="form-control" type="text"
                                     name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" placeholder="পিতা/ স্বামী">
                                 </div>
-                            </div>
-                            <div class="row m-2">
+                            
                                 <div class="col-6">
                                     <label  class="form-label" for="father_name"><b>পিতার নাম</b></label>
                                     <input class="form-control @error('father_name') is-invalid @enderror" type="text"
@@ -69,34 +66,18 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row m-2">
+                            
                                 <div class="col-6">
                                     <label  class="form-label" for="birth_date"><b>জন্ম তারিখ</b></label>
                                     <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date') }}"  type="text" placeholder="দিন-মাস-সাল">
                                     @if($errors->has('birth_date'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('birth_date') }}
                                     </small>
                                     @endif
                                 </div>
-                                <div class="col-6">
-                                    <label class="form-label" for="gender1" for="cars"><b>লিঙ্গ</b></label>
-                                    <select name="gender" id="gender1" class="form-select @error('gender') is-invalid @enderror">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">পুরুষ</option>
-                                        <option value="2">মহিলা</option>
-                                        <option value="3">তৃতীয় লিঙ্গ</option>
-                                    </select>
-                                    @if($errors->has('gender'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('gender') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
+                                
                                 <div class="col-6">
                                     <label  class="form-label" for="voter_id_no"><b>ভোটার আইডি</b></label>
                                     <input class="form-control @error('voter_id_no') is-invalid @enderror" type="text" name="voter_id_no" id="voter_id_no" value="{{ old('voter_id_no') }}" placeholder="ভোটার আইডি নং">
@@ -116,21 +97,27 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="rel"><b>মুক্তিযোদ্ধা</b></label>
-                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror" required>
+                                    <label class="form-label" for="gender1" for="cars"><b>লিঙ্গ</b></label>
+                                    <select name="gender" id="gender1" class="form-select @error('gender') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">বীর মুক্তিযোদ্ধা</option>
-                                        <option value="2">বীরাঙ্গনা</option>
-                                        <option value="3">অন্যান্য</option>
+                                        <option value="1">পুরুষ</option>
+                                        <option value="2">মহিলা</option>
+                                        <option value="3">তৃতীয় লিঙ্গ</option>
                                     </select>
-                                    @if($errors->has('freedom_fighter'))
+                                    @if($errors->has('gender'))
                                     <small class="d-block text-danger text-center">
-                                        {{ $errors->first('freedom_fighter') }}
+                                        {{ $errors->first('gender') }}
                                     </small>
                                     @endif
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="marit" for="cars"><b>বৈবাহিক অবস্থা</b></label>
+                                    <select required name="marital_status" id="marit" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">বিবাহিত</option>
+                                        <option value="2">অবিবাহিত</option>
+                                    </select>
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="rel"><b>ধর্ম</b></label>
@@ -148,92 +135,39 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="phone"><b>মোবাইল নম্বর</b></label>
-                                    <input class="form-control @error('phone') is-invalid @enderror" required
-                                    name="phone" id="phone" value="{{ old('phone') }}"  type="text" placeholder="মোবাইল নম্বর">
-                                    @if($errors->has('phone'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('phone') }}
-                                    </small>
-                                    @endif
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="edu_qual0"><b>শিক্ষাগত যোগ্যতা</b></label>
-                                    <select required name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
+                                    <label  class="form-label" for="rel"><b>মুক্তিযোদ্ধা</b></label>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror" required>
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">স্ব-শিক্ষিত</option>
-                                        <option value="2">প্রাথমিক</option>
-                                        <option value="3">মাধ্যমিক</option>
-                                        <option value="4">উচ্চ-মাধ্যমিক</option>
-                                        <option value="5">উচ্চতর-ডিগ্রী</option>
+                                        <option value="1">বীর মুক্তিযোদ্ধা</option>
+                                        <option value="2">বীরাঙ্গনা</option>
+                                        <option value="3">অন্যান্য</option>
                                     </select>
-                                    @if($errors->has('edu_qual'))
+                                    @if($errors->has('freedom_fighter'))
                                     <small class="d-block text-danger text-center">
-                                        {{ $errors->first('edu_qual') }}
+                                        {{ $errors->first('freedom_fighter') }}
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="email"><b>ই-মেইল</b><small>(যদি থাকে)</small> </label>
-                                    <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" placeholder=".....@mail.com">
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label" for="source_inc"><b>পেশা</b></label>
-                                    <select required name="source_income" class="form-select @error('source_income') is-invalid @enderror">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">শিক্ষক</option>
-                                        <option value="2">শিক্ষার্থী</option>
-                                        <option value="3">সরকারি চাকুরীজীবি</option>
-                                        <option value="4">বে-সরকারি চাকুরীজীবি</option>
-                                        <option value="5">গৃহীনি</option>
-                                        <option value="6">কৃষক</option>
-                                        <option value="7">ব্যবসা</option>
-                                        <option value="8">প্রকৌশলি</option>
-                                        <option value="9">আইনজীবী</option>
-                                        <option value="10">চিকিৎসক</option>
-                                        <option value="11">সেবিকা</option>
-                                        <option value="12">দলিল লেখক</option>
-                                        <option value="13">শ্রমিক</option>
-                                        <option value="14">ঠিকাদার</option>
-                                        <option value="15">মৎস চাষী</option>
-                                        <option value="16">গাড়ি চালক</option>
-                                        <option value="17">প্রবাসী</option>
-                                        <option value="18">অন্যান্য</option>
-                                    </select>
-                                    @if($errors->has('source_income'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('source_income') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label class="form-label" for="marit" for="cars"><b>বৈবাহিক অবস্থা</b></label>
-                                    <select required name="marital_status" id="marit" class="form-select">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">বিবাহিত</option>
-                                        <option value="2">অবিবাহিত</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label" for="internet" for="cars"><b>ইন্টারনেট সংযোগ</b></label>
-                                    <select required name="internet_connection" id="internet" class="form-select">
+                                    <label class="form-label" for="tube_well"><b>নলকূপ</b></label>
+                                    <select required name="tube_well" id="tube_well" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
                                         <option value="2">নাই</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="tube_well"><b>নলকূপ</b></label>
-                                    <select required name="tube_well" id="tube_well" class="form-select">
+                                    <label class="form-label" for="paved_bathroom"><b>বাথরুম</b></label>
+                                    <select required name="paved_bathroom" id="paved_bathroom" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">কাঁচা</option>
+                                        <option value="2">পাকা</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="internet" for="cars"><b>ইন্টারনেট সংযোগ</b></label>
+                                    <select required name="internet_connection" id="internet" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">আছে</option>
                                         <option value="2">নাই</option>
@@ -248,121 +182,100 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label class="form-label" for="paved_bathroom"><b>বাথরুম</b></label>
-                                    <select required name="paved_bathroom" id="paved_bathroom" class="form-select">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">কাঁচা</option>
-                                        <option value="2">পাকা</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label" for="arsenic_free"><b>আর্সেনিকমুক্ত</b></label>
-                                    <select required name="arsenic_free" id="arsenic_free" class="form-select">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">আছে</option>
-                                        <option value="2">নাই</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="row border border-2 m-2 p-3">
-                                <label  class="form-label" for="mobile_bank"><b>মোবাইল ব্যাংক</b></label>
-                                <div class="row m-2">
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" {{old('mobile_bank') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="mobile_bank1">নগদ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2" {{old('mobile_bank') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="mobile_bank2">বিকাশ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3" {{old('mobile_bank') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank3">রকেট</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4" {{old('mobile_bank') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank4">উপায়</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5" {{old('mobile_bank') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="mobile_bank5">অন্যান্য</label>
+                                <div class="col-12">
+                                    <label  class="form-label" for="mobile_bank"><b>মোবাইল ব্যাংক</b></label>
+                                    <div class="row m-2">
+                                        @forelse($mobile_bank as $mb)
+                                        <div class=" col-sm-3 col-lg-2">
+                                            <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank{{$mb->id}}" value="{{$mb->id}}" {{old('mobile_bank') == $mb->id ? 'checked' : ''}} />
+                                            <label  class="form-label" for="mobile_bank{{$mb->id}}"> {{$mb->name}}</label>
+                                        </div>
+                                        @empty
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <label  class="form-label" for=""><b>ডিজিটাল ডিভাইস</b></label>
                                 <div class="row m-2">
+                                    @forelse($digital_device as $dd)
                                     <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" {{old('digital_devices') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="digital_devices1">স্মার্ট ফোন</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices{{$dd->id}}" value="{{$dd->id}}" {{old('digital_devices') == $dd->id ? 'checked' : ''}} />
+                                        <label  class="form-label" for="digital_devices{{$dd->id}}"> {{$dd->name}}</label>
                                     </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" {{old('digital_devices') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="digital_devices2">ল্যাপটপ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" {{old('digital_devices') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices3">কম্পিউটার</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" {{old('digital_devices') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices4">অন্যান্য</label>
-                                    </div>
-
-                                    {{-- <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices5">টিভি</label>
-                                    </div> --}}
+                                    @empty
+                                    @endforelse
                                 </div>
-
                             </div>
                             <div class="border border-2 m-2 p-3">
                                 <label  class="form-label" for="government_facilities"><b>সরকারি সুবিধা</b></label>
                                 <div class="row m-2">
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" {{old('government_facilities') == '1' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="government_facilities1">ভিজিডি কার্ড</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities2" value="2" {{old('government_facilities') == '2' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="government_facilities2">বয়স্ক ভাতা</label>
-                                    </div>
-
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities3" value="3" {{old('government_facilities') == '3' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities3">মাতৃত্বকালীন ভাতা</label>
-                                    </div>
-
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities4" value="4" {{old('government_facilities') == '4' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities4">প্রতিবন্ধী ভাতা</label>
-                                    </div>
-
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" {{old('government_facilities') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
-                                    </div>
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities6" value="6" {{old('government_facilities') == '6' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities6">রেশন কার্ড</label>
-                                    </div>
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" {{old('government_facilities') == '7' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="government_facilities7">মুক্তিযোদ্ধা ভাতা</label>
-                                    </div>
+                                    @forelse($gov_f as $dd)
+                                        <div class="col-sm-3 col-lg-2">
+                                            <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities{{$dd->id}}" value="{{$dd->id}}" {{old('government_facilities') == $dd->id ? 'checked' : ''}} />
+                                            <label  class="form-label" for="government_facilities{{$dd->id}}">{{$dd->name}}</label>
+                                        </div>
+                                    @empty
+                                    @endforelse
                                 </div>
-
                             </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="edu_qual0"><b>শিক্ষাগত যোগ্যতা</b></label>
+                                    <select required name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        @forelse($edu_q as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                    @if($errors->has('edu_qual'))
+                                        <small class="d-block text-danger text-center">
+                                            {{ $errors->first('edu_qual') }}
+                                        </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="source_inc"><b>পেশা বা কর্ম</b></label>
+                                    <select required name="source_income" class="form-select @error('source_income') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        @forelse($profession as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                    @if($errors->has('source_income'))
+                                        <small class="d-block text-danger text-center">{{ $errors->first('source_income') }}</small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="phone"><b>মোবাইল নম্বর</b></label>
+                                    <input class="form-control @error('phone') is-invalid @enderror" required name="phone" id="phone" value="{{ old('phone') }}"  type="text" placeholder="মোবাইল নম্বর">
+                                    @if($errors->has('phone'))
+                                        <small class="d-block text-danger">{{ $errors->first('phone') }}</small>
+                                    @endif
+                                </div>
+                            
+                                <div class="col-6">
+                                    <label  class="form-label" for="email"><b>ই-মেইল</b><small>(যদি থাকে)</small> </label>
+                                    <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" placeholder=".....@email.com">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="bank_acc"><b>ব্যাংক একাউন্ট</b></label>
+                                    <select required name="bank_acc" id="bank_acc" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1">আছে</option>
+                                        <option value="2">নাই</option>
+                                    </select>
+                                </div>
+                            </div>
+                           
+                            {{-- <div class="row m-2">
+                                
+                            </div> --}}
+                            
+                            
                             <div class="row m-3">
                                 <h5 class="text-center theme-text-color" style="padding-top: 5px;">আপনি কেন আবেদনটি করতে চান? </h5>
                             </div>

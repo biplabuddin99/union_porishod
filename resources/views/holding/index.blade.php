@@ -87,6 +87,10 @@
                                                                             @csrf
                                                                             @method('PATCH')
                                                                             <tr>
+                                                                                <td>হোল্ডিং নাম্বার</td>
+                                                                                <td colspan="3"><input id="" class="form-control" name="house_holding_no" type="number" placeholder="হোল্ডিং নাম্বার"></td>
+                                                                            </tr>
+                                                                            <tr>
                                                                                 <td>হোল্ডিং নাম্বার সনদ ফি</td>
                                                                                 <td><input id="" class="form-control" name="holding_certificate_fee" type="number" placeholder="হোল্ডিং নাম্বার সনদ ফি"></td>
                                                                                 <td>বাড়ির বার্ষিক ধার্যকৃত কর</td>
@@ -128,7 +132,7 @@
                                     </div>
                                 </td>
                                 <td class="white-space-nowrap d-flex" style="border-style: none;">
-                                    <a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">
+                                    <a href="{{route('hold_primary.list',$h->id)}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
                                      <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">

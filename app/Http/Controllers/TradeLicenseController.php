@@ -53,7 +53,7 @@ class TradeLicenseController extends Controller
             $trade->cancel_reson=$request->cancel_reson;
             $trade->status=$request->cancel_reson==""?1:2;
             $trade->save();
-            Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
+            Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.trade.index'));
             // dd($request);
         }

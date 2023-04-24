@@ -27,7 +27,7 @@ class AttestationFamilymemberController extends Controller
             $attestation=AttestationFamilymember::findOrFail(encryptor('decrypt',$id));
             $attestation->status=$request->status;
             $attestation->save();
-            Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
+            Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.attestation.index'));
         }
         catch (Exception $e){
@@ -101,6 +101,7 @@ class AttestationFamilymemberController extends Controller
             $p->post_office=$request->post_office;
             $p->upazila_id=$request->upazila_id;
             $p->district_id=$request->district_id;
+            $p->created_by=currentUserId();
             $p->status=0;
             if($request->has('image'))
             $p->image=$this->resizeImage($request->image,'uploads/attestation',true,300,300,false);
@@ -125,6 +126,7 @@ class AttestationFamilymemberController extends Controller
                         $cwarisan->ralation=$request->crelation[$key];
                         $cwarisan->birth_date=$request->cbirth_date[$key];
                         $cwarisan->cnid=$request->cnid[$key];
+                        $cwarisan->comment=$request->comment[$key];
                         $cwarisan->save();
                     }
                     }

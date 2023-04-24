@@ -58,7 +58,7 @@ class CitizenCertificateController extends Controller
             $citizen->cancel_reason=$request->cancel_reason;
             $citizen->status=$request->cancel_reason==""?1:2;
             $citizen->save();
-            Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
+            Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.citizen.index'));
             // dd($request);
         }

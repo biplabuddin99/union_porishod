@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('housing_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('tax_amount');
-            $table->decimal('other_charge');
-            $table->string('description');
+            $table->string('name')->nullable();
+            $table->decimal('tax_amount')->nullable()->default(0);
+            $table->decimal('other_charge')->nullable()->default(0);
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

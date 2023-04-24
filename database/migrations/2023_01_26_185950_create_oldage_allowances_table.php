@@ -54,6 +54,9 @@ return new class extends Migration
             $table->string('comment_en');
             $table->string('comment_bn');
             $table->string('image')->nullable();
+            $table->integer('approved_by')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

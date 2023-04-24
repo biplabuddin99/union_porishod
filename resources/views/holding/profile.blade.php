@@ -29,7 +29,8 @@
                                 <th>বাড়ির হেল্ডিং নম্বর</th>
                                 <th>ভোটার আইডি নং</th>
                                 <th>মোবাইল নং</th>
-                                <th width="13%"> পরিবর্তন  </th>
+                                <th>approved by</th>
+                                {{-- <th width="13%"> পরিবর্তন  </th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -41,11 +42,12 @@
                                 <td><a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">{{$h->house_holding_no}}</a></td>
                                 <td>{{$h->voter_id_no}}</td>
                                 <td>{{$h->phone}}</td>
-                                <td class="white-space-nowrap">
+                                <td>{{$h->approved?->name}}</td>
+                                {{-- <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a> 
-                                </td>
+                                </td> --}}
                             </tr>
                             @empty
                             <tr>

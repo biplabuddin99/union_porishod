@@ -293,7 +293,7 @@
                             </td>
                             <td>{{ $c->birth_date }}</td>
                             <td>{{ $c->cnid }}</td>
-                            <td>জীবীত</td>
+                            <td>{{ $c->comment }}</td>
                         </tr>                           
                         @endforeach
                             

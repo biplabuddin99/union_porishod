@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('mobile_bank')->nullable();
             $table->string('digital_devices')->nullable();
             $table->string('government_facilities')->nullable();
+            $table->string('bank_acc')->nullable();
 
             // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $table->string('business_name')->nullable();
@@ -71,6 +72,10 @@ return new class extends Migration
             $table->string('approval_date')->nullable();
             $table->string('cancel_reson')->nullable();
             $table->string('status')->default(0);
+            $table->integer('approved_by')->nullable();
+            $table->integer('chairman_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

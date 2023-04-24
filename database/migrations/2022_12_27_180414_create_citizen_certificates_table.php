@@ -63,6 +63,10 @@ return new class extends Migration
             $table->string('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
+            $table->integer('approved_by')->nullable();
+            $table->integer('chairman_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

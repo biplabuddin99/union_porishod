@@ -12,7 +12,7 @@
                         <h5 class="theme-text-color" style="padding-top: 5px;"><strong>{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</strong></h5>
                     </div>
                     <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h6>
-                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}www.bdgl.online/chhiramup</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h6>
                 </div>
             </div>
         </section>
@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3">
-                        <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
+                        <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
                         <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
                         <p>ইস্যুর তারিখঃ {{ $hold->holding_date }}</p>
                         <p>ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
@@ -124,43 +124,7 @@
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">
-                        @if ($hold->source_income ==1)
-                        শিক্ষক
-                        @elseif ($hold->source_income ==2)
-                        শিক্ষার্থী
-                        @elseif ($hold->source_income ==3)
-                        সরকারি চাকুরীজীবি
-                        @elseif ($hold->source_income ==4)
-                        বে-সরকারি চাকুরীজীবি
-                        @elseif ($hold->source_income ==5)
-                        গৃহীনি
-                        @elseif ($hold->source_income ==6)
-                        কৃষক
-                        @elseif ($hold->source_income ==7)
-                        ব্যবসা
-                        @elseif ($hold->source_income ==8)
-                        প্রকৌশলি
-                        @elseif ($hold->source_income ==9)
-                        আইনজীবী
-                        @elseif ($hold->source_income ==10)
-                        চিকিৎসক
-                        @elseif ($hold->source_income ==11)
-                        সেবিকা
-                        @elseif ($hold->source_income ==12)
-                        দলিল লেখক
-                        @elseif ($hold->source_income ==13)
-                        শ্রমিক
-                        @elseif ($hold->source_income ==14)
-                        ঠিকাদার
-                        @elseif ($hold->source_income ==15)
-                        মৎস চাষী
-                        @elseif ($hold->source_income ==16)
-                        গাড়ি চালক
-                        @elseif ($hold->source_income ==17)
-                        প্রবাসী
-                        @elseif ($hold->source_income ==18)
-                        অন্যান্য
-                        @endif
+                        {{$hold->income?->name}}
                     </span>
                 </div>
             </div>
@@ -322,16 +286,18 @@
                </div>
             </div>
             <div class="row">
-                <div class="col-8"></div>
+                <div class="col-8" style="padding-left: 100px">
+                    <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
+                </div>
                 <div class="col-4" style="color: rgb(18, 5, 133); padding-top:20px">
-                    <div class="row"><strong>(মো: সাইদুর রহমান চৌধুরী)</strong></div>
+                    <div class="row"><strong>({{ $hold->chairman?->name}})</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
                     <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
                     <div class="row" style="padding-left: 40px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:30px">
-                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন ||</h5>
+                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
     </section>

@@ -68,15 +68,17 @@ class HoldingController extends Controller
             $holding->approval_date=$request->approval_date;
             $holding->cancel_reason=$request->cancel_reason;
             $holding->status=$request->status;
-            $holding->house_holding_no=request()->session()->get('upsetting')->holding_prefix.str_pad(encryptor('decrypt',$id), 10, "0", STR_PAD_LEFT);
+            $holding->approved_by=currentUserId();
+            $holding->updated_by=currentUserId();
+            $holding->house_holding_no=$request->house_holding_no;
             $holding->save();
-            Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
+            Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.holding.index'));
             // dd($request);
         }
         catch (Exception $e){
+            Toastr::error('অনুগ্রহপূর্বক আবার চেষ্টা করুন!');
             return back()->withInput();
-
         }
 
     }
@@ -123,6 +125,7 @@ class HoldingController extends Controller
             $holding->tube_well=$all->tube_well;
             $holding->disline_connection=$all->disline_connection;
             $holding->paved_bathroom=$all->paved_bathroom;
+            $holding->bank_acc=$all->bank_acc;
             $holding->arsenic_free=$all->arsenic_free;
             $Govt_fac = explode(',', $all->government_facilities);
             $holding->government_facilities=implode(',',$Govt_fac);
@@ -153,6 +156,8 @@ class HoldingController extends Controller
             $holding->upazila_id=$request->upazila_id;
             $holding->district_id=$request->district_id;
             $holding->status=0;
+            $holding->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
+            $holding->created_by=currentUserId();
             if($request->has('image'))
             $holding->image=$this->resizeImage($request->image,'uploads/holding',true,300,300,false);
 

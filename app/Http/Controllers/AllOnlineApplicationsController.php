@@ -11,6 +11,11 @@ use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Thana;
 use App\Models\Settings\Location\Union;
 use App\Models\Ward_no;
+use App\Models\MobileBank;
+use App\Models\DigitalDevice;
+use App\Models\EducationalQualification;
+use App\Models\GovernmentFacility;
+use App\Models\Profession;
 
 class AllOnlineApplicationsController extends Controller
 {
@@ -32,7 +37,12 @@ class AllOnlineApplicationsController extends Controller
 
     public function create()
     {
-        return view('allaplicaltion.create');
+        $mobile_bank=MobileBank::orderBy('created_at')->get();
+        $digital_device=DigitalDevice::orderBy('created_at')->get();
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $gov_f=GovernmentFacility::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('allaplicaltion.create',compact('mobile_bank','digital_device','edu_q','gov_f','profession'));
     }
 
     public function application_check($type)
@@ -100,38 +110,38 @@ class AllOnlineApplicationsController extends Controller
     public function store(Request $request)
     {
         try{
-            $all_onlineApplications=new All_onlineApplications;
-            $all_onlineApplications->form_no=$request->form_no;
-            $all_onlineApplications->holding_date=$request->holding_date;
-            $all_onlineApplications->head_household=$request->head_household;
-            $all_onlineApplications->husband_wife=$request->husband_wife;
-            $all_onlineApplications->father_name=$request->father_name;
-            $all_onlineApplications->mother_name=$request->mother_name;
-            $all_onlineApplications->gender=$request->gender;
-            $all_onlineApplications->birth_date=$request->birth_date;
-            $all_onlineApplications->voter_id_no=$request->voter_id_no;
-            $all_onlineApplications->birth_registration_id=$request->birth_registration_id;
-            $all_onlineApplications->religion=$request->religion;
-            $all_onlineApplications->phone=$request->phone;
-            $all_onlineApplications->edu_qual=$request->edu_qual;
-            $all_onlineApplications->email=$request->email;
-            $all_onlineApplications->source_income=$request->source_income;
-            $all_onlineApplications->marital_status=$request->marital_status;
-            $all_onlineApplications->internet_connection=$request->internet_connection;
-            $all_onlineApplications->tube_well=$request->tube_well;
-            $all_onlineApplications->freedom_fighter=$request->freedom_fighter;
-            $all_onlineApplications->disline_connection=$request->disline_connection;
-            $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
-            $all_onlineApplications->arsenic_free=$request->arsenic_free;
-            $all_onlineApplications->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
-            $all_onlineApplications->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
-            $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
-            $all_onlineApplications->type_application=$request->type_application;
+            $data=new All_onlineApplications;
+            $data->form_no=$request->form_no;
+            $data->holding_date=$request->holding_date;
+            $data->head_household=$request->head_household;
+            $data->husband_wife=$request->husband_wife;
+            $data->father_name=$request->father_name;
+            $data->mother_name=$request->mother_name;
+            $data->gender=$request->gender;
+            $data->birth_date=$request->birth_date;
+            $data->voter_id_no=$request->voter_id_no;
+            $data->birth_registration_id=$request->birth_registration_id;
+            $data->religion=$request->religion;
+            $data->phone=$request->phone;
+            $data->edu_qual=$request->edu_qual;
+            $data->email=$request->email;
+            $data->source_income=$request->source_income;
+            $data->marital_status=$request->marital_status;
+            $data->internet_connection=$request->internet_connection;
+            $data->tube_well=$request->tube_well;
+            $data->freedom_fighter=$request->freedom_fighter;
+            $data->disline_connection=$request->disline_connection;
+            $data->paved_bathroom=$request->paved_bathroom;
+            $data->arsenic_free=$request->arsenic_free;
+            $data->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $data->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $data->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $data->type_application=$request->type_application;
+            $data->created_by=currentUserId();
 
-            $all_onlineApplications->save();
-                return redirect(route('aplication.application_check',$all_onlineApplications));
-            }
-        catch (Exception $e){
+            $data->save();
+                return redirect(route('aplication.application_check',$data));
+        }catch (Exception $e){
             return back()->withInput();
 
         }
@@ -157,36 +167,38 @@ class AllOnlineApplicationsController extends Controller
     public function update(Request $request,$id)
     {
         try{
-            $all_onlineApplications= All_onlineApplications::where('id',$id)->first();
-            $all_onlineApplications->form_no=$request->form_no;
-            $all_onlineApplications->holding_date=$request->holding_date;
-            $all_onlineApplications->head_household=$request->head_household;
-            $all_onlineApplications->husband_wife=$request->husband_wife;
-            $all_onlineApplications->father_name=$request->father_name;
-            $all_onlineApplications->mother_name=$request->mother_name;
-            $all_onlineApplications->gender=$request->gender;
-            $all_onlineApplications->birth_date=$request->birth_date;
-            $all_onlineApplications->voter_id_no=$request->voter_id_no;
-            $all_onlineApplications->birth_registration_id=$request->birth_registration_id;
-            $all_onlineApplications->religion=$request->religion;
-            $all_onlineApplications->phone=$request->phone;
-            $all_onlineApplications->edu_qual=$request->edu_qual;
-            $all_onlineApplications->email=$request->email;
-            $all_onlineApplications->source_income=$request->source_income;
-            $all_onlineApplications->marital_status=$request->marital_status;
-            $all_onlineApplications->internet_connection=$request->internet_connection;
-            $all_onlineApplications->tube_well=$request->tube_well;
-            $all_onlineApplications->disline_connection=$request->disline_connection;
-            $all_onlineApplications->paved_bathroom=$request->paved_bathroom;
-            $all_onlineApplications->freedom_fighter=$request->freedom_fighter;
-            $all_onlineApplications->arsenic_free=$request->arsenic_free;
-            $all_onlineApplications->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
-            $all_onlineApplications->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
-            $all_onlineApplications->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
-            $all_onlineApplications->type_application=$request->type_application;
+            $data= All_onlineApplications::where('id',$id)->first();
+            $data->form_no=$request->form_no;
+            $data->holding_date=$request->holding_date;
+            $data->head_household=$request->head_household;
+            $data->husband_wife=$request->husband_wife;
+            $data->father_name=$request->father_name;
+            $data->mother_name=$request->mother_name;
+            $data->gender=$request->gender;
+            $data->birth_date=$request->birth_date;
+            $data->voter_id_no=$request->voter_id_no;
+            $data->birth_registration_id=$request->birth_registration_id;
+            $data->religion=$request->religion;
+            $data->phone=$request->phone;
+            $data->edu_qual=$request->edu_qual;
+            $data->email=$request->email;
+            $data->source_income=$request->source_income;
+            $data->marital_status=$request->marital_status;
+            $data->internet_connection=$request->internet_connection;
+            $data->tube_well=$request->tube_well;
+            $data->disline_connection=$request->disline_connection;
+            $data->paved_bathroom=$request->paved_bathroom;
+            $data->freedom_fighter=$request->freedom_fighter;
+            $data->bank_acc=$request->bank_acc;
+            $data->arsenic_free="";
+            $data->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $data->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $data->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $data->type_application=$request->type_application;
+            $data->created_by=currentUserId();
 
-            $all_onlineApplications->save();
-                return redirect(route('aplication.application_check',$all_onlineApplications));
+            $data->save();
+                return redirect(route('aplication.application_check',$data));
             }
         catch (Exception $e){
             return back()->withInput();
