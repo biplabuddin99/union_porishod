@@ -90,7 +90,7 @@
                                         <th scope="col">{{__('গ্রাম')}}</th>
                                         <th scope="col">{{__('ওয়ার্ড')}}</th>
                                         <th scope="col">{{__('স্ট্যাটাস')}}</th>
-                                        <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
+                                        <th class="white-space-nowrap">{{__('কর্মকাণ্ড')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

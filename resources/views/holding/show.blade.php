@@ -9,10 +9,10 @@
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
                     <div class="col-md-12 text-center"
                         style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px; background-color: rgb(196, 213, 245);">
-                        <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>চিরাম ইউনিয়ন পরিষদ</strong></h4>
+                        <h5 class="theme-text-color" style="padding-top: 5px;"><strong>{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</strong></h5>
                     </div>
-                    <h6 class="text-center">বারহাট্টা,নেত্রকোণা</h6>
-                    <h6 class="text-center">www.bdgl.online/chhiramup</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}www.bdgl.online/chhiramup</h6>
                 </div>
             </div>
         </section>
@@ -27,14 +27,14 @@
                     </div>
                     <div class="col-5 col-sm-5" style="padding-left: 110px; padding-top: 5px;">
                         <div style="padding-left: 70px;">
-                            <img height="130px" width="130px" src="{{ asset('images/show_img/logo.png') }}" alt="">
+                            <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                         </div>
                         <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-হোল্ডিং নাম্বার সনদ</h4>
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
                         <img height="150px" width="120px"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">হোল্ডিং নাম্বার সনদ নং: CHITIZENS/2CHUP/00{{ $hold->id }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">হোল্ডিং নাম্বার সনদ নং: {{ $hold->house_holding_no }}</h5>
                 </div>
                 <div class="row">
                     <p style="border-bottom: 3px solid rgb(73, 235, 8); border-top: 3px solid rgb(73, 235, 8); padding-top: 5px;">
@@ -326,8 +326,8 @@
                 <div class="col-4" style="color: rgb(18, 5, 133); padding-top:20px">
                     <div class="row"><strong>(মো: সাইদুর রহমান চৌধুরী)</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
-                    <div class="row" style="padding-left: 30px">চিরাম ইউনিয়ন পরিষদ</div>
-                    <div class="row" style="padding-left: 40px">বারহাট্টা,নেত্রকোণা</div>
+                    <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 40px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:30px">

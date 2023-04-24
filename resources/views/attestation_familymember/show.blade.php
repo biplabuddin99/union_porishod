@@ -9,10 +9,10 @@
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
                     <div class="col-md-12 text-center"
                         style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px; background-color: rgb(196, 213, 245);">
-                        <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>২নং চরপার্বতী ইউনিয়ন পরিষদ</strong></h4>
+                        <h5 class="theme-text-color" style="padding-top: 5px;"><strong>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</strong></h5>
                     </div>
-                    <h6 class="text-center">কোম্পানিগঞ্জ,নোয়াখালী</h6>
-                    <h6 class="text-center">www.bdgl.online/charpatbotiup</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}www.bdgl.online/chhiramup</h6>
                 </div>
             </div>
         </section>
@@ -209,7 +209,7 @@
                         <span  class="form-label" for="">ওয়ার্ড নং :</span>
                     </div>
                     <div class="col-2">
-                        <span  class="form-label" for="">{{ $attestation->ward_no }}</span>
+                        <span  class="form-label" for="">{{ $attestation->ward?->ward_name_bn }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -237,13 +237,13 @@
                         <span  class="form-label" for="">থানা :</span>
                     </div>
                     <div class="col-3">
-                        <span  class="form-label" for="">{{ $attestation->upazila_thana }}</span>
+                        <span  class="form-label" for="">{{ $attestation->upazila?->name_bn }}</span>
                     </div>
                     <div class="col-3">
                         <span  class="form-label" for="">জেলা :</span>
                     </div>
                     <div class="col-2">
-                        <span  class="form-label" for="">{{ $attestation->district }}</span>
+                        <span  class="form-label" for="">{{ $attestation->district?->name_bn }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -302,7 +302,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-12">
-                        <h6>উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে তা প্রমান হলে,আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া যাবে। আমি নিম্নস্বাক্ষরকারী ২ নং ওয়ার্ড ইউপি সদস্য / কাউন্সিলর দ্বারা সত্যায়ন পূর্বক উক্ত ব্যাক্তির ওয়ারিশান সনদ প্রদান করিলাম।</h6>
+                        <h6>উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে তা প্রমান হলে,আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া যাবে। আমি নিম্নস্বাক্ষরকারী {{ $attestation->ward?->ward_name_bn }} ইউপি সদস্য / কাউন্সিলর দ্বারা সত্যায়ন পূর্বক উক্ত ব্যাক্তির ওয়ারিশান সনদ প্রদান করিলাম।</h6>
                     </div>
                 </div>
             </div>
@@ -317,20 +317,20 @@
                 <div class="col-1"></div>
                 <div class="col-4" style="color: rgb(18, 5, 133); padding-top:10px">
                     <div class="row"><strong>(সাইফুল ইসলাম মনিক)</strong></div>
-                    <div class="row" style="padding-left: 30px">২ নং ওয়ার্ড সদস্য</div>
-                    <div class="row">২নং চরপার্বতী ইউনিযন পরিষদ</div>
-                    <div class="row" style="padding-left: 30px">কোম্পানিগঞ্জ, নোয়াখালী</div>
+                    <div class="row" style="padding-left: 30px">{{ $attestation->ward?->ward_name_bn }} সদস্য</div>
+                    <div class="row">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
                 <div class="col-3"></div>
                 <div class="col-4" style="color: rgb(18, 5, 133); padding-top:10px">
                     <div class="row"><strong>(কাজী মোহাম্মদ হানিফ)</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
-                    <div class="row">২নং চরপার্বতী ইউনিযন পরিষদ</div>
-                    <div class="row" style="padding-left: 30px">কোম্পানিগঞ্জ, নোয়াখালী</div>
+                    <div class="row">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:20px;">
-                <h5 class="text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন ||</h5>
+                <h5 class="text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"স্লোগান"}} ||</h5>
             </div>
         </section>
     </section>

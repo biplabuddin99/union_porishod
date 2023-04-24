@@ -73,6 +73,7 @@ class AuthenticationController extends Controller
     }
 
     public function setSession($user){
+        $upsetting=\App\Models\PorishodSetting::first();
         return request()->session()->put(
                 [
                     'userId'=>encryptor('encrypt',$user->id),
@@ -82,13 +83,14 @@ class AuthenticationController extends Controller
                     'language'=>encryptor('encrypt',$user->language),
                     'companyId'=>encryptor('encrypt',$user->company_id),
                     'branchId'=>encryptor('encrypt',$user->branch_id),
-                    'image'=>$user->image?$user->image:'no-image.png'
+                    'image'=>$user->image?$user->image:'no-image.png',
+                    'upsetting'=>$upsetting
                 ]
             );
     }
 
     public function singOut(){
         request()->session()->flush();
-        return redirect('login')->with($this->resMessageHtml(false,'error',currentUserId()));
+        return redirect('login')->with($this->resMessageHtml(true,'success',"You have successfully logged out."));
     }
 }

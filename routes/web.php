@@ -104,7 +104,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('/hold_primary/{id}',[holding::class,'primaryIndex'])->name('hold_primary.list');
         // Route::get('generate-pdf', [holding::class, 'generatePDF']);
-        Route::get('hold_profile',[holding::class,'profile'])->name('hold_profile.list');
+        Route::get('hold_profile',[holding::class,'profile'])->name('admin.hold_profile.list');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 
         Route::resource('others',others::class,['as'=>'admin']);

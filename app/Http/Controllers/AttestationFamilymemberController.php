@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AttestationFamilymember;
 use App\Models\AttestationFamilymemberChild;
+use App\Models\Ward_no;
 use Illuminate\Http\Request;
 use App\Models\All_onlineApplications;
 use App\Http\Traits\ImageHandleTraits;
@@ -49,7 +50,8 @@ class AttestationFamilymemberController extends Controller
      */
     public function create()
     {
-        return view('attestation_familymember.create');
+        $wards=Ward_no::where('id',$hold->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        return view('attestation_familymember.create',compact('wards'));
     }
 
     /**
@@ -90,22 +92,15 @@ class AttestationFamilymemberController extends Controller
             $p->familyhead_name=$request->familyhead_name;
             $p->father_husband=$request->father_husband;
             $p->attesteation_mother_name=$request->attesteation_mother_name;
-            $p->attesteation_birth_date=$request->attesteation_birth_date;
-            $p->update_holding_tax=$request->update_holding_tax;
-            $p->wife_number=$request->wife_number;
-            $p->son=$request->son;
-            $p->daughter=$request->daughter;
-            $p->total_warishan_members=$request->total_warishan_members;
             $p->house_holding_no=$request->house_holding_no;
-            $p->applicant_relationship_family=$request->applicant_relationship_family;
             $p->total_family_members=$request->total_family_members;
             $p->street_nm=$request->street_nm;
             $p->village_name=$request->village_name;
             $p->ward_no=$request->ward_no;
-            $p->name_union_parishad=$request->name_union_parishad;
+            $p->union_id=$request->union_id;
             $p->post_office=$request->post_office;
-            $p->upazila_thana=$request->upazila_thana;
-            $p->district=$request->district;
+            $p->upazila_id=$request->upazila_id;
+            $p->district_id=$request->district_id;
             $p->status=0;
             if($request->has('image'))
             $p->image=$this->resizeImage($request->image,'uploads/attestation',true,300,300,false);

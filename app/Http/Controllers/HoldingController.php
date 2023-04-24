@@ -67,7 +67,8 @@ class HoldingController extends Controller
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
             $holding->approval_date=$request->approval_date;
             $holding->cancel_reason=$request->cancel_reason;
-            $holding->status=$request->cancel_reason==""?1:2;
+            $holding->status=$request->status;
+            $holding->house_holding_no=request()->session()->get('upsetting')->holding_prefix.str_pad(encryptor('decrypt',$id), 10, "0", STR_PAD_LEFT);
             $holding->save();
             Toastr::success('প্রোপাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.holding.index'));
@@ -265,7 +266,6 @@ class HoldingController extends Controller
             $holding->post_office=$request->post_office;
             $holding->upazila_id=$request->upazila_id;
             $holding->district_id=$request->district_id;
-            $holding->status=0;
 
             $path='uploads/holding';
 
@@ -281,9 +281,15 @@ class HoldingController extends Controller
             if($this->deleteImage($holding->nid_image,$path))
                 $holding->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
 
-            $holding->save();
-            Toastr::success('হোল্ডিং আপডেট সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route(currentUser().'.holding.index'));
+            if($holding->save()){
+                    Toastr::success('হোল্ডিং আপডেট সফলভাবে সম্পন্ন হয়েছে!');
+                if($holding->status==0)
+                    return redirect(route(currentUser().'.holding.index'));
+                else
+                    return redirect(route(currentUser().'.hold_profile.list'));
+
+            }
+            
             // dd($request);
         }
         catch (Exception $e){

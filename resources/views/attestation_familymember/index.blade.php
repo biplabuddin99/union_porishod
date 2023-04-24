@@ -1,20 +1,18 @@
 @extends('layout.app')
 
 @section('content')
-<section style="margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center"
-                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">পরিবার সদস্যদের প্রত্যয়ন পত্র তালিকা</h4>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
             <div class="card">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-block">
+                            <h5 style="padding-top: 5px;">পরিবার সদস্যদের প্রত্যয়ন পত্র তালিকা</h5>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table" id="table1">
                         <thead>
@@ -24,8 +22,8 @@
                                 <th scope="col">{{__('ওয়ারিশান ব্যাক্তির নাম')}}</th>
                                 <th scope="col">{{__('মোবাইল')}}</th>
                                 <th scope="col">{{__('মাতার নাম')}}</th>
-                                <th scope="col">{{__('প্রোপাইল')}}</th>
-                                <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
+                                <th scope="col">{{__('প্রোফাইল')}}</th>
+                                <th class="white-space-nowrap">{{__('কর্মকাণ্ড')}}</th>
                             </tr>
                         </thead>
                         <tbody>

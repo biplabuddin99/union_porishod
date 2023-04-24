@@ -27,7 +27,7 @@
                                         <th scope="col">{{__('ওয়ারিশান ব্যাক্তির নাম')}}</th>
                                         <th scope="col">{{__('মোবাইল')}}</th>
                                         <th scope="col">{{__('মাতার নাম')}}</th>
-                                        <th class="white-space-nowrap">{{__('এক্সসান')}}</th>
+                                        <th class="white-space-nowrap">{{__('কর্মকাণ্ড')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

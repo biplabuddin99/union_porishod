@@ -62,7 +62,8 @@ class AllOnlineApplicationsController extends Controller
             return view('citizen_certificate.create',compact('all','districts','ward'));
             break;
         case 5:
-            return view('attestation_familymember.create',compact('all'));
+            $ward=Ward_no::all();
+            return view('attestation_familymember.create',compact('all','ward'));
             break;
         case 6:
             $district=District::all();

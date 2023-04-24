@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12 text-center"
                 style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ট্রেড লাইসেন্স প্রোপাইল</h4>
+                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ট্রেড লাইসেন্স প্রোফাইল</h4>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                                 <th>ব্যবসা প্রতিষ্ঠানের নাম </th>
                                 <th>আবেদনকারীর নাম </th>
                                 <th>মোবাইল</th>
-                                <th width="13%"> এক্সসান  </th>
+                                <th width="13%"> কর্মকাণ্ড  </th>
                             </tr>
                         </thead>
                         <tbody>

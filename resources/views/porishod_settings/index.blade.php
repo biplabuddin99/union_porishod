@@ -3,60 +3,97 @@
 @section('pageSubTitle',trans('List'))
 
 @section('content')
-<section style="margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center bg-primary"
-                style="margin-top: 20px; margin-bottom: 20px; border-radius: 4px;">
-                <h4 style="color: white; padding-top: 5px;">পরিষদ সেটিং তালিকা</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Bordered table start -->
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
             <div class="card">
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-block">
+                            <h4 style="padding-top: 5px;">পরিষদ সেটিং</h4>
+                        </div>
+                    </div>
+                </div>
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
                 @endif
                 <!-- table bordered -->
                 <div class="table-responsive">
-                    <table class="table table-bordered mb-0">
-                        <thead>
-                            <tr class="text-center">
-                                <th scope="col">{{__('#SL')}}</th>
-                                <th scope="col">{{__('Logo')}}</th>
-                                <th scope="col">{{__('Union Name')}}</th>
-                                <th scope="col">{{__('Upazila Name')}}</th>
-                                <th scope="col">{{__('District Name')}}</th>
-                                <th class="white-space-nowrap">{{__('Action') }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($porishod as $d)
-                            <tr class="text-center">
-                                <th scope="row">{{ ++$loop->index }}</th>
-                                <td><img width="50px" height="50px" src="{{ asset('uploads/logo_folder') }}/{{ $d->logo }}" alt=""></td>
-                                <td>{{$d->union_name}}</td>
-                                <td>{{$d->upazila_name}}</td>
-                                <td>{{$d->district_name}}</td>
-                                <td class="white-space-nowrap">
-                                    <a href="{{route(currentUser().'.porishodsettiong.edit',encryptor('encrypt',$d->id))}}">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <th colspan="8" class="text-center">No Data Found</th>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                    <a href="{{route(currentUser().'.porishodsettiong.edit',encryptor('encrypt',$porishod->id))}}">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="district_id">জেলা: </label>
+                                        {{$porishod->district?->name_bn}}<br>
+                                    
+                                        <label for="upazila_id">উপজেলা/থানা:</label>
+                                        {{$porishod->upazila?->name_bn}}<br>
+
+                                        <label for="union_id">ইউনিয়ন: </label>
+                                        {{$porishod->union?->name_bn}}<br>
+                                       
+                                        <label for="union_id">যোগাযোগের নম্বর: </label>
+                                        {{$porishod->contact_no}}<br>
+                                       
+                                        <label for="union_id"> ইমেইল: </label>
+                                        {{$porishod->email}}<br>
+                                       
+                                        <label for="union_id">ওয়েবসাইট: </label>
+                                        {{$porishod->website}}<br>
+                                       
+                                        <label for="union_id">ফেইসবুক পেজ: </label>
+                                        {{$porishod->fb_page}}<br>
+                                       
+                                        <label for="union_id">ইউটিউব চ্যানেল: </label>
+                                        {{$porishod->youtube}}<br>
+                                       
+                                        <label for="union_id">টুইটার: </label>
+                                        {{$porishod->twitter}}<br>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label  class="form-label" for="logo">লোগো</label>
+                                        <input type="file" name="logo" value="" data-default-file="{{ asset('uploads/logo_folder') }}/{{ $porishod->logo }}" class="form-control dropify">
+                                        @if($errors->has('logo'))
+                                            <span class="text-danger"> {{ $errors->first('logo') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                       
+                                        <label for="union_id">স্লোগান: </label>
+                                        {{$porishod->slogan}}<br>
+                                       
+                                        <label for="union_id">হোল্ডিং নম্বর পেরফিক্স: </label>
+                                        {{$porishod->holding_prefix}}<br>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="chairman_name">চেয়ারম্যান:</label>
+                                {{$porishod->chairman_name}}
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

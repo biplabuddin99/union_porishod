@@ -15,19 +15,34 @@ return new class extends Migration
     {
         Schema::create('porishod_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('union_name');
-            $table->string('district_name');
-            $table->string('upazila_name');
+            $table->string('logo')->nullable();
+            $table->string('slogan')->nullable();
+            $table->string('chairman_name')->nullable();
+            $table->string('holding_prefix')->nullable();
+            $table->string('website')->nullable();
+            $table->string('contact_no')->nullable();
+            $table->string('email')->nullable();
+            $table->string('fb_page')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('union_id')->nullable();
+            $table->string('district_id')->nullable();
+            $table->string('upazila_id')->nullable();
             $table->timestamps();
         });
 
         DB::table('porishod_settings')->insert([
 
             'logo'=>'logo.png',
-            'union_name'=>'চিরাম ইউনিয়ন পরিষদ',
-            'district_name'=>'নেত্রকোণা',
-            'upazila_name'=>'বারহাট্টা',
+            'slogan'=>'সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন',
+            'chairman_name'=>'মো: সাইদুর রহমান চৌধুরী',
+            'website'=>'www.bdgl.online/chhiramup',
+            'contact_no'=>'0101',
+            'email'=>'union@email.com',
+            'holding_prefix'=>'CHITIZENS/2CHUP/',
+            'union_id'=>'4456',
+            'district_id'=>'64',
+            'upazila_id'=>'482',
 
 
     ]);

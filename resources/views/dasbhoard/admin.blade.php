@@ -4,14 +4,8 @@
 @section('content')
 
 <div class="page-content">
-    <div class="auth-logo text-center mt-5">
-        <div class="row">
-            <h4 style="background-color: rgb(16, 139, 239);; color:white;" class="py-3 mt-0">চিরাম ইউনিয়ন পরিষদ</h4>
-            <h6 style="color:rgb(12, 11, 11);" class="p-3">বারহাট্টা,নেত্রকোণা ।</h6>
-        </div>
-    </div>
-    <section class="row" style="border: 3px solid rgba(104, 157, 201, 0.774); padding: 10px">
-        <div class="col-12 col-lg-12 mt-5">
+    <section class="row p-2 pt-0">
+        <div class="col-12 col-lg-12 mt-0">
             <div class="row">
                 <div class="col-sm-6 col-lg-3 col-md-6">
                     <table class="table table-hover border border-primary">

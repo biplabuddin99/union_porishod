@@ -33,8 +33,7 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <input class="form-check-input" type="checkbox" name="" id="remark" value="" />
-                <label  class="form-label" for="remark"><h5>Remember me</h5></label>
+               
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-end">
                 <button type="submit" class="btn btn-success text-end mt-2">Login</button>

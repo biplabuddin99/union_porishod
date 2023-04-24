@@ -499,7 +499,18 @@ footer img {
 .developer {
   text-align: right;
 }
-
+.theme-text-color{
+  color: #0631a5;
+}
+.theme-bg-color{
+  background-color: rgb(16, 139, 239);
+}
+.h-20{
+  height: 20px;
+}
+.heading-block{
+  font-size:1rem;background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774);
+}
 /*576px  */
 
 @media screen and (max-width: 575px) {

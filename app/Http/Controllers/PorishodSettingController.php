@@ -4,45 +4,67 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PorishodSetting;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use Exception;
+use Session;
 
 class PorishodSettingController extends Controller
 {
     use ImageHandleTraits;
     public function index()
     {
-        $porishod=PorishodSetting::all();
+        $porishod=PorishodSetting::first();
         return view('porishod_settings.index',compact('porishod'));
     }
 
     public function create()
     {
-        return view('porishod_settings.create');
+        $districts=District::select('id','name','name_bn')->get();
+        return view('porishod_settings.create',compact('districts'));
     }
     public function edit($id)
     {
         $porishod=PorishodSetting::findOrFail(encryptor('decrypt',$id));
-        return view('porishod_settings.edit',compact('porishod'));
+        $districts=District::select('id','name','name_bn')->get();
+        $upazilas=Upazila::select('id','name','name_bn')->where('district_id',$porishod->district_id)->get();
+        $unions=Union::select('id','name','name_bn')->where('upazila_id',$porishod->upazila_id)->get();
+        return view('porishod_settings.edit',compact('porishod','districts','upazilas','unions'));
     }
 
     public function update(Request $request,$id)
     {
         try{
             $porishods=PorishodSetting::findOrFail(encryptor('decrypt',$id));
+            
             $path='uploads/logo_folder';
             if($request->has('logo') && $request->logo)
-            if($this->deleteImage($porishods->logo,$path))
-            $porishods->logo=$this->resizeImage($request->logo,$path,true,200,200,false);
-            $porishods->union_name=$request->union_name;
-            $porishods->district_name=$request->district_name;
-            $porishods->upazila_name=$request->upazila_name;
-            $porishods->save();
-            Toastr::success('পরিষদ সেটিং সফলভাবে আপডেট হয়েছে!');
-            return redirect(route(currentUser().'.porishodsettiong.index'));
+                if($this->deleteImage($porishods->logo,$path))
+                    $porishods->logo=$this->resizeImage($request->logo,$path,true,200,200,false);
+
+            $porishods->slogan=$request->slogan;
+            $porishods->chairman_name=$request->chairman_name;
+            $porishods->website=$request->website;
+            $porishods->contact_no=$request->contact_no;
+            $porishods->email=$request->email;
+            $porishods->fb_page=$request->fb_page;
+            $porishods->youtube=$request->youtube;
+            $porishods->twitter=$request->twitter;
+
+            $porishods->union_id=$request->union_id;
+            $porishods->holding_prefix=$request->holding_prefix;
+            $porishods->district_id=$request->district_id;
+            $porishods->upazila_id=$request->upazila_id;
+            if($porishods->save()){
+                Toastr::success('পরিষদ সেটিং সফলভাবে আপডেট হয়েছে!');
+                request()->session()->put('upsetting', $porishods);
+                return redirect(route(currentUser().'.porishodsettiong.index'));
+            }
         }catch(Exception $e){
-            dd($e);
+            //dd($e);
             return redirect()->back()->withInput();
             Toastr::success('আবার চেষ্টা করুন!');
         }

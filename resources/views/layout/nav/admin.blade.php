@@ -1,8 +1,7 @@
-<ul class="menu" style="margin-top: 70px;">
-    <p style="background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774);" class="py-2 px-1 mb-0">স্মার্ট ইউপি ম্যানেজমেন্ট সিস্টেম</p>
-    <li class="sidebar-item" style="margin-top: 100px;">
+<ul class="menu">
+    <li class="sidebar-item" style="margin-top: 37px;">
         <a href="{{route(currentUser().'.dashboard')}}" class='sidebar-link'>
-            <i class="bi bi-grid-fill"></i>
+            <i class="bi bi-speedometer2"></i>
             <span>{{__('ড্যাশবোর্ড') }}</span>
         </a>
     </li>
@@ -94,15 +93,15 @@
     </li>
     <!-- অনলাইন আবেদন  তালিকা শেষ -->
 
-    <!-- গ্রাহক প্রোপাইল-->
+    <!-- গ্রাহক প্রোফাইল-->
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-person-bounding-box"></i>
-            <span>{{__('গ্রাহক প্রোপাইল')}}</span>
+            <span>{{__('গ্রাহক প্রোফাইল')}}</span>
         </a>
         <ul class="submenu">
             <li class="py-1">
-                <a href="{{route('hold_profile.list')}}">
+                <a href="{{route(currentUser().'.hold_profile.list')}}">
                     <i class="bi bi-person-check"></i>
                     {{__('হোল্ডিং নম্বর')}}
                 </a>
@@ -139,7 +138,7 @@
             </li>
         </ul>
     </li>
-    <!-- গ্রাহক প্রোপাইল শেষ -->
+    <!-- গ্রাহক প্রোফাইল শেষ -->
 
     <!-- ট্যাক্স/করদাতা-->
     <li class="sidebar-item has-sub">
