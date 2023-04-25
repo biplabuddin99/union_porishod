@@ -15,6 +15,7 @@ use App\Models\Settings\Location\Union;
 use App\Models\Ward_no;
 use Exception;
 use PDF;
+use Carbon\Carbon;
 
 class HoldingController extends Controller
 {
@@ -65,7 +66,7 @@ class HoldingController extends Controller
             $holding=Holding::findOrFail(encryptor('decrypt',$id));
             $holding->holding_certificate_fee=$request->holding_certificate_fee;
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
-            $holding->approval_date=$request->approval_date;
+            $holding->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $holding->cancel_reason=$request->cancel_reason;
             $holding->status=$request->status;
             $holding->approved_by=currentUserId();

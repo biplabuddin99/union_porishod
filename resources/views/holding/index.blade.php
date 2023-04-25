@@ -24,21 +24,26 @@
 
                         <thead>
                             <tr>
-                                <th width="3%"> ক্রমিক </th>
+                                <th width="3%">আবেদন নম্বর</th>
+                                <th>তারিখ</th>
+                                <th>আবেদনকারীর নাম </th>
+                                <th>পেশা</th>
+                                <th>মোবাইল</th>
                                 <th>ছবি</th>
-                                <th>বাড়ি প্রধানের নাম</th>
-                                <th>মোবাইল নং</th>
-                                <th>প্রোফাইল</th>
-                                <th width="13%"> কর্মকাণ্ড  </th>
+                                <th>অনুমোদন </th>
+                                <th width="30">ভিউ</th>
+                                <th width="30">এডিট</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($hold as $h)
                             <tr>
-                                <th scope="row">{{ ++$loop->index }}</th>
-                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
+                                <th scope="row">{{ $h->id }}</th>
+                                <td>{{\Carbon\Carbon::parse($h->holding_date)->format('d-m-Y')}}</td>
                                 <td>{{$h->head_household}}</td>
+                                <td>{{$h->income?->name}}</td>
                                 <td>{{$h->phone}}</td>
+                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $h->id }}">যুক্ত করুন</button>
                                     <div class="modal fade" id="modal{{ $h->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $h->id }}Title" aria-hidden="true">
@@ -131,10 +136,12 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="white-space-nowrap d-flex" style="border-style: none;">
+                                <td>
                                     <a href="{{route('hold_primary.list',$h->id)}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
+                                </td>
+                                <td>
                                      <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>

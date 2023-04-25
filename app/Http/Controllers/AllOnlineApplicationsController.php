@@ -16,6 +16,7 @@ use App\Models\DigitalDevice;
 use App\Models\EducationalQualification;
 use App\Models\GovernmentFacility;
 use App\Models\Profession;
+use Carbon\Carbon;
 
 class AllOnlineApplicationsController extends Controller
 {
@@ -112,13 +113,13 @@ class AllOnlineApplicationsController extends Controller
         try{
             $data=new All_onlineApplications;
             $data->form_no=$request->form_no;
-            $data->holding_date=$request->holding_date;
+            $data->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
             $data->head_household=$request->head_household;
             $data->husband_wife=$request->husband_wife;
             $data->father_name=$request->father_name;
             $data->mother_name=$request->mother_name;
             $data->gender=$request->gender;
-            $data->birth_date=$request->birth_date;
+            $data->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
             $data->voter_id_no=$request->voter_id_no;
             $data->birth_registration_id=$request->birth_registration_id;
             $data->religion=$request->religion;
@@ -169,13 +170,13 @@ class AllOnlineApplicationsController extends Controller
         try{
             $data= All_onlineApplications::where('id',$id)->first();
             $data->form_no=$request->form_no;
-            $data->holding_date=$request->holding_date;
+            $data->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
             $data->head_household=$request->head_household;
             $data->husband_wife=$request->husband_wife;
             $data->father_name=$request->father_name;
             $data->mother_name=$request->mother_name;
             $data->gender=$request->gender;
-            $data->birth_date=$request->birth_date;
+            $data->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
             $data->voter_id_no=$request->voter_id_no;
             $data->birth_registration_id=$request->birth_registration_id;
             $data->religion=$request->religion;

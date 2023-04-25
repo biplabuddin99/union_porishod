@@ -25,12 +25,16 @@
                             <tr>
                                 <th width="3%"> ক্রমিক </th>
                                 <th>বাড়ি প্রধানের নাম</th>
-                                <th>মায়ের নাম</th>
-                                <th>বাড়ির হেল্ডিং নম্বর</th>
-                                <th>ভোটার আইডি নং</th>
-                                <th>মোবাইল নং</th>
-                                <th>approved by</th>
-                                {{-- <th width="13%"> পরিবর্তন  </th> --}}
+                                <th>পেশা নাম</th>
+                                <th>হেল্ডিং</th>
+                                <th>গ্রাম</th>
+                                <th>ওয়ার্ড</th>
+                                <th>মোবাইল</th>
+                                <th>কর </th>
+                                <th>ছবি</th>
+                                <th>অনুমোদন </th>
+                                <th width="30">ভিউ</th>
+                                <th width="30">প্রিন্ট </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,11 +42,24 @@
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
                                 <td>{{$h->head_household}}</td>
-                                <td>{{$h->mother_name}}</td>
+                                <td>{{$h->income?->name}}</td>
                                 <td><a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">{{$h->house_holding_no}}</a></td>
-                                <td>{{$h->voter_id_no}}</td>
+                                <td>{{$h->village_name}}</td>
+                                <td>{{$h->ward?->ward_name_bn}}</td>
                                 <td>{{$h->phone}}</td>
+                                <td>{{$h->tax_levied_annually_house}}</td>
+                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
                                 <td>{{$h->approved?->name}}</td>
+                                <td class="white-space-nowrap">
+                                    <a href="{{route('hold_primary.list',$h->id)}}">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a> 
+                                </td>
+                                <td class="white-space-nowrap">
+                                    <a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">
+                                        <i class="bi bi-printer"></i>
+                                    </a> 
+                                </td>
                                 {{-- <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-pencil-square"></i>

@@ -127,7 +127,7 @@
         </div>
         <div>
             <div class="formnodiv"><b>আবেদন নং :</b><input class="formno" value="{{ $hold->id }}" type="text"></div>
-            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ $hold->holding_date }}" type="text"></div>
+            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}" type="text"></div>
         </div>
         <div style="position: relative; margin-top: 15px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
@@ -160,7 +160,7 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
-                    <td><input type="text" value="{{ $hold->birth_date }}" class="binput"></td>
+                    <td><input type="text" value="{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')}}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">ই-মেইল(যদি থাকে)</th>
                     <td><input type="text" value="{{ $hold->email }}" class="binput"></td>
                 </tr>

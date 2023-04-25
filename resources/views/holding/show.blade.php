@@ -22,14 +22,14 @@
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
                         <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ {{ $hold->holding_date }}</p>
+                        <p>ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}</p>
                         <p>ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-5 col-sm-5" style="padding-left: 110px; padding-top: 5px;">
-                        <div style="padding-left: 70px;">
+                        <div style="text-align: center;">
                             <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                         </div>
-                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-হোল্ডিং নাম্বার সনদ</h4>
+                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-হোল্ডিং নাম্বার সনদ</h4>
                     </div>
                     <div class="col-4" style="padding-left: 215px;">
                         <img height="150px" width="120px"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" alt="কোন ছবি পাওয়া যায় নি">
@@ -49,7 +49,7 @@
         </section>
         <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4); position: relative;">
             <div class="bgimage">
-                <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 490px; padding-top: 83px;"
+                <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 450px; padding-top: 83px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
             <div class="row m-2">
                 <div class="col-1">
@@ -92,7 +92,7 @@
                     <span  class="form-label" for="">জন্ম তারিখ :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->birth_date }}</span>
+                    <span  class="form-label" for="">{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y') }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -189,7 +189,7 @@
                     <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->street_nm }}</span>
+                    <span  class="form-label" for="">{{ $hold->village_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -263,7 +263,7 @@
                     <span  class="form-label" for=""> হোল্ডিং নাম্বার সনদ ফি :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">৩০০.০০টাকা</span>
+                    <span  class="form-label" for="">{{ $hold->holding_certificate_fee }} টাকা</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -274,7 +274,7 @@
                     <span  class="form-label" for="">সংশোধনী ফি :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">২ টাকা</span>
+                    <span  class="form-label" for="">0 টাকা</span>
                 </div>
             </div>
         </div>

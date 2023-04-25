@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('holdings', function (Blueprint $table) {
             $table->id();
             $table->string('form_no')->nullable();
-            $table->string('holding_date')->nullable();
+            $table->date('holding_date')->nullable();
             $table->string('head_household')->nullable();
             $table->string('husband_wife')->nullable();
             $table->string('father_name')->nullable();
             $table->string('freedom_fighter')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('gender')->nullable();
-            $table->string('birth_date')->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('voter_id_no')->nullable();
             $table->string('birth_registration_id')->nullable();
             $table->string('religion')->nullable();
@@ -44,14 +44,14 @@ return new class extends Migration
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
             $table->string('residence_type')->nullable();
-            $table->string('house_room')->nullable();
+            $table->integer('house_room')->nullable();
             $table->string('family_status')->nullable();
             // $table->string('main_source_income')->nullable();
             $table->string('business_taxes')->nullable();
-            $table->string('percentage_house_land')->nullable();
-            $table->string('percentage_cultivated_land')->nullable();
-            $table->string('estimated_value_house')->nullable();
-            $table->string('tax_levied_annually_house')->nullable();
+            $table->decimal('percentage_house_land',14,2)->nullable();
+            $table->decimal('percentage_cultivated_land',14,2)->nullable();
+            $table->decimal('estimated_value_house',14,2)->nullable();
+            $table->decimal('tax_levied_annually_house',14,2)->nullable();
             // $table->string('annual_tax_collected_house')->nullable();
             // $table->string('annual_house_tax_arrears')->nullable();
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
@@ -66,8 +66,8 @@ return new class extends Migration
             $table->string('nid_image')->nullable();
             $table->string('birth_registration_image')->nullable();
             $table->string('image')->nullable();
-            $table->string('holding_certificate_fee')->nullable();
-            $table->string('approval_date')->nullable();
+            $table->decimal('holding_certificate_fee',14,2)->nullable();
+            $table->date('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
             $table->integer('approved_by')->nullable();

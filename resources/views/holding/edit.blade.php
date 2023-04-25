@@ -18,22 +18,24 @@
                         <form action="{{route(currentUser().'.holding.update',encryptor('encrypt',$hold->id))}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
-                            <div class="row">
-                                {{-- <div class="col-6">
-                                    <label  class="form-label" for="form_no">ফরম নং -</label>
-                                    <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
-                                </div> --}}
+                            <div class="row mt-2">
+                                <div class="col-sm-2 col-lg-2">
+                                    <label  class="form-label" for="holding_date">ফরম নং - </label>
+                                </div>
+                                <div class="col-sm-4 col-lg-4 ms-0 ps-0">
+                                    <input readonly class="form-control" value="{{ $hold->id }}" id="form_no" type="text" placeholder="ফরম নং">
+                                </div>
 
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="holding_date">তারিখ :-</label>
+                                    <label  class="form-label" for="holding_date">তারিখ </label>
                                 </div>
-                                <div class="col-sm-2 col-lg-2 ms-0 ps-0">
-                                    <input class="form-control datepicker" name="holding_date" value="{{ old('holding_date',$hold->holding_date) }}" id="holding_date" type="text">
+                                <div class="col-sm-4 col-lg-4 ms-0 ps-0">
+                                    <input class="form-control datepicker" name="holding_date" value="{{ old('holding_date',\Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y')) }}" id="holding_date" type="text">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="head_household">আবেদনকারীর নাম  :-</label>
+                                    <label  class="form-label" for="head_household">আবেদনকারীর নাম  </label>
                                     <input class="form-control @error('head_household') is-invalid @enderror" type="text"
                                     name="head_household" value="{{ old('head_household',$hold->head_household) }}" id="head_household" placeholder="আবেদনকারীর নাম">
                                     @if($errors->has('head_household'))
@@ -43,14 +45,14 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম :- </label>
+                                    <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম  </label>
                                     <input class="form-control" type="text"
-                                    name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="পিতা/ স্বামী">
+                                    name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="স্বামী/স্ত্রীর নাম">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="father_name">পিতার নাম :-</label>
+                                    <label  class="form-label" for="father_name">পিতার নাম </label>
                                     <input class="form-control @error('father_name') is-invalid @enderror" type="text"
                                     name="father_name" value="{{ old('father_name',$hold->father_name) }}" id="father_name" placeholder="পিতার নাম">
                                     @if($errors->has('father_name'))
@@ -60,9 +62,9 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ :-</label>
+                                    <label  class="form-label" for="birth_date">জন্ম তারিখ </label>
                                     <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date',$hold->birth_date) }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date',\Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')) }}"  type="text" placeholder="মাস-দিন-সাল">
                                     @if($errors->has('birth_date'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('birth_date') }}
@@ -72,7 +74,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="mother_name">মাতার নাম :-</label>
+                                    <label  class="form-label" for="mother_name">মাতার নাম </label>
                                     <input class="form-control @error('mother_name') is-invalid @enderror" type="text"
                                     name="mother_name" value="{{ old('mother_name',$hold->mother_name) }}" id="mother_name" placeholder="মাতার নাম">
                                     @if($errors->has('mother_name'))
@@ -82,7 +84,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="gender1" for="cars">লিঙ্গের অবস্থা :-</label>
+                                    <label class="form-label" for="gender1" for="cars">লিঙ্গ </label>
                                     <select name="gender" id="gender1" class="form-select @error('gender') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('gender', $hold->gender)=="1" ? "selected":""}}>পুরুষ</option>
@@ -98,7 +100,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা :-</label>
+                                    <label  class="form-label" for="rel">মুক্তিযোদ্ধা </label>
                                     <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('freedom_fighter', $hold->freedom_fighter)=="1" ? "selected":""}}>বীর মুক্তিযোদ্ধা</option>
@@ -112,7 +114,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি নং :-</label>
+                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি নং </label>
                                     <input class="form-control @error('voter_id_no') is-invalid @enderror" type="text" name="voter_id_no" id="voter_id_no" value="{{ old('voter_id_no',$hold->voter_id_no) }}" placeholder="ভোটার আইডি নং">
                                     @if($errors->has('voter_id_no'))
                                     <small class="d-block text-danger">
@@ -123,7 +125,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_registration_id">জন্ম নিবন্ধন আইডি:-</label>
+                                    <label  class="form-label" for="birth_registration_id">জন্ম নিবন্ধন আইডি</label>
                                     <input class="form-control @error('birth_registration_id') is-invalid @enderror" type="text"
                                     name="birth_registration_id" value="{{ old('birth_registration_id',$hold->birth_registration_id) }}" id="birth_registration_id" placeholder="জন্মনিবন্ধন আইডি">
                                     @if($errors->has('birth_registration_id'))
@@ -133,7 +135,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="rel">ধর্ম :-</label>
+                                    <label  class="form-label" for="rel">ধর্ম </label>
                                     <select name="religion" class="form-select @error('religion') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('religion', $hold->religion)=="1" ? "selected":""}}>ইসলাম</option>
@@ -151,7 +153,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="phone">মোবাইল নম্বর :-</label>
+                                    <label  class="form-label" for="phone">মোবাইল নম্বর </label>
                                     <input class="form-control @error('phone') is-invalid @enderror"
                                     name="phone" id="phone" value="{{ old('phone',$hold->phone) }}"  type="text" placeholder="মোবাইল নম্বর">
                                     @if($errors->has('phone'))
@@ -161,7 +163,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="edu_qual0">শিক্ষাগত যোগ্যতা :-</label>
+                                    <label  class="form-label" for="edu_qual0">শিক্ষাগত যোগ্যতা </label>
                                     <select name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('edu_qual', $hold->edu_qual)=="1" ? "selected":""}}>স্ব-শিক্ষিত</option>
@@ -179,11 +181,11 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="email">ই-মেইল <small>(যদি থাকে)</small> :-</label>
+                                    <label  class="form-label" for="email">ই-মেইল <small>(যদি থাকে)</small> </label>
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email',$hold->email) }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা :-</label>
+                                    <label  class="form-label" for="source_inc">পেশা </label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('source_income', $hold->source_income)=="1" ? "selected":""}}>শিক্ষক</option>
@@ -214,7 +216,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="marit" for="cars">বৈবাহিক অবস্থা :- </label>
+                                    <label class="form-label" for="marit" for="cars">বৈবাহিক অবস্থা  </label>
                                     <select name="marital_status" id="marit" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('marital_status', $hold->marital_status)=="1" ? "selected":""}}>বিবাহিত</option>
@@ -222,7 +224,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="internet" for="cars">ইন্টারনেট সংযোগ:- </label>
+                                    <label class="form-label" for="internet" for="cars">ইন্টারনেট সংযোগ </label>
                                     <select name="internet_connection" id="internet" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('internet_connection', $hold->internet_connection)=="1" ? "selected":""}}>আছে</option>
@@ -232,7 +234,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="tube_well">নলকূপ :- </label>
+                                    <label class="form-label" for="tube_well">নলকূপ  </label>
                                     <select name="tube_well" id="tube_well" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1"{{ old('tube_well', $hold->tube_well)=="1" ? "selected":""}}>আছে</option>
@@ -240,7 +242,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="disline_connection">ডিসলাইন সংযোগ:- </label>
+                                    <label class="form-label" for="disline_connection">ডিসলাইন সংযোগ </label>
                                     <select name="disline_connection" id="disline_connection" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('disline_connection', $hold->disline_connection)=="1" ? "selected":""}}>আছে</option>
@@ -250,7 +252,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label class="form-label" for="paved_bathroom">বাথরুম:-</label>
+                                    <label class="form-label" for="paved_bathroom">বাথরুম</label>
                                     <select name="paved_bathroom" id="paved_bathroom" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('paved_bathroom', $hold->paved_bathroom)=="1" ? "selected":""}}>কাঁচা</option>
@@ -258,7 +260,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="arsenic_free">আর্সেনিকমুক্ত:- </label>
+                                    <label class="form-label" for="arsenic_free">আর্সেনিকমুক্ত </label>
                                     <select name="arsenic_free" id="arsenic_free" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('arsenic_free', $hold->arsenic_free)=="1" ? "selected":""}}>আছে</option>
@@ -327,7 +329,7 @@
                             </div>
                             <div class="border border-2 m-2 p-3">
                                 <div class="row m-2">
-                                    <label  class="form-label" for="government_facilities">সরকারি সুবিধা:- </label>
+                                    <label  class="form-label" for="government_facilities">সরকারি সুবিধা </label>
                                     <div class="col-2">
                                         <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" @if(in_array(1, $Govt_fac)) checked @endif />
                                         <label  class="form-label" for="government_facilities1">ভিজিডি কার্ড</label>
@@ -366,7 +368,7 @@
 
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="residence_type">বাড়ির ধরন :-</label>
+                                    <label  class="form-label" for="residence_type">বাড়ির ধরন </label>
                                     <select name="residence_type" class="form-select @error('residence_type') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('residence_type', $hold->residence_type)=="1" ? "selected":""}}>কাঁচা-ঘর</option>
@@ -383,7 +385,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="house_room">বাড়ির রুম/ঘর:-</label>
+                                    <label  class="form-label" for="house_room">বাড়ির রুম/ঘর</label>
                                     <input class="form-control @error('house_room') is-invalid @enderror"
                                     name="house_room" id="house_room" value="{{ old('house_room',$hold->house_room) }}"  type="number" placeholder="বাড়ির রুম/ঘর">
                                     @if($errors->has('house_room'))
@@ -395,7 +397,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="family_status">পারিবারিক অবস্থা :-</label>
+                                    <label  class="form-label" for="family_status">পারিবারিক অবস্থা </label>
                                     <select name="family_status" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('family_status', $hold->family_status)=="1" ? "selected":""}}>হতদরিদ্র</option>
@@ -404,79 +406,10 @@
                                         <option value="4" {{ old('family_status', $hold->family_status)=="4" ? "selected":""}}>উচ্চ-মধ্যবৃত্ত</option>
                                         <option value="5" {{ old('family_status', $hold->family_status)=="5" ? "selected":""}}>উচ্চবৃত্ত</option>
                                     </select>
-                                    {{-- @if($errors->has('family_status'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('family_status') }}
-                                    </small>
-                                    @endif --}}
                                 </div>
-                                {{-- <div class="col-6">
-                                    <label  class="form-label" for="main_source_income">আয়ের প্রধান উৎস :-</label>
-                                    <select name="main_source_income" class="form-select">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('main_source_income', $hold->main_source_income)=="1" ? "selected":""}}>চাকুরী <sub>(সরকারী)</sub></option>
-                                        <option value="2" {{ old('main_source_income', $hold->main_source_income)=="2" ? "selected":""}}>চাকুরী <sub>(বেসরকারী)</sub></option>
-                                        <option value="3" {{ old('main_source_income', $hold->main_source_income)=="3" ? "selected":""}}>প্রবাসী</option>
-                                        <option value="4" {{ old('main_source_income', $hold->main_source_income)=="4" ? "selected":""}}>শিক্ষক</option>
-                                        <option value="5" {{ old('main_source_income', $hold->main_source_income)=="5" ? "selected":""}}>শ্রমিক</option>
-                                        <option value="6" {{ old('main_source_income', $hold->main_source_income)=="6" ? "selected":""}}>কৃষি খামার</option>
-                                        <option value="7" {{ old('main_source_income', $hold->main_source_income)=="7" ? "selected":""}}>মৎস খামার</option>
-                                        <option value="8" {{ old('main_source_income', $hold->main_source_income)=="8" ? "selected":""}}>দুগ্ধ খামার</option>
-                                        <option value="9" {{ old('main_source_income', $hold->main_source_income)=="9" ? "selected":""}}>হাঁস-মুরগীর খামার</option>
-                                        <option value="10" {{ old('main_source_income', $hold->main_source_income)=="10" ? "selected":""}}>গবাদি পশুর খামার</option>
-                                        <option value="11" {{ old('main_source_income', $hold->main_source_income)=="11" ? "selected":""}}>মুদির দোকান</option>
-                                        <option value="12" {{ old('main_source_income', $hold->main_source_income)=="12" ? "selected":""}}>আর্থিক প্রতিষ্ঠান</option>
-                                        <option value="13" {{ old('main_source_income', $hold->main_source_income)=="13" ? "selected":""}}>ক্ষুদ্র ও কুটির শিল্প</option>
-                                        <option value="14" {{ old('main_source_income', $hold->main_source_income)=="14" ? "selected":""}}>মাঝারি শিল্প</option>
-                                        <option value="15" {{ old('main_source_income', $hold->main_source_income)=="15" ? "selected":""}}>খাবার হোটেল</option>
-                                        <option value="16" {{ old('main_source_income', $hold->main_source_income)=="16" ? "selected":""}}>প্রকৌশলী</option>
-                                        <option value="17" {{ old('main_source_income', $hold->main_source_income)=="17" ? "selected":""}}>আইনজীবী</option>
-                                        <option value="18" {{ old('main_source_income', $hold->main_source_income)=="18" ? "selected":""}}>চিকিৎসক</option>
-                                        <option value="19" {{ old('main_source_income', $hold->main_source_income)=="19" ? "selected":""}}>ক্লিনিক</option>
-                                        <option value="20" {{ old('main_source_income', $hold->main_source_income)=="20" ? "selected":""}}>ঔষদের দোকান</option>
-                                        <option value="21" {{ old('main_source_income', $hold->main_source_income)=="21" ? "selected":""}}>আবাসিক হোটেল</option>
-                                        <option value="22" {{ old('main_source_income', $hold->main_source_income)=="22" ? "selected":""}}>মিষ্টির দোকান</option>
-                                        <option value="23" {{ old('main_source_income', $hold->main_source_income)=="23" ? "selected":""}}>বে-সরকারি হাসপাতাল</option>
-                                        <option value="24" {{ old('main_source_income', $hold->main_source_income)=="24" ? "selected":""}}>বে-সরকারি স্কুল</option>
-                                        <option value="25" {{ old('main_source_income', $hold->main_source_income)=="25" ? "selected":""}}>কোচিং সেন্টার</option>
-                                        <option value="26" {{ old('main_source_income', $hold->main_source_income)=="26" ? "selected":""}}>খাবার হোটেল</option>
-                                        <option value="27" {{ old('main_source_income', $hold->main_source_income)=="27" ? "selected":""}}>হিমাগার</option>
-                                        <option value="28" {{ old('main_source_income', $hold->main_source_income)=="28" ? "selected":""}}>ধান ভাঙানোর কল</option>
-                                        <option value="29" {{ old('main_source_income', $hold->main_source_income)=="29" ? "selected":""}}>আটার কল</option>
-                                        <option value="30" {{ old('main_source_income', $hold->main_source_income)=="30" ? "selected":""}}>তেলের কল</option>
-                                        <option value="31" {{ old('main_source_income', $hold->main_source_income)=="31" ? "selected":""}}>স’ মিল</option>
-                                        <option value="32" {{ old('main_source_income', $hold->main_source_income)=="32" ? "selected":""}}>বিউটি পার্লার</option>
-                                        <option value="33" {{ old('main_source_income', $hold->main_source_income)=="33" ? "selected":""}}>হেয়ার কাট সেলুন</option>
-                                        <option value="34" {{ old('main_source_income', $hold->main_source_income)=="34" ? "selected":""}}>লন্ড্রীর দোকান</option>
-                                        <option value="35" {{ old('main_source_income', $hold->main_source_income)=="35" ? "selected":""}}>ইন্জিনিয়ারিং ফার্ম</option>
-                                        <option value="36" {{ old('main_source_income', $hold->main_source_income)=="36" ? "selected":""}}>শিল্প কারখানা</option>
-                                        <option value="37" {{ old('main_source_income', $hold->main_source_income)=="37" ? "selected":""}}>ইট ভাটা</option>
-                                        <option value="38" {{ old('main_source_income', $hold->main_source_income)=="38" ? "selected":""}}>কনসালটেন্সি ফার্ম</option>
-                                        <option value="39" {{ old('main_source_income', $hold->main_source_income)=="39" ? "selected":""}}>গুদাম</option>
-                                        <option value="40" {{ old('main_source_income', $hold->main_source_income)=="40" ? "selected":""}}>রিক্সার মালিক</option>
-                                        <option value="41" {{ old('main_source_income', $hold->main_source_income)=="41" ? "selected":""}}>বাজার ইজারা</option>
-                                        <option value="42" {{ old('main_source_income', $hold->main_source_income)=="42" ? "selected":""}}>টেম্পোর মালিক</option>
-                                        <option value="43" {{ old('main_source_income', $hold->main_source_income)=="43" ? "selected":""}}>বাসের মালিক</option>
-                                        <option value="44" {{ old('main_source_income', $hold->main_source_income)=="44" ? "selected":""}}>ট্রাকের মালিক</option>
-                                        <option value="45" {{ old('main_source_income', $hold->main_source_income)=="45" ? "selected":""}}>পরিবহন এজেন্সি</option>
-                                        <option value="46" {{ old('main_source_income', $hold->main_source_income)=="46" ? "selected":""}}>নৌযানের মালিক</option>
-                                        <option value="47" {{ old('main_source_income', $hold->main_source_income)=="47" ? "selected":""}}>অটো-রিক্সার মালিক</option>
-                                        <option value="48" {{ old('main_source_income', $hold->main_source_income)=="48" ? "selected":""}}>স্টীমার/কার্গোর মালিক</option>
-                                        <option value="49" {{ old('main_source_income', $hold->main_source_income)=="49" ? "selected":""}}>শিশু পার্ক</option>
-                                        <option value="50" {{ old('main_source_income', $hold->main_source_income)=="50" ? "selected":""}}>বিনোদন পার্ক</option>
-                                        <option value="51" {{ old('main_source_income', $hold->main_source_income)=="51" ? "selected":""}}>জবাই পশু</option>
-                                        <option value="52" {{ old('main_source_income', $hold->main_source_income)=="52" ? "selected":""}}>ঠিকাদার</option>
-                                        <option value="53" {{ old('main_source_income', $hold->main_source_income)=="53" ? "selected":""}}>গাড়ী চালক</option>
-                                        <option value="54" {{ old('main_source_income', $hold->main_source_income)=="54" ? "selected":""}}>অন্যান্য</option>
-                                    </select>
-                                    @if($errors->has('main_source_income'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('main_source_income') }}
-                                    </small>
-                                    @endif
-                                </div> --}}
+                                
                                 <div class="col-6">
-                                    <label  class="form-label" for="percentage_house_land">বাড়ির জমি শতাংশ:-</label>
+                                    <label  class="form-label" for="percentage_house_land">বাড়ির জমি শতাংশ</label>
                                     <input class="form-control @error('percentage_house_land') is-invalid @enderror"
                                     name="percentage_house_land" id="percentage_house_land" value="{{ old('percentage_house_land',$hold->percentage_house_land) }}"  type="text" placeholder="বাড়ির জমি শতাংশ">
                                     {{-- @if($errors->has('percentage_house_land'))
@@ -488,7 +421,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="percentage_cultivated_land">আবাদী জমি শতাংশ:-</label>
+                                    <label  class="form-label" for="percentage_cultivated_land">আবাদী জমি শতাংশ</label>
                                     <input class="form-control @error('percentage_cultivated_land') is-invalid @enderror"
                                     name="percentage_cultivated_land" id="percentage_cultivated_land" value="{{ old('percentage_cultivated_land',$hold->percentage_cultivated_land) }}"  type="text" placeholder="আবাদী জমি শতাংশ">
                                     @if($errors->has('percentage_cultivated_land'))
@@ -498,7 +431,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="estimated_value_house">বাড়ির আনুমানিক মূল্য:-</label>
+                                    <label  class="form-label" for="estimated_value_house">বাড়ির আনুমানিক মূল্য</label>
                                     <input class="form-control @error('estimated_value_house') is-invalid @enderror"
                                     name="estimated_value_house" id="estimated_value_house" value="{{ old('estimated_value_house',$hold->estimated_value_house) }}"  type="number" placeholder="বাড়ির আনুমানিক মূল্য">
                                     {{-- @if($errors->has('estimated_value_house'))
@@ -510,7 +443,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="tax_levied_annually_house">বাড়ির বার্ষিক ধার্যকৃত কর:-</label>
+                                    <label  class="form-label" for="tax_levied_annually_house">বাড়ির বার্ষিক ধার্যকৃত কর</label>
                                     <input class="form-control @error('tax_levied_annually_house') is-invalid @enderror"
                                     name="tax_levied_annually_house" id="tax_levied_annually_house" value="{{ old('tax_levied_annually_house',$hold->tax_levied_annually_house) }}"  type="number" placeholder="বাড়ির বার্ষিক ধার্যকৃত কর">
                                     @if($errors->has('tax_levied_annually_house'))
@@ -790,7 +723,7 @@
                             </div>
                             {{-- <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="annual_tax_collected_house">বাড়ির বার্ষিক আদায়কৃত কর:-</label>
+                                    <label  class="form-label" for="annual_tax_collected_house">বাড়ির বার্ষিক আদায়কৃত কর</label>
                                     <input class="form-control @error('annual_tax_collected_house') is-invalid @enderror"
                                     name="annual_tax_collected_house" id="annual_tax_collected_house" value="{{ old('annual_tax_collected_house',$hold->annual_tax_collected_house) }}"  type="text" placeholder="বাড়ির বার্ষিক আদায়কৃত কর">
                                     @if($errors->has('annual_tax_collected_house'))
@@ -800,7 +733,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="annual_house_tax_arrears">বাড়ির বার্ষিক বকেয়া কর:-</label>
+                                    <label  class="form-label" for="annual_house_tax_arrears">বাড়ির বার্ষিক বকেয়া কর</label>
                                     <input class="form-control @error('annual_house_tax_arrears') is-invalid @enderror"
                                     name="annual_house_tax_arrears" id="annual_house_tax_arrears" value="{{ old('annual_house_tax_arrears',$hold->annual_house_tax_arrears) }}"  type="text" placeholder="বাড়ির বার্ষিক বকেয়া কর">
                                     @if($errors->has('annual_house_tax_arrears'))
@@ -815,17 +748,31 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-12">
-                                    <label >বাড়ির হেল্ডিং নম্বর:-</label>
+                                    <label >বাড়ির হেল্ডিং নম্বর</label>
                                     <b>{{ $hold->house_holding_no}}</b>
                                 </div>
                             </div>
                             
                             <div class="row m-2">
-                               
                                 <div class="col-6">
-                                    <label  class="form-label" for="ward_id">ওয়ার্ড:-</label>
+                                    <label  class="form-label" for="street_nm">রাস্তা / ব্লক</label>
+                                    <input class="form-control @error('street_nm') is-invalid @enderror"
+                                    name="street_nm" id="street_nm" value="{{ old('street_nm',$hold->street_nm) }}"  type="text" placeholder="রাস্তা / ব্লক">
+                                    @if($errors->has('street_nm'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('street_nm') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="village_name">গ্রাম / পাড়া</label>
+                                    <input class="form-control @error('village_name') is-invalid @enderror"
+                                    name="village_name" id="village_name" value="{{ old('village_name',$hold->village_name) }}"  type="text" placeholder="গ্রাম / পাড়া">
+                                </div>
+                                <div class="col-6">
+                                    <label  class="form-label" for="ward_id">সেক্টর / ওয়ার্ড</label>
                                     <select name="ward_id" class="form-select search_district" id="ward_id">
-                                        <option value="" selected="selected">ওয়ার্ড নং</option>
+                                        <option value="" selected="selected">সেক্টর / ওয়ার্ড নং</option>
                                         @forelse ($wards as $w)
                                         <option value="{{ $w->id }}" {{$hold->ward_id == $w->id ? 'selected' : ''}}>{{ $w->ward_name_bn }}</option>
                                         @empty
@@ -834,28 +781,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
-                                    <input class="form-control @error('street_nm') is-invalid @enderror"
-                                    name="street_nm" id="street_nm" value="{{ old('street_nm',$hold->street_nm) }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
-                                    @if($errors->has('street_nm'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('street_nm') }}
-                                    </small>
-                                    @endif
-                                </div>
-                            
-                                <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রামের নাম:-</label>
-                                    <input class="form-control @error('village_name') is-invalid @enderror"
-                                    name="village_name" id="village_name" value="{{ old('village_name',$hold->village_name) }}"  type="text" placeholder="গ্রামের নাম">
-                                    {{-- @if($errors->has('village_name'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('village_name') }}
-                                    </small>
-                                    @endif --}}
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="post_office">ডাকঘর:-</label>
+                                    <label  class="form-label" for="post_office">ডাকঘর</label>
                                     <input class="form-control @error('post_office') is-invalid @enderror"
                                     name="post_office" id="post_office" value="{{ old('post_office',$hold->post_office) }}"  type="text" placeholder="ডাকঘর">
                                     @if($errors->has('post_office'))
@@ -868,17 +794,17 @@
                             <div class="row m-2">
                                 
                                 <div class="col-4">
-                                    <label >ইউনিয়ন:-</label>
+                                    <label >ইউনিয়ন</label>
                                     <b>{{ request()->session()->get('upsetting')->union?->name_bn}}</b>
                                     <input type="hidden" name="union_id" value="{{ request()->session()->get('upsetting')->union_name}}"/>
                                 </div>
                                 <div class="col-4">
-                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
+                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা</label>
                                     <b>{{ request()->session()->get('upsetting')->upazila?->name_bn}}</b>
                                     <input type="hidden" name="upazila_id" value="{{ request()->session()->get('upsetting')->upazila_name}}"/>
                                 </div>
                                 <div class="col-4">
-                                    <label for="district">জেলা:-</label>
+                                    <label for="district">জেলা</label>
                                     <b>{{ request()->session()->get('upsetting')->district?->name_bn}}</b>
                                     <input type="hidden" name="district_id" value="{{ request()->session()->get('upsetting')->district_name}}"/>
                                 </div>
@@ -889,18 +815,18 @@
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
-                                    <label  class="form-label" for="nid_image">ভোটার আইডির রঙিন কপি :-</label>
+                                    <label  class="form-label" for="nid_image">ভোটার আইডির রঙিন কপি </label>
                                     <input class="form-control"
                                     name="nid_image" id="nid_image" value="{{ old('nid_image') }}"  type="file" placeholder="">
                                 </div>
                                 <div class="col-6 float-right">
-                                    <label  class="form-label" for="birth_registration_image">জন্ম নিবন্ধনের রঙিন কপি :-</label>
+                                    <label  class="form-label" for="birth_registration_image">জন্ম নিবন্ধনের রঙিন কপি </label>
                                     <input class="form-control" type="file" name="birth_registration_image" id="birth_registration_image" value="{{ old('birth_registration_image') }}" placeholder="">
                                 </div>
                             </div>
                             <div class="row m-0 p-0">
                                 <div class="image-overlay">
-                                    <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি:-</label>
+                                    <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি</label>
                                         <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding') }}/{{ $hold->image }}" class="form-control dropify">
                                     <div class="overlay">
                                         <div class="text-center">ছবি দিতে ক্লিক করুন</div>
