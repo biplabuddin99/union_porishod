@@ -114,7 +114,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি নং </label>
+                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি </label>
                                     <input class="form-control @error('voter_id_no') is-invalid @enderror" type="text" name="voter_id_no" id="voter_id_no" value="{{ old('voter_id_no',$hold->voter_id_no) }}" placeholder="ভোটার আইডি নং">
                                     @if($errors->has('voter_id_no'))
                                     <small class="d-block text-danger">
@@ -127,7 +127,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="birth_registration_id">জন্ম নিবন্ধন আইডি</label>
                                     <input class="form-control @error('birth_registration_id') is-invalid @enderror" type="text"
-                                    name="birth_registration_id" value="{{ old('birth_registration_id',$hold->birth_registration_id) }}" id="birth_registration_id" placeholder="জন্মনিবন্ধন আইডি">
+                                    name="birth_registration_id" value="{{ old('birth_registration_id',$hold->birth_registration_id) }}" id="birth_registration_id" placeholder="জন্ম নিবন্ধন আইডি">
                                     @if($errors->has('birth_registration_id'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('birth_registration_id') }}
@@ -166,17 +166,11 @@
                                     <label  class="form-label" for="edu_qual0">শিক্ষাগত যোগ্যতা </label>
                                     <select name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('edu_qual', $hold->edu_qual)=="1" ? "selected":""}}>স্ব-শিক্ষিত</option>
-                                        <option value="2" {{ old('edu_qual', $hold->edu_qual)=="2" ? "selected":""}}>প্রাথমিক</option>
-                                        <option value="3" {{ old('edu_qual', $hold->edu_qual)=="3" ? "selected":""}}>মাধ্যমিক</option>
-                                        <option value="4" {{ old('edu_qual', $hold->edu_qual)=="4" ? "selected":""}}>উচ্চ-মাধ্যমিক</option>
-                                        <option value="5" {{ old('edu_qual', $hold->edu_qual)=="5" ? "selected":""}}>উচ্চতর-ডিগ্রী</option>
+                                        @forelse(\App\Models\EducationalQualification::orderBy('created_at')->get() as $data)
+                                            <option value="{{$data->id}}" {{ old('edu_qual', $hold->edu_qual)==$data->id ? "selected":""}}>{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
                                     </select>
-                                    @if($errors->has('edu_qual'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('edu_qual') }}
-                                    </small>
-                                    @endif
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -188,30 +182,11 @@
                                     <label  class="form-label" for="source_inc">পেশা </label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('source_income', $hold->source_income)=="1" ? "selected":""}}>শিক্ষক</option>
-                                        <option value="2" {{ old('source_income', $hold->source_income)=="2" ? "selected":""}}>শিক্ষার্থী</option>
-                                        <option value="3" {{ old('source_income', $hold->source_income)=="3" ? "selected":""}}>সরকারি চাকুরীজীবি</option>
-                                        <option value="4" {{ old('source_income', $hold->source_income)=="4" ? "selected":""}}>বে-সরকারি চাকুরীজীবি</option>
-                                        <option value="5" {{ old('source_income', $hold->source_income)=="5" ? "selected":""}}>গৃহীনি</option>
-                                        <option value="6" {{ old('source_income', $hold->source_income)=="6" ? "selected":""}}>কৃষক</option>
-                                        <option value="7" {{ old('source_income', $hold->source_income)=="7" ? "selected":""}}>ব্যবসা</option>
-                                        <option value="8" {{ old('source_income', $hold->source_income)=="8" ? "selected":""}}>প্রকৌশলি</option>
-                                        <option value="9" {{ old('source_income', $hold->source_income)=="9" ? "selected":""}}>আইনজীবী</option>
-                                        <option value="10" {{ old('source_income', $hold->source_income)=="10" ? "selected":""}}>চিকিৎসক</option>
-                                        <option value="11" {{ old('source_income', $hold->source_income)=="11" ? "selected":""}}>সেবিকা</option>
-                                        <option value="12" {{ old('source_income', $hold->source_income)=="12" ? "selected":""}}>দলিল লেখক</option>
-                                        <option value="13" {{ old('source_income', $hold->source_income)=="13" ? "selected":""}}>শ্রমিক</option>
-                                        <option value="14" {{ old('source_income', $hold->source_income)=="14" ? "selected":""}}>ঠিকাদার</option>
-                                        <option value="15" {{ old('source_income', $hold->source_income)=="15" ? "selected":""}}>মৎস চাষী</option>
-                                        <option value="16" {{ old('source_income', $hold->source_income)=="16" ? "selected":""}}>গাড়ি চালক</option>
-                                        <option value="17" {{ old('source_income', $hold->source_income)=="17" ? "selected":""}}>প্রবাসী</option>
-                                        <option value="18" {{ old('source_income', $hold->source_income)=="18" ? "selected":""}}>অন্যান্য</option>
+                                        @forelse(\App\Models\Profession::orderBy('created_at')->get() as $data)
+                                            <option value="{{$data->id}}" {{ old('source_income', $hold->source_income)==$data->id ? "selected":""}}>{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
                                     </select>
-                                    @if($errors->has('source_income'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('source_income') }}
-                                    </small>
-                                    @endif
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -259,109 +234,43 @@
                                         <option value="2" {{ old('paved_bathroom', $hold->paved_bathroom)=="2" ? "selected":""}}>পাকা</option>
                                     </select>
                                 </div>
-                                <div class="col-6">
-                                    <label class="form-label" for="arsenic_free">আর্সেনিকমুক্ত </label>
-                                    <select name="arsenic_free" id="arsenic_free" class="form-select">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('arsenic_free', $hold->arsenic_free)=="1" ? "selected":""}}>আছে</option>
-                                        <option value="2" {{ old('arsenic_free', $hold->arsenic_free)=="2" ? "selected":""}}>নাই</option>
-                                    </select>
-                                </div>
+                                
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <label  class="form-label" for="mobile_bank"><b>মোবাইল ব্যাংক</b></label>
                                 <div class="row m-2">
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank1" value="1" @if(in_array(1, $Mobile_bank)) checked @endif/>
-                                        <label  class="form-label" for="mobile_bank1">নগদ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank2" value="2" @if(in_array(2, $Mobile_bank)) checked @endif/>
-                                        <label  class="form-label" for="mobile_bank2">বিকাশ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank3" value="3" @if(in_array(3, $Mobile_bank)) checked @endif/>
-                                        <label  class="form-label" for="mobile_bank3">রকেট</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank4" value="4" @if(in_array(4, $Mobile_bank)) checked @endif/>
-                                        <label  class="form-label" for="mobile_bank4">উপায়</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank5" value="5" @if(in_array(5, $Mobile_bank)) checked @endif/>
-                                        <label  class="form-label" for="mobile_bank5">অন্যান্য</label>
-                                    </div>
+                                    @forelse(\App\Models\MobileBank::orderBy('created_at')->get() as $mb)
+                                        <div class=" col-sm-3 col-lg-2">
+                                            <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank{{$mb->id}}" value="{{$mb->id}}"  @if(in_array($mb->id, $Mobile_bank)) checked @endif/>
+                                            <label  class="form-label" for="mobile_bank{{$mb->id}}"> {{$mb->name}}</label>
+                                        </div>
+                                    @empty
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <label  class="form-label" for=""><b>ডিজিটাল ডিভাইস</b></label>
                                 <div class="row m-2">
+                                    @forelse(\App\Models\DigitalDevice::orderBy('created_at')->get() as $dd)
                                     <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices1" value="1" @if(in_array(1, $Digital_devices)) checked @endif/>
-                                        <label  class="form-label" for="digital_devices1">স্মার্ট ফোন</label>
+                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices{{$dd->id}}" value="{{$dd->id}}" @if(in_array($dd->id, $Digital_devices)) checked @endif/>
+                                        <label  class="form-label" for="digital_devices{{$dd->id}}"> {{$dd->name}}</label>
                                     </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices2" value="2" @if(in_array(2, $Digital_devices)) checked @endif/>
-                                        <label  class="form-label" for="digital_devices2">ল্যাপটপ</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices3" value="3" @if(in_array(3, $Digital_devices)) checked @endif/>
-                                        <label  class="form-label" for="digital_devices3">কম্পিউটার</label>
-                                    </div>
-
-                                    <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices4" value="4" @if(in_array(4, $Digital_devices)) checked @endif/>
-                                        <label  class="form-label" for="digital_devices4">অন্যান্য</label>
-                                    </div>
-
-                                    {{-- <div class=" col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices5" value="5" {{old('digital_devices') == '5' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="digital_devices5">টিভি</label>
-                                    </div> --}}
+                                    @empty
+                                    @endforelse
                                 </div>
 
                             </div>
                             <div class="border border-2 m-2 p-3">
                                 <div class="row m-2">
                                     <label  class="form-label" for="government_facilities">সরকারি সুবিধা </label>
-                                    <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities1" value="1" @if(in_array(1, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities1">ভিজিডি কার্ড</label>
-                                    </div>
-
-                                    <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities2" value="2" @if(in_array(2, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities2">বয়স্ক ভাতা</label>
-                                    </div>
-
-                                    <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities3" value="3" @if(in_array(3, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities3">মাতৃত্বকালীন ভাতা</label>
-                                    </div>
-
-                                    <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities4" value="4" @if(in_array(4, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities4">প্রতিবন্ধী ভাতা</label>
-                                    </div>
-
-                                    <div class="col-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities5" value="5" @if(in_array(5, $Govt_fac)) checked @endif />
-                                        <label  class="form-label" for="government_facilities5">বিধবা ভাতা</label>
-                                    </div>
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities6" value="6" @if(in_array(6, $Govt_fac)) checked @endif/>
-                                        <label  class="form-label" for="government_facilities6">রেশন কার্ড</label>
-                                    </div>
-                                    <div class="col-sm-3 col-lg-2">
-                                        <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities7" value="7" @if(in_array(7, $Govt_fac)) checked @endif/>
-                                        <label  class="form-label" for="government_facilities7">মুক্তিযোদ্ধা ভাতা</label>
-                                    </div>
+                                    @forelse(\App\Models\GovernmentFacility::orderBy('created_at')->get() as $dd)
+                                        <div class="col-2">
+                                            <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities{{$dd->id}}" value="{{$dd->id}}" @if(in_array($dd->id, $Govt_fac)) checked @endif/>
+                                            <label  class="form-label" for="government_facilities{{$dd->id}}">{{$dd->name}}</label>
+                                        </div>
+                                    @empty
+                                    @endforelse
                                 </div>
 
                             </div>
@@ -371,28 +280,15 @@
                                     <label  class="form-label" for="residence_type">বাড়ির ধরন </label>
                                     <select name="residence_type" class="form-select @error('residence_type') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('residence_type', $hold->residence_type)=="1" ? "selected":""}}>কাঁচা-ঘর</option>
-                                        <option value="2" {{ old('residence_type', $hold->residence_type)=="2" ? "selected":""}}>টিনসেট</option>
-                                        <option value="3" {{ old('residence_type', $hold->residence_type)=="3" ? "selected":""}}>আধা-পাকা</option>
-                                        <option value="4" {{ old('residence_type', $hold->residence_type)=="4" ? "selected":""}}>পাকা ইমারত</option>
-                                        <option value="5" {{ old('residence_type', $hold->residence_type)=="5" ? "selected":""}}>২য় তলা বাড়ী</option>
-                                        <option value="6" {{ old('residence_type', $hold->residence_type)=="6" ? "selected":""}}>৩য় তলা বাড়ী</option>
+                                        @forelse(\App\Models\HousingType::orderBy('created_at')->get() as $data)
+                                        <option value="{{$data->id}}" {{ old('residence_type', $hold->residence_type)==$data->id ? "selected":""}}>{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
                                     </select>
-                                    @if($errors->has('residence_type'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('residence_type') }}
-                                    </small>
-                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="house_room">বাড়ির রুম/ঘর</label>
-                                    <input class="form-control @error('house_room') is-invalid @enderror"
-                                    name="house_room" id="house_room" value="{{ old('house_room',$hold->house_room) }}"  type="number" placeholder="বাড়ির রুম/ঘর">
-                                    @if($errors->has('house_room'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('house_room') }}
-                                    </small>
-                                    @endif
+                                    <input class="form-control @error('house_room') is-invalid @enderror" name="house_room" id="house_room" value="{{ old('house_room',$hold->house_room) }}"  type="number" placeholder="বাড়ির রুম/ঘর">
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -456,265 +352,15 @@
                             <div class="border border-2 m-2 p-3">
                                 <label  class="form-label" for="business_taxes"><b>কর/আয়ের উৎস</b></label>
                                 <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes1" value="1" @if(in_array(1, $Business_taxes)) checked @endif />
-                                        <label  class="form-label" for="business_taxes1">কৃষি খামার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes2" value="2" @if(in_array(2, $Business_taxes)) checked @endif />
-                                        <label  class="form-label" for="business_taxes2">মৎস খামার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes3" value="3" @if(in_array(3, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes3">দুগ্ধ খামার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes4" value="4" @if(in_array(4, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes4">হাঁস-মুরগীর খামার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes5" value="5" @if(in_array(5, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes5">গবাদি পশুর খামার</label>
-                                    </div>
+                                    @forelse(\App\Models\IncomeSource::orderBy('created_at')->get() as $data)
+                                        <div class="col-lg-2 col-sm-6">
+                                            <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes{{$data->id}}" value="{{$data->id}}" @if(in_array($data->id, $Business_taxes)) checked @endif />
+                                            <label  class="form-label" for="business_taxes{{$data->id}}">{{$data->name}}</label>
+                                        </div>
+                                    @empty
+                                    @endforelse
                                 </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes6" value="6" @if(in_array(6, $Business_taxes)) checked @endif />
-                                        <label  class="form-label" for="business_taxes6">মুদির দোকান</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes7" value="7" @if(in_array(7, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes7">আর্থিক প্রতিষ্ঠান</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes8" value="8" @if(in_array(8, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes8">ক্ষুদ্র ও কুটির শিল্প</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes9" value="9" @if(in_array(9, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes9">মাঝারি শিল্প</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes10" value="10" @if(in_array(10, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes10">খাবার হোটেল</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes11" value="11" @if(in_array(11, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes11">প্রকৌশলী</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes12" value="12" @if(in_array(12, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes12">আইনজীবি</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes13" value="13" @if(in_array(13, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes13"> চিকিৎসক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes14" value="14" @if(in_array(14, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes14">ক্লিনিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes15" value="15" @if(in_array(15, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes15">ঔষদের দোকান</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes16" value="16" @if(in_array(16, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes16">আবাসিক হোটেল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes17" value="17" @if(in_array(17, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes17">মিষ্টির দোকান</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes18" value="18" @if(in_array(18, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes18">বে-সরকারি হাসপাতাল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes19" value="19" @if(in_array(19, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes19">বে-সরকারি স্কুল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes20" value="20" @if(in_array(20, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes20"> কোচিং সেন্টার</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes21" value="21" @if(in_array(21, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes21">ঠিকাদার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes22" value="22" @if(in_array(22, $Business_taxes)) checked @endif />
-                                        <label  class="form-label" for="business_taxes22">হিমাগার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes23" value="23" @if(in_array(23, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes23">ধান ভাঙানোর কল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes24" value="24" @if(in_array(24, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes24">আটার কল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes25" value="25" @if(in_array(25, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes25">তেলের কল</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes26" value="26" @if(in_array(26, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes26">স’মিল</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes27" value="27" @if(in_array(27, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes27">বিউটি পার্লার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes28" value="28" @if(in_array(28, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes28">হেয়ার কাট সেলুন</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes29" value="29" @if(in_array(29, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes29">লন্ড্রীর দোকান</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes30" value="30" @if(in_array(30, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes30">ইঞ্জিনিয়রিং ফার্ম</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes31" value="31" @if(in_array(31, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes31">শিল্প কারখানা</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes32" value="32" @if(in_array(32, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes32">ইট ভাটা</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes33" value="33" @if(in_array(33, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes33"> কনসালটেন্সি ফার্ম</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes34" value="34" @if(in_array(34, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes34">গুদাম</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes35" value="35" @if(in_array(35, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes35">রিক্মার মালিক</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes36" value="36" @if(in_array(36, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes36">বাজার ইজারা</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes37" value="37" @if(in_array(37, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes37">টেম্পের মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes38" value="38" @if(in_array(38, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes38">বাসের মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes39" value="39" @if(in_array(39, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes39">ট্রাকের মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes40" value="40" @if(in_array(40, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes40"> পরিবহন এজেন্সী</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes41" value="41" @if(in_array(41, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes41">নৌযানের মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes42" value="42" @if(in_array(42, $Business_taxes)) checked @endif />
-                                        <label  class="form-label" for="business_taxes42">অটো রিক্সার মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes43" value="43" @if(in_array(43, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes43">স্টীমার/কার্গোর মালিক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes44" value="44" @if(in_array(44, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes44">শিশু পার্ক</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes45" value="45" @if(in_array(45, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes45"> বিনোদন পার্ক</label>
-                                    </div>
-                                </div>
-                                <div class="row m-2" style="font-size: 13px;">
-                                    {{-- <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes46" value="46" {{old('business_taxes') == '46' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes46">পশু জবাইয়</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes47" value="47" {{old('business_taxes') == '47' ? 'checked' : ''}} />
-                                        <label  class="form-label" for="business_taxes47">ঠিকাদার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes48" value="48" {{old('business_taxes') == '48' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes48">২য় শ্রেণীর ঠিকাদার</label>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes49" value="49" {{old('business_taxes') == '49' ? 'checked' : ''}}/>
-                                        <label  class="form-label" for="business_taxes49">৩য় শ্রেণীর ঠিকাদার</label>
-                                    </div> --}}
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes50" value="50" @if(in_array(50, $Business_taxes)) checked @endif/>
-                                        <label  class="form-label" for="business_taxes50"> অন্যান্য</label>
-                                    </div>
-                                </div>
+                                
                                 @if($errors->has('business_taxes'))
                                 <small class="d-block text-danger text-center">
                                     {{ $errors->first('business_taxes') }}

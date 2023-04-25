@@ -137,11 +137,11 @@
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="rel"><b>মুক্তিযোদ্ধা</b></label>
-                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror" required>
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">বীর মুক্তিযোদ্ধা</option>
                                         <option value="2">বীরাঙ্গনা</option>
-                                        <option value="3">অন্যান্য</option>
+                                        <option value="3">নাই</option>
                                     </select>
                                     @if($errors->has('freedom_fighter'))
                                     <small class="d-block text-danger text-center">
@@ -230,11 +230,6 @@
                                         @empty
                                         @endforelse
                                     </select>
-                                    @if($errors->has('edu_qual'))
-                                        <small class="d-block text-danger text-center">
-                                            {{ $errors->first('edu_qual') }}
-                                        </small>
-                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label" for="source_inc"><b>পেশা বা কর্ম</b></label>
@@ -245,9 +240,6 @@
                                         @empty
                                         @endforelse
                                     </select>
-                                    @if($errors->has('source_income'))
-                                        <small class="d-block text-danger text-center">{{ $errors->first('source_income') }}</small>
-                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="phone"><b>মোবাইল নম্বর</b></label>

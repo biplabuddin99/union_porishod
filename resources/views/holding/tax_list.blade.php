@@ -5,12 +5,11 @@
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
-
             <div class="card">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center heading-block">
-                            <h4 style="padding-top: 5px;">অনুমোদিত হোল্ডিং তালিকা</h4>
+                            <h4 style="padding-top: 5px;">হোল্ডিং কর তালিকা</h4>
                         </div>
                     </div>
                 </div>
@@ -20,21 +19,22 @@
                 <!-- table bordered -->
                 <div class="table-responsive">
                     <table class="table table-bordered mb-0">
-
                         <thead>
                             <tr>
-                                <th width="3%"> ক্রমিক </th>
+                                <th width="3%"> নং </th>
                                 <th>বাড়ি প্রধানের নাম</th>
                                 <th>পেশা</th>
                                 <th>হোল্ডিং</th>
                                 <th>গ্রাম</th>
                                 <th>ওয়ার্ড</th>
                                 <th>মোবাইল</th>
-                                <th>কর </th>
                                 <th>ছবি</th>
-                                <th>অনুমোদন </th>
+                                <th>কর </th>
+                                <th>আদায়</th>
+                                <th>বকেয়া </th>
                                 <th width="30">ভিউ</th>
-                                <th width="30">সনদ প্রিন্ট </th>
+                                <th width="30">এডিট  </th>
+                                <th width="30">প্রিন্ট </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,12 +47,18 @@
                                 <td>{{$h->village_name}}</td>
                                 <td>{{$h->ward?->ward_name_bn}}</td>
                                 <td>{{$h->phone}}</td>
-                                <td>{{$h->tax_levied_annually_house}}</td>
                                 <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
-                                <td>{{$h->approved?->name}}</td>
+                                <td>{{$h->tax_levied_annually_house}}</td>
+                                <td>{{$h->tax_levied_annually_house}}</td>
+                                <td>0</td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route('hold_primary.list',$h->id)}}">
                                         <i class="bi bi-eye-fill"></i>
+                                    </a> 
+                                </td>
+                                <td class="white-space-nowrap">
+                                    <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
+                                        <i class="bi bi-pencil-square"></i>
                                     </a> 
                                 </td>
                                 <td class="white-space-nowrap">
@@ -60,11 +66,6 @@
                                         <i class="bi bi-printer"></i>
                                     </a> 
                                 </td>
-                                {{-- <td class="white-space-nowrap">
-                                    <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a> 
-                                </td> --}}
                             </tr>
                             @empty
                             <tr>

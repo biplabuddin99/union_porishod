@@ -188,10 +188,7 @@ class HoldingController extends Controller
     {
         $hold = Holding::findOrFail(encryptor('decrypt',$id));
         $Govt_fac = explode(',', $hold->government_facilities);
-        $districts=District::where('id',$hold->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$hold->upazila_id)->select('id','name','name_bn')->first();
-        $wards=Ward_no::where('id',$hold->ward_id)->select('id','ward_name','ward_name_bn')->first();
-        return view('holding.show',compact('hold','Govt_fac','districts','upazilas','wards'));
+        return view('holding.show',compact('hold','Govt_fac'));
     }
 
     /**
@@ -314,5 +311,11 @@ class HoldingController extends Controller
         $cat= Holding::findOrFail(encryptor('decrypt',$id));
         $cat->delete();
         return redirect()->back();
+    }
+
+    public function tax()
+    {
+        $hold=Holding::where('status',1)->get();
+        return view('holding.tax_list',compact('hold'));
     }
 }

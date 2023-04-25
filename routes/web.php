@@ -107,6 +107,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('hold_profile',[holding::class,'profile'])->name('admin.hold_profile.list');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 
+        Route::get('hold_tax',[holding::class,'tax'])->name('admin.hold_tax.list');
+
         Route::resource('others',others::class,['as'=>'admin']);
         Route::resource('attesteation',attesteation::class,['as'=>'admin']);
         Route::get('attesteation_profile',[attesteation::class,'profile'])->name('attesteation_profile.list');

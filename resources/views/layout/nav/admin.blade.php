@@ -148,7 +148,7 @@
         </a>
         <ul class="submenu">
             <li class="py-1">
-                <a href="#">
+                <a href="{{route(currentUser().'.hold_tax.list')}}">
                     <i class="bi bi-wallet2"></i>
                     {{__('হোল্ডিং কর তালিকা')}}
                 </a>
@@ -156,13 +156,25 @@
             <li class="py-1">
                 <a href="#">
                     <i class="bi bi-wallet2"></i>
-                    {{__('ব্যবসায়িককর তালিকা ')}}
+                    {{__('ব্যবসায়িক কর তালিকা ')}}
                 </a>
             </li>
             <li class="py-1">
                 <a href="#">
                     <i class="bi bi-wallet2"></i>
                     {{__('হোল্ডিং কর আদায়')}}
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="#">
+                    <i class="bi bi-wallet2"></i>
+                    {{__('ব্যবসায়িক কর আদায়')}}
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="#">
+                    <i class="bi bi-wallet2"></i>
+                    {{__('হোল্ডিং কর বকেয়া')}}
                 </a>
             </li>
             <li class="py-1">
@@ -183,12 +195,12 @@
                     {{__('মোট ট্যাক্স বকেয়া')}}
                 </a>
             </li>
-            <li class="py-1">
+            {{-- <li class="py-1">
                 <a href="#">
                     <i class="bi bi-wallet2"></i>
                     {{__('অন্যান্য')}}
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </li>
     <!-- ট্যাক্স/করদাতা শেষ -->

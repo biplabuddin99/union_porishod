@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="result_show">
-    <section style="font-size: 12px">
+    <section style="font-size: 14px">
         <section style="margin-top: 40px;">
             <div class="container">
                 <div class="row">
@@ -16,14 +16,14 @@
                 </div>
             </div>
         </section>
-        <section style="margin-top: 10px;">
+        <section>
             <div class="container">
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}</p>
-                        <p>ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
+                        <p style="padding-top: 10px;margin-bottom:5px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
+                        <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}<br>
+                            ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-5 col-sm-5" style="padding-left: 110px; padding-top: 5px;">
                         <div style="text-align: center;">
@@ -178,7 +178,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $wards->ward_name_bn }}</span>
+                    <span  class="form-label" for="">{{ $hold->ward?->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -211,7 +211,7 @@
                     <span  class="form-label" for="">থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $upazilas->name_bn }}</span>
+                    <span  class="form-label" for="">{{ $hold->upazila?->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -222,7 +222,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $districts->name_bn }}</span>
+                    <span  class="form-label" for="">{{ $hold->district?->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -289,7 +289,7 @@
                 <div class="col-8" style="padding-left: 100px">
                     <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                 </div>
-                <div class="col-4" style="color: rgb(18, 5, 133); padding-top:20px">
+                <div class="col-4" style="color: rgb(18, 5, 133);align-self: end;">
                     <div class="row"><strong>({{ $hold->chairman?->name}})</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
                     <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>

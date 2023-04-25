@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>হোল্ডিং তথ্য সংগ্রহ ফরম</title>
     <style>
+        @page {
+            margin-top: 0mm; /* set a 1cm margin on all sides */
+        }
         body{
-            font-size: 14px;
+            font-size: 13px;
         }
         .wrapper{
             width: 700px;
@@ -119,7 +122,7 @@
             </div>
             <div class="headcontent">
                 <img class="mujib" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'logo/mujib_logo-01.png')}}" width="80px" height="80px" alt="Logo">
-                <h5 style="margin-top: 20px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
+                <h5 style="margin-top: 8px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
                 <h3 style="margin: 5px; color: rgb(23, 36, 158);">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h3>
                 <h5 style="margin: 5px; color: rgb(226, 125, 31);">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h5>
                 <h4 class="headbg" style="margin: auto;">আবেদন হোল্ডিং নম্বর</h2>
@@ -129,7 +132,7 @@
             <div class="formnodiv"><b>আবেদন নং :</b><input class="formno" value="{{ $hold->id }}" type="text"></div>
             <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}" type="text"></div>
         </div>
-        <div style="position: relative; margin-top: 15px;">
+        <div style="position: relative; margin-top: 5px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
                 <tr>
                     <th style="width: 30%; text-align: left;">আবেদনকারীর নাম </th>
@@ -213,7 +216,7 @@
                     <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->paved_bathroom == 1 ) কাঁচা @else পাকা @endif</td>
                 </tr>
             </table>
-            <table style="width: 100%; margin-top:15px">
+            <table style="width: 100%;">
                 <tr>
                     <th width="25%" style="text-align: left;">ব্যাংক একাউন্ট </th>
                     <td style="border: 1px solid rgb(19, 18, 18); border-top:5px solid #aaa"> @if ($hold->bank_acc == 1 ) আছে @else নাই @endif</td>
@@ -262,9 +265,9 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ব্যবসায়িক করের উৎস </th>
-                    <td style="border-style: solid; border-width: 1px;" colspan="3">
+                    <td style="border-style: solid; border-width: 1px; font-size:12px" colspan="3">
                         @forelse(\App\Models\IncomeSource::orderBy('created_at')->get() as $data)
-                        <div style="float:left; width:25%"><input type="checkbox" value="{{$data->id}}" @if(in_array($data->id, $Business_tax)) checked @endif><label for="">{{$data->name}}</label></div>
+                        <div style="float:left; width:25%;white-space: nowrap;"><input type="checkbox" value="{{$data->id}}" @if(in_array($data->id, $Business_tax)) checked @endif><label for="">{{$data->name}}</label></div>
                         @empty
                         @endforelse
                     </td>
