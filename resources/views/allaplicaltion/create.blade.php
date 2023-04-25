@@ -43,7 +43,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="husband_wife"><b>স্বামী/স্ত্রীর নাম</b></label>
                                     <input class="form-control" type="text"
-                                    name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" placeholder="পিতা/ স্বামী">
+                                    name="husband_wife" value="{{ old('husband_wife') }}" id="husband_wife" placeholder="স্বামী/স্ত্রীর নাম">
                                 </div>
                             
                                 <div class="col-6">
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="rel"><b>মুক্তিযোদ্ধা</b></label>
-                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror" required>
+                                    <select name="freedom_fighter" class="form-select @error('freedom_fighter') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">বীর মুক্তিযোদ্ধা</option>
                                         <option value="2">বীরাঙ্গনা</option>
@@ -307,17 +307,17 @@
 
                                     <div class="row">
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
-                                        <label  class="form-label" for="type_application5">ভিজিএফ কার্ড</label>
+                                        <label  class="form-label" for="type_application5">গ্রাম আদালত</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
                                     <div class="row ps-5">
-                                        <a class="mt-2" href="#">ভিজিডি কার্ড</a>
+                                        <a class="mt-2" href="#">ভিজিএফ কার্ড</a>
                                     </div>
                                     <div class="row ps-5">
-                                        <a class="mt-2" href="#">ভিডব্লিউবি কার্ড</a>
+                                        <a class="mt-2" href="#">ভিজিডি কার্ড</a>
                                     </div>
                                     <div class="row ps-5">
                                         <a class="mt-2" href="#">প্রতিবন্ধী ভাতা</a>
@@ -325,7 +325,6 @@
                                     <div class="row ps-5">
                                         <a class="mt-2" href="#">মাতৃত্বকালীন ভাতা</a>
                                     </div>
-
                                 </div>
                                 <div class="col-6">
                                     <div class="row">
