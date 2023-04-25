@@ -97,6 +97,10 @@
             color: rgb(251, 248, 255);
             background-color: rgb(65, 17, 236);
         }
+        .btnprint{
+            color: rgb(251, 248, 255);
+            background-color: rgb(8, 82, 4);
+        }
         .image{
             position: absolute;
             top: 0;
@@ -112,9 +116,15 @@
         }
 }
     </style>
+    <script>
+        function print_(){
+            window.print();
+        }
+    </script>
 </head>
 <body>
     <a class="noprint" href="{{route(currentUser().'.allapplication.create')}}"><button class="btn">Back</button></a>
+    <button onclick="print_()" class="btnprint noprint">Print</button>
     <div class="wrapper">
         <div class="header" >
             <div class="photo">
