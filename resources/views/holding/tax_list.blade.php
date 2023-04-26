@@ -22,7 +22,7 @@
                         <thead>
                             <tr>
                                 <th width="3%"> নং </th>
-                                <th>বাড়ি প্রধানের নাম</th>
+                                <th>বাড়ি প্রধান</th>
                                 <th>পেশা</th>
                                 <th>হোল্ডিং</th>
                                 <th>গ্রাম</th>
@@ -33,7 +33,7 @@
                                 <th>আদায়</th>
                                 <th>বকেয়া </th>
                                 <th width="30">ভিউ</th>
-                                <th width="30">এডিট  </th>
+                                <th width="30">এডিট</th>
                                 <th width="30">প্রিন্ট </th>
                             </tr>
                         </thead>

@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center heading-block">
-                            <h4 style="padding-top: 5px;">অনুমোদিত হোল্ডিং তালিকা</h4>
+                            <h5 style="padding-top: 5px;">অনুমোদিত হোল্ডিং তালিকা</h5>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <thead>
                             <tr>
                                 <th width="3%"> ক্রমিক </th>
-                                <th>বাড়ি প্রধানের নাম</th>
+                                <th>বাড়ি প্রধান</th>
                                 <th>পেশা</th>
                                 <th>হোল্ডিং</th>
                                 <th>গ্রাম</th>
@@ -32,9 +32,9 @@
                                 <th>মোবাইল</th>
                                 <th>কর </th>
                                 <th>ছবি</th>
-                                <th>অনুমোদন </th>
+                                <th>অনুমোদনকারী </th>
                                 <th width="30">ভিউ</th>
-                                <th width="30">সনদ প্রিন্ট </th>
+                                <th width="60">সনদ প্রিন্ট </th>
                             </tr>
                         </thead>
                         <tbody>

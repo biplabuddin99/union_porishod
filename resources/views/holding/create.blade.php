@@ -163,7 +163,7 @@
                                     @endif
                                 </div>
                             </div>
-                            IncomeSource
+
                             <div class="border border-2 m-2 p-3">
                                 <label  class="form-label" for="business_taxes"><b>কর/আয়ের উৎস</b></label>
                                 <div class="row m-2" style="font-size: 13px;">

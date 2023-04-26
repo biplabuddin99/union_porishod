@@ -31,8 +31,8 @@
                 <div class="auth-logo text-center mt-5">
                     <img  src="{{ asset($upsetting?"uploads/logo_folder/".$upsetting->logo:'./images/Login-01.png')}}" width="120px" height="120px" alt="">
                     <h6 style="color:rgb(16, 139, 239)" class="py-2">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h6>
-                    <h4 style="background-color: rgb(16, 139, 239); color:white;" class="py-3"> {{ $upsetting?$upsetting->union?->name_bn:"ইউনিয়ন পরিষদ"}}</h4>
-                    <h6 style="color:rgb(20, 19, 19);" class="p-2">{{ $upsetting?$upsetting->upazila?->name_bn:"উপজেলা"}},{{ $upsetting?$upsetting->district?->name_bn:"জেলা"}} ।</h6>
+                    <h4 style="background-color: rgb(16, 139, 239); color:white;" class="py-3"> {{ $upsetting?$upsetting->union?->name_bn:""}} ইউনিয়ন পরিষদ </h4>
+                    <h6 style="color:rgb(20, 19, 19);" class="p-2">{{ $upsetting?$upsetting->upazila?->name_bn:"উপজেলা"}}, {{ $upsetting?$upsetting->district?->name_bn:"জেলা"}} ।</h6>
                     <h5 style="background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774); border-width: 3px 3px 0 3px;" class="py-2 mb-0">স্মার্ট ইউপি ম্যানেজমেন্ট সিস্টেম</h5>
                 </div>
                 @yield('content')

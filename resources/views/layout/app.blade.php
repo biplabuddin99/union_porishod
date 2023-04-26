@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ইউপি ম্যানেজেমেন্ট সিস্টেম | @yield('siteTitle', 'Chittagong')</title>
+    <title>স্মার্ট ইউপি ম্যানেজমেন্ট সিস্টেম </title>
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}">
@@ -28,7 +28,7 @@
 
     <style>
         body{
-            font-family: 'AdorshoLipi', sans-serif !important;
+            font-family: 'Shurjo', sans-serif !important;
         }
         @media print{
             .no-print, .no-print *

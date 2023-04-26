@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px;margin-bottom:5px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
                         <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}<br>
                             ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
                     </div>
@@ -297,7 +297,7 @@
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:30px">
-                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন"}} ||</h5>
+                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
     </section>

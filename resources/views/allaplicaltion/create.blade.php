@@ -11,9 +11,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 text-center heading-block">
-                                    <h4 style="padding-top: 5px;">আবেদন ফরম</h4>
+                                    <h5 style="padding-top: 5px;">অনলাইন আবেদন ফরম</h5>
                                 </div>
-                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">আবেদনকৃত ব্যক্তির পরিচিতি</h5>
                             </div>
                         </div>
                         <form action="{{route(currentUser().'.allapplication.store')}}" method="POST" enctype="multipart/form-data">
@@ -166,11 +165,11 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="internet" for="cars"><b>ইন্টারনেট সংযোগ</b></label>
+                                    <label class="form-label" for="internet" for="cars"><b>ইন্টারনেট ব্যবহার</b></label>
                                     <select required name="internet_connection" id="internet" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">আছে</option>
-                                        <option value="2">নাই</option>
+                                        <option value="1">হ্যাঁ</option>
+                                        <option value="2">না</option>
                                     </select>
                                 </div>
                                 <div class="col-6">

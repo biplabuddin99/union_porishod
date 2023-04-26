@@ -315,7 +315,7 @@ class HoldingController extends Controller
 
     public function tax()
     {
-        $hold=Holding::where('status',1)->get();
+        $hold=Holding::where('status',1)->where('tax_levied_annually_house','>','0')->get();
         return view('holding.tax_list',compact('hold'));
     }
 }
