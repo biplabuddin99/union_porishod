@@ -102,6 +102,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
+        Route::get('holding_cancel',[holding::class,'cancel'])->name('admin.holding_cancel');
         Route::get('/hold_primary/{id}',[holding::class,'primaryIndex'])->name('hold_primary.list');
         // Route::get('generate-pdf', [holding::class, 'generatePDF']);
         Route::get('hold_profile',[holding::class,'profile'])->name('admin.hold_profile.list');

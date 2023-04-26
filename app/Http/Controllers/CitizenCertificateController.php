@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\All_onlineApplications;
 use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
+use Carbon\Carbon;
 
 class CitizenCertificateController extends Controller
 {
@@ -204,7 +205,7 @@ class CitizenCertificateController extends Controller
         try {
             $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
            // $citizen->form_no=$request->form_no;
-           $citizen->holding_date=$request->holding_date;
+           $citizen->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
            $citizen->head_household=$request->head_household;
            $citizen->husband_wife=$request->husband_wife;
            $citizen->father_name=$request->father_name;

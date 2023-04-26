@@ -84,6 +84,13 @@
                     {{__('অন্যান্য')}}
                 </a>
             </li>
+            </li>
+            <li class="py-1">
+                <a href="{{route(currentUser().'.holding_cancel')}}">
+                    <i class="bi bi-list-stars"></i>
+                    {{__('বাতিলকৃত হোল্ডিং নম্বর')}}
+                </a>
+            </li>
             {{-- <li class="py-1"><a href="{{route(currentUser().'.vgfcard.index')}}">{{__('ভিজিএফ কার্ড')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.oldallowance.index')}}">{{__('বয়স্ক ভাতা')}}</a></li>
             <li class="py-1"><a href="{{route(currentUser().'.widowallowance.index')}}">{{__('বিধবা ভাতা')}}</a></li>

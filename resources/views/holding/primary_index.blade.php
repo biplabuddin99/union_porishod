@@ -123,7 +123,7 @@
     </script>
 </head>
 <body>
-    <a class="noprint" href="{{route(currentUser().'.allapplication.create')}}"><button class="btn">Back</button></a>
+    <button onclick="history.back()" class="btn noprint">Back</button>
     <button onclick="print_()" class="btnprint noprint">Print</button>
     <div class="wrapper">
         <div class="header" >
@@ -162,7 +162,7 @@
                 </tr>
             </table>
             <div class="image">
-                <img height="100px" width="100px" src="{{ asset('uploads/holding/'.$hold->image)}}" alt="No IMAGE">
+                <img height="100px" width="100px" src="{{ asset('uploads/holding/'.$hold->image)}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="No IMAGE">
             </div>
             <table style="width: 100%;">
                 <tr>

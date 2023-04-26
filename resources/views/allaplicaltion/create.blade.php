@@ -188,7 +188,7 @@
                                         @forelse($mobile_bank as $mb)
                                         <div class=" col-sm-3 col-lg-2">
                                             <input class="form-check-input" name="mobile_bank[]" type="checkbox" id="mobile_bank{{$mb->id}}" value="{{$mb->id}}" {{old('mobile_bank') == $mb->id ? 'checked' : ''}} />
-                                            <label  class="form-label" for="mobile_bank{{$mb->id}}"> {{$mb->name}}</label>
+                                            <label  class="form-label" for="mobile_bank{{$mb->id}}"> &nbsp; {{$mb->name}}</label>
                                         </div>
                                         @empty
                                         @endforelse
@@ -201,7 +201,7 @@
                                     @forelse($digital_device as $dd)
                                     <div class=" col-sm-3 col-lg-2">
                                         <input class="form-check-input" type="checkbox" name="digital_devices[]" id="digital_devices{{$dd->id}}" value="{{$dd->id}}" {{old('digital_devices') == $dd->id ? 'checked' : ''}} />
-                                        <label  class="form-label" for="digital_devices{{$dd->id}}"> {{$dd->name}}</label>
+                                        <label  class="form-label" for="digital_devices{{$dd->id}}"> &nbsp; {{$dd->name}}</label>
                                     </div>
                                     @empty
                                     @endforelse
@@ -213,7 +213,7 @@
                                     @forelse($gov_f as $dd)
                                         <div class="col-sm-3 col-lg-2">
                                             <input class="form-check-input" type="checkbox" name="government_facilities[]" id="government_facilities{{$dd->id}}" value="{{$dd->id}}" {{old('government_facilities') == $dd->id ? 'checked' : ''}} />
-                                            <label  class="form-label" for="government_facilities{{$dd->id}}">{{$dd->name}}</label>
+                                            <label  class="form-label" for="government_facilities{{$dd->id}}"> &nbsp; {{$dd->name}}</label>
                                         </div>
                                     @empty
                                     @endforelse
@@ -268,7 +268,7 @@
                             
                             
                             <div class="row m-3">
-                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">আপনি কেন আবেদনটি করতে চান? </h5>
+                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">আপনি কোন আবেদনটি করতে চান? </h5>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <label for=""><h5 class="theme-text-color">আবেদনের ধরন</h5></label>

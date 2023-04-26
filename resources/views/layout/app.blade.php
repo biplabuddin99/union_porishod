@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>স্মার্ট ইউপি ম্যানেজমেন্ট সিস্টেম </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}">
@@ -12,9 +15,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" referrerpolicy="no-referrer" />
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
 
@@ -27,9 +27,6 @@
     crossorigin="anonymous"></script>
 
     <style>
-        body{
-            font-family: 'Shurjo', sans-serif !important;
-        }
         @media print{
             .no-print, .no-print *
             {

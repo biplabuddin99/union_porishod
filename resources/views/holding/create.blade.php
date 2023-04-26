@@ -170,7 +170,7 @@
                                     @forelse(\App\Models\IncomeSource::orderBy('created_at')->get() as $data)
                                         <div class="col-lg-2 col-sm-6">
                                             <input class="form-check-input @error('business_taxes') is-invalid @enderror" type="checkbox" name="business_taxes[]" id="business_taxes{{$data->id}}" value="{{$data->id}}" {{old('business_taxes') == $data->id ? 'checked' : ''}} />
-                                            <label  class="form-label" for="business_taxes{{$data->id}}">{{$data->name}}</label>
+                                            <label  class="form-label" for="business_taxes{{$data->id}}"> &nbsp; {{$data->name}}</label>
                                         </div>
                                     @empty
                                     @endforelse

@@ -6,13 +6,11 @@
 }
 
 body {
-  /* font-family: "Roboto", sans-serif; */
-  font-family: 'Shurjo', sans-serif !important;
+  font-family: "Roboto", sans-serif;
   color: var(--gray);
   background-color: rgb(248, 248, 248);
   margin: 0;
   padding: 0;
-  font-size: 0.9rem;
 }
 .button {
   background-color: var(--red);
@@ -511,7 +509,7 @@ footer img {
   height: 20px;
 }
 .heading-block{
-  font-size:0.8rem;background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774);
+  font-size:1rem;background-color: rgb(180, 197, 211); color:rgb(25, 68, 207); border: 3px solid rgba(104, 157, 201, 0.774);
 }
 /*576px  */
 
@@ -547,5 +545,3 @@ footer img {
     display: block;
   }
 }
-
-@media (min-width:1400px){.container,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl{max-width:100%}}

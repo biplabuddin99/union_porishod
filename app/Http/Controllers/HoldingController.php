@@ -59,6 +59,11 @@ class HoldingController extends Controller
         $hold=Holding::where('status',1)->get();
         return view('holding.profile',compact('hold'));
     }
+    public function cancel()
+    {
+        $hold=Holding::where('status',2)->get();
+        return view('holding.cancel',compact('hold'));
+    }
 
     public function add_profile(Request $request, $id)
     {
@@ -68,6 +73,10 @@ class HoldingController extends Controller
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
             $holding->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $holding->cancel_reason=$request->cancel_reason;
+
+            if($request->status==1)
+                $holding->form_no='0'.Carbon::now()->format('y').'-'. str_pad((Holding::whereYear('created_at', Carbon::now()->year)->where('status',1)->count() + 1),3,"0",STR_PAD_LEFT);
+
             $holding->status=$request->status;
             $holding->approved_by=currentUserId();
             $holding->updated_by=currentUserId();
@@ -75,9 +84,9 @@ class HoldingController extends Controller
             $holding->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.holding.index'));
-            // dd($request);
         }
         catch (Exception $e){
+            // dd($e);
             Toastr::error('অনুগ্রহপূর্বক আবার চেষ্টা করুন!');
             return back()->withInput();
         }
@@ -222,7 +231,7 @@ class HoldingController extends Controller
     {
         try{
             $holding=Holding::findOrFail(encryptor('decrypt',$id));
-            $holding->holding_date=$request->holding_date;
+            $holding->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
             $holding->head_household=$request->head_household;
             $holding->husband_wife=$request->husband_wife;
             $holding->father_name=$request->father_name;

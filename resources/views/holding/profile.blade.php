@@ -48,7 +48,7 @@
                                 <td>{{$h->ward?->ward_name_bn}}</td>
                                 <td>{{$h->phone}}</td>
                                 <td>{{$h->tax_levied_annually_house}}</td>
-                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>{{$h->approved?->name}}</td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route('hold_primary.list',$h->id)}}">

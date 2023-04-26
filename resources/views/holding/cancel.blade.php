@@ -11,7 +11,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center heading-block">
-                            <h5 style="padding-top: 5px;">হোল্ডিং আবেদন তালিকা</h5>
+                            <h5 style="padding-top: 5px;">হোল্ডিং আবেদন তালিকা (বাতিলকৃত)</h5>
                         </div>
                     </div>
                 </div>

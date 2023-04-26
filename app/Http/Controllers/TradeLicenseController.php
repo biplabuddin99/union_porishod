@@ -14,6 +14,7 @@ use App\Models\All_onlineApplications;
 use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
 use Exception;
+use Carbon\Carbon;
 
 class TradeLicenseController extends Controller
 {
@@ -214,7 +215,7 @@ class TradeLicenseController extends Controller
     {
         try {
             $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));;
-            $trade->holding_date=$request->holding_date;
+            $trade->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
             $trade->head_household=$request->head_household;
             $trade->husband_wife=$request->husband_wife;
             $trade->mother_name=$request->mother_name;

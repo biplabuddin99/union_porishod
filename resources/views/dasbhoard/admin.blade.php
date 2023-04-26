@@ -45,30 +45,30 @@
                     </table>
                 </div>
                 <div class="col-sm-6 col-lg-3 col-md-4">
-                    <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
+                    <div class="card bg-primary" style="color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <h5>৮৬২৬৩</h5>
+                                <h5 style="color:white;">৮৬২৬৩</h5>
                                 <p>মোট কর</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 col-md-4">
-                    <div class="card" style="background-color: rgb(104, 221, 137); color:white; max-height: 160px;">
+                    <div class="card bg-primary" style="color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <h5>১১৭৮৬৫</h5>
+                                <h5 style="color:white;">১১৭৮৬৫</h5>
                                 <p>মোট আদায়</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 col-md-4">
-                    <div class="card" style="background-color: rgb(174, 17, 198); color:white; max-height: 160px;">
+                    <div class="card bg-primary" style="color:white; max-height: 160px;">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <h5>৩৫৯৬৯</h5>
+                                <h5 style="color:white;">৩৫৯৬৯</h5>
                                 <p>বকেয়া কর</p>
                             </div>
                         </div>
