@@ -545,3 +545,17 @@
     });
 </script>
 @endsection
+@push('scripts')
+    <script>
+        function num_fmember(){
+            let nm=$('#num_male').val()?parseFloat($('#num_male').val()):0;
+            let nf=$('#num_female').val()?parseFloat($('#num_female').val()):0;
+            $('#num_total').val((nm+nf));
+        }
+        function num_fmembervot(){
+            let nm=$('#num_male_vot').val()?parseFloat($('#num_male_vot').val()):0;
+            let nf=$('#num_female_vot').val()?parseFloat($('#num_female_vot').val()):0;
+            $('#num_totalv').val((nm+nf));
+        }
+    </script>
+@endpush
