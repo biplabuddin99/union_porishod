@@ -272,9 +272,35 @@
                                     @empty
                                     @endforelse
                                 </div>
-
                             </div>
-
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label for="num_male"><b>পরিবারের সদস্য সংখ্যা (পুরুষ)</b></label>
+                                    <input type="number" class="form-control" name="num_male" id="num_male" onkeyup="num_fmember()" value="{{ old('num_male',$hold->num_male) }}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="num_female"><b>পরিবারের সদস্য সংখ্যা (মহিলা)</b></label>
+                                    <input type="number" class="form-control" name="num_female" id="num_female" onkeyup="num_fmember()" value="{{ old('num_female',$hold->num_female) }}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="num_female"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
+                                    <input type="number" class="form-control" id="num_total" value="{{ (old('num_male',$hold->num_male) + old('num_female',$hold->num_female)) }}">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label for="num_male_vot"><b>পরিবারের ভোটার সংখ্যা (পুরুষ)</b></label>
+                                    <input type="number" class="form-control" name="num_male_vot" id="num_male_vot" onkeyup="num_fmembervot()" value="{{ old('num_male_vot',$hold->num_male_vot) }}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="num_female_vot"><b>পরিবারের ভোটার সংখ্যা (মহিলা)</b></label>
+                                    <input type="number" class="form-control" name="num_female_vot" id="num_female_vot" onkeyup="num_fmembervot()" value="{{ old('num_female_vot',$hold->num_female_vot) }}">
+                                </div>
+                                <div class="col-4">
+                                    <label ><b>পরিবারের মোট ভোটার  সংখ্যা</b> </label>
+                                    <input type="number" class="form-control" id="num_totalv" value="{{ (old('num_male_vot',$hold->num_male_vot) + old('num_female_vot',$hold->num_female_vot)) }}">
+                                </div>
+                            </div>
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="residence_type">বাড়ির ধরন </label>

@@ -24,15 +24,15 @@
 
                         <thead>
                             <tr>
-                                <th width="3%">আবেদন নম্বর</th>
+                                <th>আবেদন নম্বর</th>
                                 <th>তারিখ</th>
                                 <th>আবেদনকারীর নাম </th>
                                 <th>পেশা</th>
                                 <th>মোবাইল</th>
                                 <th>ছবি</th>
-                                <th>অনুমোদন </th>
+                                {{-- <th>অনুমোদন </th> --}}
                                 <th width="30">ভিউ</th>
-                                <th width="30">এডিট</th>
+                                <th>বাতিলের কারণ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +44,7 @@
                                 <td>{{$h->income?->name}}</td>
                                 <td>{{$h->phone}}</td>
                                 <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
-                                <td>
+                                {{-- <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $h->id }}">যুক্ত করুন</button>
                                     <div class="modal fade" id="modal{{ $h->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $h->id }}Title" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -135,21 +135,78 @@
                                             </div>
                                         </div>
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <a href="{{route('hold_primary.list',$h->id)}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
                                 </td>
                                 <td>
-                                     <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    {{-- <form id="form{{$h->id}}" action="{{route(currentUser().'.holding.destroy',encryptor('encrypt',$h->id))}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn p-0 show_confirm" data-toggle="tooltip" type="submit"><i class='bi bi-trash-fill' style='color:red'></i></a></button>
-                                    </form> --}}
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalc{{ $h->id }}">বিস্তারিত</button>
+                                    <div class="modal fade" id="modalc{{ $h->id }}" tabindex="-1" role="dialog" aria-labelledby="modalc{{ $h->id }}Title" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 800px;">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="#modalc{{ $h->id }}Title">আবেদন নম্বর # {{ $h->id }}</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-12 table-responsive">
+                                                            <table class="table table-inverse">
+                                                                <thead class="thead-inverse">
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <div class="col-md-12 text-center heading-block">
+                                                                                <h5 style="padding-top: 5px;">আবেদন বাতিলের কারণ</h5>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>আবেদনকারীর নাম:</td>
+                                                                        <td>{{ $h->head_household }}</td>
+                                                                        <td>আবেদন তারিখ:</td>
+                                                                        <td>{{ $h->holding_date }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>পিতার নাম:</td>
+                                                                        <td>{{ $h->father_name }}</td>
+                                                                        <td>মাতার নাম:</td>
+                                                                        <td>{{ $h->mother_name }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>ভোটার আইডি:</td>
+                                                                        <td>{{ $h->voter_id_no }}</td>
+                                                                        <td>মোবাইল নম্বর:</td>
+                                                                        <td>{{ $h->phone }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>অনুমেদনের তারিখ</td>
+                                                                        <td>{{ $h->updated_at }}</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="cancel_reason">বাতিলের কারণ</td>
+                                                                        <td colspan="3"> {{$h->cancel_reason}}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @empty

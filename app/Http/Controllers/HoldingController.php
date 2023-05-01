@@ -158,6 +158,10 @@ class HoldingController extends Controller
             // $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
             $holding->house_holding_no=$request->house_holding_no;
+            $holding->num_male=$request->num_male;
+            $holding->num_female=$request->num_female;
+            $holding->num_male_vot=$request->num_male_vot;
+            $holding->num_female_vot=$request->num_female_vot;
             $holding->street_nm=$request->street_nm;
             $holding->village_name=$request->village_name;
             $holding->ward_id=$request->ward_id;
@@ -271,6 +275,10 @@ class HoldingController extends Controller
             // $holding->annual_house_tax_arrears=$request->annual_house_tax_arrears;
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
             $holding->house_holding_no=$request->house_holding_no;
+            $holding->num_male=$request->num_male;
+            $holding->num_female=$request->num_female;
+            $holding->num_male_vot=$request->num_male_vot;
+            $holding->num_female_vot=$request->num_female_vot;
             $holding->street_nm=$request->street_nm;
             $holding->village_name=$request->village_name;
             $holding->ward_id=$request->ward_id;

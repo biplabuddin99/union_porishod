@@ -46,7 +46,10 @@ return new class extends Migration
             $table->string('residence_type')->nullable();
             $table->integer('house_room')->nullable();
             $table->string('family_status')->nullable();
-            // $table->string('main_source_income')->nullable();
+            $table->string('num_male')->nullable();
+            $table->string('num_female')->nullable();
+            $table->string('num_male_vot')->nullable();
+            $table->string('num_female_vot')->nullable();
             $table->string('business_taxes')->nullable();
             $table->decimal('percentage_house_land',14,2)->nullable();
             $table->decimal('percentage_cultivated_land',14,2)->nullable();
