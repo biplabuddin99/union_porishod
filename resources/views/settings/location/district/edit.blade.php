@@ -22,7 +22,7 @@
                                             <select class="form-control form-select" name="division_id" id="division_id">
                                                 <option value="">Select Division</option>
                                                 @forelse($divisions as $d)
-                                                    <option value="{{$d->id}}" {{ old('district_id',$district->district_id)==$d->id?"selected":""}}> {{ $d->name}}</option>
+                                                    <option value="{{$d->id}}" {{ old('division_id',$district->division_id)==$d->id?"selected":""}}> {{ $d->name}}</option>
                                                 @empty
                                                     <option value="">No Division found</option>
                                                 @endforelse
@@ -45,11 +45,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
-                                        
+
                                     </div>
                                 </div>
                             </form>

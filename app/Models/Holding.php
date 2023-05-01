@@ -24,7 +24,7 @@ class Holding extends Model
         return $this->belongsTo(Ward_no::class,'ward_id','id');
     }
     public function income(){
-        return $this->belongsTo(IncomeSource::class,'source_income','id');
+        return $this->belongsTo(Profession::class,'source_income','id');
     }
     public function house(){
         return $this->belongsTo(HousingType::class,'residence_type','id');
