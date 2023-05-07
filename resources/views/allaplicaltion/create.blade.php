@@ -285,6 +285,30 @@
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
                                         <label  class="form-label" for="type_application9">পরিবারিক সনদ</label>
                                     </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">স্থায়ী বাসিন্দা সনদ</label>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">প্রতিবন্ধী সনদ</label>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">এতিম সনদ</label>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">মৃত্যু সনদ</label>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">জেলে সনদ</label>
+                                    </div>
+                                    <div class="row ps-5">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application9" value="5" {{old('type_application') == '5' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application9">অবকাঠামো নির্মানের অনুমতি সনদ</label>
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="row">
@@ -299,6 +323,26 @@
                                     <div class="row">
                                         <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
                                         <label  class="form-label" for="type_application5">গ্রাম আদালত</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">ভূমিহীন সনদ</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">কৃষি সনদ</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">উপজাতি সনদ</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">তৃতীয়লিঙ্গ সনদ</label>
+                                    </div>
+                                    <div class="row">
+                                        <input class="form-check-input" type="radio" name="type_application" id="type_application5" value="6" {{old('type_application') == '6' ? 'checked' : ''}}>
+                                        <label  class="form-label" for="type_application5">প্রবাসি সনদ</label>
                                     </div>
                                 </div>
                             </div>

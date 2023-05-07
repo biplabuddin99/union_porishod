@@ -51,7 +51,7 @@
                                   </small>
                                   @endif --}}
                               </div>
-                              
+
                             <div class="col-6">
                                 <label  class="form-label" for="total_family_members">পরিবারের মোট সদস্য সংখ্যা:-</label>
                                 <input onblur="addNumbers()" class="form-control @error('total_family_members') is-invalid @enderror"
@@ -185,7 +185,7 @@
                                 <b>{{ request()->session()->get('upsetting')->district?->name_bn}}</b>
                                 <input type="hidden" name="district_id" value="{{ request()->session()->get('upsetting')->district_id}}"/>
                             </div>
-                            
+
                         </div>
                           <div class="row m-3">
                               <h5 class="theme-text-color" style="padding-top: 5px;">অতিরিক্ত সংযোজনঃ- </h5>
@@ -239,7 +239,7 @@
 <script>
     function addNumbers() {
       var total_warishan = document.getElementById("total_family_members").value?parseFloat(document.getElementById("total_family_members").value):0;
-     
+
       repeatRows(total_warishan)
     }
 
