@@ -279,7 +279,7 @@
             </div>
         </div>
         </section>
-        <section>
+        <section class="mb-5">
             <div class="row">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
                 <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যান  উন্নতি কামনা করি ।</p>
@@ -300,6 +300,28 @@
                 <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+    <section style="font-size: 14px; margin-top: 40px;" class="p-5">
+        <div class="container mt-5 mb-5">
+            <div class="row"><h4 class="text-center mt-5" style="color:red;">শর্তাবলি</h4></div>
+            <div class="row"><h5 class="text-center">[ The UP (Taxation) Rules,২০০৯ এর ধারা ৮৪ বিধিমতে ]</h5></div>
+            <div class="row">(ক) অত্র ইউনিয়ন পরিষদ কর্তৃপক্ষ যে কোন কারণে যে কোন সময় ট্রেড লাইসেন্সটির কার্যক্রম সাময়িকভাবে স্থগিত,প্রত্যাহার কিংবা বাতিল সর্বময় ক্ষমতা সংরক্ষন করে।</div>
+            <br/>
+            <div class="row">(খ) এ ট্রেড লাইসেন্স, লাইসেন্স লিপিবদ্ধ ঠিকানার নামকরণ,দলসত্ব, ভাড়াটিয়া স্বত্ব, বা ঐ ধরনের কোন স্বত্ব প্রমানের জন্য ব্যবহার করা যাবে না, কিংবা লাইসেন্স প্রাপ্তির ফলে ব্যবহৃত ঠিকানার কোন স্বত্ব বা স্বার্থ প্রমানের ক্ষেত্রে প্রযোজ্য হবে না।</div>
+            <br/>
+            <div class="row">(গ) যে পেশা, ব্যাবসা বা বৃত্তির জন্য লাইসেন্স ইস্যু করা হয়েছে, সে পেশা,ব্যবসা বা বৃত্তি ব্যতীত অন্য কোন উদ্দেশ্য অত্র লাইসেন্সটি ব্যাবহার করা যাবে না।</div>
+            <br/>
+            <div class="row">(ঘ) যদি কোন তথ্য গোপন করে, তা প্রকাশ পেলে সঙ্গে সঙ্গে ট্রেড লাইসেন্সটি বাতিল করা হবে।</div>
+            <br/>
+            <div class="row">(ঙ) ট্রেড লাইসেন্সটি কোনক্রমে হস্তান্তরযোগ্য নয়। তবে মালিকানা বদল অথবা একই অঞ্চলে ব্যবসার স্থান পরিবর্তন হলে ব্যবসায়ীকে সংশ্লিষ্ট কর্মকর্তা বরাবর আবেদন করে তার অনুমোদনক্রমে লাইসেন্স ফি ৩০% হারে সংশোধনী ফি জমা দিতে হবে।</div>
+            <br/>
+            <div class="row">(চ) যথাযথ কর্তৃপক্ষের অনুমোদন ব্যতীত ট্রেড লাইসেন্স এর বাহিরে কোন পরিবর্তন, পরিবর্ধন ব্যবসার ধরন বদলানো যাবে না।</div>
+            <br/>
+            <div class="row">(ছ) লাইসেন্সধারী নিজের বা জনস্বা</div>
+        </div>
     </section>
 </div>
 <button type="button" class="btn btn-info" onclick="printDiv('result_show')">Print</button>
