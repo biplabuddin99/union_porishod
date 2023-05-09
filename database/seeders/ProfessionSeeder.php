@@ -104,6 +104,36 @@ class ProfessionSeeder extends Seeder
             "created_at"=>Carbon::now()->addDay(16)
         ));
         Profession::create(array(
+            "name"=>"ইমাম",
+            "description"=>"ইমাম",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
+            "name"=>"কাজী",
+            "description"=>"কাজী",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
+            "name"=>"সাংবাদিক",
+            "description"=>"সাংবাদিক",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
+            "name"=>"দিন মজুর",
+            "description"=>"দিন মজুর",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
+            "name"=>"জেলে",
+            "description"=>"জেলে",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
+            "name"=>"তাঁতী",
+            "description"=>"তাঁতী",
+            "created_at"=>Carbon::now()->addDay(17)
+        ));
+        Profession::create(array(
             "name"=>"অন্যান্য",
             "description"=>"অন্যান্য",
             "created_at"=>Carbon::now()->addYear(10)

@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route(currentUser().'.allapplication.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route(currentUser().'.holding.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row m-2">
                                 {{-- <div class="col-6">
@@ -96,7 +96,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <label class="form-label" for="gender1" for="cars"><b>লিঙ্গ</b></label>
+                                    <label class="form-label" for="gender1"><b>লিঙ্গ</b></label>
                                     <select name="gender" id="gender1" class="form-select @error('gender') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">পুরুষ</option>
@@ -178,6 +178,16 @@
                                         <option value="1">আছে</option>
                                         <option value="2">নাই</option>
                                     </select>
+                                </div>              
+                                <div class="col-6">
+                                    <label  class="form-label" for="edu_qual0"><b>শিক্ষাগত যোগ্যতা</b></label>
+                                    <select required name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
+                                        <option value="">নির্বাচন করুন</option>
+                                        @forelse($edu_q as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
                                 </div>
                             </div>
                             <div class="row border border-2 m-2 p-3">
@@ -219,16 +229,6 @@
                                 </div>
                             </div>
                             <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="edu_qual0"><b>শিক্ষাগত যোগ্যতা</b></label>
-                                    <select required name="edu_qual" class="form-select @error('edu_qual') is-invalid @enderror">
-                                        <option value="">নির্বাচন করুন</option>
-                                        @forelse($edu_q as $data)
-                                            <option value="{{$data->id}}">{{$data->name}}</option>
-                                        @empty
-                                        @endforelse
-                                    </select>
-                                </div>
                                 <div class="col-6">
                                     <label class="form-label" for="source_inc"><b>পেশা বা কর্ম</b></label>
                                     <select required name="source_income" class="form-select @error('source_income') is-invalid @enderror">
