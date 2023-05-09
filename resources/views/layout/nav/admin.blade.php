@@ -20,6 +20,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route(currentUser().'.holding.create')}}">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('হোল্ডিং আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="#">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('ভুল সংশোধন আবেদন')}}</span>

@@ -54,9 +54,34 @@ class GovernmentFacilitySeeder extends Seeder
             "created_at"=>Carbon::now()->addDay(3)
         ));
         GovernmentFacility::create(array(
-            "name"=>"অন্যান্য",
-            "description"=>"অন্যান্য",
-            "created_at"=>Carbon::now()->addYear(10)
+            "name"=>"টিসিবি কার্ড",
+            "description"=>"টিসিবি কার্ড",
+            "created_at"=>Carbon::now()->addDay(3)
+        ));
+        GovernmentFacility::create(array(
+            "name"=>"কৃষি কার্ড",
+            "description"=>"কৃষি কার্ড",
+            "created_at"=>Carbon::now()->addDay(3)
+        ));
+        GovernmentFacility::create(array(
+            "name"=>"জেলে কার্ড",
+            "description"=>"জেলে কার্ড",
+            "created_at"=>Carbon::now()->addDay(3)
+        ));
+        GovernmentFacility::create(array(
+            "name"=>"হেলথ কার্ড",
+            "description"=>"হেলথ কার্ড",
+            "created_at"=>Carbon::now()->addDay(3)
+        ));
+        GovernmentFacility::create(array(
+            "name"=>"মুক্তিযোদ্ধা ভাতা",
+            "description"=>"মুক্তিযোদ্ধা ভাতা",
+            "created_at"=>Carbon::now()->addDay(3)
+        ));
+        GovernmentFacility::create(array(
+            "name"=>"গৃহ ও খাস জমি গ্রহন",
+            "description"=>"গৃহ ও খাস জমি গ্রহন",
+            "created_at"=>Carbon::now()->addDay(3)
         ));
     }
 }
