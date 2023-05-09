@@ -33,7 +33,7 @@ class HoldingController extends Controller
      */
     public function primaryIndex($id)
     {
-        $hold=Holding::where('id',$id)->first();
+        $hold=Holding::where('id',Crypt::decrypt($id))->first();
         $districts=District::select('id','name','name_bn')->get();
         $upazilas=Upazila::where('id',$hold->upazila_id)->select('id','name','name_bn')->get();
         $unions=Union::where('id',$hold->union_id)->select('id','name','name_bn')->get();
@@ -206,7 +206,7 @@ class HoldingController extends Controller
             $holding->save();
 
             Toastr::success('হোল্ডিং সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route('hold_primary.list',$holding->id));
+            return redirect(route('hold_primary.list',Crypt::encrypt($holding->id)));
             // dd($request);
         }
         catch (Exception $e){

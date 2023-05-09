@@ -135,7 +135,7 @@
                 <h5 style="margin-top: 8px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
                 <h3 style="margin: 5px; color: rgb(23, 36, 158);">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h3>
                 <h5 style="margin: 5px; color: rgb(226, 125, 31);">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h5>
-                <h4 class="headbg" style="margin: auto;">আবেদন হোল্ডিং নম্বর</h2>
+                <h4 class="headbg" style="margin: auto;">অনলাইন আবেদন-হোল্ডিং প্লেট</h2>
             </div>
         </div>
         <div>
@@ -145,7 +145,7 @@
         <div style="position: relative; margin-top: 5px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
                 <tr>
-                    <th style="width: 30%; text-align: left;">আবেদনকারীর নাম </th>
+                    <th style="width: 30%; text-align: left;">বাড়ি প্রধানের নাম </th>
                     <td><input type="text" value="{{ $hold->head_household }}" class="binput"></td>
                 </tr>
                 <tr>
@@ -166,9 +166,9 @@
             </div>
             <table style="width: 100%;">
                 <tr>
-                    <th style="width: 25%; text-align: left;">জন্ম নিবন্ধন আইডি </th>
+                    <th style="width: 25%; text-align: left;">ডিজিটাল জন্ম নিবন্ধন নম্বর</th>
                     <td><input type="text" value="{{ $hold->birth_registration_id }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ভোটার আইডি নং </th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">জাতীয় পরিচয়পত্র নম্বর </th>
                     <td><input type="text" value="{{ $hold->voter_id_no }}" class="binput"></td>
                 </tr>
                 <tr>
@@ -180,8 +180,8 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল নম্বর </th>
                     <td><input type="text" value="{{ $hold->phone }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইন্টারনেট সংযোগ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->internet_connection == 1 ) আছে @else নাই @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইন্টারনেট ব্যবহার </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->internet_connection == 1 ) হ্যাঁ @else না @endif</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
@@ -190,7 +190,7 @@
                     <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->disline_connection == 1 ) আছে @else নাই @endif</td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">বাড়ির হেল্ডিং নম্বর</th>
+                    <th style="width: 25%; text-align: left;">বাড়ির হোল্ডিং নম্বর</th>
                     <td><input type="text" value="{{ $hold->house_holding_no }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">রাস্তা / ব্লক</th>
                     <td><input type="text" value="{{ $hold->street_nm }}" class="binput"></td>
@@ -199,7 +199,7 @@
                     <th style="width: 25%; text-align: left;">গ্রাম / পাড়া</th>
                     <td><input type="text" value="{{ $hold->village_name }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">সেক্টর / ওয়ার্ড </th>
-                    <td><input type="text" value="{{ $hold->ward?->ward_name }}" class="binput"></td>
+                    <td><input type="text" value="{{ $hold->ward?->ward_name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ইউনিয়ন পরিষদের নাম </th>
@@ -241,7 +241,7 @@
                     <td style="border: 1px solid rgb(19, 18, 18);">@if ($hold->edu_qual == 1 ) স্ব-শিক্ষিত @elseif ($hold->edu_qual == 2 )প্রাথমিক @elseif ($hold->edu_qual == 3 )মাধ্যমিক@elseif ($hold->edu_qual == 4 )উচ্চ-মাধ্যমিক@elseif ($hold->edu_qual == 5 )উচ্চতর-ডিগ্রী @endif</td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">পেশা </th>
+                    <th style="width: 25%; text-align: left;">পেশা বা কর্ম </th>
                     <td style="border: 1px solid rgb(19, 18, 18);">
                         {{$hold->income?->name}}
                     </td>
@@ -273,7 +273,7 @@
                         @endforelse
                     </td>
                 </tr>
-                <tr>
+                {{--  <tr>
                     <th style="width: 25%; text-align: left;">ব্যবসায়িক করের উৎস </th>
                     <td style="border-style: solid; border-width: 1px; font-size:12px" colspan="3">
                         @forelse(\App\Models\IncomeSource::orderBy('created_at')->get() as $data)
@@ -281,15 +281,21 @@
                         @empty
                         @endforelse
                     </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বাড়ির ধরন</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> {{$hold->house?->name}}</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির রুম/ঘর</th>
-                    <td><input type="text" value="{{ $hold->house_room }}" class="binput"></td>
-                </tr>
+                </tr>  --}}
             </table>
             <table style="width: 100%;">
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির অবকাঠামু</th>
+                    <td><input type="text" value="{{$hold->house?->name}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">বাড়ির রুম/ঘর</th>
+                    <td><input type="text" value="{{ $hold->house_room }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের সদস্য (পুরুষ)</th>
+                    <td><input type="text" value="{{$hold->num_male}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের সদস্য (মহিলা)</th>
+                    <td><input type="text" value="{{ $hold->num_female }}" class="binput"></td>
+                </tr>
                 <tr>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির আনুমানিক মূল্য</th>
                     <td><input type="text" value="{{ $hold->estimated_value_house }}" class="binput"></td>
