@@ -21,6 +21,7 @@ use App\Models\Ward_no;
 use Exception;
 use PDF;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class HoldingController extends Controller
 {
@@ -123,36 +124,42 @@ class HoldingController extends Controller
     {
         try{
             $holding=new Holding;
-            $all= All_onlineApplications::where('id',$request->all_aplication)->first();
             // $holding->form_no=$request->form_no;
-            $holding->holding_date=$all->holding_date;
-            $holding->head_household=$all->head_household;
-            $holding->husband_wife=$all->husband_wife;
-            $holding->father_name=$all->father_name;
-            $holding->freedom_fighter=$all->freedom_fighter;
-            $holding->mother_name=$all->mother_name;
-            $holding->gender=$all->gender;
-            $holding->birth_date=$all->birth_date;
-            $holding->voter_id_no=$all->voter_id_no;
-            $holding->birth_registration_id=$all->birth_registration_id;
-            $holding->religion=$all->religion;
-            $holding->phone=$all->phone;
-            $holding->edu_qual=$all->edu_qual;
-            $holding->email=$all->email;
-            $holding->source_income=$all->source_income;
-            $holding->marital_status=$all->marital_status;
-            $holding->internet_connection=$all->internet_connection;
-            $holding->tube_well=$all->tube_well;
-            $holding->disline_connection=$all->disline_connection;
-            $holding->paved_bathroom=$all->paved_bathroom;
-            $holding->bank_acc=$all->bank_acc;
-            $holding->arsenic_free=$all->arsenic_free;
-            $Govt_fac = explode(',', $all->government_facilities);
-            $holding->government_facilities=implode(',',$Govt_fac);
-            $Mobile = explode(',', $all->mobile_bank);
-            $holding->mobile_bank=implode(',',$Mobile);
-            $Digital_devices = explode(',', $all->digital_devices);
-            $holding->digital_devices=implode(',',$Digital_devices);
+            $holding->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
+            $holding->head_household=$request->head_household;
+            $holding->father_name=$request->father_name;
+            $holding->mother_name=$request->mother_name;
+            $holding->husband_wife=$request->husband_wife;
+            $holding->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $holding->voter_id_no=$request->voter_id_no;
+            $holding->birth_registration_id=$request->birth_registration_id;
+            $holding->gender=$request->gender;
+            $holding->religion=$request->religion;
+            $holding->marital_status=$request->marital_status;
+            $holding->freedom_fighter=$request->freedom_fighter;
+            $holding->tube_well=$request->tube_well;
+            $holding->paved_bathroom=$request->paved_bathroom;
+            $holding->internet_connection=$request->internet_connection;
+            $holding->disline_connection=$request->disline_connection;
+            $holding->edu_qual=$request->edu_qual;
+            $holding->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $holding->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $holding->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $holding->source_income=$request->source_income;
+            $holding->phone=$request->phone;
+            $holding->email=$request->email;
+            // $holding->arsenic_free=$request->arsenic_free;
+            $holding->bank_acc=$request->bank_acc;
+            $holding->status=0;
+            $holding->created_by=currentUserId();
+
+            $holding->save();
+            return redirect(route('holdingsecondpart.form',Crypt::encrypt($holding->id)));
+            // return view('holding.create',compact($holding->id));
+            // $Govt_fac = explode(',', $request->government_facilities);
+            // $holding->government_facilities=implode(',',$Govt_fac);
+            // $Mobile = explode(',', $request->mobile_bank);
+            // $holding->mobile_bank=implode(',',$Mobile);
 
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
             $holding->residence_type=$request->residence_type;
@@ -201,12 +208,22 @@ class HoldingController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Holding  $holding
-     * @return \Illuminate\Http\Response
-     */
+
+    public function FormPartSecond($encrypted_id)
+    {
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        $hold = Holding::findOrFail(Crypt::decrypt($encrypted_id));
+        return view('holding.create_page2',compact('hold','ward','districts'));
+    }
+    
+    public function FormPartSecond($encrypted_id)
+    {
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        $hold = Holding::findOrFail(Crypt::decrypt($encrypted_id));
+        return view('holding.create_page2',compact('hold','ward','districts'));
+    }
     public function show($id)
     {
         $hold = Holding::findOrFail(encryptor('decrypt',$id));
