@@ -25,9 +25,10 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route(currentUser().'.holding.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('holdingsecondpart_update',Crypt::encrypt($holding->id))}}" method="POST" enctype="multipart/form-data">
                             {{--  <input type="hidden" name="all_aplication" value="{{$all->id}}">  --}}
                             @csrf
+                            @method('POST')
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="residence_type"><b>বাড়ির অবকাঠামু</b></label>
