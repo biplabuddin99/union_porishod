@@ -52,7 +52,7 @@
                                 <td>{{$h->tax_levied_annually_house}}</td>
                                 <td>0</td>
                                 <td class="white-space-nowrap">
-                                    <a href="{{route('hold_primary.list',$h->id)}}">
+                                    <a href="{{route('hold_primary.list',Crypt::encrypt($h->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
                                 </td>

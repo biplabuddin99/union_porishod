@@ -267,6 +267,7 @@ class HoldingController extends Controller
             $holding->phone=$request->phone;
             $holding->edu_qual=$request->edu_qual;
             $holding->email=$request->email;
+            $holding->bank_acc=$request->bank_acc;
             $holding->source_income=$request->source_income;
             $holding->marital_status=$request->marital_status;
             $holding->internet_connection=$request->internet_connection;
@@ -350,7 +351,7 @@ class HoldingController extends Controller
 
     public function tax()
     {
-        $hold=Holding::where('status',1)->where('tax_levied_annually_house','>','0')->get();
+        $hold=Holding::where('status',2)->where('tax_levied_annually_house','>','0')->get();
         return view('holding.tax_list',compact('hold'));
     }
 }

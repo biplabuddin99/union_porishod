@@ -35,7 +35,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="head_household">আবেদনকারীর নাম  </label>
+                                    <label  class="form-label" for="head_household">বাড়ী প্রধানের নাম  </label>
                                     <input class="form-control @error('head_household') is-invalid @enderror" type="text"
                                     name="head_household" value="{{ old('head_household',$hold->head_household) }}" id="head_household" placeholder="আবেদনকারীর নাম">
                                     @if($errors->has('head_household'))
@@ -45,29 +45,12 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম  </label>
-                                    <input class="form-control" type="text"
-                                    name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="স্বামী/স্ত্রীর নাম">
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-6">
                                     <label  class="form-label" for="father_name">পিতার নাম </label>
                                     <input class="form-control @error('father_name') is-invalid @enderror" type="text"
                                     name="father_name" value="{{ old('father_name',$hold->father_name) }}" id="father_name" placeholder="পিতার নাম">
                                     @if($errors->has('father_name'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('father_name') }}
-                                    </small>
-                                    @endif
-                                </div>
-                                <div class="col-6">
-                                    <label  class="form-label" for="birth_date">জন্ম তারিখ </label>
-                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
-                                    name="birth_date" id="birth_date" value="{{ old('birth_date',\Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')) }}"  type="text" placeholder="মাস-দিন-সাল">
-                                    @if($errors->has('birth_date'))
-                                    <small class="d-block text-danger">
-                                        {{ $errors->first('birth_date') }}
                                     </small>
                                     @endif
                                 </div>
@@ -80,6 +63,23 @@
                                     @if($errors->has('mother_name'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('mother_name') }}
+                                    </small>
+                                    @endif
+                                </div>                                
+                                <div class="col-6">
+                                    <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম  </label>
+                                    <input class="form-control" type="text"
+                                    name="husband_wife" value="{{ old('husband_wife',$hold->husband_wife) }}" id="husband_wife" value="{{ old('') }}" placeholder="স্বামী/স্ত্রীর নাম">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="birth_date">জন্ম তারিখ </label>
+                                    <input class="form-control datepicker @error('birth_date') is-invalid @enderror"
+                                    name="birth_date" id="birth_date" value="{{ old('birth_date',\Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')) }}"  type="text" placeholder="মাস-দিন-সাল">
+                                    @if($errors->has('birth_date'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('birth_date') }}
                                     </small>
                                     @endif
                                 </div>
@@ -114,7 +114,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="voter_id_no">ভোটার আইডি </label>
+                                    <label  class="form-label" for="voter_id_no">জাতীয় পরিচয়পত্র নম্বর</label>
                                     <input class="form-control @error('voter_id_no') is-invalid @enderror" type="text" name="voter_id_no" id="voter_id_no" value="{{ old('voter_id_no',$hold->voter_id_no) }}" placeholder="ভোটার আইডি নং">
                                     @if($errors->has('voter_id_no'))
                                     <small class="d-block text-danger">
@@ -125,7 +125,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="birth_registration_id">জন্ম নিবন্ধন আইডি</label>
+                                    <label  class="form-label" for="birth_registration_id">ডিজিটাল জন্মনিবন্ধন নম্বর</label>
                                     <input class="form-control @error('birth_registration_id') is-invalid @enderror" type="text"
                                     name="birth_registration_id" value="{{ old('birth_registration_id',$hold->birth_registration_id) }}" id="birth_registration_id" placeholder="জন্ম নিবন্ধন আইডি">
                                     @if($errors->has('birth_registration_id'))
@@ -199,11 +199,11 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <label class="form-label" for="internet" for="cars">ইন্টারনেট সংযোগ </label>
+                                    <label class="form-label" for="internet" for="cars">ইন্টারনেট ব্যবহার </label>
                                     <select name="internet_connection" id="internet" class="form-select">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1" {{ old('internet_connection', $hold->internet_connection)=="1" ? "selected":""}}>আছে</option>
-                                        <option value="2" {{ old('internet_connection', $hold->internet_connection)=="2" ? "selected":""}}>নাই</option>
+                                        <option value="1" {{ old('internet_connection', $hold->internet_connection)=="1" ? "selected":""}}>হ্যাঁ</option>
+                                        <option value="2" {{ old('internet_connection', $hold->internet_connection)=="2" ? "selected":""}}>না</option>
                                     </select>
                                 </div>
                             </div>
@@ -232,6 +232,14 @@
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('paved_bathroom', $hold->paved_bathroom)=="1" ? "selected":""}}>কাঁচা</option>
                                         <option value="2" {{ old('paved_bathroom', $hold->paved_bathroom)=="2" ? "selected":""}}>পাকা</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="bank_acc"><b>ব্যাংক একাউন্ট</b></label>
+                                    <select required name="bank_acc" id="bank_acc" class="form-select">
+                                        <option value="">নির্বাচন করুন</option>
+                                        <option value="1"{{ old('bank_acc', $hold->bank_acc)=="1" ? "selected":""}}>আছে</option>
+                                        <option value="2"{{ old('bank_acc', $hold->bank_acc)=="2" ? "selected":""}}>নাই</option>
                                     </select>
                                 </div>
                                 
@@ -303,7 +311,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="residence_type">বাড়ির ধরন </label>
+                                    <label  class="form-label" for="residence_type">বাড়ির অবকাঠামু </label>
                                     <select name="residence_type" class="form-select @error('residence_type') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         @forelse(\App\Models\HousingType::orderBy('created_at')->get() as $data)
@@ -331,7 +339,7 @@
                                 </div>
                                 
                                 <div class="col-6">
-                                    <label  class="form-label" for="percentage_house_land">বাড়ির জমি শতাংশ</label>
+                                    <label  class="form-label" for="percentage_house_land">বাড়ির জমি পরিমান</label>
                                     <input class="form-control @error('percentage_house_land') is-invalid @enderror"
                                     name="percentage_house_land" id="percentage_house_land" value="{{ old('percentage_house_land',$hold->percentage_house_land) }}"  type="text" placeholder="বাড়ির জমি শতাংশ">
                                     {{-- @if($errors->has('percentage_house_land'))
@@ -343,7 +351,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="percentage_cultivated_land">আবাদী জমি শতাংশ</label>
+                                    <label  class="form-label" for="percentage_cultivated_land">আবাদী জমি পরিমান</label>
                                     <input class="form-control @error('percentage_cultivated_land') is-invalid @enderror"
                                     name="percentage_cultivated_land" id="percentage_cultivated_land" value="{{ old('percentage_cultivated_land',$hold->percentage_cultivated_land) }}"  type="text" placeholder="আবাদী জমি শতাংশ">
                                     @if($errors->has('percentage_cultivated_land'))
@@ -375,7 +383,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="border border-2 m-2 p-3">
+                            {{--  <div class="border border-2 m-2 p-3">
                                 <label  class="form-label" for="business_taxes"><b>কর/আয়ের উৎস</b></label>
                                 <div class="row m-2" style="font-size: 13px;">
                                     @forelse(\App\Models\IncomeSource::orderBy('created_at')->get() as $data)
@@ -392,7 +400,7 @@
                                     {{ $errors->first('business_taxes') }}
                                 </small>
                                 @endif
-                            </div>
+                            </div>  --}}
                             {{-- <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="annual_tax_collected_house">বাড়ির বার্ষিক আদায়কৃত কর</label>
@@ -443,7 +451,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="ward_id">সেক্টর / ওয়ার্ড</label>
-                                    <select name="ward_id" class="form-select search_district" id="ward_id">
+                                    <select name="ward_id" class="form-select" id="ward_id">
                                         <option value="" selected="selected">সেক্টর / ওয়ার্ড নং</option>
                                         @forelse ($wards as $w)
                                         <option value="{{ $w->id }}" {{$hold->ward_id == $w->id ? 'selected' : ''}}>{{ $w->ward_name_bn }}</option>
