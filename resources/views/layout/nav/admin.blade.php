@@ -14,15 +14,21 @@
         </a>
         <ul class="submenu">
             <li class="py-1">
-                <a href="{{route(currentUser().'.allapplication.create')}}">
-                    <i class="bi bi-bag-plus-fill"></i>
-                    <span>{{__('নতুন আবেদন')}}</span>
-                </a>
-            </li>
-            <li class="py-1">
                 <a href="{{route(currentUser().'.holding.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('হোল্ডিং আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="#">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('ট্রেডলাইসেন্স আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="{{route(currentUser().'.allapplication.create')}}">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('নতুন আবেদন')}}</span>
                 </a>
             </li>
             <li class="py-1">
