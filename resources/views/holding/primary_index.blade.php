@@ -230,8 +230,8 @@
                 <tr>
                     <th width="25%" style="text-align: left;">ব্যাংক একাউন্ট </th>
                     <td style="border: 1px solid rgb(19, 18, 18); border-top:5px solid #aaa"> @if ($hold->bank_acc == 1 ) আছে @else নাই @endif</td>
-                    <th style="width: 25%; text-align: left; border-top:5px solid #aaa">পারিবারিক অবস্থা</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);border-top:5px solid #aaa"> @if ($hold->family_status == 1 ) হতদরিদ্র @elseif ($hold->family_status ==2)নিন্ম-মধ্যবৃত্ত @elseif ($hold->family_status ==3)মধ্যবৃত্ত @elseif ($hold->family_status ==4)উচ্চ-মধ্যবৃত্ত @elseif($hold->family_status ==5)উচ্চবৃত্ত @endif</td>
+                    <th style="width: 25%; text-align: left; border-top:5px solid #aaa">পেশা বা কর্ম</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);border-top:5px solid #aaa">{{$hold->income?->name}}</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ধর্ম</th>
@@ -240,12 +240,12 @@
                     <th style="width: 25%; text-align: left; padding-left: 10px;">শিক্ষাগত যোগ্যতা </th>
                     <td style="border: 1px solid rgb(19, 18, 18);">@if ($hold->edu_qual == 1 ) স্ব-শিক্ষিত @elseif ($hold->edu_qual == 2 )প্রাথমিক @elseif ($hold->edu_qual == 3 )মাধ্যমিক@elseif ($hold->edu_qual == 4 )উচ্চ-মাধ্যমিক@elseif ($hold->edu_qual == 5 )উচ্চতর-ডিগ্রী @endif</td>
                 </tr>
-                <tr>
+                {{--  <tr>
                     <th style="width: 25%; text-align: left;">পেশা বা কর্ম </th>
                     <td style="border: 1px solid rgb(19, 18, 18);">
                         {{$hold->income?->name}}
                     </td>
-                </tr>
+                </tr>  --}}
                 <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল ব্যাংক </th>
                     <td colspan="3" style="border-style: solid; border-width: 1px; ">
@@ -297,27 +297,39 @@
                     <td><input type="text" value="{{ $hold->num_female }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির আনুমানিক মূল্য</th>
-                    <td><input type="text" value="{{ $hold->estimated_value_house }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left;">বাড়ির বার্ষিক ধার্যকৃত কর</th>
-                    <td><input type="text" value="{{ $hold->tax_levied_annually_house }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের মোট সদস্য</th>
+                    <td><input type="text" value="{{($hold->num_male+$hold->num_female)}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের ভোটার (পুরুষ)</th>
+                    <td><input type="text" value="{{ $hold->num_male_vot }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির জমি শতাংশ</th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের ভোটার (মহিলা)</th>
+                    <td><input type="text" value="{{$hold->num_female_vot}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের মোট ভোটার</th>
+                    <td><input type="text" value="{{ $hold->num_female_vot+$hold->num_female }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির জমি পরিমান</th>
                     <td><input type="text" value="{{ $hold->percentage_house_land }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left;">আবাদী জমি শতাংশ</th>
+                    <th style="width: 25%; text-align: left;">আবাদী জমি পরিমান</th>
                     <td><input type="text" value="{{ $hold->percentage_cultivated_land }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির আনুমানিক মূল্য</th>
+                    <td><input type="text" value="{{ $hold->estimated_value_house }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পারিবারিক অবস্থা</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->family_status == 1 ) হতদরিদ্র @elseif ($hold->family_status ==2)নিন্ম-মধ্যবৃত্ত @elseif ($hold->family_status ==3)মধ্যবৃত্ত @elseif ($hold->family_status ==4)উচ্চ-মধ্যবৃত্ত @elseif($hold->family_status ==5)উচ্চবৃত্ত @endif</td>
                 </tr>
             </table>
             <table style="width: 100%;">
-                <tr>
+                {{--  <tr>
                     <th style="width: 25%; text-align: left;"></th>
                     <td style="border-style: solid; border-width: 1px;"><label for=""><span style="background-color:rgb(1, 4, 7); color: rgb(244, 247, 250); padding: 5px 5px 3px 5px; margin-left: 0px;">সর্বমোট ট্যাক্স</span> হোল্ডিং ট্যাক্স + ব্যাসায়িক ট্যাক্স =</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা</td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;"></th>
                     <td style="border-style: solid; border-width: 1px;"><label for="">কথায়:</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা মাত্র</td>
-                </tr>
+                </tr>  --}}
             </table>
             <div style="margin-top: .7rem; margin-left: 11rem; color: rgb(16, 123, 224);">
                 আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হলে, আমি তাহার জন্য আইনগত দায়ী থাকিব।</span>

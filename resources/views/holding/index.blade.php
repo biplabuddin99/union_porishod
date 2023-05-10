@@ -137,7 +137,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="{{route('hold_primary.list',$h->id)}}">
+                                    <a href="{{route('hold_primary.list',Crypt::encrypt($h->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
                                 </td>

@@ -51,7 +51,7 @@
                                 <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>{{$h->approved?->name}}</td>
                                 <td class="white-space-nowrap">
-                                    <a href="{{route('hold_primary.list',$h->id)}}">
+                                    <a href="{{route('hold_primary.list',Crypt::encrypt($h->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a> 
                                 </td>
