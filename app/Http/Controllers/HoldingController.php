@@ -57,17 +57,17 @@ class HoldingController extends Controller
     // }
     public function index()
     {
-        $hold=Holding::where('status',0)->get();
+        $hold=Holding::where('status',1)->get();
         return view('holding.index',compact('hold'));
     }
     public function profile()
     {
-        $hold=Holding::where('status',1)->get();
+        $hold=Holding::where('status',2)->get();
         return view('holding.profile',compact('hold'));
     }
     public function cancel()
     {
-        $hold=Holding::where('status',2)->get();
+        $hold=Holding::where('status',3)->get();
         return view('holding.cancel',compact('hold'));
     }
 
@@ -75,18 +75,19 @@ class HoldingController extends Controller
     {
         try{
             $holding=Holding::findOrFail(encryptor('decrypt',$id));
+            $holding->house_holding_no=$request->house_holding_no;
+            $holding->service_charge=$request->service_charge;
             $holding->holding_certificate_fee=$request->holding_certificate_fee;
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
             $holding->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $holding->cancel_reason=$request->cancel_reason;
 
-            if($request->status==1)
-                $holding->form_no='0'.Carbon::now()->format('y').'-'. str_pad((Holding::whereYear('created_at', Carbon::now()->year)->where('status',1)->count() + 1),3,"0",STR_PAD_LEFT);
+            if($request->status==2)
+                $holding->form_no='0'.Carbon::now()->format('y').'-'. str_pad((Holding::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
 
             $holding->status=$request->status;
             $holding->approved_by=currentUserId();
             $holding->updated_by=currentUserId();
-            $holding->house_holding_no=$request->house_holding_no;
             $holding->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.holding.index'));
@@ -320,7 +321,7 @@ class HoldingController extends Controller
 
             if($holding->save()){
                     Toastr::success('হোল্ডিং আপডেট সফলভাবে সম্পন্ন হয়েছে!');
-                if($holding->status==0)
+                if($holding->status==1)
                     return redirect(route(currentUser().'.holding.index'));
                 else
                     return redirect(route(currentUser().'.hold_profile.list'));

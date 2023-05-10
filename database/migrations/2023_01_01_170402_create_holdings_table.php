@@ -54,11 +54,9 @@ return new class extends Migration
             $table->decimal('percentage_house_land',14,2)->nullable();
             $table->decimal('percentage_cultivated_land',14,2)->nullable();
             $table->decimal('estimated_value_house',14,2)->nullable();
-            $table->decimal('tax_levied_annually_house',14,2)->nullable();
             // $table->string('annual_tax_collected_house')->nullable();
             // $table->string('annual_house_tax_arrears')->nullable();
             // আবেদনকারীর স্থায়ী ঠিকানা সমূহ
-            $table->string('house_holding_no')->nullable();
             $table->string('street_nm')->nullable();
             $table->string('village_name')->nullable();
             $table->integer('ward_id')->nullable();
@@ -69,7 +67,10 @@ return new class extends Migration
             $table->string('nid_image')->nullable();
             $table->string('birth_registration_image')->nullable();
             $table->string('image')->nullable();
+            $table->string('house_holding_no')->nullable();
+            $table->decimal('service_charge',14,2)->nullable();
             $table->decimal('holding_certificate_fee',14,2)->nullable();
+            $table->decimal('tax_levied_annually_house',14,2)->nullable();
             $table->date('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);

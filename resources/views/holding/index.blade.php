@@ -26,7 +26,7 @@
                             <tr>
                                 <th width="3%">আবেদন নম্বর</th>
                                 <th>তারিখ</th>
-                                <th>আবেদনকারীর নাম </th>
+                                <th>বাড়ি প্রধানের নাম </th>
                                 <th>পেশা</th>
                                 <th>মোবাইল</th>
                                 <th>ছবি</th>
@@ -91,9 +91,15 @@
                                                                         <form action="{{route('holding_profile',encryptor('encrypt',$h->id))}}">
                                                                             @csrf
                                                                             @method('PATCH')
+                                                                            {{--  <tr>
+                                                                                <td>বাড়ির হোল্ডিং নাম্বার</td>
+                                                                                <td colspan="3"><input id="" class="form-control" name="house_holding_no" type="number" placeholder="বাড়ির হোল্ডিং নাম্বার"></td>
+                                                                            </tr>  --}}
                                                                             <tr>
-                                                                                <td>হোল্ডিং নাম্বার</td>
-                                                                                <td colspan="3"><input id="" class="form-control" name="house_holding_no" type="number" placeholder="হোল্ডিং নাম্বার"></td>
+                                                                                <td>বাড়ির হোল্ডিং নাম্বার</td>
+                                                                                <td><input id="" class="form-control" name="house_holding_no" type="number" placeholder="বাড়ির হোল্ডিং নাম্বার"></td>
+                                                                                <td>সার্ভিস চার্জ</td>
+                                                                                <td><input class="form-control" name="service_charge" type="number" placeholder="সার্ভিস চার্জ"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>হোল্ডিং নাম্বার সনদ ফি</td>
@@ -107,8 +113,8 @@
                                                                                 <td>গ্রহণ/ বাতিল</td>
                                                                                 <td>
                                                                                     <select onchange="change_status(this)" name="status" class="form-control">
-                                                                                        <option value="1">গ্রহণ</option>
-                                                                                        <option value="2">বাতিল</option>
+                                                                                        <option value="2">গ্রহণ</option>
+                                                                                        <option value="3">বাতিল</option>
                                                                                     </select>
                                                                                 </td>
                                                                             </tr>
@@ -171,7 +177,7 @@
 @push('scripts')
 <script>
     function change_status(e){
-        if($(e).val()==1){
+        if($(e).val()==2){
             $(e).parents('tr').siblings('tr').find('.cancel_reason').text('মন্তব্য')
             $(e).parents('tr').siblings('tr').find('.cancel_r').attr('placeholder','মন্তব্য দিন')
         }else{

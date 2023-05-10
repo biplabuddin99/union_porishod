@@ -118,12 +118,12 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label  class="form-label" for="holding_number_plate_certificate_fee"><b>হোল্ডিং নাম্বার,প্লেট ও সনদ ফি</b></label>
-                                    <input readonly class="form-control @error('holding_number_plate_certificate_fee') is-invalid @enderror"
-                                    name="holding_number_plate_certificate_fee" id="holding_number_plate_certificate_fee" value="{{ old('holding_number_plate_certificate_fee') }}"  type="number" placeholder="ইউনিয়ন কর্তৃক পূরনকৃত।">
-                                    @if($errors->has('holding_number_plate_certificate_fee'))
+                                    <label  class="form-label" for="holding_certificate_fee"><b>হোল্ডিং নাম্বার,প্লেট ও সনদ ফি</b></label>
+                                    <input readonly class="form-control @error('holding_certificate_fee') is-invalid @enderror"
+                                    name="holding_certificate_fee" id="holding_certificate_fee" value="{{ old('holding_certificate_fee') }}"  type="number" placeholder="ইউনিয়ন কর্তৃক পূরনকৃত।">
+                                    @if($errors->has('holding_certificate_fee'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('holding_number_plate_certificate_fee') }}
+                                        {{ $errors->first('holding_certificate_fee') }}
                                     </small>
                                     @endif
                                 </div>
