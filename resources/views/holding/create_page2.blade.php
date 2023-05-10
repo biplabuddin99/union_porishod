@@ -271,14 +271,14 @@
                                 <div class="row">
                                   <div class="col-sm-6">
                                     {{-- <a href="{{route(currentUser().'.allapplication.edit',$all->id)}}"><button style="background-color: rgb(214, 153, 153);">পূর্ববর্তী</button></a> --}}
-                                    {{--  <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.allapplication.edit',$all->id)}}">  --}}
+                                    <a class="p-2 bg-primary text-white"  href="{{route(currentUser().'.holdingfirstpart',Crypt::encrypt($holding->id))}}">
                                         পূর্ববর্তী
                                     </a>
                                   </div>
                                   <div class="col-sm-6 text-end">
-                                    <button type="submit" style="background-color: rgb(214, 153, 153);">দাখিল করুন</button>
+                                    <button type="submit" class="bg-primary text-white">দাখিল করুন</button>
                                     <span class="btn or">or</span>
-                                    <button type="reset" style="background-color: rgb(214, 153, 153);">রিসেট করুন</button>
+                                    <button type="reset" class="bg-primary text-white">রিসেট করুন</button>
                                   </div>
                                 </div>
                             </div>

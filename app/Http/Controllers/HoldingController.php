@@ -163,6 +163,54 @@ class HoldingController extends Controller
     }
 
 
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $hold = Holding::findOrFail(Crypt::decrypt($encrypted_id));
+        $Mobile_bank = explode(',', $hold?->mobile_bank);
+        $Digital_devices = explode(',', $hold?->digital_devices);
+        $Govt_fac = explode(',', $hold?->government_facilities);
+        return view('holding.edit_firstpart',compact('hold','Mobile_bank','Digital_devices','Govt_fac'));
+    }
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $holding= Holding::findOrFail(Crypt::decrypt($encrypted_id));
+            // $holding->form_no=$request->form_no;
+            $holding->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
+            $holding->head_household=$request->head_household;
+            $holding->father_name=$request->father_name;
+            $holding->mother_name=$request->mother_name;
+            $holding->husband_wife=$request->husband_wife;
+            $holding->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $holding->voter_id_no=$request->voter_id_no;
+            $holding->birth_registration_id=$request->birth_registration_id;
+            $holding->gender=$request->gender;
+            $holding->religion=$request->religion;
+            $holding->marital_status=$request->marital_status;
+            $holding->freedom_fighter=$request->freedom_fighter;
+            $holding->tube_well=$request->tube_well;
+            $holding->paved_bathroom=$request->paved_bathroom;
+            $holding->internet_connection=$request->internet_connection;
+            $holding->disline_connection=$request->disline_connection;
+            $holding->edu_qual=$request->edu_qual;
+            $holding->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $holding->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $holding->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $holding->source_income=$request->source_income;
+            $holding->phone=$request->phone;
+            $holding->email=$request->email;
+            // $holding->arsenic_free=$request->arsenic_free;
+            $holding->bank_acc=$request->bank_acc;
+            $holding->status=0;
+            $holding->created_by=currentUserId();
+
+            $holding->save();
+            return redirect(route('holdingsecondpart.form',Crypt::encrypt($holding->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
+    }
     public function FormPartSecond($encrypted_id)
     {
         $ward=Ward_no::all();

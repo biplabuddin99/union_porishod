@@ -179,7 +179,7 @@
                                     <input class="form-control" type="email" name="email" id="email" value="{{ old('email',$hold->email) }}" placeholder=".....@mail.com">
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="source_inc">পেশা </label>
+                                    <label  class="form-label" for="source_inc">পেশা বা কর্ম </label>
                                     <select name="source_income" class="form-select @error('source_income') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         @forelse(\App\Models\Profession::orderBy('created_at')->get() as $data)

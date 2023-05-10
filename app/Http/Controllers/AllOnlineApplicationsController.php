@@ -158,9 +158,9 @@ class AllOnlineApplicationsController extends Controller
     public function edit($id)
     {
         $all= All_onlineApplications::where('id',$id)->first();
-        $Mobile_bank = explode(',', $all->mobile_bank);
-        $Digital_devices = explode(',', $all->digital_devices);
-        $Govt_fac = explode(',', $all->government_facilities);
+        $Mobile_bank = explode(',', $all?->mobile_bank);
+        $Digital_devices = explode(',', $all?->digital_devices);
+        $Govt_fac = explode(',', $all?->government_facilities);
         return view('allaplicaltion.edit',compact('all','Mobile_bank','Digital_devices','Govt_fac'));
     }
 

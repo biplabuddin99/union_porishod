@@ -262,7 +262,7 @@
                             </div>
                             <div class="row m-3">
                                 <div class="col-2 offset-5">
-                                    <button class="text-center" style="background-color: rgb(214, 153, 153); padding-top: 5px;">পরবর্তী</button>
+                                    <button class="text-center bg-primary text-white">পরবর্তী</button>
                                 </div>
                             </div>
                         </form>
