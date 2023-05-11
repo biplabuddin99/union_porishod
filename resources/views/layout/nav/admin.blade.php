@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="py-1">
-                <a href="#">
+                <a href="{{route(currentUser().'.trade.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('ট্রেডলাইসেন্স আবেদন')}}</span>
                 </a>

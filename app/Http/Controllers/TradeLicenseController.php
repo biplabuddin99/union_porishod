@@ -7,6 +7,11 @@ use App\Models\Settings\Location\Division;
 use App\Models\Settings\Location\Thana;
 use App\Models\TradeLicense;
 use App\Models\Ward_no;
+use App\Models\MobileBank;
+use App\Models\DigitalDevice;
+use App\Models\EducationalQualification;
+use App\Models\GovernmentFacility;
+use App\Models\Profession;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
@@ -72,12 +77,12 @@ class TradeLicenseController extends Controller
      */
     public function create()
     {
-        $division=Division::all();
-        $districts=District::all();
-        // return $districts;
-        $thana=Thana::all();
-        $ward=Ward_no::all();
-        return view('trade_license.create',compact('division','districts','thana','ward'));
+        $mobile_bank=MobileBank::orderBy('created_at')->get();
+        $digital_device=DigitalDevice::orderBy('created_at')->get();
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $gov_f=GovernmentFacility::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('trade_license.create_page1',compact('mobile_bank','digital_device','edu_q','gov_f','profession'));
     }
 
     /**

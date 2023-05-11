@@ -153,7 +153,6 @@ class HoldingController extends Controller
             $holding->bank_acc=$request->bank_acc;
             $holding->status=0;
             $holding->created_by=currentUserId();
-
             $holding->save();
             return redirect(route('holdingsecondpart.form',Crypt::encrypt($holding->id)));
         }
