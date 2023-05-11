@@ -96,6 +96,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
 
         Route::resource('trade',trade::class,['as'=>'admin']);
+        Route::get('trade-part2/{encrypted_id}',[trade::class,'FormPartSecond'])->name('tradesecondpart.form');
+        Route::post('trade-part2add/{encrypted_id}',[trade::class,'FormPartSecondUpdate'])->name('tradesecondpart_update');
         Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
         Route::get('trade_profile',[trade::class,'profile'])->name('trade_profile.list');
         Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
