@@ -89,10 +89,21 @@
                                                                             @csrf
                                                                             @method('PATCH')
                                                                             <tr>
+                                                                                <td>ট্রেডলাইসেন্স নবায়ন সন</td>
+                                                                                <td><input name="tradelicense_renewal_year" type="number" placeholder="ট্রেডলাইসেন্স নবায়ন সন<"></td>
+                                                                                <td>সাইনবোর্ড কর</td>
+                                                                                <td><input id="" name="signboard_tax" type="number" placeholder="সাইনবোর্ড কর"></td>
+                                                                            </tr>
+                                                                            <tr>
                                                                                 <td>ট্রেড লাইসেন্স নবায়ন ফি</td>
                                                                                 <td><input id="" name="trade_license_renewal_fee" type="number" placeholder="লাইসেন্স নবায়ন ফি দিন"></td>
                                                                                 <td>ব্যবসায়িক ধার্যকৃত কর</td>
                                                                                 <td><input name="annual_business_tax_levied" type="number" placeholder="ব্যবসায়িক ধার্যকৃত কর দিন"></td>
+                                                                            </tr>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>সার্ভিস চার্জ</td>
+                                                                                <td><input name="service_charge" type="number" placeholder="সার্ভিস চার্জ দিন"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>অনুমেদনের তারিখ</td>

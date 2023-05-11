@@ -62,7 +62,6 @@ return new class extends Migration
             $table->string('annual_withholding_tax')->nullable();
             $table->string('signboard_tax')->nullable();
             $table->string('service_charge')->nullable();
-            $table->string('trade_license_fee')->nullable();
             $table->string('approval_date')->nullable();
             $table->string('cancel_reson')->nullable();
             $table->string('status')->default(0);
