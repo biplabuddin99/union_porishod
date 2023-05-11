@@ -186,44 +186,44 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="vehicle_establishment_holding_no">ব্যাবসা/প্রতিষ্ঠানের হেল্ডিং নম্বর:-</label>
-                                    <input class="form-control @error('vehicle_establishment_holding_no') is-invalid @enderror"
-                                    name="vehicle_establishment_holding_no" id="vehicle_establishment_holding_no" value="{{ old('vehicle_establishment_holding_no') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
-                                    {{-- @if($errors->has('vehicle_establishment_holding_no'))
+                                    <label  class="form-label" for="institution_holding_number">ব্যাবসা/প্রতিষ্ঠানের হেল্ডিং নম্বর:-</label>
+                                    <input class="form-control @error('institution_holding_number') is-invalid @enderror"
+                                    name="institution_holding_number" id="institution_holding_number" value="{{ old('institution_holding_number') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
+                                    {{-- @if($errors->has('institution_holding_number'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('vehicle_establishment_holding_no') }}
+                                        {{ $errors->first('institution_holding_number') }}
                                     </small>
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="post_office">ডাকঘর:-</label>
-                                    <input class="form-control @error('post_office') is-invalid @enderror"
-                                    name="post_office" id="post_office" value="{{ old('post_office') }}"  type="text" placeholder="ডাকঘর">
-                                    @if($errors->has('post_office'))
+                                    <label  class="form-label" for="business_post_office">ডাকঘর:-</label>
+                                    <input class="form-control @error('business_post_office') is-invalid @enderror"
+                                    name="business_post_office" id="business_post_office" value="{{ old('business_post_office') }}"  type="text" placeholder="ডাকঘর">
+                                    @if($errors->has('business_post_office'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('post_office') }}
+                                        {{ $errors->first('business_post_office') }}
                                     </small>
                                     @endif
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label for="district">জেলা:-</label>
-                                    <select id="district_id" name="district_id" class="form-select search_district">
+                                    <label for="business_district_id">জেলা:-</label>
+                                    <select id="business_district_id" name="business_district_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
                                         @foreach ($districts as $district)
                                         <option value="{{ $district->id }}">{{ $district->name_bn }}</option>
                                         @endforeach
                                     </select>
-                                    @if($errors->has('district'))
+                                    @if($errors->has('business_district_id'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('district') }}
+                                        {{ $errors->first('business_district_id') }}
                                     </small>
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
-                                    <select id="upazila_id" name="upazila_id" class="form-select search_district">
+                                    <label  class="form-label" for="business_upazila_thana">উপজেলা/থানা:-</label>
+                                    <select id="business_upazila_id" name="business_upazila_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
                                     </select>
                                     {{-- @if($errors->has('upazila_thana'))
@@ -235,8 +235,8 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
-                                    <select id="union_id" name="union_id" class="form-select search_district">
+                                    <label  class="form-label" for="business_union_id">ইউনিয়ন পরিষদের নাম:-</label>
+                                    <select id="business_union_id" name="business_union_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
                                     </select>
                                     {{-- @if($errors->has('upazila_thana'))
@@ -246,8 +246,8 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="ward_id">ওয়ার্ড:-</label>
-                                    <select name="ward_id" class="form-select search_district" id="ward_id">
+                                    <label  class="form-label" for="business_ward_id">ওয়ার্ড:-</label>
+                                    <select name="business_ward_id" class="form-select search_district" id="business_ward_id">
                                         <option value="" selected="selected">ওয়ার্ড নং</option>
                                         @forelse ($ward as $w)
                                         <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
@@ -259,23 +259,23 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রাম/পাড়া/মহল্লা:-</label>
-                                    <input class="form-control @error('village_name') is-invalid @enderror"
-                                    name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
-                                    {{-- @if($errors->has('village_name'))
+                                    <label  class="form-label" for="business_village_name">গ্রাম/পাড়া/মহল্লা:-</label>
+                                    <input class="form-control @error('business_village_name') is-invalid @enderror"
+                                    name="business_village_name" id="business_village_name" value="{{ old('business_village_name') }}"  type="text" placeholder="গ্রামের নাম">
+                                    {{-- @if($errors->has('business_village_name'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('village_name') }}
+                                        {{ $errors->first('business_village_name') }}
                                     </small>
                                     @endif --}}
                                 </div>
 
                                 <div class="col-6">
-                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
-                                    <input class="form-control @error('street_nm') is-invalid @enderror"
-                                    name="street_nm" id="street_nm" value="{{ old('street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
-                                    @if($errors->has('street_nm'))
+                                    <label  class="form-label" for="business_street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
+                                    <input class="form-control @error('business_street_nm') is-invalid @enderror"
+                                    name="business_street_nm" id="business_street_nm" value="{{ old('business_street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
+                                    @if($errors->has('business_street_nm'))
                                     <small class="d-block text-danger">
-                                        {{ $errors->first('street_nm') }}
+                                        {{ $errors->first('business_street_nm') }}
                                     </small>
                                     @endif
                                 </div>

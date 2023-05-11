@@ -215,37 +215,34 @@ class TradeLicenseController extends Controller
         try{
             $trade = TradeLicense::findOrFail(Crypt::decrypt($encrypted_id));
             // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
-            $holding->residence_type=$request->residence_type;
-            $holding->house_room=$request->house_room;
-            $holding->num_male=$request->num_male;
-            $holding->num_female=$request->num_female;
-            $holding->num_male_vot=$request->num_male_vot;
-            $holding->num_female_vot=$request->num_female_vot;
-            $holding->family_status=$request->family_status;
-            $holding->percentage_house_land=$request->percentage_house_land;
-            $holding->percentage_cultivated_land=$request->percentage_cultivated_land;
-            $holding->estimated_value_house=$request->estimated_value_house;
-            $holding->street_nm=$request->street_nm;
-            $holding->village_name=$request->village_name;
-            $holding->ward_id=$request->ward_id;
-            $holding->post_office=$request->post_office;
-            $holding->union_id=$request->union_id;
-            $holding->upazila_id=$request->upazila_id;
-            $holding->district_id=$request->district_id;
+            $trade->business_name=$request->business_name;
+            $trade->type_ownership_organization=$request->type_ownership_organization;
+            $trade->e_tin_number=$request->e_tin_number;
+            $trade->business_organization_type=$request->business_organization_type;
+            $trade->estimated_capital_business=$request->estimated_capital_business;
+            $trade->business_type=$request->business_type;
+            $trade->institution_holding_number=$request->institution_holding_number;
+            $trade->business_post_office=$request->business_post_office;
+            $trade->business_district_id=$request->business_district_id;
+            $trade->business_upazila_id=$request->business_upazila_id;
+            $trade->business_union_id=$request->business_union_id;
+            $trade->business_ward_id=$request->business_ward_id;
+            $trade->business_village_name=$request->business_village_name;
+            $trade->business_street_nm=$request->business_street_nm;
             
             if($request->has('image'))
-            $holding->image=$this->resizeImage($request->image,'uploads/holding',true,300,300,false);
+            $trade->image=$this->resizeImage($request->image,'uploads/trade',true,300,300,false);
 
             if($request->has('nid_image'))
-            $holding->nid_image=$this->resizeImage($request->nid_image,'uploads/holding',true,500,500,false);
+            $trade->nid_image=$this->resizeImage($request->nid_image,'uploads/trade',true,500,500,false);
 
-            if($request->has('birth_registration_image'))
-            $holding->birth_registration_image=$this->resizeImage($request->birth_registration_image,'uploads/holding',true,500,700,false);
-            $holding->status=1;
-            $holding->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
-            $holding->save();
+            if($request->has('image_holding'))
+            $trade->image_holding=$this->resizeImage($request->image_holding,'uploads/trade',true,500,700,false);
+            $trade->status=1;
+            $trade->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
+            $trade->save();
 
-            Toastr::success('হোল্ডিং সফলভাবে সম্পন্ন হয়েছে!');
+            Toastr::success('ট্রেড লাইসেন্স সফলভাবে সম্পন্ন হয়েছে!');
             return redirect(route('hold_primary.list',Crypt::encrypt($holding->id)));
             // dd($request);
         }
