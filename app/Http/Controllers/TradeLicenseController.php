@@ -82,7 +82,9 @@ class TradeLicenseController extends Controller
         $edu_q=EducationalQualification::orderBy('created_at')->get();
         $gov_f=GovernmentFacility::orderBy('created_at')->get();
         $profession=Profession::orderBy('created_at')->get();
-        return view('trade_license.create_page1',compact('mobile_bank','digital_device','edu_q','gov_f','profession'));
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        return view('trade_license.create_page1',compact('mobile_bank','digital_device','edu_q','gov_f','profession','ward','districts'));
     }
 
     /**
@@ -94,7 +96,35 @@ class TradeLicenseController extends Controller
     public function store(Request $request)
     {
         try {
-            $trade=new TradeLicense();
+            $trade=new TradeLicense();            
+            // $trade->form_no=$request->form_no;
+            $trade->trade_date=Carbon::parse($request->trade_date)->format('Y-m-d');
+            $trade->head_institution=$request->head_institution;
+            $trade->father_name=$request->father_name;
+            $trade->mother_name=$request->mother_name;
+            $trade->husband_wife=$request->husband_wife;
+            $trade->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $trade->voter_id_no=$request->voter_id_no;
+            $trade->birth_registration_id=$request->birth_registration_id;
+            $trade->gender=$request->gender;
+            $trade->religion=$request->religion;
+            $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $trade->bank_acc=$request->bank_acc;
+            $trade->phone=$request->phone;
+            $trade->email=$request->email;
+            $trade->house_holding_number=$request->house_holding_number;
+            $trade->street_nm=$request->street_nm;
+            $trade->village_name=$request->village_name;
+            $trade->ward_id=$request->ward_id;
+            $trade->post_office=$request->post_office;
+            $trade->union_id=$request->union_id;
+            $trade->upazila_id=$request->upazila_id;
+            $trade->district_id=$request->district_id;
+            $trade->status=0;
+            $trade->created_by=currentUserId();
+            $trade->save();
+            return redirect(route('holdingsecondpart.form',Crypt::encrypt($trade->id)));
+            
             $all= All_onlineApplications::where('id',$request->all_aplication)->first();
             // $trade->form_no=$request->form_no;
             $trade->holding_date=$all->holding_date;

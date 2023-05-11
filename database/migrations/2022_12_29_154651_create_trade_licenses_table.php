@@ -16,30 +16,28 @@ return new class extends Migration
         Schema::create('trade_licenses', function (Blueprint $table) {
             $table->id();
             $table->string('form_no')->nullable();
-            $table->string('holding_date')->nullable();
-            $table->string('head_household')->nullable();
-            $table->string('husband_wife')->nullable();
+            $table->string('trade_date')->nullable();
+            $table->string('head_institution')->nullable();
+            $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
-            $table->string('gender')->nullable();
+            $table->string('husband_wife')->nullable();
             $table->string('birth_date')->nullable();
             $table->string('voter_id_no')->nullable();
             $table->string('birth_registration_id')->nullable();
+            $table->string('gender')->nullable();
             $table->string('religion')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('edu_qual')->nullable();
-            $table->string('email')->nullable();
-            $table->string('source_income')->nullable();
-            $table->string('marital_status')->nullable();
-            $table->string('internet_connection')->nullable();
-            $table->integer('tube_well')->nullable();
-            $table->string('disline_connection')->nullable();
-            $table->integer('paved_bathroom')->nullable();
-            $table->string('arsenic_free')->nullable();
-            $table->string('freedom_fighter')->nullable();
             $table->string('mobile_bank')->nullable();
-            $table->string('digital_devices')->nullable();
-            $table->string('government_facilities')->nullable();
             $table->string('bank_acc')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('house_holding_number')->nullable();
+            $table->string('street_nm')->nullable();
+            $table->string('village_name')->nullable();
+            $table->integer('ward_id')->nullable();
+            $table->string('post_office')->nullable();
+            $table->integer('union_id')->nullable();
+            $table->string('upazila_id')->nullable();
+            $table->string('district_id')->nullable();
 
             // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
             $table->string('business_name')->nullable();
