@@ -200,6 +200,48 @@
         });
     });
 </script>
+<script>
+    // District wise Upazilla Change
+    $(document).ready(function() {
+        $('.search_district').select2();
+        $('#business_district_id').on('change', function() {
+            var business_district_id = $(this).val();
+            // console.log();
+            if (business_district_id) {
+                $.ajax({
+                    url: "{{ url('/upzilla/ajax') }}/" + business_district_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#business_upazila_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#business_upazila_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+        $('#business_upazila_id').on('change', function() {
+            var business_upazila_id = $(this).val();
+            // console.log();
+            if (business_upazila_id) {
+                $.ajax({
+                    url: "{{ url('/union/ajax') }}/" + business_upazila_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data)
+                        var d = $('#business_union_id').empty();
+                        $.each(data, function(key, value) {
+                            $('#business_union_id').append('<option value="' + value.id + '">' + value.name_bn + '</option>');
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

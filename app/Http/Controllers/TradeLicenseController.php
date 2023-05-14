@@ -32,7 +32,7 @@ class TradeLicenseController extends Controller
      */
     public function primaryIndex($id)
     {
-        $trade=TradeLicense::where('id',$id)->first();
+        $trade=TradeLicense::where('id',Crypt::decrypt($id))->first();
         $Mobile = explode(',', $trade->mobile_bank);
         $Digital_devices = explode(',', $trade->digital_devices);
         $Govt_fac = explode(',', $trade->government_facilities);
@@ -244,7 +244,7 @@ class TradeLicenseController extends Controller
             $trade->save();
 
             Toastr::success('ট্রেড লাইসেন্স সফলভাবে সম্পন্ন হয়েছে!');
-            return redirect(route('hold_primary.list',Crypt::encrypt($holding->id)));
+            return redirect(route('trade_primary.list',Crypt::encrypt($trade->id)));
             // dd($request);
         }
         catch (Exception $e){

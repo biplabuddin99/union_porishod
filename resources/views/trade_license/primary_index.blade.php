@@ -7,7 +7,7 @@
     <title>ট্রেড লাইসেন্স তথ্য সংগ্রহ ফরম</title>
     <style>
         body{
-            font-size: 14px;
+            font-size: 13px;
         }
         .wrapper{
             width: 700px;
@@ -128,17 +128,17 @@
         </div>
         <div>
             <div class="formnodiv"><b>আবেদন নং :</b><input class="formno" value="{{ $trade->id }}" type="text"></div>
-            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ $trade->holding_date }}" type="text"></div>
+            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ $trade->trade_date }}" type="text"></div>
         </div>
         <div style="position: relative; margin-top: 15px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
                 <tr>
-                    <th style="width: 30%; text-align: left;">আবেদনকারীর নাম </th>
-                    <td><input type="text" value="{{ $trade->head_household }}" class="binput"></td>
+                    <th style="width: 30%; text-align: left;">প্রতিষ্ঠান প্রধানের নাম </th>
+                    <td><input type="text" value="{{ $trade->head_institution }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পিতার নাম </th>
-                    <td><input type="text" value="{{ $trade->trade_fathername }}" class="binput"></td>
+                    <td><input type="text" value="{{ $trade->father_name }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মাতার নাম </th>
@@ -150,20 +150,20 @@
                 </tr>
             </table>
             <div class="image">
-                <img height="100px" width="100px" src="{{ asset('uploads/trade_license/image/'.$trade->image)}}" alt="No IMAGE">
+                <img height="100px" width="100px" src="{{ asset('uploads/trade/'.$trade->image)}}" alt="No IMAGE">
             </div>
             <table style="width: 100%;">
                 <tr>
-                    <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
-                    <td><input type="text" value="{{ $trade->birth_date }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গের অবস্থা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($trade->gender == 1 ) পুরুষ @elseif ($trade->gender == 2 )মহিলা @elseif ($trade->gender == 3 )তৃতীয় লিঙ্গ @endif </td>
+                    <th style="width: 25%; text-align: left;">ডিজিটাল জন্ম নিবন্ধন নম্বর </th>
+                    <td><input type="text" value="{{ $trade->birth_registration_id }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">জাতীয় পরিচয়পত্র নম্বর </th>
+                    <td><input type="text" value="{{ $trade->voter_id_no }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ভোটার আইডি নং </th>
-                    <td><input type="text" value="{{ $trade->voter_id_no }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">জন্ম নিবন্ধন আইডি </th>
-                    <td><input type="text" value="{{ $trade->birth_registration_id }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
+                    <td><input type="text" value="{{ \Carbon\Carbon::parse($trade->birth_date)->format('d-m-Y')}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গের অবস্থা </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($trade->gender == 1 ) পুরুষ @elseif ($trade->gender == 2 )মহিলা @elseif ($trade->gender == 3 )তৃতীয় লিঙ্গ @endif </td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
@@ -334,12 +334,11 @@
             <table style="width: 100%;">
                 <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল ব্যাংক </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Mobile)) checked @endif><label for="">নগদ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="2" @if(in_array(2, $Mobile)) checked @endif><label for="">বিকাশ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="3" @if(in_array(3, $Mobile)) checked @endif><label for="">রকেট</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="4" @if(in_array(4, $Mobile)) checked @endif><label for="">উপায়</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="5" @if(in_array(5, $Mobile)) checked @endif><label for="">অন্যান্য</label>
+                    <td colspan="3" style="border-style: solid; border-width: 1px; ">
+                        @forelse(\App\Models\MobileBank::orderBy('created_at')->get() as $data)
+                        <input type="checkbox" value="{{$data->id}}" @if(in_array($data->id, $Mobile)) checked @endif><label for="">{{$data->name}}</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        @empty
+                        @endforelse
                     </td>
                 </tr>
                 <tr>
