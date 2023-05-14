@@ -168,62 +168,62 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">ডিজিটাল জন্ম নিবন্ধন নম্বর</th>
                     <td><input type="text" value="{{ $hold->birth_registration_id }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">জাতীয় পরিচয়পত্র নম্বর </th>
-                    <td><input type="text" value="{{ $hold->voter_id_no }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
-                    <td><input type="text" value="{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')}}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ই-মেইল(যদি থাকে)</th>
-                    <td><input type="text" value="{{ $hold->email }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">মোবাইল নম্বর </th>
-                    <td><input type="text" value="{{ $hold->phone }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইন্টারনেট ব্যবহার </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->internet_connection == 1 ) হ্যাঁ @else না @endif</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->freedom_fighter == 1 ) বীর মুক্তিযোদ্ধা @elseif ($hold->freedom_fighter == 2 )বীরাঙ্গনা @elseif ($hold->freedom_fighter == 3 )অন্যান্য @endif </td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডিসলাইন সংযোগ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->disline_connection == 1 ) আছে @else নাই @endif</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বাড়ির হোল্ডিং নম্বর</th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির হোল্ডিং নম্বর</th>
                     <td><input type="text" value="{{ $hold->house_holding_no }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">জাতীয় পরিচয়পত্র নম্বর</th>
+                    <td><input type="text" value="{{ $hold->voter_id_no }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">রাস্তা / ব্লক</th>
                     <td><input type="text" value="{{ $hold->street_nm }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">গ্রাম / পাড়া</th>
+                    <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
+                    <td><input type="text" value="{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y')}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">গ্রাম / পাড়া</th>
                     <td><input type="text" value="{{ $hold->village_name }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">লিঙ্গ </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->gender == 1 ) পুরুষ @elseif ($hold->gender == 2 )মহিলা @elseif ($hold->gender == 3 )তৃতীয় লিঙ্গ @endif </td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">সেক্টর / ওয়ার্ড </th>
                     <td><input type="text" value="{{ $hold->ward?->ward_name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ইউনিয়ন পরিষদের নাম </th>
+                    <th style="width: 25%; text-align: left;">বৈবাহিক অবস্থা </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->marital_status == 1 ) বিবাহিত @else অবিবাহিত @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদের নাম</th>
                     <td><input type="text" value="{{ $hold->union?->name_bn }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->freedom_fighter == 1 ) বীর মুক্তিযোদ্ধা @elseif ($hold->freedom_fighter == 2 )বীরাঙ্গনা @elseif ($hold->freedom_fighter == 3 )অন্যান্য @endif </td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">ডাকঘর </th>
                     <td><input type="text" value="{{ $hold->post_office }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">উপজেলা/থানা</th>
+                    <th style="width: 25%; text-align: left;">নলকূপ </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->tube_well == 1 ) আছে @else নাই @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">উপজেলা/থানা</th>
                     <td><input type="text" value="{{ $hold->upazila?->name_bn }}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">বাথরুম </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);">@if ($hold->paved_bathroom == 1 ) কাঁচা @else পাকা @endif</td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">জেলা </th>
                     <td><input type="text" value="{{ $hold->district?->name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">বৈবাহিক অবস্থা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->marital_status == 1 ) বিবাহিত @else অবিবাহিত @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->gender == 1 ) পুরুষ @elseif ($hold->gender == 2 )মহিলা @elseif ($hold->gender == 3 )তৃতীয় লিঙ্গ @endif </td>
+                    <th style="width: 25%; text-align: left;">ইন্টারনেট ব্যবহার </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->internet_connection == 1 ) হ্যাঁ @else না @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডিসলাইন সংযোগ </th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->disline_connection == 1 ) আছে @else নাই @endif</td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">নলকূপ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->tube_well == 1 ) আছে @else নাই @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাথরুম</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($hold->paved_bathroom == 1 ) কাঁচা @else পাকা @endif</td>
+                    <th style="width: 25%; text-align: left;">মোবাইল নম্বর </th>
+                    <td><input type="text" value="{{ $hold->phone }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ই-মেইল(যদি থাকে)</th>
+                    <td><input type="text" value="{{ $hold->email }}" class="binput"></td>
                 </tr>
             </table>
             <table style="width: 100%;">
