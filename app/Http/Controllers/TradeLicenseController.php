@@ -40,13 +40,13 @@ class TradeLicenseController extends Controller
     }
     public function index()
     {
-        $trade=TradeLicense::where('status',0)->get();
+        $trade=TradeLicense::where('status',1)->get();
         return view('trade_license.index',compact('trade'));
     }
 
     public function profile()
     {
-        $trade=TradeLicense::where('status',1)->get();
+        $trade=TradeLicense::where('status',2)->get();
         return view('trade_license.profile',compact('trade'));
     }
 

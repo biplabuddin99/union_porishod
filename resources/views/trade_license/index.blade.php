@@ -90,7 +90,15 @@
                                                                             @method('PATCH')
                                                                             <tr>
                                                                                 <td>ট্রেডলাইসেন্স নবায়ন সন</td>
-                                                                                <td><input name="tradelicense_renewal_year" type="number" placeholder="ট্রেডলাইসেন্স নবায়ন সন<"></td>
+                                                                                <td>
+                                                                                    <select name="tradelicense_renewal_year" class="form-select @error('tradelicense_renewal_year') is-invalid @enderror">
+                                                                                        <option value="">নির্বাচন করুন</option>
+                                                                                        @forelse(\App\Models\TradelicenseRenewalyear::orderBy('created_at')->get() as $data)
+                                                                                        <option value="{{$data->id}}">{{$data->name}}</option>
+                                                                                        @empty
+                                                                                        @endforelse
+                                                                                    </select>
+                                                                                </td>
                                                                                 <td>সাইনবোর্ড কর</td>
                                                                                 <td><input id="" name="signboard_tax" type="number" placeholder="সাইনবোর্ড কর"></td>
                                                                             </tr>
