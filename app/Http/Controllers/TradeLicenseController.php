@@ -20,6 +20,7 @@ use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
 use Exception;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class TradeLicenseController extends Controller
 {
@@ -108,8 +109,8 @@ class TradeLicenseController extends Controller
             $trade->birth_registration_id=$request->birth_registration_id;
             $trade->gender=$request->gender;
             $trade->religion=$request->religion;
-            $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
             $trade->bank_acc=$request->bank_acc;
+            $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
             $trade->phone=$request->phone;
             $trade->email=$request->email;
             $trade->house_holding_number=$request->house_holding_number;

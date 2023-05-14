@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use App\Models\BusinessType;
 use Carbon\Carbon;

@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
             ProfessionSeeder::class,
             HousingTypeSeeder::class,
             IncomeSourceSeeder::class,
+            BusinessTypeSeeder::class,
+            TradelicenseRenewalyearSeeder::class,
         ]);
     }
 }

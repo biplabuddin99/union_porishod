@@ -169,7 +169,7 @@
                                 <div class="col-6 mb-2">
                                     <label  class="form-label" for="house_holding_number">বাড়ির হোল্ডিং নাম্বার</label>
                                     <input class="form-control @error('house_holding_number') is-invalid @enderror"
-                                    name="house_holding_number" id="house_holding_number" value="{{ old('house_holding_number') }}"  type="text" placeholder="ইউনিয়ন কর্তৃক পূরনকৃত।">
+                                    name="house_holding_number" id="house_holding_number" value="{{ old('house_holding_number') }}"  type="text" placeholder="বাড়ির হোল্ডিং নাম্বার">
                                     @if($errors->has('house_holding_number'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('house_holding_number') }}
