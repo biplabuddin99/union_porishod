@@ -12,6 +12,7 @@ use App\Models\DigitalDevice;
 use App\Models\EducationalQualification;
 use App\Models\GovernmentFacility;
 use App\Models\Profession;
+use App\Models\BusinessType;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
@@ -33,6 +34,10 @@ class TradeLicenseController extends Controller
     public function primaryIndex($id)
     {
         $trade=TradeLicense::where('id',Crypt::decrypt($id))->first();
+        $districts=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$trade->union_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::select('id','ward_name','ward_name_bn')->first();
         $Mobile = explode(',', $trade->mobile_bank);
         $Digital_devices = explode(',', $trade->digital_devices);
         $Govt_fac = explode(',', $trade->government_facilities);
@@ -179,10 +184,11 @@ class TradeLicenseController extends Controller
 
     public function FormPartSecond($encrypted_id)
     {
+        $business=BusinessType::orderBy('created_at')->get();
         $ward=Ward_no::all();
         $districts=District::select('id','name','name_bn')->get();
         $trade = TradeLicense::findOrFail(Crypt::decrypt($encrypted_id));
-        return view('trade_license.create_page2',compact('trade','ward','districts'));
+        return view('trade_license.create_page2',compact('trade','ward','districts','business'));
     }
 
     public function FormPartSecondUpdate(Request $request, $encrypted_id)

@@ -81,48 +81,10 @@
                                     <label  class="form-label" for="business_type">ব্যবসায়িক ধরন:-</label>
                                     <select name="business_type" class="form-select @error('business_type') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">কৃষি খামার</option>
-                                        <option value="2">মুদির দোকান</option>
-                                        <option value="3">আবাসিক হোটেল</option>
-                                        <option value="4">খাবারের হোটেল</option>
-                                        <option value="5">স’মিল</option>
-                                        <option value="6">শিল্প কারখানা</option>
-                                        <option value="7">বাজার ইজারা</option>
-                                        <option value="8">নৌযানের মালিক</option>
-                                        <option value="9">পশু জবাই</option>
-                                        <option value="10">দুগ্ধ খামার</option>
-                                        <option value="11">ক্ষুদ্র ও কুটির শিল্প</option>
-                                        <option value="12">বেসরকারী হাসপাতাল</option>
-                                        <option value="13">ধান ভাঙানোর কল</option>
-                                        <option value="14">হেয়ার কাট সেলুন</option>
-                                        <option value="15">কনসালটেন্সি ফার্ম</option>
-                                        <option value="16">বাসের মালিক</option>
-                                        <option value="17">স্টীমার/কার্গোর মালিক</option>
-                                        <option value="18">গবাদি পশুর খামার</option>
-                                        <option value="19">খাবার হোটেল</option>
-                                        <option value="20">ঔষদের দোকান</option>
-                                        <option value="21">কোচিং সেন্টার</option>
-                                        <option value="22">মৎস্য খামার</option>
-                                        <option value="23">আর্থিক প্রতিষ্ঠান</option>
-                                        <option value="24">মিষ্টির দোকান</option>
-                                        <option value="25">হিমাগার</option>
-                                        <option value="26">বিউটি পার্লার</option>
-                                        <option value="27">ইট ভাটা</option>
-                                        <option value="28">ঠিকাদার</option>
-                                        <option value="29">হাঁস-মুরগীর খামার</option>
-                                        <option value="30">মাঝারি শিল্প</option>
-                                        <option value="31">ক্লিনিক</option>
-                                        <option value="32">বে-সরকারী স্কুল</option>
-                                        <option value="33">আটার কল</option>
-                                        <option value="34">লন্ড্রীর দোকান</option>
-                                        <option value="35">গুদাম</option>
-                                        <option value="36">শিশু পার্ক</option>
-                                        <option value="37">ইঞ্জিনিয়ারিং ফার্ম</option>
-                                        <option value="38">তেলের কল</option>
-                                        <option value="39">পরিবহন এজেন্সি</option>
-                                        <option value="40">বিনোদন পার্ক</option>
-                                        <option value="41">শিক্ষক</option>
-                                        <option value="42">অন্যান্য</option>
+                                        @forelse($business as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @empty
+                                        @endforelse
                                     </select>
                                     @if($errors->has('business_type'))
                                     <small class="d-block text-danger text-center">
@@ -259,7 +221,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="business_village_name">গ্রাম/পাড়া/মহল্লা:-</label>
+                                    <label  class="form-label" for="business_village_name">গ্রাম/পাড়া </label>
                                     <input class="form-control @error('business_village_name') is-invalid @enderror"
                                     name="business_village_name" id="business_village_name" value="{{ old('business_village_name') }}"  type="text" placeholder="গ্রামের নাম">
                                     {{-- @if($errors->has('business_village_name'))
@@ -270,7 +232,7 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <label  class="form-label" for="business_street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
+                                    <label  class="form-label" for="business_street_nm">রাস্তা/ব্লক</label>
                                     <input class="form-control @error('business_street_nm') is-invalid @enderror"
                                     name="business_street_nm" id="business_street_nm" value="{{ old('business_street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
                                     @if($errors->has('business_street_nm'))
@@ -314,14 +276,14 @@
                                 <div class="row">
                                   <div class="col-sm-9">
                                     {{-- <button style="background-color: rgb(214, 153, 153);">পূর্ববর্তী</button> --}}
-                                    <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.tradefirstpart',Crypt::encrypt($trade->id))}}">
+                                    <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.tradefirstpart',Crypt::encrypt($trade->id))}}">
                                         পূর্ববর্তী
                                     </a>
                                   </div>
                                   <div class="col-sm-3 text-end">
-                                    <button type="submit" style="background-color: rgb(214, 153, 153);">Submit</button>
+                                    <button type="submit" class="p-1 bg-primary text-white">দাখিল করুন</button>
                                     <span class="btn or">or</span>
-                                    <button type="reset" style="background-color: rgb(214, 153, 153);">Cancel</button>
+                                    <button type="reset" class="p-1 bg-primary text-white">রিসেট করুন</button>
                                   </div>
                                 </div>
                             </div>

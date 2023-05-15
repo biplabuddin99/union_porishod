@@ -34,10 +34,10 @@
         }
         .headbg{
             border-radius: 50px ;
-            border: 1px solid red;
+            border: 2px solid rgb(6, 153, 62);
             padding: 5px;
             width: 200px;
-            color: rgb(32, 45, 228);
+            color: rgb(6, 153, 62);
         }
         .formno{
             width: 50%;
@@ -132,9 +132,9 @@
             </div>
             <div class="headcontent">
                 <img class="mujib" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'logo/mujib_logo-01.png')}}" width="80px" height="80px" alt="Logo">
-                <h5 style="margin-top: 8px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
-                <h3 style="margin: 5px; color: rgb(23, 36, 158);">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h3>
-                <h5 style="margin: 5px; color: rgb(226, 125, 31);">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h5>
+                <h5 style="margin-top: 8px; margin-bottom: 5px; color: rgb(0, 0, 0);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
+                <h3 style="margin: 5px; color: rgb(6, 153, 62);">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h3>
+                <h5 style="margin: 5px; color: rgb(8, 8, 8));">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h5>
                 <h4 class="headbg" style="margin: auto;">অনলাইন আবেদন-হোল্ডিং প্লেট</h2>
             </div>
         </div>
@@ -236,7 +236,7 @@
                 <tr>
                     <th style="width: 25%; text-align: left;">ধর্ম</th>
                     <td style="border: 1px solid rgb(19, 18, 18);">@if ($hold->religion == 1 ) ইসলাম @elseif ($hold->religion == 2 )হিন্দু @elseif ($hold->religion == 3 )বৌদ্ধ@elseif ($hold->religion == 4 )খ্রিষ্টান@elseif ($hold->religion == 5 )উপজাতি @endif</td>
-                
+
                     <th style="width: 25%; text-align: left; padding-left: 10px;">শিক্ষাগত যোগ্যতা </th>
                     <td style="border: 1px solid rgb(19, 18, 18);">@if ($hold->edu_qual == 1 ) স্ব-শিক্ষিত @elseif ($hold->edu_qual == 2 )প্রাথমিক @elseif ($hold->edu_qual == 3 )মাধ্যমিক@elseif ($hold->edu_qual == 4 )উচ্চ-মাধ্যমিক@elseif ($hold->edu_qual == 5 )উচ্চতর-ডিগ্রী @endif</td>
                 </tr>
@@ -331,11 +331,11 @@
                     <td style="border-style: solid; border-width: 1px;"><label for="">কথায়:</label><input value="{{ $hold->total_tax }}" type="text" class="sbinput">টাকা মাত্র</td>
                 </tr>  --}}
             </table>
-            <div style="margin-top: .7rem; margin-left: 11rem; color: rgb(16, 123, 224);">
+            <div style="margin-top: .7rem; margin-left: 11rem; color: rgb(6, 153, 62);">
                 আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক। যদি উপরের বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হয়,তাহার জন্য আমি আইনগত দায়ী থাকিব।</span>
             </div>
             <div style="margin-top: .9rem; margin-left: 15rem; color: rgb(16, 123, 224);">
-                <b style="background-color: rgb(0, 45, 143);color:aliceblue; text:white; padding:.6rem;">|| সবাই মিলে দেব কর,ইউনিয়ন পরিষদ হবে স্বনির্ভর  ||</b>
+                <b style="background-color: rgb(6, 153, 62);color:aliceblue; text:white; padding:.6rem;">|| সবাই মিলে দেব কর,ইউনিয়ন পরিষদ হবে স্বনির্ভর  ||</b>
             </div>
         </div>
     </div>

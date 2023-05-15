@@ -91,7 +91,7 @@
                                         <option value="5">উচ্চবৃত্ত</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="col-6">
                                     <label  class="form-label" for="percentage_house_land"><b>বাড়ির জমি পরিমান</b></label>
                                     <input class="form-control @error('percentage_house_land') is-invalid @enderror" name="percentage_house_land" id="percentage_house_land" value="{{ old('percentage_house_land') }}"  type="number" placeholder="শতাংশ">
@@ -160,14 +160,14 @@
                                     @empty
                                     @endforelse
                                 </div>
-                                
+
                                 @if($errors->has('business_taxes'))
                                 <small class="d-block text-danger text-center">
                                     {{ $errors->first('business_taxes') }}
                                 </small>
                                 @endif
                             </div>  --}}
-                            
+
                             <div class="row m-3">
                                 <h5 class="text-center theme-text-color" style="padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা </h5>
                             </div>
@@ -235,9 +235,9 @@
                                     <b>{{ request()->session()->get('upsetting')->district?->name_bn}}</b>
                                     <input type="hidden" name="district_id" value="{{ request()->session()->get('upsetting')->district_id}}"/>
                                 </div>
-                                
+
                             </div>
-                            
+
                             <div class="row m-3">
                                 <h5 class="theme-text-color" style="padding-top: 5px;">অতিরিক্ত সংযোজনঃ- </h5>
                             </div>
@@ -276,9 +276,9 @@
                                     </a>
                                   </div>
                                   <div class="col-sm-6 text-end">
-                                    <button type="submit" class="bg-primary text-white">দাখিল করুন</button>
+                                    <button type="submit" class="p-1 bg-primary text-white">দাখিল করুন</button>
                                     <span class="btn or">or</span>
-                                    <button type="reset" class="bg-primary text-white">রিসেট করুন</button>
+                                    <button type="reset" class="p-1 bg-primary text-white">রিসেট করুন</button>
                                   </div>
                                 </div>
                             </div>
