@@ -96,6 +96,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
 
         Route::resource('trade',trade::class,['as'=>'admin']);
+        Route::get('trade-firstform/{encrypted_id}',[trade::class,'FormPartFirstUp'])->name('admin.tradefirstpart');
         Route::get('trade-part2/{encrypted_id}',[trade::class,'FormPartSecond'])->name('tradesecondpart.form');
         Route::post('trade-part2add/{encrypted_id}',[trade::class,'FormPartSecondUpdate'])->name('tradesecondpart_update');
         Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
@@ -104,7 +105,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
-        Route::get('firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
+        Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
         Route::post('firstform-update/{encrypted_id}',[holding::class,'FormPartFirstUpdate'])->name('admin.holdingfirstpartupdate');
         Route::get('holding-part2/{encrypted_id}',[holding::class,'FormPartSecond'])->name('holdingsecondpart.form');
         Route::post('holding-part/{encrypted_id}',[holding::class,'FormPartSecondUpdate'])->name('holdingsecondpart_update');

@@ -314,7 +314,7 @@
                                 <div class="row">
                                   <div class="col-sm-9">
                                     {{-- <button style="background-color: rgb(214, 153, 153);">পূর্ববর্তী</button> --}}
-                                    {{--  <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.allapplication.edit',$all->id)}}">  --}}
+                                    <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.tradefirstpart',Crypt::encrypt($trade->id))}}">
                                         পূর্ববর্তী
                                     </a>
                                   </div>
