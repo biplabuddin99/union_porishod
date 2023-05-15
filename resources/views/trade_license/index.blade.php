@@ -1,33 +1,26 @@
 @extends('layout.app')
-{{-- @section('pageTitle',trans('ট্রেড লাইসেন্স লিস্ট')) --}}
+{{-- @section('pageTitle',trans('হোল্ডিং লিস্ট')) --}}
 
 @section('content')
 
-<section style="margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center"
-                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ট্রেড লাইসেন্স তালিকা</h4>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
 
             <div class="card">
-                {{-- <div>
-                <a class="float-end" href="{{route(currentUser().'.trade.create')}}"style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
-                </div> --}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-block">
+                            <h5 style="padding-top: 5px;">ট্রেড লাইসেন্স আবেদন তালিকা</h5>
+                        </div>
+                    </div>
+                </div>
                 @if(Session::has('response'))
                     {!!Session::get('response')['message']!!}
                 @endif
                 <!-- table bordered -->
                 <div class="table-responsive">
                     <table class="table" id="table1">
-
                         <thead>
                             <tr>
                                 <th width="3%"> ক্রমিক </th>
@@ -165,5 +158,20 @@
         </div>
     </div>
 </section>
+<!-- Bordered table end -->
 
 @endsection
+
+@push('scripts')
+<script>
+    function change_status(e){
+        if($(e).val()==2){
+            $(e).parents('tr').siblings('tr').find('.cancel_reason').text('মন্তব্য')
+            $(e).parents('tr').siblings('tr').find('.cancel_r').attr('placeholder','মন্তব্য দিন')
+        }else{
+            $(e).parents('tr').siblings('tr').find('.cancel_reason').text('বাতিলের কারণ')
+            $(e).parents('tr').siblings('tr').find('.cancel_r').attr('placeholder','কেন বাতিল হচ্ছে মন্তব্য দিন')
+        }
+    }
+</script>
+@endpush

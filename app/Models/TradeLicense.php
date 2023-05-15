@@ -15,4 +15,7 @@ class TradeLicense extends Model
     public function ward(){
         return $this->belongsTo(Ward_no::class,'ward_id','id');
     }
+    public function house(){
+        return $this->belongsTo(HousingType::class,'business_organization_type','id');
+    }
 }
