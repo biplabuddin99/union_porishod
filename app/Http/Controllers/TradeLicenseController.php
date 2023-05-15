@@ -34,14 +34,14 @@ class TradeLicenseController extends Controller
     public function primaryIndex($id)
     {
         $trade=TradeLicense::where('id',Crypt::decrypt($id))->first();
-        $districts=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->first();
-        $unions=Union::where('id',$trade->union_id)->select('id','name','name_bn')->first();
-        $wards=Ward_no::select('id','ward_name','ward_name_bn')->first();
+        $districts=District::where('id',$trade->business_district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$trade->business_upazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$trade->business_union_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$trade->business_ward_id)->select('id','ward_name','ward_name_bn')->first();
         $Mobile = explode(',', $trade->mobile_bank);
         $Digital_devices = explode(',', $trade->digital_devices);
         $Govt_fac = explode(',', $trade->government_facilities);
-        return view('trade_license.primary_index',compact('trade','Mobile','Govt_fac','Digital_devices'));
+        return view('trade_license.primary_index',compact('trade','Mobile','Govt_fac','Digital_devices','districts','upazilas','unions','wards'));
     }
     public function index()
     {

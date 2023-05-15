@@ -160,7 +160,7 @@
                 </tr>
             </table>
             <div class="image">
-                <img height="100px" width="100px" src="{{ asset('uploads/trade/'.$trade->image)}}" alt="No IMAGE">
+                <img height="100px" width="100px" src="{{ asset('uploads/trade/'.$trade->image)}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="No IMAGE">
             </div>
 
             <table style="width: 100%">
@@ -193,13 +193,25 @@
                     <th style="width: 25%; text-align: left;">ই-মেইল(যদি থাকে)</th>
                     <td><input type="text" value="{{ $trade->email }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">সেক্টর / ওয়ার্ড </th>
-                    <td><input type="text" value="{{ $trade->ward?->ward_name_bn }}" class="binput"></td>
+                    <td><input type="text" value="{{ $wards?->ward_name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মোবাইল নম্বর</th>
                     <td><input type="text" value="{{ $trade->phone }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">সেক্টর / ওয়ার্ড </th>
-                    <td><input type="text" value="{{ $trade->ward?->ward_name_bn }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদ</th>
+                    <td><input type="text" value="{{ $unions?->name_bn}}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">ব্যাংক একাউন্ট</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($trade->bank_acc == 1 ) আছে @else নাই @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডাকঘর</th>
+                    <td><input type="text" value="{{ $trade->business_post_office}}" class="binput"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%; text-align: left;">ধর্ম</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);">@if ($trade->religion == 1 ) ইসলাম @elseif ($trade->religion == 2 )হিন্দু @elseif ($trade->religion == 3 )বৌদ্ধ@elseif ($trade->religion == 4 )খ্রিষ্টান@elseif ($trade->religion == 5 )উপজাতি @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">উপজেলা/থানা</th>
+                    <td><input type="text" value="{{ $upazilas->name_bn}}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
