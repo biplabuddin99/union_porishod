@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route(currentUser().'.trade.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route(currentUser().'.tradefirstpartupdate',Crypt::encrypt($trade->id))}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row m-2">
                                 {{-- <div class="col-6">

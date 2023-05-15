@@ -140,6 +140,43 @@ class TradeLicenseController extends Controller
         return view('trade_license.edit_firstpart',compact('trade','Mobile_bank','wards'));
     }
 
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $trade= TradeLicense::findOrFail(Crypt::decrypt($encrypted_id));
+            // $trade->form_no=$request->form_no;
+            $trade->trade_date=Carbon::parse($request->trade_date)->format('Y-m-d');
+            $trade->head_institution=$request->head_institution;
+            $trade->father_name=$request->father_name;
+            $trade->mother_name=$request->mother_name;
+            $trade->husband_wife=$request->husband_wife;
+            $trade->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $trade->voter_id_no=$request->voter_id_no;
+            $trade->birth_registration_id=$request->birth_registration_id;
+            $trade->gender=$request->gender;
+            $trade->religion=$request->religion;
+            $trade->bank_acc=$request->bank_acc;
+            $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $trade->phone=$request->phone;
+            $trade->email=$request->email;
+            $trade->house_holding_number=$request->house_holding_number;
+            $trade->street_nm=$request->street_nm;
+            $trade->village_name=$request->village_name;
+            $trade->ward_id=$request->ward_id;
+            $trade->post_office=$request->post_office;
+            $trade->union_id=$request->union_id;
+            $trade->upazila_id=$request->upazila_id;
+            $trade->district_id=$request->district_id;
+            $trade->status=0;
+            $trade->created_by=currentUserId();
+            $trade->save();
+            return redirect(route('tradesecondpart.form',Crypt::encrypt($trade->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
+    }
+
     public function FormPartSecond($encrypted_id)
     {
         $ward=Ward_no::all();

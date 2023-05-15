@@ -97,6 +97,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
 
         Route::resource('trade',trade::class,['as'=>'admin']);
         Route::get('trade-firstform/{encrypted_id}',[trade::class,'FormPartFirstUp'])->name('admin.tradefirstpart');
+        Route::post('trade-firstform-update/{encrypted_id}',[trade::class,'FormPartFirstUpdate'])->name('admin.tradefirstpartupdate');
         Route::get('trade-part2/{encrypted_id}',[trade::class,'FormPartSecond'])->name('tradesecondpart.form');
         Route::post('trade-part2add/{encrypted_id}',[trade::class,'FormPartSecondUpdate'])->name('tradesecondpart_update');
         Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
