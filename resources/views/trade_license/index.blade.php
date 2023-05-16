@@ -44,7 +44,7 @@
                                 <td>{{$t->business_name}}</td>
                                 <td>{{$t->business?->name}}</td>
                                 <td>{{$t->phone}}</td>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/trade/')}}/{{ $t->image}}" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/trade/')}}/{{ $t->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $t->id }}">যুক্ত করুন</button>
                                     <div class="modal fade" id="modal{{ $t->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $t->id }}Title" aria-hidden="true">

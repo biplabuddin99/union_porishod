@@ -105,6 +105,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
         // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
 
+        Route::get('trade_tax',[trade::class,'tax'])->name('admin.trade_tax.list');
+
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
         Route::post('firstform-update/{encrypted_id}',[holding::class,'FormPartFirstUpdate'])->name('admin.holdingfirstpartupdate');

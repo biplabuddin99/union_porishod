@@ -373,4 +373,11 @@ class TradeLicenseController extends Controller
         $trade->delete();
         return redirect()->back();
     }
+
+    public function tax()
+    {
+        $trade=TradeLicense::where('status',2)->where('withholding_tax_levied_annually','>','0')->get();
+        // $wards=Ward_no::where('id',$trade->business_ward_id)->select('id','ward_name','ward_name_bn')->get();
+        return view('trade_license.tax_list',compact('trade'));
+    }
 }

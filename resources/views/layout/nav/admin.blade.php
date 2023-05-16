@@ -173,7 +173,7 @@
                 </a>
             </li>
             <li class="py-1">
-                <a href="#">
+                <a href="{{route(currentUser().'.trade_tax.list')}}">
                     <i class="bi bi-wallet2"></i>
                     {{__('ব্যবসায়িক কর তালিকা ')}}
                 </a>
