@@ -19,17 +19,20 @@
                     {!!Session::get('response')['message']!!}
                 @endif
                 <!-- table bordered -->
-                <div class="table-responsive">
+                <div class="table-responsive mt-2">
                     <table class="table" id="table1">
                         <thead>
                             <tr>
-                                <th width="3%"> ক্রমিক </th>
-                                <th>ফটো</th>
-                                <th>ব্যবসা প্রতিষ্ঠানের নাম </th>
-                                <th>আবেদনকারীর নাম </th>
+                                <th> আবেদন নং </th>
+                                <th>তারিখ</th>
+                                <th>প্রতিষ্ঠান প্রধানের নাম </th>
+                                <th>প্রতিষ্ঠানের নাম </th>
+                                <th>ব্যবসার ধরণ </th>
                                 <th>মোবাইল</th>
-                                <th>প্রোফাইল </th>
-                                <th width="13%"> কর্মকাণ্ড  </th>
+                                <th>ছবি </th>
+                                <th>অনুমোদন </th>
+                                <th>ভিউ </th>
+                                <th> এডিট  </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -145,6 +148,9 @@
                                         <button class="btn p-0 show_confirm" data-toggle="tooltip" type="submit"><i class='bi bi-trash-fill' style='color:red'></i></a></button>
                                     </form>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             @empty
                             <tr>
