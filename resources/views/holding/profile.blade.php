@@ -18,8 +18,8 @@
                     {!!Session::get('response')['message']!!}
                 @endif
                 <!-- table bordered -->
-                <div class="table-responsive">
-                    <table class="table table-bordered mb-0">
+                <div class="table-responsive mt-2">
+                    <table class="table" id="table1">
 
                         <thead>
                             <tr>
@@ -53,17 +53,17 @@
                                 <td class="white-space-nowrap">
                                     <a href="{{route('hold_primary.list',Crypt::encrypt($h->id))}}">
                                         <i class="bi bi-eye-fill"></i>
-                                    </a> 
+                                    </a>
                                 </td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.holding.show',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-printer"></i>
-                                    </a> 
+                                    </a>
                                 </td>
                                 {{-- <td class="white-space-nowrap">
                                     <a href="{{route(currentUser().'.holding.edit',encryptor('encrypt',$h->id))}}">
                                         <i class="bi bi-pencil-square"></i>
-                                    </a> 
+                                    </a>
                                 </td> --}}
                             </tr>
                             @empty

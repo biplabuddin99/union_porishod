@@ -59,11 +59,18 @@ class TradeLicenseController extends Controller
     {
         try{
             $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
+            $trade->tradelicense_renewal_year=$request->tradelicense_renewal_year;
+            $trade->signboard_tax=$request->signboard_tax;
             $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
             $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
-            $trade->approval_date=$request->approval_date;
-            $trade->cancel_reson=$request->cancel_reson;
-            $trade->status=$request->cancel_reson==""?1:2;
+            $trade->service_charge=$request->service_charge;
+            $trade->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
+            $trade->cancel_reason=$request->cancel_reason;
+            if($request->status==2)
+            $trade->form_no='0'.Carbon::now()->format('y').'-'. str_pad((TradeLicense::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
+            $trade->status=$request->status;
+            $trade->approved_by=currentUserId();
+            $trade->updated_by=currentUserId();
             $trade->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.trade.index'));

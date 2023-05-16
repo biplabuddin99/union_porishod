@@ -58,12 +58,12 @@ return new class extends Migration
             $table->string('nid_image')->nullable();
             $table->string('image_holding')->nullable();
             $table->string('tradelicense_renewal_year')->nullable();
-            $table->string('trade_license_renewal_fee')->nullable();
-            $table->string('annual_withholding_tax')->nullable();
             $table->string('signboard_tax')->nullable();
+            $table->string('trade_license_renewal_fee')->nullable();
+            $table->string('annual_business_tax_levied')->nullable();
             $table->string('service_charge')->nullable();
             $table->string('approval_date')->nullable();
-            $table->string('cancel_reson')->nullable();
+            $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
             $table->integer('approved_by')->nullable();
             $table->integer('chairman_id')->nullable();

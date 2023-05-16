@@ -18,4 +18,7 @@ class TradeLicense extends Model
     public function house(){
         return $this->belongsTo(HousingType::class,'business_organization_type','id');
     }
+    public function renewal_year(){
+        return $this->belongsTo(TradelicenseRenewalyear::class,'tradelicense_renewal_year','id');
+    }
 }

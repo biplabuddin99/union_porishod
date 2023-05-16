@@ -36,20 +36,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($trade as $c)
+                            @forelse($trade as $t)
                             <tr>
-                                <th scope="row">{{ ++$loop->index }}</th>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/trade_license/image/')}}/{{ $c->image}}" alt=""></td>
-                                <td>{{$c->business_name}}</td>
-                                <td>{{$c->head_household}}</td>
-                                <td>{{$c->phone}}</td>
+                                <th scope="row">{{ $t->id }}</th>
+                                <td>{{\Carbon\Carbon::parse($t->trade_date)->format('d-m-Y')}}</td>
+                                <td>{{$t->head_institution}}</td>
+                                <td>{{$t->business_name}}</td>
+                                <td>{{$t->business?->name}}</td>
+                                <td>{{$t->phone}}</td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/trade/')}}/{{ $t->image}}" alt=""></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $c->id }}">যুক্ত করুন</button>
-                                    <div class="modal fade" id="modal{{ $c->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $c->id }}Title" aria-hidden="true">
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $t->id }}">যুক্ত করুন</button>
+                                    <div class="modal fade" id="modal{{ $t->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $t->id }}Title" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content" style="width: 800px;">
                                                 <div class="modal-header">
-                                                <h5 class="modal-title" id="#modal{{ $c->id }}Title">আবেদন নম্বর # {{ $c->id }}</h5>
+                                                <h5 class="modal-title" id="#modal{{ $t->id }}Title">আবেদন নম্বর # {{ $t->id }}</h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -60,69 +62,82 @@
                                                         <div class="col-md-12">
                                                             <table class="table table-inverse table-responsive">
                                                                 <thead class="thead-inverse">
-                                                                    <tr><p class="text-center bg-primary text-white p-2">তথ্য ভুল থাকলে বাতিল করুন এবং তথ্য সঠিক হলে অনুমোদন করুন</p></tr>
-                                                                    </thead>
-                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <div class="col-md-12 text-center heading-block">
+                                                                                <h5 style="padding-top: 5px;">তথ্য ভুল থাকলে বাতিল করুন এবং তথ্য সঠিক হলে অনুমোদন করুন</h5>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>ব্যবসা প্রতিষ্ঠানের নাম</td>
+                                                                        <td>{{ $t->business_name }}</td>
+                                                                        <td>আবেদন তারিখ</td>
+                                                                        <td>{{ $t->holding_date }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>আবেদনকারীর নাম</td>
+                                                                        <td>{{ $t->head_household }}</td>
+                                                                        <td>ভোটার আইডি</td>
+                                                                        <td>{{ $t->voter_id_no }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>মাতার নাম</td>
+                                                                        <td>{{ $t->mother_name }}</td>
+                                                                        <td>মোবাইল নম্বর</td>
+                                                                        <td>{{ $t->phone }}</td>
+                                                                    </tr>
+                                                                    <form action="{{route('trades_profile',encryptor('encrypt',$t->id))}}">
+                                                                        @csrf
+                                                                        @method('PATCH')
                                                                         <tr>
-                                                                            <td>ব্যবসা প্রতিষ্ঠানের নাম</td>
-                                                                            <td>{{ $c->business_name }}</td>
-                                                                            <td>আবেদন তারিখ</td>
-                                                                            <td>{{ $c->holding_date }}</td>
+                                                                            <td>ট্রেডলাইসেন্স নবায়ন সন</td>
+                                                                            <td>
+                                                                                <select name="tradelicense_renewal_year" class="form-select @error('tradelicense_renewal_year') is-invalid @enderror">
+                                                                                    <option value="">নির্বাচন করুন</option>
+                                                                                    @forelse(\App\Models\TradelicenseRenewalyear::orderBy('created_at')->get() as $data)
+                                                                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                                                                    @empty
+                                                                                    @endforelse
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>সাইনবোর্ড কর</td>
+                                                                            <td><input class="form-control" id="" name="signboard_tax" type="number" placeholder="সাইনবোর্ড কর"></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>আবেদনকারীর নাম</td>
-                                                                            <td>{{ $c->head_household }}</td>
-                                                                            <td>ভোটার আইডি</td>
-                                                                            <td>{{ $c->voter_id_no }}</td>
+                                                                            <td>ট্রেড লাইসেন্স নবায়ন ফি</td>
+                                                                            <td><input class="form-control" id="" name="trade_license_renewal_fee" type="number" placeholder="লাইসেন্স নবায়ন ফি দিন"></td>
+                                                                            <td>ব্যবসায়িক ধার্যকৃত কর</td>
+                                                                            <td><input class="form-control" name="annual_business_tax_levied" type="number" placeholder="ব্যবসায়িক ধার্যকৃত কর দিন"></td>
+                                                                        </tr>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>মাতার নাম</td>
-                                                                            <td>{{ $c->mother_name }}</td>
-                                                                            <td>মোবাইল নম্বর</td>
-                                                                            <td>{{ $c->phone }}</td>
+                                                                            <td>সার্ভিস চার্জ</td>
+                                                                            <td><input class="form-control" name="service_charge" type="number" placeholder="সার্ভিস চার্জ দিন"></td>
+                                                                            <td>গ্রহণ/ বাতিল</td>
+                                                                            <td>
+                                                                                <select onchange="change_status(this)" name="status" class="form-control">
+                                                                                    <option value="2">গ্রহণ</option>
+                                                                                    <option value="3">বাতিল</option>
+                                                                                </select>
+                                                                            </td>
                                                                         </tr>
-                                                                        <form action="{{route('trades_profile',encryptor('encrypt',$c->id))}}">
-                                                                            @csrf
-                                                                            @method('PATCH')
-                                                                            <tr>
-                                                                                <td>ট্রেডলাইসেন্স নবায়ন সন</td>
-                                                                                <td>
-                                                                                    <select name="tradelicense_renewal_year" class="form-select @error('tradelicense_renewal_year') is-invalid @enderror">
-                                                                                        <option value="">নির্বাচন করুন</option>
-                                                                                        @forelse(\App\Models\TradelicenseRenewalyear::orderBy('created_at')->get() as $data)
-                                                                                        <option value="{{$data->id}}">{{$data->name}}</option>
-                                                                                        @empty
-                                                                                        @endforelse
-                                                                                    </select>
-                                                                                </td>
-                                                                                <td>সাইনবোর্ড কর</td>
-                                                                                <td><input id="" name="signboard_tax" type="number" placeholder="সাইনবোর্ড কর"></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>ট্রেড লাইসেন্স নবায়ন ফি</td>
-                                                                                <td><input id="" name="trade_license_renewal_fee" type="number" placeholder="লাইসেন্স নবায়ন ফি দিন"></td>
-                                                                                <td>ব্যবসায়িক ধার্যকৃত কর</td>
-                                                                                <td><input name="annual_business_tax_levied" type="number" placeholder="ব্যবসায়িক ধার্যকৃত কর দিন"></td>
-                                                                            </tr>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>সার্ভিস চার্জ</td>
-                                                                                <td><input name="service_charge" type="number" placeholder="সার্ভিস চার্জ দিন"></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>অনুমেদনের তারিখ</td>
-                                                                                <td><input name="approval_date" type="date"></td>
-                                                                                <td>বাতিলের কারণ</td>
-                                                                                <td><textarea name="cancel_reson" id="" placeholder="কেন বাতিল হচ্ছে মন্তব্য দিন"></textarea></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td></td>
-                                                                                <td></td>
-                                                                                <td><button type="submit" class="btn btn-warning">বাতিল</button></td>
-                                                                                <td><button type="submit" class="btn btn-primary">অনুমোদন</button></td>
-                                                                            </tr>
-                                                                        </form>
-                                                                    </tbody>
+                                                                        <tr>
+                                                                            <td>অনুমেদনের তারিখ</td>
+                                                                            <td><input name="approval_date" class="form-control datepicker" type="text" placeholder="দিন-মাস-বছর"></td>
+                                                                            <td class="cancel_reason">মন্তব্য</td>
+                                                                            <td colspan="3"> <textarea name="cancel_reason" class="form-control cancel_r" id="" placeholder="মন্তব্য দিন"></textarea></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td><button type="submit" class="btn btn-primary">দাখিল করুন</button></td>
+                                                                        </tr>
+                                                                    </form>
+                                                                </tbody>
                                                                 </table>
                                                         </div>
                                                     </div>
@@ -135,22 +150,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="white-space-nowrap d-flex" style="border-style: none;">
-                                    <a href="{{route(currentUser().'.trade.show',encryptor('encrypt',$c->id))}}">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>&nbsp;&nbsp;
-                                    <a href="{{route(currentUser().'.trade.edit',encryptor('encrypt',$c->id))}}">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>&nbsp;&nbsp;
-                                    <form id="form{{$c->id}}" action="{{route(currentUser().'.trade.destroy',encryptor('encrypt',$c->id))}}" method="POST">
+                                <td> <a href="{{route('trade_primary.list',Crypt::encrypt($t->id))}}"><i class="bi bi-eye-fill"></i></a></td>
+                                <td><a href="{{route(currentUser().'.trade.edit',encryptor('encrypt',$t->id))}}"><i class="bi bi-pencil-square"></i></a>
+                                    {{--  <form id="form{{$t->id}}" action="{{route(currentUser().'.trade.destroy',encryptor('encrypt',$t->id))}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn p-0 show_confirm" data-toggle="tooltip" type="submit"><i class='bi bi-trash-fill' style='color:red'></i></a></button>
-                                    </form>
+                                    </form>  --}}
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                             </tr>
                             @empty
                             <tr>
