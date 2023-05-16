@@ -109,8 +109,8 @@
                                                                         <tr>
                                                                             <td>ট্রেড লাইসেন্স নবায়ন ফি</td>
                                                                             <td><input class="form-control" id="" name="trade_license_renewal_fee" type="number" placeholder="লাইসেন্স নবায়ন ফি দিন"></td>
-                                                                            <td>ব্যবসায়িক ধার্যকৃত কর</td>
-                                                                            <td><input class="form-control" name="annual_business_tax_levied" type="number" placeholder="ব্যবসায়িক ধার্যকৃত কর দিন"></td>
+                                                                            <td>বার্ষিক ধার্যকৃত উৎসকর কর</td>
+                                                                            <td><input class="form-control" name="withholding_tax_levied_annually" type="number" placeholder="বার্ষিক ধার্যকৃত উৎসকর কর দিন"></td>
                                                                         </tr>
                                                                         </tr>
                                                                         <tr>

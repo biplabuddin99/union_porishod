@@ -60,7 +60,7 @@ return new class extends Migration
             $table->string('tradelicense_renewal_year')->nullable();
             $table->string('signboard_tax')->nullable();
             $table->string('trade_license_renewal_fee')->nullable();
-            $table->string('annual_business_tax_levied')->nullable();
+            $table->string('withholding_tax_levied_annually')->nullable();
             $table->string('service_charge')->nullable();
             $table->string('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();

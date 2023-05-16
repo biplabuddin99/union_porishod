@@ -62,7 +62,7 @@ class TradeLicenseController extends Controller
             $trade->tradelicense_renewal_year=$request->tradelicense_renewal_year;
             $trade->signboard_tax=$request->signboard_tax;
             $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
-            $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
+            $trade->withholding_tax_levied_annually=$request->withholding_tax_levied_annually;
             $trade->service_charge=$request->service_charge;
             $trade->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $trade->cancel_reason=$request->cancel_reason;
@@ -242,9 +242,10 @@ class TradeLicenseController extends Controller
     public function show($id)
     {
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
-        $districts=District::where('id',$trade->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->first();
-        $wards=Ward_no::where('id',$trade->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        $districts=District::where('id',$trade->business_district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$trade->business_upazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$trade->business_union_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$trade->business_ward_id)->select('id','ward_name','ward_name_bn')->first();
         // return $district;
         // return $trade;
         return view('trade_license.show_print_preview',compact('trade','districts','upazilas','wards'));

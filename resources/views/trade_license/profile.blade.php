@@ -51,7 +51,7 @@
                                 <td>{{$c->phone}}</td>
                                 <td>{{$c->renewal_year?->name}}</td>
                                 <td>{{$c->trade_license_renewal_fee}}</td>
-                                <td>{{$c->annual_business_tax_levied}}</td>
+                                <td>{{$c->withholding_tax_levied_annually}}</td>
                                 <td><img width="70px" height="50px" src="{{asset('uploads/trade')}}/{{ $c->image}}" alt=""></td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route('trade_primary.list',Crypt::encrypt($c->id))}}">
