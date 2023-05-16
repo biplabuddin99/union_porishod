@@ -217,7 +217,7 @@ class HoldingController extends Controller
         $holding = Holding::findOrFail(Crypt::decrypt($encrypted_id));
         return view('holding.create_page2',compact('holding','ward','districts'));
     }
-    
+
     public function FormPartSecondUpdate(Request $request, $encrypted_id)
     {
         try{
@@ -240,7 +240,7 @@ class HoldingController extends Controller
             $holding->union_id=$request->union_id;
             $holding->upazila_id=$request->upazila_id;
             $holding->district_id=$request->district_id;
-            
+
             if($request->has('image'))
             $holding->image=$this->resizeImage($request->image,'uploads/holding',true,300,300,false);
 
@@ -321,7 +321,7 @@ class HoldingController extends Controller
             $holding->tube_well=$request->tube_well;
             $holding->disline_connection=$request->disline_connection;
             $holding->paved_bathroom=$request->paved_bathroom;
-            $holding->arsenic_free=$request->arsenic_free;
+            // $holding->arsenic_free=$request->arsenic_free;
             // $Govt_fac = explode(',', $request->government_facilities);
             $holding->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
             $holding->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
@@ -375,10 +375,11 @@ class HoldingController extends Controller
                     return redirect(route(currentUser().'.hold_profile.list'));
 
             }
-            
+
             // dd($request);
         }
         catch (Exception $e){
+            // dd($e);
             return back()->withInput();
         }
     }

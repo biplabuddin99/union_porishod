@@ -282,71 +282,59 @@ class TradeLicenseController extends Controller
     {
         try {
             $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));;
-            $trade->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
-            $trade->head_household=$request->head_household;
-            $trade->husband_wife=$request->husband_wife;
+            // $trade->form_no=$request->form_no;
+            $trade->trade_date=Carbon::parse($request->trade_date)->format('Y-m-d');
+            $trade->head_institution=$request->head_institution;
+            $trade->father_name=$request->father_name;
             $trade->mother_name=$request->mother_name;
-            $trade->gender=$request->gender;
-            $trade->birth_date=$request->birth_date;
+            $trade->husband_wife=$request->husband_wife;
+            $trade->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
             $trade->voter_id_no=$request->voter_id_no;
             $trade->birth_registration_id=$request->birth_registration_id;
+            $trade->gender=$request->gender;
             $trade->religion=$request->religion;
-            $trade->phone=$request->phone;
-            $trade->edu_qual=$request->edu_qual;
-            $trade->email=$request->email;
-            $trade->source_income=$request->source_income;
-            $trade->marital_status=$request->marital_status;
-            $trade->internet_connection=$request->internet_connection;
-            $trade->tube_well=$request->tube_well;
-            $trade->disline_connection=$request->disline_connection;
-            $trade->paved_bathroom=$request->paved_bathroom;
-            $trade->arsenic_free=$request->arsenic_free;
-            // $Govt_fac = explode(',', $request->government_facilities);
-            $trade->government_facilities=implode(',',$request->government_facilities);
+            $trade->bank_acc=$request->bank_acc;
             $trade->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
-            $trade->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
-
-             // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
-            $trade->business_name=$request->business_name;
-            $trade->owner_proprietor=$request->owner_proprietor;
-            $trade->trade_husband_name=$request->trade_husband_name;
-            $trade->type_ownership_organization=$request->type_ownership_organization;
-            $trade->trade_fathername=$request->trade_fathername;
-            $trade->trade_mothername=$request->trade_mothername;
-            $trade->trade_license_renewal=$request->trade_license_renewal;
-            $trade->business_organization_structure=$request->business_organization_structure;
-            $trade->business_type=$request->business_type;
-            $trade->trade_license_renewal_fee=$request->trade_license_renewal_fee;
-            $trade->business_estimated_capital=$request->business_estimated_capital;
-            $trade->annual_business_tax_levied=$request->annual_business_tax_levied;
-            // $trade->annual_business_tax_collected=$request->annual_business_tax_collected;
-            // $trade->annual_business_tax_due=$request->annual_business_tax_due;
-            // $trade->holding_tax_update=$request->holding_tax_update;
-            $trade->vehicle_establishment_holding_no=$request->vehicle_establishment_holding_no;
+            $trade->phone=$request->phone;
+            $trade->email=$request->email;
+            $trade->house_holding_number=$request->house_holding_number;
             $trade->street_nm=$request->street_nm;
             $trade->village_name=$request->village_name;
             $trade->ward_id=$request->ward_id;
-            $trade->union_id=$request->union_id;
             $trade->post_office=$request->post_office;
+            $trade->union_id=$request->union_id;
             $trade->upazila_id=$request->upazila_id;
             $trade->district_id=$request->district_id;
-            $trade->status=0;
 
-            $path='uploads/trade_license/nid';
-            $path1='uploads/trade_license/image';
-            $path2='uploads/trade_license/holding';
+             // ট্রেড লাইসেন্স আবেদনের অন্যান্য তথ্য
+             $trade->business_name=$request->business_name;
+             $trade->type_ownership_organization=$request->type_ownership_organization;
+             $trade->e_tin_number=$request->e_tin_number;
+             $trade->business_organization_type=$request->business_organization_type;
+             $trade->estimated_capital_business=$request->estimated_capital_business;
+             $trade->business_type=$request->business_type;
+             $trade->institution_holding_number=$request->institution_holding_number;
+             $trade->business_post_office=$request->business_post_office;
+             $trade->business_district_id=$request->business_district_id;
+             $trade->business_upazila_id=$request->business_upazila_id;
+             $trade->business_union_id=$request->business_union_id;
+             $trade->business_ward_id=$request->business_ward_id;
+             $trade->business_village_name=$request->business_village_name;
+             $trade->business_street_nm=$request->business_street_nm;
+
+            $path='uploads/trade';
 
             if($request->has('nid_image') && $request->nid_image)
             if($this->deleteImage($trade->nid_image,$path))
                 $trade->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
 
             if($request->has('image') && $request->image)
-            if($this->deleteImage($trade->image,$path1))
-                $trade->image=$this->resizeImage($request->image,$path1,true,200,200,false);
+            if($this->deleteImage($trade->image,$path))
+                $trade->image=$this->resizeImage($request->image,$path,true,200,200,false);
 
             if($request->has('image_holding') && $request->image_holding)
-            if($this->deleteImage($trade->image_holding,$path2))
-                $trade->image_holding=$this->resizeImage($request->image_holding,$path2,true,200,200,false);
+            if($this->deleteImage($trade->image_holding,$path))
+                $trade->image_holding=$this->resizeImage($request->image_holding,$path,true,200,200,false);
             if($trade->save()){
                 Toastr::success('ট্রেড লাইসেন্স সফলভাবে আপডেট করা হয়েছে !!');
                 return redirect()->route(currentUser().'.trade.index');

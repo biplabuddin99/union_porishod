@@ -20,7 +20,7 @@
                             @method('PATCH')
                             <div class="row mt-2">
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="holding_date">ফরম নং - </label>
+                                    <label  class="form-label" for="no">ফরম নং - </label>
                                 </div>
                                 <div class="col-sm-4 col-lg-4 ms-0 ps-0">
                                     <input readonly class="form-control" value="{{ $hold->id }}" id="form_no" type="text" placeholder="ফরম নং">
@@ -65,7 +65,7 @@
                                         {{ $errors->first('mother_name') }}
                                     </small>
                                     @endif
-                                </div>                                
+                                </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="husband_wife">স্বামী/স্ত্রীর নাম  </label>
                                     <input class="form-control" type="text"
@@ -242,7 +242,7 @@
                                         <option value="2"{{ old('bank_acc', $hold->bank_acc)=="2" ? "selected":""}}>নাই</option>
                                     </select>
                                 </div>
-                                
+
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <label  class="form-label" for="mobile_bank"><b>মোবাইল ব্যাংক</b></label>
@@ -337,7 +337,7 @@
                                         <option value="5" {{ old('family_status', $hold->family_status)=="5" ? "selected":""}}>উচ্চবৃত্ত</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="col-6">
                                     <label  class="form-label" for="percentage_house_land">বাড়ির জমি পরিমান</label>
                                     <input class="form-control @error('percentage_house_land') is-invalid @enderror"
@@ -394,7 +394,7 @@
                                     @empty
                                     @endforelse
                                 </div>
-                                
+
                                 @if($errors->has('business_taxes'))
                                 <small class="d-block text-danger text-center">
                                     {{ $errors->first('business_taxes') }}
@@ -432,7 +432,7 @@
                                     <b>{{ $hold->house_holding_no}}</b>
                                 </div>
                             </div>
-                            
+
                             <div class="row m-2">
                                 <div class="col-6">
                                     <label  class="form-label" for="street_nm">রাস্তা / ব্লক</label>
@@ -472,7 +472,7 @@
                                 </div>
                             </div>
                             <div class="row m-2">
-                                
+
                                 <div class="col-4">
                                     <label >ইউনিয়ন</label>
                                     <b>{{ request()->session()->get('upsetting')->union?->name_bn}}</b>
@@ -488,7 +488,7 @@
                                     <b>{{ request()->session()->get('upsetting')->district?->name_bn}}</b>
                                     <input type="hidden" name="district_id" value="{{ request()->session()->get('upsetting')->district_name}}"/>
                                 </div>
-                                
+
                             </div>
                             <div class="row m-3">
                                 <h5 class="theme-text-color" style="padding-top: 5px;">অতিরিক্ত সংযোজনঃ- </h5>
