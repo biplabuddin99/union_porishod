@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="row m-3">
-                                <h4 class="" style="color: rgb(13, 134, 29); padding-top: 5px;">বাংলাদেশের ওয়ারিশান আইন অনুযায়ী ওয়ারিশান সদস্যদের বিবরণ সমূহঃ- </h4>
+                                <h4 class="" style="color: rgb(13, 134, 29); padding-top: 5px;">ওয়ারিশ আইন অনুযায়ী ওয়ারিশান সদস্যদের বিবরণ সমূহঃ- </h4>
                             </div>
                             <div class="col-12 ">
                                 <table class="table table-hover mt-4 table-bordered" id="account">
@@ -102,7 +102,7 @@
                                             <th>ওয়ারিশানদের নাম</th>
                                             <th>সম্পর্ক</th>
                                             <th>জন্ম তারিখ</th>
-                                            <th>ভোটার আইডি</th>
+                                            <th>জন্মনিবন্ধন / ভোটার আইডি</th>
                                             <th>মন্তব্য</th>
                                         </tr>
                                     </thead>
@@ -139,7 +139,7 @@
                                 </table>
                             </div>
                             <div class="row m-3">
-                                <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকৃত ওয়ারিশানের স্থায়ী ঠিকানা সমূহঃ </h4>
+                                <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকৃত ওয়ারিশ ব্যক্তির স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6 mb-2">
