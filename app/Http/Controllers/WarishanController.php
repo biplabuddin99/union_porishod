@@ -95,7 +95,7 @@ class WarishanController extends Controller
         try{
             $warisan=new Warishan;
             // $warisan->form_no=$request->form_no;
-            $warisan->warish_date=Carbon::parse($request->warish_date)->format('Y-m-d');
+            $warisan->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
             $warisan->applicant_name=$request->applicant_name;
             $warisan->father_name=$request->father_name;
             $warisan->mother_name=$request->mother_name;
@@ -204,6 +204,71 @@ class WarishanController extends Controller
         }catch (Exception $e){
             Toastr::success('দয়করে আবার চেষ্টা করুন!');
             dd($e);
+            return back()->withInput();
+        }
+    }
+
+    public function FormPartSecond($encrypted_id)
+    {
+        $warisan = Warishan::findOrFail(Crypt::decrypt($encrypted_id));
+        return view('warishan.create_page2',compact('warisan'));
+    }
+
+    public function FormPartSecondUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $warisan = Warishan::findOrFail(Crypt::decrypt($encrypted_id));
+            // আবেদনের অন্যান্য তথ্য
+            $warisan->warishan_person_name=$request->warishan_person_name;
+            $warisan->warisan_father_name=$request->warisan_father_name;
+            $warisan->warishan_mother_name=$request->warishan_mother_name;
+            $warisan->warisan_husband_wife=$request->warisan_husband_wife;
+            $warisan->date_death_warishan=$request->date_death_warishan;
+            $warisan->total_warishan_members=$request->total_warishan_members;
+            $warisan->house_holding_number=$request->house_holding_number;
+            $warisan->street_nm=$request->street_nm;
+            $warisan->village_name=$request->village_name;
+            $warisan->ward_id=$request->ward_id;
+            $warisan->post_office=$request->post_office;
+            $warisan->union_id=$request->union_id;
+            $warisan->upazila_id=$request->upazila_id;
+            $warisan->district_id=$request->district_id;
+
+            if($request->has('image'))
+            $warisan->image=$this->resizeImage($request->image,'uploads/warisan',true,300,300,false);
+
+            if($request->has('nid_image'))
+            $warisan->nid_image=$this->resizeImage($request->nid_image,'uploads/warisan',true,500,500,false);
+
+            if($request->has('image_death_certificate'))
+            $warisan->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warisan',true,500,700,false);
+            $warisan->status=1;
+            $warisan->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
+            if($warisan->save()){
+                if($request->cname){
+                    foreach($request->cname as $key => $value){
+                        // dd($request->all());
+                        if($value){
+                        $cwarisan = new WarisanChild;
+                        $cwarisan->warisan_id=$warisan->id;
+                        $cwarisan->name=$request->cname[$key];
+                        $cwarisan->ralation=$request->crelation[$key];
+                        $cwarisan->birth_date=$request->cbirth_date[$key];
+                        $cwarisan->cnid=$request->cnid[$key];
+                        $cwarisan->ccomments=$request->ccomments[$key];
+                        $cwarisan->save();
+                    }
+                    }
+                }
+                Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!!');
+                return redirect(route('warishan_primary.list',Crypt::encrypt($warisan->id)));
+            }else{
+                Toastr::success('দয়করে আবার চেষ্টা করুন!');
+                return redirect()->back();
+
+            }
+        }
+        catch (Exception $e){
             return back()->withInput();
         }
     }

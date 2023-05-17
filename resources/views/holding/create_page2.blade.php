@@ -2,16 +2,6 @@
 {{-- @section('pageTitle',trans('নতুন হোল্ডিং')) --}}
 
 @section('content')
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 <section id="multiple-column-form">
     <div class="row match-height">
         <div class="col-12">

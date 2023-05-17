@@ -88,6 +88,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
 
         Route::resource('warishan',warishan::class,['as'=>'admin']);
         Route::get('warishan-part2/{encrypted_id}',[warishan::class,'FormPartSecond'])->name('warishansecondpart.form');
+        Route::post('warisan-part2add/{encrypted_id}',[warishan::class,'FormPartSecondUpdate'])->name('warishansecondpart_update');
         Route::get('/warishan_primary/{id}',[warishan::class,'primaryIndex'])->name('warishan_primary.list');
         Route::get('warishan_profile',[warishan::class,'profile'])->name('warishan_profile.list');
         Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
@@ -113,7 +114,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
         Route::post('firstform-update/{encrypted_id}',[holding::class,'FormPartFirstUpdate'])->name('admin.holdingfirstpartupdate');
         Route::get('holding-part2/{encrypted_id}',[holding::class,'FormPartSecond'])->name('holdingsecondpart.form');
-        Route::post('holding-part/{encrypted_id}',[holding::class,'FormPartSecondUpdate'])->name('holdingsecondpart_update');
+        Route::post('holding-part2add/{encrypted_id}',[holding::class,'FormPartSecondUpdate'])->name('holdingsecondpart_update');
         Route::get('holding_cancel',[holding::class,'cancel'])->name('admin.holding_cancel');
         Route::get('/hold_primary/{id}',[holding::class,'primaryIndex'])->name('hold_primary.list');
         // Route::get('generate-pdf', [holding::class, 'generatePDF']);
