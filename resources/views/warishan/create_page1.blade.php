@@ -11,11 +11,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 text-center heading-block">
-                                    <h5 style="padding-top: 5px;">ওয়ারিশান আবেদন ফরম</h5>
+                                    <h5 style="padding-top: 5px;">ওয়ারিশ আবেদন ফরম</h5>
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route(currentUser().'.holding.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route(currentUser().'.warishan.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row m-2">
                                 {{-- <div class="col-6">
@@ -24,19 +24,19 @@
                                 </div> --}}
 
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="holding_date"><b>আবেদনের তারিখ</b> </label>
+                                    <label  class="form-label" for="warish_date"><b>আবেদনের তারিখ</b> </label>
                                 </div>
                                 <div class="col-sm-2 col-lg-2 ms-0 ps-0">
-                                    <input class="form-control datepicker" name="holding_date" value="<?= date('d-m-Y'); ?>" id="holding_date" type="text">
+                                    <input class="form-control datepicker" name="warish_date" value="<?= date('d-m-Y'); ?>" id="warish_date" type="text">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6 mb-2">
-                                    <label  class="form-label" for="head_household"><b>আবেদনকারীর নাম</b></label>
-                                    <input required class="form-control @error('head_household') is-invalid @enderror" type="text"
-                                    name="head_household" value="{{ old('head_household') }}" id="head_household" placeholder="বাড়ি প্রধানের নাম">
-                                    @if($errors->has('head_household'))
-                                        <small class="d-block text-danger">{{ $errors->first('head_household') }}</small>
+                                    <label  class="form-label" for="applicant_name"><b>আবেদনকারীর নাম</b></label>
+                                    <input required class="form-control @error('applicant_name') is-invalid @enderror" type="text"
+                                    name="applicant_name" value="{{ old('applicant_name') }}" id="applicant_name" placeholder="আবেদনকারীর নাম">
+                                    @if($errors->has('applicant_name'))
+                                        <small class="d-block text-danger">{{ $errors->first('applicant_name') }}</small>
                                     @endif
                                 </div>
                                 <div class="col-6 mb-2">
@@ -193,7 +193,7 @@
                                     <input type="number" class="form-control" name="num_female" id="num_female" onkeyup="num_fmember()">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
+                                    <label for="num_total"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
                                     <input type="number" class="form-control" id="num_total">
                                 </div>
                             </div>
@@ -211,3 +211,12 @@
 </section>
 
 @endsection
+@push('scripts')
+    <script>
+        function num_fmember(){
+            let nm=$('#num_male').val()?parseFloat($('#num_male').val()):0;
+            let nf=$('#num_female').val()?parseFloat($('#num_female').val()):0;
+            $('#num_total').val((nm+nf));
+        }
+    </script>
+@endpush

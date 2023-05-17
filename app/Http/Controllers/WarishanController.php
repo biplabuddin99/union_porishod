@@ -93,7 +93,30 @@ class WarishanController extends Controller
     public function store(Request $request)
     {
         try{
-            $p=new Warishan;
+            $warisan=new Warishan;
+            // $warisan->form_no=$request->form_no;
+            $warisan->warish_date=Carbon::parse($request->warish_date)->format('Y-m-d');
+            $warisan->applicant_name=$request->applicant_name;
+            $warisan->father_name=$request->father_name;
+            $warisan->mother_name=$request->mother_name;
+            $warisan->husband_wife=$request->husband_wife;
+            $warisan->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $warisan->voter_id_no=$request->voter_id_no;
+            $warisan->birth_registration_id=$request->birth_registration_id;
+            $warisan->gender=$request->gender;
+            $warisan->religion=$request->religion;
+            $warisan->marital_status=$request->marital_status;
+            $warisan->freedom_fighter=$request->freedom_fighter;
+            $warisan->edu_qual=$request->edu_qual;
+            $warisan->source_income=$request->source_income;
+            $warisan->phone=$request->phone;
+            $warisan->email=$request->email;
+            $warisan->num_male=$request->num_male;
+            $warisan->num_female=$request->num_female;
+            $warisan->status=0;
+            $warisan->created_by=currentUserId();
+            $warisan->save();
+            return redirect(route('warishansecondpart.form',Crypt::encrypt($warisan->id)));
             $all= All_onlineApplications::where('id',$request->all_aplication)->first();
             // $p->form_no=$request->form_no;
             $p->holding_date=$all->holding_date;
