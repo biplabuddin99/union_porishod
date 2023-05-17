@@ -26,6 +26,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route(currentUser().'.warishan.create')}}">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('ওয়ারিশান সনদ আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="{{route(currentUser().'.allapplication.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('নতুন আবেদন')}}</span>

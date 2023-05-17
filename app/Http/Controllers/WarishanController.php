@@ -16,6 +16,8 @@ use App\Models\Settings\Location\Upazila;
 use App\Models\Settings\Location\Union;
 use Exception;
 use Carbon\Carbon;
+use App\Models\EducationalQualification;
+use App\Models\Profession;
 
 class WarishanController extends Controller
 {
@@ -77,11 +79,9 @@ class WarishanController extends Controller
      */
     public function create()
     {
-        $division = Division::all();
-        $district = District::all();
-        $thana = Thana::all();
-        $word = Ward_no::all();
-        return view('warishan.create',compact('division','district','thana','word'));
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('warishan.create_page1',compact('edu_q','profession'));
     }
 
     /**
