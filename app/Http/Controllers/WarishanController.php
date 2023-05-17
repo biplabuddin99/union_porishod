@@ -18,6 +18,7 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\EducationalQualification;
 use App\Models\Profession;
+use Illuminate\Support\Facades\Crypt;
 
 class WarishanController extends Controller
 {
@@ -29,15 +30,15 @@ class WarishanController extends Controller
      */
     public function primaryIndex($id)
     {
-        $warishan=Warishan::where('id',$id)->first();
-        $districts=District::where('id',$warishan->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$warishan->upazila_id)->select('id','name','name_bn')->first();
-        $wards=Ward_no::where('id',$warishan->ward_id)->select('id','ward_name','ward_name_bn')->first();
-        $unions=Union::where('id',$warishan->union_id)->select('id','name','name_bn')->first();
-        $Mobile = explode(',', $warishan->mobile_bank);
-        $Digital_devices = explode(',', $warishan->digital_devices);
-        $Govt_fac = explode(',', $warishan->government_facilities);
-        $Business_tax = explode(',', $warishan->business_taxes);
+        $warishan=Warishan::where('id',Crypt::decrypt($id))->first();
+        $districts=District::where('id',$warishan?->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$warishan?->upazila_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$warishan?->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        $unions=Union::where('id',$warishan?->union_id)->select('id','name','name_bn')->first();
+        $Mobile = explode(',', $warishan?->mobile_bank);
+        $Digital_devices = explode(',', $warishan?->digital_devices);
+        $Govt_fac = explode(',', $warishan?->government_facilities);
+        $Business_tax = explode(',', $warishan?->business_taxes);
         return view('warishan.primary_index',compact('warishan','Mobile','Govt_fac','Digital_devices','Business_tax','districts','upazilas','unions','wards'));
     }
 
@@ -117,90 +118,6 @@ class WarishanController extends Controller
             $warisan->created_by=currentUserId();
             $warisan->save();
             return redirect(route('warishansecondpart.form',Crypt::encrypt($warisan->id)));
-            $all= All_onlineApplications::where('id',$request->all_aplication)->first();
-            // $p->form_no=$request->form_no;
-            $p->holding_date=$all->holding_date;
-            $p->head_household=$all->head_household;
-            $p->father_name=$all->father_name;
-            $p->husband_wife=$all->husband_wife;
-            $p->mother_name=$all->mother_name;
-            $p->gender=$all->gender;
-            $p->birth_date=$all->birth_date;
-            $p->voter_id_no=$all->voter_id_no;
-            $p->birth_registration_id=$all->birth_registration_id;
-            $p->religion=$all->religion;
-            $p->phone=$all->phone;
-            $p->edu_qual=$all->edu_qual;
-            $p->email=$all->email;
-            $p->source_income=$all->source_income;
-            $p->marital_status=$all->marital_status;
-            $p->internet_connection=$all->internet_connection;
-            $p->tube_well=$all->tube_well;
-            $p->disline_connection=$all->disline_connection;
-            $p->paved_bathroom=$all->paved_bathroom;
-            $p->arsenic_free=$all->arsenic_free;
-            $p->freedom_fighter=$all->freedom_fighter;
-            $Govt_fac = explode(',', $all->government_facilities);
-            $p->government_facilities=implode(',',$Govt_fac);
-            $Mobile = explode(',', $all->mobile_bank);
-            $p->mobile_bank=implode(',',$Mobile);
-            $Digital_devices = explode(',', $all->digital_devices);
-            $p->digital_devices=implode(',',$Digital_devices);
-
-            // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
-            $p->warishan_person_name=$request->warishan_person_name;
-            $p->father_husband=$request->father_husband;
-            $p->warishan_mother_name=$request->warishan_mother_name;
-            $p->date_death_warishan=$request->date_death_warishan;
-            // $p->update_holding_tax=$request->update_holding_tax;
-            // $p->wife_number=$request->wife_number;
-            // $p->son=$request->son;
-            // $p->daughter=$request->daughter;
-            $p->total_warishan_members=$request->total_warishan_members;
-            $p->house_holding_no=$request->house_holding_no;
-            $p->street_nm=$request->street_nm;
-            $p->village_name=$request->village_name;
-            $p->ward_id=$request->ward_id;
-            $p->union_id=$request->union_id;
-            $p->post_office=$request->post_office;
-            $p->upazila_id=$request->upazila_id;
-            $p->district_id=$request->district_id;
-            $p->status=0;
-            if($request->has('image'))
-            $p->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
-
-            if($request->has('nid_image'))
-            $p->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
-
-            if($request->has('holding_image'))
-            $p->holding_image=$this->resizeImage($request->holding_image,'uploads/warishan',true,500,700,false);
-
-            if($request->has('image_death_certificate'))
-            $p->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
-
-            if($p->save()){
-                if($request->cname){
-                    foreach($request->cname as $key => $value){
-                        // dd($request->all());
-                        if($value){
-                        $cwarisan = new WarisanChild;
-                        $cwarisan->warisan_id=$p->id;
-                        $cwarisan->name=$request->cname[$key];
-                        $cwarisan->ralation=$request->crelation[$key];
-                        $cwarisan->birth_date=$request->cbirth_date[$key];
-                        $cwarisan->cnid=$request->cnid[$key];
-                        $cwarisan->ccomments=$request->ccomments[$key];
-                        $cwarisan->save();
-                    }
-                    }
-                }
-                Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!!');
-                return redirect(route('warishan_primary.list',$p->id));
-            }else{
-                Toastr::success('দয়করে আবার চেষ্টা করুন!');
-                return redirect()->back();
-
-            }
         }catch (Exception $e){
             Toastr::success('দয়করে আবার চেষ্টা করুন!');
             dd($e);
@@ -211,7 +128,9 @@ class WarishanController extends Controller
     public function FormPartSecond($encrypted_id)
     {
         $warisan = Warishan::findOrFail(Crypt::decrypt($encrypted_id));
-        return view('warishan.create_page2',compact('warisan'));
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        return view('warishan.create_page2',compact('warisan','ward','districts'));
     }
 
     public function FormPartSecondUpdate(Request $request, $encrypted_id)
@@ -235,13 +154,13 @@ class WarishanController extends Controller
             $warisan->district_id=$request->district_id;
 
             if($request->has('image'))
-            $warisan->image=$this->resizeImage($request->image,'uploads/warisan',true,300,300,false);
+            $warisan->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
 
             if($request->has('nid_image'))
-            $warisan->nid_image=$this->resizeImage($request->nid_image,'uploads/warisan',true,500,500,false);
+            $warisan->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
 
             if($request->has('image_death_certificate'))
-            $warisan->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warisan',true,500,700,false);
+            $warisan->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
             $warisan->status=1;
             $warisan->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
             if($warisan->save()){
