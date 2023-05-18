@@ -31,12 +31,12 @@
                     <span>{{__('ওয়ারিশ সনদ আবেদন')}}</span>
                 </a>
             </li>
-            <li class="py-1">
+            {{--  <li class="py-1">
                 <a href="{{route(currentUser().'.allapplication.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('নতুন আবেদন')}}</span>
                 </a>
-            </li>
+            </li>  --}}
             <li class="py-1">
                 <a href="#">
                     <i class="bi bi-bag-plus-fill"></i>
