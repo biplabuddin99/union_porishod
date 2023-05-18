@@ -150,7 +150,7 @@
                                 <div class="col-6">
                                     <label  class="form-label" for="institution_holding_number">ব্যাবসা/প্রতিষ্ঠানের হেল্ডিং নম্বর:-</label>
                                     <input class="form-control @error('institution_holding_number') is-invalid @enderror"
-                                    name="institution_holding_number" id="institution_holding_number" value="{{ old('institution_holding_number') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
+                                    name="institution_holding_number" id="institution_holding_number" value="{{ old('institution_holding_number') }}"  type="text" placeholder="ব্যাবসা/প্রতিষ্ঠানের হেল্ডিং নম্বর">
                                     {{-- @if($errors->has('institution_holding_number'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('institution_holding_number') }}
@@ -224,11 +224,11 @@
                                     <label  class="form-label" for="business_village_name">গ্রাম/পাড়া </label>
                                     <input class="form-control @error('business_village_name') is-invalid @enderror"
                                     name="business_village_name" id="business_village_name" value="{{ old('business_village_name') }}"  type="text" placeholder="গ্রামের নাম">
-                                    {{-- @if($errors->has('business_village_name'))
+                                    @if($errors->has('business_village_name'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('business_village_name') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
 
                                 <div class="col-6">

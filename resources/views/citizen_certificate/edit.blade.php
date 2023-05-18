@@ -26,8 +26,8 @@
                                     <label  class="form-label" for="form_no">ফরম নং -</label>
                                     <input class="form-control col-6" name="form_no" value="{{ old('form_no') }}" id="form_no" type="text" placeholder="ফরম নং">
                                 </div> --}}
-                                
-                                
+
+
                                 <div class="col-sm-2 col-lg-2">
                                     <label  class="form-label" for="holding_date">তারিখ :-</label>
                                 </div>
@@ -422,11 +422,11 @@
                                     <label  class="form-label" for="upazila_thana">উপজেলা/থানা:-</label>
                                     <input class="form-control @error('upazila_thana') is-invalid @enderror"
                                     name="upazila_thana" id="upazila_thana" value="{{ old('upazila_thana',$citizen->upazila_thana) }}"  type="text" placeholder="উপজেলা/থানা">
-                                    {{-- @if($errors->has('upazila_thana'))
+                                    @if($errors->has('upazila_thana'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('upazila_thana') }}
                                     </small>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="district">জেলা:-</label>

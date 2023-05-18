@@ -259,16 +259,18 @@ class TradeLicenseController extends Controller
      */
     public function edit($id)
     {
-        $districts=District::select('id','name','name_bn')->get();
-        $wards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         $trade=TradeLicense::findOrFail(encryptor('decrypt',$id));
-        $upazilas=Upazila::where('id',$trade->upazila_id)->select('id','name','name_bn')->get();
-        $unions=Union::where('id',$trade->union_id)->select('id','name','name_bn')->get();
+        $perward=Ward_no::select('id','ward_name','ward_name_bn')->get();
+        $business=BusinessType::orderBy('created_at')->get();
+        $bdistricts=District::select('id','name','name_bn')->get();
+        $bupazilas=Upazila::select('id','name','name_bn')->get();
+        $bunions=Union::select('id','name','name_bn')->get();
+        $bwards=Ward_no::select('id','ward_name','ward_name_bn')->get();
         // return $upazilas;
         $Govt_fac = explode(',', $trade->government_facilities);
         $Mobile_bank = explode(',', $trade->mobile_bank);
         $Digital_devices = explode(',', $trade->digital_devices);
-        return view('trade_license.edit',compact('trade','Govt_fac','Mobile_bank','Digital_devices','districts','upazilas','wards','unions'));
+        return view('trade_license.edit',compact('trade','business','perward','Govt_fac','Mobile_bank','Digital_devices','bdistricts','bupazilas','bwards','bunions'));
     }
 
     /**
