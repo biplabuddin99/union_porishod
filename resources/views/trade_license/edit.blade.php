@@ -474,10 +474,18 @@
                                 </div>
                             </div>
                             <div class="row m-0 p-0">
-                                    <div class="image-overlay">
-                                        <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি:-</label>
-                                            <input type="file" name="image" value="" data-default-file="{{ asset('uploads/holding/default.jpg') }}" class="form-control dropify">
+                                <div class="image-overlay">
+                                    <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি:-</label>
+                                        <input type="file" name="image" value="" data-default-file="{{ asset('uploads/trade') }}/{{ $trade->image }}" class="form-control dropify">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" class="btn btn-primary" name="submit" value="আপডেট">
+                                        <input type="button" class="btn default cancel btn-info" value="বাতিল">
                                     </div>
+                                </div>
                             </div>
                         </form>
                     </div>

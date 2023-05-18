@@ -202,7 +202,7 @@ class TradeLicenseController extends Controller
     {
         try{
             $trade = TradeLicense::findOrFail(Crypt::decrypt($encrypted_id));
-            // হোল্ডিং নাম্বার আবেদনের অন্যান্য তথ্য
+            //আবেদনের অন্যান্য তথ্য
             $trade->business_name=$request->business_name;
             $trade->type_ownership_organization=$request->type_ownership_organization;
             $trade->e_tin_number=$request->e_tin_number;
