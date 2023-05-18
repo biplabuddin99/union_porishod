@@ -42,7 +42,7 @@
                             @forelse($trade as $c)
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
-                                <td>{{\Carbon\Carbon::parse($c->trade_date)->format('d-m-Y')}}</td>
+                                <td>{{\Carbon\Carbon::parse($c->approval_date)->format('d-m-Y')}}</td>
                                 <td>{{$c->head_institution}}</td>
                                 <td>{{$c->business_name}}</td>
                                 <td>{{$c->business?->name}}</td>

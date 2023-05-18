@@ -60,50 +60,65 @@
                                                         <div class="col-md-12">
                                                             <table class="table table-inverse table-responsive">
                                                                 <thead class="thead-inverse">
-                                                                    <tr><p class="text-center bg-primary text-white p-2">তথ্য ভুল থাকলে বাতিল করুন এবং তথ্য সঠিক হলে অনুমোদন করুন</p></tr>
-                                                                    </thead>
-                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <div class="col-md-12 text-center heading-block">
+                                                                                <h5 style="padding-top: 5px;">তথ্য ভুল থাকলে বাতিল করুন এবং তথ্য সঠিক হলে অনুমোদন করুন</h5>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>আবেদনকারীর নাম:</td>
+                                                                        <td>{{ $p->applicant_name }}</td>
+                                                                        <td>আবেদন তারিখ:</td>
+                                                                        <td>{{ $p->apply_date }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>ওয়ারিশান ব্যাক্তির নাম:</td>
+                                                                        <td>{{ $p->warishan_person_name }}</td>
+                                                                        <td>মাতার নাম:</td>
+                                                                        <td>{{ $p->mother_name }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>ভোটার আইডি:</td>
+                                                                        <td>{{ $p->voter_id_no }}</td>
+                                                                        <td>মোবাইল নম্বর:</td>
+                                                                        <td>{{ $p->phone }}</td>
+                                                                    </tr>
+                                                                    <form action="{{route('warishans_profile',encryptor('encrypt',$p->id))}}">
+                                                                        @csrf
+                                                                        @method('PATCH')
                                                                         <tr>
-                                                                            <td>আবেদনকারীর নাম:</td>
-                                                                            <td>{{ $p->head_household }}</td>
-                                                                            <td>আবেদন তারিখ:</td>
-                                                                            <td>{{ $p->holding_date }}</td>
+                                                                            <td>ওয়ারিশান সনদ ফি</td>
+                                                                            <td><input id="" class="form-control" name="warisan_certificate_fee" type="number" placeholder="ওয়ারিশান সনদ ফি"></td>
+                                                                            <td>সার্ভিস চার্জ</td>
+                                                                            <td><input id="" class="form-control" name="service_charge" type="number" placeholder="সার্ভিস চার্জ"></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>ওয়ারিশান ব্যাক্তির নাম:</td>
-                                                                            <td>{{ $p->warishan_person_name }}</td>
-                                                                            <td>মাতার নাম:</td>
-                                                                            <td>{{ $p->mother_name }}</td>
+                                                                            <td>অনুমেদনের তারিখ</td>
+                                                                            <td><input name="approval_date" class="form-control datepicker" type="text" placeholder="দিন-মাস-বছর"></td>
+                                                                            <td>গ্রহণ/ বাতিল</td>
+                                                                            <td>
+                                                                                <select onchange="change_status(this)" name="status" class="form-control">
+                                                                                    <option value="2">গ্রহণ</option>
+                                                                                    <option value="3">বাতিল</option>
+                                                                                </select>
+                                                                            </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>ভোটার আইডি:</td>
-                                                                            <td>{{ $p->voter_id_no }}</td>
-                                                                            <td>মোবাইল নম্বর:</td>
-                                                                            <td>{{ $p->phone }}</td>
+                                                                            <td class="cancel_reason">মন্তব্য</td>
+                                                                            <td colspan="3"> <textarea name="cancel_reason" class="form-control cancel_r" id="" placeholder="মন্তব্য দিন"></textarea></td>
                                                                         </tr>
-                                                                        <form action="{{route('warishans_profile',encryptor('encrypt',$p->id))}}">
-                                                                            @csrf
-                                                                            @method('PATCH')
-                                                                            <tr>
-                                                                                <td>ওয়ারিশান সনদ ফি</td>
-                                                                                <td><input id="" name="warisan_certificate_fee" type="number" placeholder="ওয়ারিশান সনদ ফি"></td>
-                                                                                <td></td>
-                                                                                <td></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>অনুমেদনের তারিখ</td>
-                                                                                <td><input name="approval_date" type="date"></td>
-                                                                                <td>বাতিলের কারণ</td>
-                                                                                <td><textarea name="cancel_reason" id="" placeholder="কেন বাতিল হচ্ছে মন্তব্য দিন"></textarea></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td></td>
-                                                                                <td></td>
-                                                                                <td><button type="submit" class="btn btn-warning">বাতিল</button></td>
-                                                                                <td><button type="submit" class="btn btn-primary">অনুমোদন</button></td>
-                                                                            </tr>
-                                                                        </form>
-                                                                    </tbody>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td><button type="submit" class="btn btn-primary">দাখিল করুন</button></td>
+                                                                        </tr>
+                                                                    </form>
+                                                                </tbody>
                                                                 </table>
                                                         </div>
                                                     </div>

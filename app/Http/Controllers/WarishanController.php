@@ -44,13 +44,13 @@ class WarishanController extends Controller
 
     public function index()
     {
-        $warishan = Warishan::where('status',0)->get();
+        $warishan = Warishan::where('status',1)->get();
         return view('warishan.index',compact('warishan'));
     }
 
     public function profile()
     {
-        $warishan=Warishan::where('status',1)->get();
+        $warishan=Warishan::where('status',2)->get();
         return view('warishan.profile',compact('warishan'));
     }
 
@@ -59,9 +59,16 @@ class WarishanController extends Controller
         try{
             $warishan=Warishan::findOrFail(encryptor('decrypt',$id));
             $warishan->warisan_certificate_fee=$request->warisan_certificate_fee;
-            $warishan->approval_date=$request->approval_date;
+            $warishan->service_charge=$request->service_charge;
+            $warishan->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $warishan->cancel_reason=$request->cancel_reason;
-            $warishan->status=$request->cancel_reason==""?1:2;
+
+            if($request->status==2)
+                $warishan->form_no='0'.Carbon::now()->format('y').'-'. str_pad((Warishan::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
+
+            $warishan->status=$request->status;
+            $warishan->approved_by=currentUserId();
+            $warishan->updated_by=currentUserId();
             $warishan->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.warishan.index'));

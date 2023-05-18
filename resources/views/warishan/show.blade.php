@@ -4,16 +4,16 @@
 @section('content')
 <div id="result_show">
     <section style="font-size: 12px">
-        <section style="margin-top: 30px;">
+        <section style="margin-top: 40px;">
             <div class="container">
                 <div class="row">
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
                     <div class="col-md-12 text-center"
                         style="margin-top: 10px; margin-bottom: 10px; border-radius: 4px; background-color: rgb(196, 213, 245);">
-                        <h4 style="color: rgb(245, 10, 10); padding-top: 5px;"><strong>চিরাম ইউনিয়ন পরিষদ</strong></h4>
+                        <h5 class="theme-text-color" style="padding-top: 5px;"><strong>{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</strong></h5>
                     </div>
-                    <h6 class="text-center">বারহাট্টা,নেত্রকোণা</h6>
-                    <h6 class="text-center">www.bdgl.online/chhiramup</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h6>
+                    <h6 class="text-center">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h6>
                 </div>
             </div>
         </section>
@@ -41,14 +41,14 @@
                         উত্তরাধিকারী আইনে মৃত ব্যক্তির সম্পত্তি উত্তরাধিকারীরাই অংশীদার বা ওয়ারিশ। নিন্মে বর্ণিত ব্যক্তি ওয়ারিশান সনদের সকল তথ্য উল্লেখ করা হলো।
                     </p>
                     <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, উক্ত ব্যাক্তি জন্মসূত্রে বাংলাদেশের নাগরিক ও অত্র ইউনিয়নের স্থায়ী বাসীন্দা ছিলেন।<br/>
-                        তিনি একজন ভাল মানুষ ছিলেন এবং আমার পরিচিত ছিল। 
+                        তিনি একজন ভাল মানুষ ছিলেন এবং আমার পরিচিত ছিল।
                     </p>
                 </div>
             </div>
         </section>
         <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4); position: relative;">
             <div class="bgimage">
-                <img style="background-repeat: no-repeat; position: absolute; height: 400px; width: auto; align-items: center; padding-left: 300px; padding-top: 100px;" 
+                <img style="background-repeat: no-repeat; position: absolute; height: 400px; width: auto; align-items: center; padding-left: 300px; padding-top: 100px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
                 <div class="row m-2">
                     <div class="col-1">
@@ -223,9 +223,9 @@
                             <td>{{ $c->birth_date }}</td>
                             <td>{{ $c->cnid }}</td>
                             <td>জীবীত</td>
-                        </tr>                           
+                        </tr>
                         @endforeach
-                            
+
                         @endif
                     </table>
                 </div>

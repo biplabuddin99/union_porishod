@@ -53,6 +53,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nid_image')->nullable();
             $table->string('image_death_certificate')->nullable();
+            $table->string('warisan_certificate_fee')->nullable();
+            $table->string('service_charge')->nullable();
+            $table->string('approval_date')->nullable();
+            $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
             $table->integer('approved_by')->nullable();
             $table->integer('chairman_id')->nullable();

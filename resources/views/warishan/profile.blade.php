@@ -1,61 +1,79 @@
 @extends('layout.app')
 
-{{-- @section('pageTitle',trans('ওয়ারিশান লিস্ট')) --}}
-@section('pageSubTitle',trans('List'))
-
 @section('content')
-<section style="margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center"
-                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(245, 10, 10); padding-top: 5px;">ওয়ারিশান তালিকা</h4>
+
+<section class="section">
+    <div class="row" id="table-bordered">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-block">
+                            <h5 style="padding-top: 5px;">অনুমোদিত ওয়ারিশ তালিকা</h5>
+                        </div>
+                    </div>
+                </div>
+                @if(Session::has('response'))
+                    {!!Session::get('response')['message']!!}
+                @endif
+                <!-- table bordered -->
+                <div class="table-responsive mt-2">
+                    <table class="table" id="table1">
+                        <thead>
+                            <tr>
+                                <th> ক্রমিক </th>
+                                <th>অনুমোদন তাং</th>
+                                <th>আবেদনকারীর নাম</th>
+                                <th>পেশা</th>
+                                <th>হোল্ডিং</th>
+                                <th>ওয়ার্ড</th>
+                                <th>ওয়ারিশ</th>
+                                <th>মোবাইল</th>
+                                <th>সনদ ফি</th>
+                                <th>ছবি</th>
+                                <th>ভিউ</th>
+                                <th>প্রিন্ট</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($warishan as $p)
+                            <tr class="text-center">
+                            <th scope="row">{{ ++$loop->index }}</th>
+                                <td>{{\Carbon\Carbon::parse($p->approval_date)->format('d-m-Y')}}</td>
+                                <td>{{$p->applicant_name}}</td>
+                                <td>{{$p->income?->name}}</td>
+                                <td>{{$p->house_holding_number}}</td>
+                                <td>{{$p->ward?->ward_name_bn}}</td>
+                                <td>{{$p->total_warishan_members}}</td>
+                                <td>{{$p->phone}}</td>
+                                <td>{{$p->warisan_certificate_fee}}</td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/warishan')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
+                                <td>{{$p->warishan_mother_name}}</td>
+                                <td class="white-space-nowrap">
+                                    <a href="{{route('warishan_primary.list',Crypt::encrypt($p->id))}}">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a>
+                                </td>
+                                <td class="white-space-nowrap">
+                                    <a  href="{{route(currentUser().'.warishan.show',encryptor('encrypt',$p->id))}}">
+                                        <i class="bi bi-printer"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <th colspan="12" class="text-center">No warishan Found</th>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </section>
-    <section class="section">
-        <div class="row" id="table-bordered">
-            <div class="col-12">
-                <div class="card">
-                        <div class="table-responsive">
-                            <table class="table table-bordered mb-0 mt-5">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col">{{__('ক্রমিক')}}</th>
-                                        <th scope="col">{{__('আবেদনকারীর নাম')}}</th>
-                                        <th scope="col">{{__('ওয়ারিশান ব্যাক্তির নাম')}}</th>
-                                        <th scope="col">{{__('মোবাইল')}}</th>
-                                        <th scope="col">{{__('মাতার নাম')}}</th>
-                                        <th class="white-space-nowrap">{{__('কর্মকাণ্ড')}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($warishan as $p)
-                                    <tr class="text-center">
-                                    <th scope="row">{{ ++$loop->index }}</th>
-                                        <td>{{$p->head_household}}</td>
-                                        <td>{{$p->warishan_person_name}}</td>
-                                        <td>{{$p->phone}}</td>
-                                        <td>{{$p->warishan_mother_name}}</td>
-                                        <td class="white-space-nowrap">
-                                            <a  href="{{route(currentUser().'.warishan.show',encryptor('encrypt',$p->id))}}">
-                                                <i class="bi bi-eye-fill"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <th colspan="8" class="text-center">No warishan Found</th>
-                                    </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            
-        </div>
-    </section>
-    <!-- Bordered table end -->
+<!-- Bordered table end -->
+
+
 @endsection
