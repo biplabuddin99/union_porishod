@@ -7,7 +7,7 @@
     <title>ওয়ারিশ সনদ তথ্য সংগ্রহ ফরম</title>
     <style>
         body{
-            font-size: 14px;
+            font-size: 13px;
         }
         .wrapper{
             width: 700px;
@@ -32,10 +32,10 @@
         }
         .headbg{
             border-radius: 50px ;
-            border: 1px solid red;
+            border: 2px solid rgb(6, 153, 62);
             padding: 5px;
             width: 200px;
-            color: rgb(32, 45, 228);
+            color: rgb(6, 153, 62);
         }
         .formno{
             width: 50%;
@@ -129,22 +129,22 @@
                 <img src="{{ asset('logo/logo-01.png') }}" width="80px" height="80px" alt="Logo">
             </div>
             <div class="headcontent">
-                <img class="mujib" src="{{ asset('logo/mujib_logo-01.png') }}" width="80px" height="80px" alt="Logo">
-                <h5 style="margin-top: 20px; margin-bottom: 5px; color: rgb(226, 125, 31);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
-                <h3 style="margin: 5px; color: rgb(23, 36, 158);">চিরাম ইউনিয়ন পরিষদ, বারহাট্টা, নেত্রকোণা</h3>
-                <h5 style="margin: 5px; color: rgb(226, 125, 31);">bdgl.online/chhiramup</h5>
-                <h4 class="headbg" style="margin: auto;">ওয়ারিশ সনদ-আবেদন</h2>
+                <img class="mujib" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'logo/mujib_logo-01.png')}}" width="80px" height="80px" alt="Logo">
+                <h5 style="margin-top: 8px; margin-bottom: 5px; color: rgb(0, 0, 0);">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h5>
+                <h3 style="margin: 5px; color: rgb(6, 153, 62);">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</h3>
+                <h5 style="margin: 5px; color: rgb(18, 19, 18);">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h5>
+                <h4 class="headbg" style="margin: auto;">আবেদন-ওয়ারিশ সনদ</h2>
             </div>
         </div>
         <div>
             <div class="formnodiv"><b>আবেদন নং :</b><input class="formno" value="{{ $warishan->id }}" type="text"></div>
-            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ $warishan->holding_date }}" type="text"></div>
+            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ \Carbon\Carbon::parse($warishan->apply_date)->format('d-m-Y') }}" type="text"></div>
         </div>
         <div style="position: relative; margin-top: 15px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
                 <tr>
                     <th style="width: 30%; text-align: left;">আবেদনকারীর নাম </th>
-                    <td><input type="text" value="{{ $warishan->head_household }}" class="binput"></td>
+                    <td><input type="text" value="{{ $warishan->applicant_name }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পিতার নাম </th>
@@ -160,19 +160,19 @@
                 </tr>
             </table>
             <div class="image">
-                <img height="100px" width="100px" src="{{ asset('uploads/warishan/'.$warishan->image)}}" alt="No IMAGE">
+                <img height="100px" width="100px" src="{{ asset('uploads/warishan/'.$warishan->image)}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';"  alt="No IMAGE">
             </div>
             <table style="width: 100%;">
                 <tr>
                     <th style="width: 25%; text-align: left;">জন্ম তারিখ </th>
                     <td><input type="text" value="{{ $warishan->birth_date }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গের অবস্থা </th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">লিঙ্গ </th>
                     <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->gender == 1 ) পুরুষ @elseif ($warishan->gender == 2 )মহিলা @elseif ($warishan->gender == 3 )তৃতীয় লিঙ্গ @endif </td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ভোটার আইডি নং </th>
+                    <th style="width: 25%; text-align: left;">জাতীয় পরিচয়পত্র নম্বর</th>
                     <td><input type="text" value="{{ $warishan->voter_id_no }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">জন্ম নিবন্ধন আইডি </th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডিজিটাল জন্মনিবন্ধন নম্বর </th>
                     <td><input type="text" value="{{ $warishan->birth_registration_id }}" class="binput"></td>
                 </tr>
                 <tr>
@@ -191,81 +191,37 @@
                     <th style="width: 25%; text-align: left;">ই-মেইল(যদি থাকে)</th>
                     <td><input type="text" value="{{ $warishan->email }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">পেশা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);">
-                        @if ($warishan->source_income ==1)
-                        শিক্ষক
-                        @elseif ($warishan->source_income ==2)
-                        শিক্ষার্থী
-                        @elseif ($warishan->source_income ==3)
-                        সরকারি চাকুরীজীবি
-                        @elseif ($warishan->source_income ==4)
-                        বে-সরকারি চাকুরীজীবি
-                        @elseif ($warishan->source_income ==5)
-                        গৃহীনি
-                        @elseif ($warishan->source_income ==6)
-                        কৃষক
-                        @elseif ($warishan->source_income ==7)
-                        ব্যবসা
-                        @elseif ($warishan->source_income ==8)
-                        প্রকৌশলি
-                        @elseif ($warishan->source_income ==9)
-                        আইনজীবী
-                        @elseif ($warishan->source_income ==10)
-                        চিকিৎসক
-                        @elseif ($warishan->source_income ==11)
-                        সেবিকা
-                        @elseif ($warishan->source_income ==12)
-                        দলিল লেখক
-                        @elseif ($warishan->source_income ==13)
-                        শ্রমিক
-                        @elseif ($warishan->source_income ==14)
-                        ঠিকাদার
-                        @elseif ($warishan->source_income ==15)
-                        মৎস চাষী
-                        @elseif ($warishan->source_income ==16)
-                        গাড়ি চালক
-                        @elseif ($warishan->source_income ==17)
-                        প্রবাসী
-                        @elseif ($warishan->source_income ==18)
-                        অন্যান্য
-                        @endif
-                    </td>
+                    <td><input type="text" value="{{$warishan->income?->name}}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">বৈবাহিক অবস্থা </th>
                     <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->marital_status == 1 ) বিবাহিত @else অবিবাহিত @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইন্টারনেট সংযোগ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->internet_connection == 1 ) আছে @else নাই @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের সদস্য(পুরুষ) </th>
+                    <td><input type="text" value="{{$warishan->num_male}}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">নলকূপ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->tube_well == 1 ) আছে @else নাই @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডিসলাইন সংযোগ </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->disline_connection == 1 ) আছে @else নাই @endif</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বাথরুম</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->paved_bathroom == 1 ) কাঁচা @else পাকা @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">আর্সেনিকমুক্ত</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($warishan->arsenic_free == 1 ) আছে @else নাই @endif</td>
+                    <th style="width: 25%; text-align: left;">পরিবারের সদস্য(মহিলা)</th>
+                    <td><input type="text" value="{{ $warishan->num_female }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের মোট সদস্য</th>
+                    <td><input type="text" value="{{$warishan->num_male+$warishan->num_female}}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ওয়ারিশান ব্যাক্তির নাম</th>
                     <td><input type="text" value="{{ $warishan->warishan_person_name }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">পিতা/স্বামীর নাম</th>
-                    <td><input type="text" value="{{ $warishan->father_husband }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পিতার নাম</th>
+                    <td><input type="text" value="{{ $warishan->warisan_father_name }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">মাতার নাম</th>
                     <td><input type="text" value="{{ $warishan->warishan_mother_name }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ওয়ারিশাান ব্যাক্তির মৃত্যু তারিখ</th>
-                    <td><input type="text" value="{{ $warishan->date_death_warishan }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">স্বামী/স্ত্রীর নাম</th>
+                    <td><input type="text" value="{{ $warishan->warisan_husband_wife }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">মোট ওয়ারিশ সদস্য</th>
-                    <td><input type="text" value="{{ $warishan->total_warishan_members }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left;">বাড়ির হেল্ডিং নম্বর </th>
-                    <td><input type="text" value="{{ $warishan->house_holding_no }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">ওয়ারিশের মৃত্যু তারিখ</th>
+                    <td><input type="text" value="{{ $warishan->date_death_warishan }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির হেল্ডিং নম্বর </th>
+                    <td><input type="text" value="{{ $warishan->house_holding_number }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">ডাকঘর </th>
@@ -275,58 +231,27 @@
 
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">উপজেলা/থানা</th>
+                    <th style="width: 25%; text-align: left;">উপজেলা/থানা </th>
                     <td><input type="text" value="{{ $upazilas->name_bn }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদের নাম </th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদ </th>
                     <td><input type="text" value="{{ $unions->name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ওয়ার্ড </th>
+                    <th style="width: 25%; text-align: left;">সেক্টর/ওয়ার্ড </th>
                     <td><input type="text" value="{{ $wards->ward_name_bn }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">গ্রামের নাম</th>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">গ্রাম/পাড়া</th>
                     <td><input type="text" value="{{ $warishan->village_name }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">রাস্তা/পাড়া/মহল্লা </th>
+                    <th style="width: 25%; text-align: left;">রাস্তা/ব্লক </th>
                     <td><input type="text" value="{{ $warishan->street_nm }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">মোট ওয়ারিশ সদস্য</th>
+                    <td><input type="text" value="{{ $warishan->total_warishan_members }}" class="binput"></td>
                 </tr>
             </table>
-            <table style="width: 100%;">
-                <tr>
-                    <th style="width: 25%; text-align: left;">মোবাইল ব্যাংক </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Mobile)) checked @endif><label for="">নগদ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="2" @if(in_array(2, $Mobile)) checked @endif><label for="">বিকাশ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="3" @if(in_array(3, $Mobile)) checked @endif><label for="">রকেট</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="4" @if(in_array(4, $Mobile)) checked @endif><label for="">উপায়</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="5" @if(in_array(5, $Mobile)) checked @endif><label for="">অন্যান্য</label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">ডিজিটাল ডিভাইস</th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Digital_devices)) checked @endif><label for="">স্মার্ট ফোন</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="2" @if(in_array(2, $Digital_devices)) checked @endif><label for="">ল্যাপটপ</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="3" @if(in_array(3, $Digital_devices)) checked @endif><label for="">কম্পিউটার</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" value="4" @if(in_array(4, $Digital_devices)) checked @endif><label for="">অন্যান্য</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">সরকারি সুবিধা </th>
-                    <td style="border-style: solid; border-width: 1px;">
-                        <input type="checkbox" value="1" @if(in_array(1, $Govt_fac)) checked @endif><label for="">ভিজিডি কার্ড</label>
-                        <input type="checkbox" value="2" @if(in_array(2, $Govt_fac)) checked @endif><label for="">বয়স্ক ভাতা</label>
-                        <input type="checkbox" value="3" @if(in_array(3, $Govt_fac)) checked @endif><label for="">মাতৃত্বকালীন ভাতা</label>
-                        <input type="checkbox" value="4" @if(in_array(4, $Govt_fac)) checked @endif><label for="">প্রতিবন্ধী ভাতা</label>
-                        <input type="checkbox" value="5" @if(in_array(5, $Govt_fac)) checked @endif><label for="">বিধবা ভাতা</label>
-                        <input type="checkbox" value="5" @if(in_array(6, $Govt_fac)) checked @endif><label for="">রেশন কার্ড</label>
-                        <input type="checkbox" value="5" @if(in_array(7, $Govt_fac)) checked @endif><label for="">মুক্তিযোদ্ধা ভাতা</label>
-                    </td>
-                </tr>
-            </table>
-            <p>বাংলাদেশের ওয়ারিশান আইন অনুযায়ী ওয়ারিশান সদস্যদের বিবরণ সমূহঃ</p>
-            <table  style="width: 100%; border:1px solid;">
-                <tr style="border:1px solid;">
+            <p>ওয়ারিশ আইন অনুযায়ী ওয়ারিশান সদস্যদের বিবরণ সমূহঃ</p>
+            <table  style="width: 100%; border-collapse: collapse;">
+                <tr style="border:1px solid; text-align:center;">
                 <th style="border:1px solid;">সদস্য নং</th>
                 <th style="border:1px solid;">ওয়ারিশানদের নাম </th>
                 <th style="border:1px solid;">সম্পর্ক</th>
@@ -336,7 +261,7 @@
                 </tr>
                 @if ($warishan->warisan_children)
                 @foreach ($warishan->warisan_children as $c)
-                <tr style="border:1px solid;">
+                <tr style="border:1px solid; text-align:center;">
                     <td style="border:1px solid;">{{++$loop->index}}</td>
                     <td style="border:1px solid;">{{ $c->name }}</td>
                     <td style="border:1px solid;">
@@ -363,8 +288,11 @@
                 @endforeach
                 @endif
             </table>
-            <div style="margin-top: .7rem; margin-left: 11rem; color: rgb(16, 123, 224);">
-                আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হলে, আমি তাহার জন্য আইনগত দায়ী থাকিব।</span>
+            <div style="margin-top: .7rem; margin-left: 6rem; color: rgb(6, 153, 62);">
+                আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক। যদি উপরের বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হয়,তাহার জন্য আমি আইনগত দায়ী থাকিব।</span>
+            </div>
+            <div style="margin-top: .9rem; margin-left: 13rem; color: rgb(16, 123, 224);">
+                <b style="background-color: rgb(6, 153, 62);color:aliceblue; text:white; padding:.6rem;">|| সবাই মিলে দেব কর,ইউনিয়ন পরিষদ হবে স্বনির্ভর  ||</b>
             </div>
         </div>
     </div>

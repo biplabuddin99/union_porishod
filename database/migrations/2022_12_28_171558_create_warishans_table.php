@@ -32,14 +32,14 @@ return new class extends Migration
             $table->string('source_income')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('num_male')->nullable();
-            $table->string('num_female')->nullable();
+            $table->integer('num_male')->nullable();
+            $table->integer('num_female')->nullable();
 
             // ্ওয়ারিশান আবেদনের অন্যান্য তথ্য
             $table->string('warishan_person_name')->nullable();
-            $table->integer('warisan_father_name')->nullable();
+            $table->string('warisan_father_name')->nullable();
             $table->string('warishan_mother_name')->nullable();
-            $table->integer('warisan_husband_wife')->nullable();
+            $table->string('warisan_husband_wife')->nullable();
             $table->string('date_death_warishan')->nullable();
             $table->string('total_warishan_members')->nullable();
             $table->string('house_holding_number')->nullable();
