@@ -228,7 +228,7 @@ class WarishanController extends Controller
                     }
                     }
                 }
-                Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা ্হয়েছে!!');
+                Toastr::success('ওয়ারিশান সফলভাবে তৈরি করা হয়েছে!!');
                 return redirect(route('warishan_primary.list',Crypt::encrypt($warisan->id)));
             }else{
                 Toastr::success('দয়করে আবার চেষ্টা করুন!');
@@ -281,38 +281,57 @@ class WarishanController extends Controller
     public function update(Request $request, $id)
     {
         try{
-            $p=Warishan::findOrFail(encryptor('decrypt',$id));
+            $warisan=Warishan::findOrFail(encryptor('decrypt',$id));
+            // $warisan->form_no=$request->form_no;
+            $warisan->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $warisan->applicant_name=$request->applicant_name;
+            $warisan->father_name=$request->father_name;
+            $warisan->mother_name=$request->mother_name;
+            $warisan->husband_wife=$request->husband_wife;
+            $warisan->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $warisan->voter_id_no=$request->voter_id_no;
+            $warisan->birth_registration_id=$request->birth_registration_id;
+            $warisan->gender=$request->gender;
+            $warisan->religion=$request->religion;
+            $warisan->marital_status=$request->marital_status;
+            $warisan->freedom_fighter=$request->freedom_fighter;
+            $warisan->edu_qual=$request->edu_qual;
+            $warisan->source_income=$request->source_income;
+            $warisan->phone=$request->phone;
+            $warisan->email=$request->email;
+            $warisan->num_male=$request->num_male;
+            $warisan->num_female=$request->num_female;
+            // আবেদনের অন্যান্য তথ্য
+            $warisan->warishan_person_name=$request->warishan_person_name;
+            $warisan->warisan_father_name=$request->warisan_father_name;
+            $warisan->warishan_mother_name=$request->warishan_mother_name;
+            $warisan->warisan_husband_wife=$request->warisan_husband_wife;
+            $warisan->date_death_warishan=$request->date_death_warishan;
+            $warisan->death_certificate_no=$request->death_certificate_no;
+            $warisan->total_warishan_members=$request->total_warishan_members;
+            $warisan->house_holding_number=$request->house_holding_number;
+            $warisan->street_nm=$request->street_nm;
+            $warisan->village_name=$request->village_name;
+            $warisan->ward_id=$request->ward_id;
+            $warisan->post_office=$request->post_office;
+            $warisan->union_id=$request->union_id;
+            $warisan->upazila_id=$request->upazila_id;
+            $warisan->district_id=$request->district_id;
+            $path='uploads/warishan';
 
-            $p->warishan_person_name=$request->warishan_person_name;
-            $p->father_husband=$request->father_husband;
-            $p->mother_name=$request->mother_name;
-            $p->date_death_warishan=$request->date_death_warishan;
-            // $p->update_holding_tax=$request->update_holding_tax;
-            // $p->wife_number=$request->wife_number;
-            // $p->son=$request->son;
-            // $p->daughter=$request->daughter;
-            $p->total_warishan_members=$request->total_warishan_members;
-            $p->house_holding_no=$request->house_holding_no;
-            $p->street_nm=$request->street_nm;
-            $p->village_name=$request->village_name;
-            $p->ward_no=$request->ward_no;
-            $p->name_union_parishad=$request->name_union_parishad;
-            $p->post_office=$request->post_office;
-            $p->upazila_thana=$request->upazila_thana;
-            $p->district=$request->district;
-            if($request->has('image'))
-            $p->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
+            if($request->has('image_death_certificate') && $request->image_death_certificate)
+            if($this->deleteImage($warisan->image_death_certificate,$path))
+                $warisan->image_death_certificate=$this->resizeImage($request->image_death_certificate,$path,true,200,200,false);
 
-            if($request->has('nid_image'))
-            $p->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
+            if($request->has('image') && $request->image)
+            if($this->deleteImage($warisan->image,$path))
+                $warisan->image=$this->resizeImage($request->image,$path,true,200,200,false);
 
-            if($request->has('holding_image'))
-            $p->holding_image=$this->resizeImage($request->holding_image,'uploads/warishan',true,500,700,false);
-
-            if($request->has('image_death_certificate'))
-            $p->image_death_certificate=$this->resizeImage($request->image_death_certificate,'uploads/warishan',true,500,700,false);
-            if($p->save()){
-            Toastr::success('Warishan Updated Successfully!');
+            if($request->has('nid_image') && $request->nid_image)
+            if($this->deleteImage($warisan->nid_image,$path))
+                $warisan->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
+            if($warisan->save()){
+            Toastr::success('ওয়ারিশান আপডেট সফলভাবে সম্পন্ন করা হয়েছে!!');
             return redirect()->route(currentUser().'.warishan.index');
             }else{
             Toastr::success('Please try Again!');

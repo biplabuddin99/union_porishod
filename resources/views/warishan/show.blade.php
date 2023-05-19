@@ -17,28 +17,29 @@
                 </div>
             </div>
         </section>
-        <section style="margin-top: 5px;">
+        <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-4">
-                        <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
-                        <p style="padding-top: 10px; border-bottom: 3px solid rgb(15, 1, 1);"><strong>ওয়ারিশান ইস্যুর বিবরন</strong></p>
-                        <p>ইস্যুর তারিখঃ {{ $warisan->holding_date }}</p>
-                        <p>ইস্যুর সময়ঃ {{ $warisan->created_at->format("h:i:s A") }}</p>
+                    <div class="col-3">
+                        <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
+                        <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($warisan->apply_date)->format('d-m-Y') }}<br>
+                            ইস্যুর সময়ঃ {{ $warisan->created_at->format("h:i:s A") }}</p>
                     </div>
-                    <div class="col-4 col-sm-4" style="padding-left: 110px; padding-top: 5px;">
-                        <img height="130px" width="130px" src="{{ asset('images/show_img/logo.png') }}" alt="">
-                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px; color: rgb(167, 86, 10);">ই-ওয়ারিশান সনদ</h4>
-                        {{-- <h5 class="font-bold" style="padding-top: 10px; color: rgb(36, 247, 29);">লাইসেন্স নং:  TRAD/2CHUP/24066</h5> --}}
+                    <div class="col-5 col-sm-5" style="padding-left: 110px; padding-top: 5px;">
+                        <div style="text-align: center;">
+                            <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
+                        </div>
+                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-ওয়ারিশান সনদ</h4>
                     </div>
-                    <div class="col-4" style="padding-left: 200px;">
-                        <img height="130px" width="120px"  src="{{ asset('uploads/warishan/thumb') }}/{{ $warisan->image }}" alt="">
+                    <div class="col-4" style="padding-left: 150px;">
+                        <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $warisan->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">ওয়ারিশান সনদ নং:  SHARER/2CHUP/00{{ $warisan->id }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">ওয়ারিশান সনদ নং: HEIR/{{ $warisan->form_no }}</h5>
                 </div>
                 <div class="row">
                     <p class="text-center" style="border-bottom: 2px solid rgb(73, 235, 8); border-top: 2px solid rgb(73, 235, 8); padding-top: 5px;">
-                        উত্তরাধিকারী আইনে মৃত ব্যক্তির সম্পত্তি উত্তরাধিকারীরাই অংশীদার বা ওয়ারিশ। নিন্মে বর্ণিত ব্যক্তি ওয়ারিশান সনদের সকল তথ্য উল্লেখ করা হলো।
+                       বাংলাদেশ সরকারের উত্তরাধিকারী আইনে মৃত ব্যক্তির সম্পত্তি উত্তরাধিকারীরাই অংশীদার বা ওয়ারিশ। নিন্মে বর্ণিত ব্যক্তির ওয়ারিশ সনদের সকল তথ্য উল্লেখ পূর্বক ওয়ারিশ সনদ প্রদান করা হচ্ছে।
                     </p>
                     <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, উক্ত ব্যাক্তি জন্মসূত্রে বাংলাদেশের নাগরিক ও অত্র ইউনিয়নের স্থায়ী বাসীন্দা ছিলেন।<br/>
                         তিনি একজন ভাল মানুষ ছিলেন এবং আমার পরিচিত ছিল।
@@ -55,7 +56,7 @@
                         <span  class="form-label" for="">১।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">মৃতব্যাক্তির নাম :</span>
+                        <span  class="form-label" for="">মৃত ব্যাক্তির নাম :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">{{ $warisan->warishan_person_name }}</span>
@@ -63,13 +64,13 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-1">
-                        <span  class="form-label" for="">2।</span>
+                        <span  class="form-label" for="">২।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">পিতা/স্বামীর নাম :</span>
+                        <span  class="form-label" for="">পিতার নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->father_husband }}</span>
+                        <span  class="form-label" for="">{{ $warisan->father_name }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -86,6 +87,17 @@
                 <div class="row m-2">
                     <div class="col-1">
                         <span  class="form-label" for="">৪।</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">স্বামী/স্ত্রীর নাম :</span>
+                    </div>
+                    <div class="col-5">
+                        <span  class="form-label" for="">{{ $warisan->husband_wife }}</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-1">
+                        <span  class="form-label" for="">৫।</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">মৃতব্যাক্তির সহিত আবেদনকারীর সম্পর্ক :</span>

@@ -22,7 +22,7 @@
                 <div class="table-responsive mt-2">
                     <table class="table" id="table1">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th scope="col">{{__('ক্রমিক')}}</th>
                                 <th scope="col">{{__('তারিখ')}}</th>
                                 <th scope="col">{{__('আবেদনকারীর নাম')}}</th>
@@ -36,8 +36,8 @@
                         </thead>
                         <tbody>
                             @forelse($warishan as $p)
-                            <tr class="text-center">
-                                <th scope="row">{{ ++$loop->index }}</th>
+                            <tr>
+                                <th>{{ ++$loop->index }}</th>
                                 <td>{{\Carbon\Carbon::parse($p->apply_date)->format('d-m-Y')}}</td>
                                 <td>{{$p->applicant_name}}</td>
                                 <td>{{$p->income?->name}}</td>
@@ -131,8 +131,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="white-space-nowrap d-flex" style="border-style: none;">
-                                    <a href="{{route(currentUser().'.warishan.show',encryptor('encrypt',$p->id))}}">
+                                <td>
+                                    <a href="{{route('warishan_primary.list',Crypt::encrypt($p->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                     {{--  <form id="form{{$p->id}}" action="{{route(currentUser().'.warishan.destroy',encryptor('encrypt',$p->id))}}" method="POST">
