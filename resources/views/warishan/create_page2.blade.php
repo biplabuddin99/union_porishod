@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="death_certificate_no"><b>মৃত্যু সনদ নম্বর</b></label>
-                                    <input class="form-control datepicker" name="death_certificate_no" value="" id="death_certificate_no" type="text" placeholder="মৃত্যু সনদ নম্বর">
+                                    <input class="form-control" name="death_certificate_no" value="" id="death_certificate_no" type="number" placeholder="মৃত্যু সনদ নম্বর">
                                 </div>
                             </div>
                             <div class="row m-2">
@@ -145,7 +145,7 @@
                                 <div class="col-6 mb-2">
                                     <label  class="form-label" for="house_holding_number">বাড়ির হোল্ডিং নাম্বার</label>
                                     <input class="form-control @error('house_holding_number') is-invalid @enderror"
-                                    name="house_holding_number" id="house_holding_number" value="{{ old('house_holding_number') }}"  type="text" placeholder="ইউনিয়ন কর্তৃক পূরনকৃত।">
+                                    name="house_holding_number" id="house_holding_number" value="{{ old('house_holding_number') }}"  type="text" placeholder="বাড়ির হোল্ডিং নাম্বার">
                                     @if($errors->has('house_holding_number'))
                                     <small class="d-block text-danger">
                                         {{ $errors->first('house_holding_number') }}

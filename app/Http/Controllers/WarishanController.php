@@ -191,6 +191,7 @@ class WarishanController extends Controller
             $warisan->warishan_mother_name=$request->warishan_mother_name;
             $warisan->warisan_husband_wife=$request->warisan_husband_wife;
             $warisan->date_death_warishan=$request->date_death_warishan;
+            $warisan->death_certificate_no=$request->death_certificate_no;
             $warisan->total_warishan_members=$request->total_warishan_members;
             $warisan->house_holding_number=$request->house_holding_number;
             $warisan->street_nm=$request->street_nm;
@@ -263,13 +264,11 @@ class WarishanController extends Controller
      */
     public function edit($id)
     {
-        $division = Division::all();
-        $district = District::all();
-        $thana = Thana::all();
-        $word = Ward_no::all();
-        $warishan = Warishan::findOrFail(encryptor('decrypt',$id));
-        $Govt_fac = explode(',', $warishan->government_facilities);
-        return view('warishan.edit',compact('division','district','thana','warishan','word','Govt_fac'));
+        $warisan = Warishan::findOrFail(encryptor('decrypt',$id));
+        $ward=Ward_no::all();
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('warishan.edit',compact('warisan','ward','edu_q','profession'));
     }
 
     /**
