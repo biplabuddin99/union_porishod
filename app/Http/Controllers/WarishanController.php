@@ -131,6 +131,47 @@ class WarishanController extends Controller
             return back()->withInput();
         }
     }
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $warisan = Warishan::findOrFail(Crypt::decrypt($encrypted_id));
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('warishan.edit_firstpart',compact('warisan','edu_q','profession'));
+    }
+
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $warisan= Warishan::findOrFail(Crypt::decrypt($encrypted_id));
+            // $warisan->form_no=$request->form_no;
+            $warisan->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $warisan->applicant_name=$request->applicant_name;
+            $warisan->father_name=$request->father_name;
+            $warisan->mother_name=$request->mother_name;
+            $warisan->husband_wife=$request->husband_wife;
+            $warisan->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $warisan->voter_id_no=$request->voter_id_no;
+            $warisan->birth_registration_id=$request->birth_registration_id;
+            $warisan->gender=$request->gender;
+            $warisan->religion=$request->religion;
+            $warisan->marital_status=$request->marital_status;
+            $warisan->freedom_fighter=$request->freedom_fighter;
+            $warisan->edu_qual=$request->edu_qual;
+            $warisan->source_income=$request->source_income;
+            $warisan->phone=$request->phone;
+            $warisan->email=$request->email;
+            $warisan->num_male=$request->num_male;
+            $warisan->num_female=$request->num_female;
+            $warisan->status=0;
+            $warisan->created_by=currentUserId();
+            $warisan->save();
+            return redirect(route('warishansecondpart.form',Crypt::encrypt($warisan->id)));
+        }catch (Exception $e){
+            Toastr::success('দয়করে আবার চেষ্টা করুন!');
+            dd($e);
+            return back()->withInput();
+        }
+    }
 
     public function FormPartSecond($encrypted_id)
     {

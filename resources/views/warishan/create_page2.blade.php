@@ -230,17 +230,17 @@
                             </div>
                             <div class="container-fluid">
                                 <div class="row">
-                                  <div class="col-sm-9">
-                                    {{--  <a class="p-2" style="background-color: rgb(214, 153, 153); color:black;" href="{{route(currentUser().'.allapplication.edit',$all->id)}}">  --}}
-                                        পূর্ববর্তী
-                                    </a>
+                                    <div class="col-sm-9 mt-3">
+                                      <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.warishanfirstpart',Crypt::encrypt($warisan->id))}}">
+                                          পূর্ববর্তী
+                                      </a>
+                                    </div>
+                                    <div class="col-sm-3 text-end mt-2">
+                                      <button type="submit" class="p-1 bg-primary text-white">দাখিল করুন</button>
+                                      <span class="btn or">or</span>
+                                      <button type="reset" class="p-1 bg-primary text-white">রিসেট করুন</button>
+                                    </div>
                                   </div>
-                                  <div class="col-sm-3 text-end">
-                                    <button type="submit" style="background-color: rgb(214, 153, 153);">Submit</button>
-                                    <span class="btn or">or</span>
-                                    <button type="reset" style="background-color: rgb(214, 153, 153);">Cancel</button>
-                                  </div>
-                                </div>
                             </div>
                         </form>
                     </div>

@@ -87,6 +87,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('profile',profile::class,['as'=>'admin']);
 
         Route::resource('warishan',warishan::class,['as'=>'admin']);
+        Route::get('warishan-firstform/{encrypted_id}',[warishan::class,'FormPartFirstUp'])->name('admin.warishanfirstpart');
+        Route::post('warishan-firstform-update/{encrypted_id}',[warishan::class,'FormPartFirstUpdate'])->name('admin.warishanfirstpartupdate');
         Route::get('warishan-part2/{encrypted_id}',[warishan::class,'FormPartSecond'])->name('warishansecondpart.form');
         Route::post('warisan-part2add/{encrypted_id}',[warishan::class,'FormPartSecondUpdate'])->name('warishansecondpart_update');
         Route::get('/warishan_primary/{id}',[warishan::class,'primaryIndex'])->name('warishan_primary.list');
