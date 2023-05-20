@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\FamilyCertificate;
 use App\Models\EducationalQualification;
 use App\Models\Profession;
+use App\Models\Settings\Location\District;
+use App\Models\Ward_no;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
 class FamilyCertificateController extends Controller
@@ -58,15 +62,23 @@ class FamilyCertificateController extends Controller
             $family->source_income=$request->source_income;
             $family->phone=$request->phone;
             $family->email=$request->email;
-            $family->status=0;
-            $family->created_by=currentUserId();
+            // $family->status=0;
+            // $family->created_by=currentUserId();
             $family->save();
-            return redirect(route('warishansecondpart.form',Crypt::encrypt($family->id)));
+            return redirect(route('familysecondpart.form',Crypt::encrypt($family->id)));
         }catch (Exception $e){
             Toastr::success('দয়করে আবার চেষ্টা করুন!');
             return back()->withInput();
             dd($e);
         }
+    }
+
+    public function FormPartSecond($encrypted_id)
+    {
+        $family = FamilyCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        return view('familycertificate.create_page2',compact('family','ward','districts'));
     }
 
     /**
