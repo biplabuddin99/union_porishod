@@ -12,10 +12,11 @@ use App\Http\Controllers\Settings\Location\UpazilaController as upazila;
 use App\Http\Controllers\Settings\Location\ThanaController as thana;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProfileController as profile;
-use App\Http\Controllers\WarishanController as warishan;
 use App\Http\Controllers\CitizenCertificateController as citizen;
-use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\HoldingController as holding;
+use App\Http\Controllers\TradeLicenseController as trade;
+use App\Http\Controllers\WarishanController as warishan;
+use App\Http\Controllers\FamilyCertificateController as family;
 use App\Http\Controllers\OtherInformationController as others;
 use App\Http\Controllers\PaymentReceiptController as payment;
 use App\Http\Controllers\DisabilityCertificateController as disablity;
@@ -86,31 +87,10 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('slider',SliderController::class,['as'=>'admin']);
         Route::resource('profile',profile::class,['as'=>'admin']);
 
-        Route::resource('warishan',warishan::class,['as'=>'admin']);
-        Route::get('warishan-firstform/{encrypted_id}',[warishan::class,'FormPartFirstUp'])->name('admin.warishanfirstpart');
-        Route::post('warishan-firstform-update/{encrypted_id}',[warishan::class,'FormPartFirstUpdate'])->name('admin.warishanfirstpartupdate');
-        Route::get('warishan-part2/{encrypted_id}',[warishan::class,'FormPartSecond'])->name('warishansecondpart.form');
-        Route::post('warisan-part2add/{encrypted_id}',[warishan::class,'FormPartSecondUpdate'])->name('warishansecondpart_update');
-        Route::get('/warishan_primary/{id}',[warishan::class,'primaryIndex'])->name('warishan_primary.list');
-        Route::get('warishan_profile',[warishan::class,'profile'])->name('warishan_profile.list');
-        Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
-
         Route::resource('citizen',citizen::class,['as'=>'admin']);
         Route::get('/citizen_primary/{id}',[citizen::class,'primaryIndex'])->name('citizen_primary.list');
         Route::get('citizen_profile',[citizen::class,'profile'])->name('citizen_profile.list');
         Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
-
-        Route::resource('trade',trade::class,['as'=>'admin']);
-        Route::get('trade-firstform/{encrypted_id}',[trade::class,'FormPartFirstUp'])->name('admin.tradefirstpart');
-        Route::post('trade-firstform-update/{encrypted_id}',[trade::class,'FormPartFirstUpdate'])->name('admin.tradefirstpartupdate');
-        Route::get('trade-part2/{encrypted_id}',[trade::class,'FormPartSecond'])->name('tradesecondpart.form');
-        Route::post('trade-part2add/{encrypted_id}',[trade::class,'FormPartSecondUpdate'])->name('tradesecondpart_update');
-        Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
-        Route::get('trade_profile',[trade::class,'profile'])->name('trade_profile.list');
-        Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
-        // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
-
-        Route::get('trade_tax',[trade::class,'tax'])->name('admin.trade_tax.list');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
@@ -124,6 +104,29 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 
         Route::get('hold_tax',[holding::class,'tax'])->name('admin.hold_tax.list');
+
+        Route::resource('trade',trade::class,['as'=>'admin']);
+        Route::get('trade-firstform/{encrypted_id}',[trade::class,'FormPartFirstUp'])->name('admin.tradefirstpart');
+        Route::post('trade-firstform-update/{encrypted_id}',[trade::class,'FormPartFirstUpdate'])->name('admin.tradefirstpartupdate');
+        Route::get('trade-part2/{encrypted_id}',[trade::class,'FormPartSecond'])->name('tradesecondpart.form');
+        Route::post('trade-part2add/{encrypted_id}',[trade::class,'FormPartSecondUpdate'])->name('tradesecondpart_update');
+        Route::get('/trade_primary/{id}',[trade::class,'primaryIndex'])->name('trade_primary.list');
+        Route::get('trade_profile',[trade::class,'profile'])->name('trade_profile.list');
+        Route::get('/trades_profile/{id}',[trade::class,'add_profile'])->name('trades_profile');
+        // Route::post('temporary_store',[trade::class,'temporary_store'])->name('admin.temporary_store');
+
+        Route::get('trade_tax',[trade::class,'tax'])->name('admin.trade_tax.list');
+
+        Route::resource('warishan',warishan::class,['as'=>'admin']);
+        Route::get('warishan-firstform/{encrypted_id}',[warishan::class,'FormPartFirstUp'])->name('admin.warishanfirstpart');
+        Route::post('warishan-firstform-update/{encrypted_id}',[warishan::class,'FormPartFirstUpdate'])->name('admin.warishanfirstpartupdate');
+        Route::get('warishan-part2/{encrypted_id}',[warishan::class,'FormPartSecond'])->name('warishansecondpart.form');
+        Route::post('warisan-part2add/{encrypted_id}',[warishan::class,'FormPartSecondUpdate'])->name('warishansecondpart_update');
+        Route::get('/warishan_primary/{id}',[warishan::class,'primaryIndex'])->name('warishan_primary.list');
+        Route::get('warishan_profile',[warishan::class,'profile'])->name('warishan_profile.list');
+        Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
+
+        Route::resource('family',family::class,['as'=>'admin']);
 
         Route::resource('others',others::class,['as'=>'admin']);
         Route::resource('attesteation',attesteation::class,['as'=>'admin']);

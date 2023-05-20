@@ -127,7 +127,7 @@ class WarishanController extends Controller
             return redirect(route('warishansecondpart.form',Crypt::encrypt($warisan->id)));
         }catch (Exception $e){
             Toastr::success('দয়করে আবার চেষ্টা করুন!');
-            dd($e);
+            // dd($e);
             return back()->withInput();
         }
     }
