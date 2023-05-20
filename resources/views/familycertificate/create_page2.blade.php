@@ -230,6 +230,15 @@
                                     <input type="file" name="image" value="" data-default-file="{{ asset('uploads/onerror.jpg') }}" class="form-control dropify">
                                 </div>
                             </div>
+                            <div class="row m-2">
+                                <div class="text-center">
+                                    <b>
+                                        আমি ঘোষনা করিতেছি যে, <br/>
+                                        আমার দেয়া উপরে বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা প্রমানিত হলে,  <br/>
+                                        আমি তাহার জন্য আইনত দায়ী থাকিব।
+                                    </b>
+                                </div>
+                            </div>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-9 mt-3">
