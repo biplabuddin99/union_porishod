@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="py-1">
-                <a href="{{route(currentUser().'.attesteation.index')}}">
+                <a href="{{route(currentUser().'.family.index')}}">
                     <i class="bi bi-list-stars"></i>
                     {{__('পরিবারিক সনদ')}}
                 </a>

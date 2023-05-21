@@ -41,7 +41,8 @@ class FamilyCertificateController extends Controller
 
     public function index()
     {
-        //
+        $family=FamilyCertificate::where('status',1)->get();
+        return view('familycertificate.index',compact('family'));
     }
 
     /**
