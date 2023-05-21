@@ -76,8 +76,8 @@
                                                                         <td>{{ $p->apply_date }}</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>ওয়ারিশান ব্যাক্তির নাম:</td>
-                                                                        <td>{{ $p->warishan_person_name }}</td>
+                                                                        <td>পরিবারের প্রধানের নাম:</td>
+                                                                        <td>{{ $p->name_head_family }}</td>
                                                                         <td>মাতার নাম:</td>
                                                                         <td>{{ $p->mother_name }}</td>
                                                                     </tr>
@@ -87,12 +87,12 @@
                                                                         <td>মোবাইল নম্বর:</td>
                                                                         <td>{{ $p->phone }}</td>
                                                                     </tr>
-                                                                    <form action="{{route('warishans_profile',encryptor('encrypt',$p->id))}}">
+                                                                    <form action="{{route('family_profile',encryptor('encrypt',$p->id))}}">
                                                                         @csrf
                                                                         @method('PATCH')
                                                                         <tr>
                                                                             <td>পারিবারিক সনদ ফি</td>
-                                                                            <td><input id="" class="form-control" name="warisan_certificate_fee" type="number" placeholder="ওয়ারিশান সনদ ফি"></td>
+                                                                            <td><input id="" class="form-control" name="family_certificate_fee" type="number" placeholder="পারিবারিক সনদ ফি"></td>
                                                                             <td>সার্ভিস চার্জ</td>
                                                                             <td><input id="" class="form-control" name="service_charge" type="number" placeholder="সার্ভিস চার্জ"></td>
                                                                         </tr>

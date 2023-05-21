@@ -130,6 +130,7 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('family-part2/{encrypted_id}',[family::class,'FormPartSecond'])->name('familysecondpart.form');
         Route::post('family-part2add/{encrypted_id}',[family::class,'FormPartSecondUpdate'])->name('familysecondpart_update');
         Route::get('/family-primary/{id}',[family::class,'primaryIndex'])->name('family_primary.list');
+        Route::get('/family-profile/{id}',[family::class,'add_profile'])->name('family_profile');
 
         Route::resource('others',others::class,['as'=>'admin']);
         Route::resource('attesteation',attesteation::class,['as'=>'admin']);

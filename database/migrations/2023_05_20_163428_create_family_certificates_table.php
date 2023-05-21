@@ -50,6 +50,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nid_image')->nullable();
             $table->string('digital_birth_certificate')->nullable();
+            $table->string('family_certificate_fee')->nullable();
+            $table->string('service_charge')->nullable();
             $table->date('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);

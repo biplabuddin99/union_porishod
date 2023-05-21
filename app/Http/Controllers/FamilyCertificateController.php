@@ -45,6 +45,32 @@ class FamilyCertificateController extends Controller
         return view('familycertificate.index',compact('family'));
     }
 
+    public function add_profile(Request $request, $id)
+    {
+        try{
+            $family=FamilyCertificate::findOrFail(encryptor('decrypt',$id));
+            $family->family_certificate_fee=$request->family_certificate_fee;
+            $family->service_charge=$request->service_charge;
+            $family->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
+            $family->cancel_reason=$request->cancel_reason;
+
+            if($request->status==2)
+                $family->form_no='0'.Carbon::now()->format('y').'-'. str_pad((FamilyCertificate::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
+
+            $family->status=$request->status;
+            $family->approved_by=currentUserId();
+            $family->updated_by=currentUserId();
+            $family->save();
+            Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
+            return redirect(route(currentUser().'.family.index'));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+
+        }
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
