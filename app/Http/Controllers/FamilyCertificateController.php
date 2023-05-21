@@ -7,6 +7,8 @@ use App\Models\EducationalQualification;
 use App\Models\Profession;
 use App\Models\Settings\Location\District;
 use App\Models\Ward_no;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use App\Models\FamilyMemberChild;
 use Carbon\Carbon;
 use Exception;
@@ -23,6 +25,20 @@ class FamilyCertificateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function primaryIndex($id)
+    {
+        $family=FamilyCertificate::where('id',Crypt::decrypt($id))->first();
+        // $districts=District::where('id',$family?->district_id)->select('id','name','name_bn')->first();
+        // $upazilas=Upazila::where('id',$family?->upazila_id)->select('id','name','name_bn')->first();
+        // $wards=Ward_no::where('id',$family?->ward_id)->select('id','ward_name','ward_name_bn')->first();
+        // $unions=Union::where('id',$family?->union_id)->select('id','name','name_bn')->first();
+        // $Mobile = explode(',', $family?->mobile_bank);
+        // $Digital_devices = explode(',', $family?->digital_devices);
+        // $Govt_fac = explode(',', $family?->government_facilities);
+        // $Business_tax = explode(',', $family?->business_taxes);
+        return view('familycertificate.primary_index',compact('family'));
+    }
+
     public function index()
     {
         //
@@ -134,7 +150,7 @@ class FamilyCertificateController extends Controller
                     }
                 }
                 Toastr::success('পরিবারের সনদ সফলভাবে তৈরি করা হয়েছে!!');
-                return redirect(route('warishan_primary.list',Crypt::encrypt($family->id)));
+                return redirect(route('family_primary.list',Crypt::encrypt($family->id)));
             }else{
                 Toastr::success('দয়করে আবার চেষ্টা করুন!');
                 return redirect()->back();

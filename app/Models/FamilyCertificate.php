@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 
 class FamilyCertificate extends Model
 {
@@ -30,7 +33,7 @@ class FamilyCertificate extends Model
         return $this->belongsTo(Chairman::class,'chairman_id','id');
     }
 
-    public function warisan_children(){
-        return $this->hasMany(WarisanChild::class,'warisan_id','id');
+    public function family_children(){
+        return $this->hasMany(FamilyMemberChild::class,'family_certificate_id','id');
     }
 }
