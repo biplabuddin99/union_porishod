@@ -9,11 +9,15 @@ use App\Models\Settings\Location\District;
 use App\Models\Ward_no;
 use App\Models\FamilyMemberChild;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
+use App\Http\Traits\ImageHandleTraits;
+use Brian2694\Toastr\Facades\Toastr;
 
 class FamilyCertificateController extends Controller
 {
+    use ImageHandleTraits;
     /**
      * Display a listing of the resource.
      *
@@ -63,8 +67,8 @@ class FamilyCertificateController extends Controller
             $family->source_income=$request->source_income;
             $family->phone=$request->phone;
             $family->email=$request->email;
-            // $family->status=0;
-            // $family->created_by=currentUserId();
+            $family->status=0;
+            $family->created_by=currentUserId();
             $family->save();
             return redirect(route('familysecondpart.form',Crypt::encrypt($family->id)));
         }catch (Exception $e){

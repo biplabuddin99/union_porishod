@@ -32,8 +32,32 @@ return new class extends Migration
             $table->string('source_income')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('name_head_family')->nullable();
+            $table->string('comments_permanent_union')->nullable();
+            $table->string('relationship_applicant')->nullable();
             $table->integer('num_male')->nullable();
             $table->integer('num_female')->nullable();
+            $table->integer('num_male_vot')->nullable();
+            $table->integer('num_female_vot')->nullable();
+            $table->string('house_holding_number')->nullable();
+            $table->string('street_nm')->nullable();
+            $table->string('village_name')->nullable();
+            $table->integer('ward_id')->nullable();
+            $table->integer('union_id')->nullable();
+            $table->integer('upazila_id')->nullable();
+            $table->integer('district_id')->nullable();
+            $table->string('post_office')->nullable();
+            $table->string('image')->nullable();
+            $table->string('nid_image')->nullable();
+            $table->string('digital_birth_certificate')->nullable();
+            $table->date('approval_date')->nullable();
+            $table->string('cancel_reason')->nullable();
+            $table->string('status')->default(0);
+            $table->integer('approved_by')->nullable();
+            $table->integer('chairman_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+
             $table->timestamps();
         });
     }
