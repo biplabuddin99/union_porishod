@@ -150,7 +150,7 @@
                 </a>
             </li>
             <li class="py-1">
-                <a href="{{route('attesteation_profile.list')}}">
+                <a href="{{route('family_profile.list')}}">
                     <i class="bi bi-person-check"></i>
                     {{__('পরিবারিক সনদ')}}
                 </a>

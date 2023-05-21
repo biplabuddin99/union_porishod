@@ -71,6 +71,12 @@ class FamilyCertificateController extends Controller
 
     }
 
+    public function profile()
+    {
+        $family=FamilyCertificate::where('status',2)->get();
+        return view('familycertificate.profile',compact('family'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
