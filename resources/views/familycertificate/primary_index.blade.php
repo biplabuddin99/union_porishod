@@ -219,90 +219,45 @@
                     <td><input type="text" value="{{ $family->district?->name_bn }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">জাতীয় পরিচয়পত্র নম্বর</th>
-                    <td><input type="text" value="{{ $family->voter_id_no }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ডিজিটাল জন্মনিবন্ধন নম্বর </th>
-                    <td><input type="text" value="{{ $family->birth_registration_id }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের প্রধানের নাম</th>
+                    <td><input type="text" value="{{ $family->name_head_family }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">উক্ত ইউনিয়নের </th>
+                    <td><input type="text" value="{{ $family->comments_permanent_union }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">মুক্তিযোদ্ধা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($family->freedom_fighter == 1 ) বীর মুক্তিযোদ্ধা @elseif ($family->freedom_fighter == 2 )বীরাঙ্গনা @elseif ($family->freedom_fighter == 3 )অন্যান্য @endif </td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ধর্ম</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);">@if ($family->religion == 1 ) ইসলাম @elseif ($family->religion == 2 )হিন্দু @elseif ($family->religion == 3 )বৌদ্ধ@elseif ($family->religion == 4 )খ্রিষ্টান@elseif ($family->religion == 5 )উপজাতি @endif</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">মোবাইল নম্বর </th>
-                    <td><input type="text" value="{{ $family->phone }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">শিক্ষাগত যোগ্যতা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);">@if ($family->edu_qual == 1 ) স্ব-শিক্ষিত @elseif ($family->edu_qual == 2 )প্রাথমিক @elseif ($family->edu_qual == 3 )মাধ্যমিক@elseif ($family->edu_qual == 4 )উচ্চ-মাধ্যমিক@elseif ($family->edu_qual == 5 )উচ্চতর-ডিগ্রী @endif</td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">ই-মেইল(যদি থাকে)</th>
-                    <td><input type="text" value="{{ $family->email }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">পেশা </th>
-                    <td><input type="text" value="{{$family->income?->name}}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">বৈবাহিক অবস্থা </th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($family->marital_status == 1 ) বিবাহিত @else অবিবাহিত @endif</td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের সদস্য(পুরুষ) </th>
-                    <td><input type="text" value="{{$family->num_male}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">আবেদনকারীর সাথে সম্পর্ক</th>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($family->relationship_applicant == 1 ) বাবা @else মা @endif</td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের সদস্য(পুরুষ)</th>
+                    <td><input type="text" value="{{ $family->num_male }}" class="binput"></td>
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">পরিবারের সদস্য(মহিলা)</th>
                     <td><input type="text" value="{{ $family->num_female }}" class="binput"></td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের মোট সদস্য</th>
-                    <td><input type="text" value="{{$family->num_male+$family->num_female}}" class="binput"></td>
+                    <td><input type="text" value="{{$family->num_male + $family->num_female }}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ওয়ারিশান ব্যাক্তির নাম</th>
-                    <td><input type="text" value="{{ $family->warishan_person_name }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">পিতার নাম</th>
-                    <td><input type="text" value="{{ $family->warisan_father_name }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের ভোটার(পুরুষ)</th>
+                    <td><input type="text" value="{{ $family->num_male_vot }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের ভোটার(মহিলা)</th>
+                    <td><input type="text" value="{{$family->num_female_vot}}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">মাতার নাম</th>
-                    <td><input type="text" value="{{ $family->warishan_mother_name }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">স্বামী/স্ত্রীর নাম</th>
-                    <td><input type="text" value="{{ $family->warisan_husband_wife }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">পরিবারের মোট ভোটার</th>
+                    <td><input type="text" value="{{$family->num_male_vot+$family->num_female_vot}}" class="binput"></td>
+                    <th style="width: 25%; text-align: left; padding-left: 10px;">মোবাইল নম্বর</th>
+                    <td><input type="text" value="{{$family->phone}}" class="binput"></td>
                 </tr>
                 <tr>
-                    <th style="width: 25%; text-align: left;">ওয়ারিশের মৃত্যু তারিখ</th>
-                    <td><input type="text" value="{{ $family->date_death_warishan }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">বাড়ির হেল্ডিং নম্বর </th>
-                    <td><input type="text" value="{{ $family->house_holding_number }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">ডাকঘর </th>
-                    <td><input type="text" value="{{ $family->post_office }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">জেলা </th>
-                    <td><input type="text" value="{{ $family->district?->name_bn }}" class="binput"></td>
-
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">উপজেলা/থানা </th>
-                    <td><input type="text" value="{{ $family->upazila?->name_bn }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">ইউনিয়ন পরিষদ </th>
-                    <td><input type="text" value="{{ $family->union?->name_bn }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">সেক্টর/ওয়ার্ড </th>
-                    <td><input type="text" value="{{ $family->ward?->ward_name_bn }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">গ্রাম/পাড়া</th>
-                    <td><input type="text" value="{{ $family->village_name }}" class="binput"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%; text-align: left;">রাস্তা/ব্লক </th>
-                    <td><input type="text" value="{{ $family->street_nm }}" class="binput"></td>
-                    <th style="width: 25%; text-align: left; padding-left: 10px;">মোট ওয়ারিশ সদস্য</th>
-                    <td><input type="text" value="{{ $family->total_warishan_members }}" class="binput"></td>
+                    <th style="width: 25%; text-align: left;">ই-মেইল<small>(যদি থাকে)</small></th>
+                    <td><input type="text" value="{{ $family->email }}" class="binput"></td>
                 </tr>
             </table>
-            <p>ওয়ারিশ আইন অনুযায়ী ওয়ারিশান সদস্যদের বিবরণ সমূহঃ</p>
+            <p>পারিবারিক আইন অনুযায়ী পরিবারের সদস্যদের বিবরণ সমূহঃ</p>
             <table  style="width: 100%; border-collapse: collapse;">
                 <tr style="border:1px solid; text-align:center;">
                 <th style="border:1px solid;">সদস্য নং</th>
-                <th style="border:1px solid;">ওয়ারিশানদের নাম </th>
+                <th style="border:1px solid;">সদস্যদের নাম </th>
                 <th style="border:1px solid;">সম্পর্ক</th>
                 <th style="border:1px solid;">জন্ম তারিখ</th>
                 <th style="border:1px solid;">ভোটার আইডি নম্বর</th>

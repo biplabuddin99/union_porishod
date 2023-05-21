@@ -124,13 +124,13 @@ class FamilyCertificateController extends Controller
             $family->district_id=$request->district_id;
 
             if($request->has('image'))
-            $family->image=$this->resizeImage($request->image,'uploads/warishan',true,300,300,false);
+            $family->image=$this->resizeImage($request->image,'uploads/family',true,300,300,false);
 
             if($request->has('nid_image'))
-            $family->nid_image=$this->resizeImage($request->nid_image,'uploads/warishan',true,500,500,false);
+            $family->nid_image=$this->resizeImage($request->nid_image,'uploads/family',true,500,500,false);
 
             if($request->has('digital_birth_certificate'))
-            $family->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,'uploads/warishan',true,500,700,false);
+            $family->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,'uploads/family',true,500,700,false);
             $family->status=1;
             $family->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
             if($family->save()){
