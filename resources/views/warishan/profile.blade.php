@@ -49,7 +49,6 @@
                                 <td>{{$p->phone}}</td>
                                 <td>{{$p->warisan_certificate_fee}}</td>
                                 <td><img width="70px" height="50px" src="{{asset('uploads/warishan')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
-                                <td>{{$p->warishan_mother_name}}</td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route('warishan_primary.list',Crypt::encrypt($p->id))}}">
                                         <i class="bi bi-eye-fill"></i>
