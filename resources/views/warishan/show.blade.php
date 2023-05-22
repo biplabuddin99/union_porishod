@@ -255,19 +255,18 @@
                </div>
             </div>
             <div class="row">
-                <div class="col-1"></div>
-                <div class="col-4">
+                <div class="col-8" style="padding-left: 100px">
+                    <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                 </div>
-                <div class="col-3"></div>
-                <div class="col-4" style="color: rgb(18, 5, 133); padding-top:10px">
-                    <div class="row"><strong>(মো: সাইদুর রহমান চৌধুরী)</strong></div>
+                <div class="col-4" style="color: rgb(18, 5, 133);align-self: end;">
+                    <div class="row"><strong>({{ $warisan->chairman?->name}})</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
-                    <div class="row"style="padding-left: 30px">চিরাম ইউনিয়ন পরিষদ</div>
-                    <div class="row" style="padding-left: 40px">বারহাট্টা,নেত্রকোণা</div>
+                    <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 40px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
             </div>
-            <div class="font-bold row" style="padding-top:20px;">
-                <h5 class="text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| সময়মত ইউনিয়ন পরিষদের কর পরিশোধ করুন ||</h5>
+            <div class="font-bold row" style="padding-top:30px">
+                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
     </section>
