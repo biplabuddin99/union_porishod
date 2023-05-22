@@ -335,7 +335,7 @@
                 আমি ঘোষণা করতেছি যে, আমার দেয়া উপরের বর্ণিত তথ্য সঠিক। যদি উপরের বর্ণিত তথ্য মিথ্যা <span style="margin-top: 2rem; margin-left: 7rem;">প্রমানিত হয়,তাহার জন্য আমি আইনগত দায়ী থাকিব।</span>
             </div>
             <div style="margin-top: .9rem; margin-left: 15rem; color: rgb(16, 123, 224);">
-                <b style="background-color: rgb(6, 153, 62);color:aliceblue; text:white; padding:.6rem;">|| সবাই মিলে দেব কর,ইউনিয়ন পরিষদ হবে স্বনির্ভর  ||</b>
+                <b style="background-color: rgb(6, 153, 62);color:aliceblue; text:white; padding:.6rem;">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}}  ||</b>
             </div>
         </div>
     </div>
