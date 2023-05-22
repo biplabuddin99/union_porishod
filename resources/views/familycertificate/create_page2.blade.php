@@ -242,7 +242,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-9 mt-3">
-                                      {{--  <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.warishanfirstpart',Crypt::encrypt($warisan->id))}}">  --}}
+                                      <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.familyfirstpart',Crypt::encrypt($family->id))}}">
                                           পূর্ববর্তী
                                       </a>
                                     </div>

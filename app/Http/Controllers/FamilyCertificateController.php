@@ -127,6 +127,48 @@ class FamilyCertificateController extends Controller
         }
     }
 
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $family = FamilyCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        return view('familycertificate.edit_firstpart',compact('family','edu_q','profession'));
+    }
+
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $family= FamilyCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+            // $family->form_no=$request->form_no;
+            $family->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $family->applicant_name=$request->applicant_name;
+            $family->father_name=$request->father_name;
+            $family->mother_name=$request->mother_name;
+            $family->husband_wife=$request->husband_wife;
+            $family->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $family->voter_id_no=$request->voter_id_no;
+            $family->birth_registration_id=$request->birth_registration_id;
+            $family->gender=$request->gender;
+            $family->religion=$request->religion;
+            $family->marital_status=$request->marital_status;
+            $family->freedom_fighter=$request->freedom_fighter;
+            $family->edu_qual=$request->edu_qual;
+            $family->source_income=$request->source_income;
+            $family->phone=$request->phone;
+            $family->email=$request->email;
+            $family->num_male=$request->num_male;
+            $family->num_female=$request->num_female;
+            $family->status=0;
+            $family->created_by=currentUserId();
+            $family->save();
+            return redirect(route('familysecondpart.form',Crypt::encrypt($family->id)));
+        }catch (Exception $e){
+            Toastr::success('দয়করে আবার চেষ্টা করুন!');
+            dd($e);
+            return back()->withInput();
+        }
+    }
+
     public function FormPartSecond($encrypted_id)
     {
         $family = FamilyCertificate::findOrFail(Crypt::decrypt($encrypted_id));

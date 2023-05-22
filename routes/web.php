@@ -127,6 +127,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/warishans_profile/{id}',[warishan::class,'add_profile'])->name('warishans_profile');
 
         Route::resource('family',family::class,['as'=>'admin']);
+        Route::get('family-firstform/{encrypted_id}',[family::class,'FormPartFirstUp'])->name('admin.familyfirstpart');
+        Route::post('family-firstform-update/{encrypted_id}',[family::class,'FormPartFirstUpdate'])->name('admin.familyfirstpartupdate');
         Route::get('family-part2/{encrypted_id}',[family::class,'FormPartSecond'])->name('familysecondpart.form');
         Route::post('family-part2add/{encrypted_id}',[family::class,'FormPartSecondUpdate'])->name('familysecondpart_update');
         Route::get('/family-primary/{id}',[family::class,'primaryIndex'])->name('family_primary.list');
