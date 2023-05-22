@@ -28,14 +28,6 @@ class FamilyCertificateController extends Controller
     public function primaryIndex($id)
     {
         $family=FamilyCertificate::where('id',Crypt::decrypt($id))->first();
-        // $districts=District::where('id',$family?->district_id)->select('id','name','name_bn')->first();
-        // $upazilas=Upazila::where('id',$family?->upazila_id)->select('id','name','name_bn')->first();
-        // $wards=Ward_no::where('id',$family?->ward_id)->select('id','ward_name','ward_name_bn')->first();
-        // $unions=Union::where('id',$family?->union_id)->select('id','name','name_bn')->first();
-        // $Mobile = explode(',', $family?->mobile_bank);
-        // $Digital_devices = explode(',', $family?->digital_devices);
-        // $Govt_fac = explode(',', $family?->government_facilities);
-        // $Business_tax = explode(',', $family?->business_taxes);
         return view('familycertificate.primary_index',compact('family'));
     }
 
@@ -243,9 +235,10 @@ class FamilyCertificateController extends Controller
      * @param  \App\Models\FamilyCertificate  $familyCertificate
      * @return \Illuminate\Http\Response
      */
-    public function show(FamilyCertificate $familyCertificate)
+    public function show($id)
     {
-        //
+        $family=FamilyCertificate::findOrFail(encryptor('decrypt',$id));
+        return view('familycertificate.show',compact('family'));
     }
 
     /**
@@ -254,9 +247,13 @@ class FamilyCertificateController extends Controller
      * @param  \App\Models\FamilyCertificate  $familyCertificate
      * @return \Illuminate\Http\Response
      */
-    public function edit(FamilyCertificate $familyCertificate)
+    public function edit($id)
     {
-        //
+        $family = FamilyCertificate::findOrFail(encryptor('decrypt',$id));
+        $edu_q=EducationalQualification::orderBy('created_at')->get();
+        $profession=Profession::orderBy('created_at')->get();
+        $ward=Ward_no::all();
+        return view('familycertificate.edit',compact('family','edu_q','profession','ward'));
     }
 
     /**
@@ -266,9 +263,71 @@ class FamilyCertificateController extends Controller
      * @param  \App\Models\FamilyCertificate  $familyCertificate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FamilyCertificate $familyCertificate)
+    public function update(Request $request, $id)
     {
-        //
+        try{
+            $family=FamilyCertificate::findOrFail(encryptor('decrypt',$id));
+            // $family->form_no=$request->form_no;
+            $family->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $family->applicant_name=$request->applicant_name;
+            $family->father_name=$request->father_name;
+            $family->mother_name=$request->mother_name;
+            $family->husband_wife=$request->husband_wife;
+            $family->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $family->voter_id_no=$request->voter_id_no;
+            $family->birth_registration_id=$request->birth_registration_id;
+            $family->gender=$request->gender;
+            $family->religion=$request->religion;
+            $family->marital_status=$request->marital_status;
+            $family->freedom_fighter=$request->freedom_fighter;
+            $family->edu_qual=$request->edu_qual;
+            $family->source_income=$request->source_income;
+            $family->phone=$request->phone;
+            $family->email=$request->email;
+            // আবেদনের অন্যান্য তথ্য
+            $family->name_head_family=$request->name_head_family;
+            $family->comments_permanent_union=$request->comments_permanent_union;
+            $family->relationship_applicant=$request->relationship_applicant;
+            $family->num_male=$request->num_male;
+            $family->num_female=$request->num_female;
+            $family->num_male_vot=$request->num_male_vot;
+            $family->num_female_vot=$request->num_female_vot;
+            $family->house_holding_number=$request->house_holding_number;
+            $family->street_nm=$request->street_nm;
+            $family->village_name=$request->village_name;
+            $family->ward_id=$request->ward_id;
+            $family->post_office=$request->post_office;
+            $family->union_id=$request->union_id;
+            $family->upazila_id=$request->upazila_id;
+            $family->district_id=$request->district_id;
+            $path='uploads/family';
+
+            if($request->has('digital_birth_certificate') && $request->digital_birth_certificate)
+            if($this->deleteImage($family->digital_birth_certificate,$path))
+                $family->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,$path,true,200,200,false);
+
+            if($request->has('image') && $request->image)
+            if($this->deleteImage($family->image,$path))
+                $family->image=$this->resizeImage($request->image,$path,true,200,200,false);
+
+            if($request->has('nid_image') && $request->nid_image)
+            if($this->deleteImage($family->nid_image,$path))
+                $family->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
+            if($family->save()){
+            Toastr::success('আপডেট সফলভাবে সম্পন্ন করা হয়েছে!!');
+            return redirect()->route(currentUser().'.family.index');
+            }else{
+            Toastr::success('Please try Again!');
+            return redirect()->back();
+            }
+
+        }
+        catch (Exception $e){
+            Toastr::success('Please try Again!');
+            dd($e);
+            return back()->withInput();
+
+        }
     }
 
     /**

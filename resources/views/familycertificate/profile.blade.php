@@ -50,7 +50,7 @@
                                 <td>{{$p->family_certificate_fee}}</td>
                                 <td><img width="70px" height="50px" src="{{asset('uploads/family')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>
-                                    <a href="{{route('warishan_primary.list',Crypt::encrypt($p->id))}}">
+                                    <a href="{{route('family_primary.list',Crypt::encrypt($p->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                 </td>

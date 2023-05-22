@@ -1,5 +1,5 @@
 @extends('layout.app')
-{{-- @section('pageTitle',trans('হোল্ডিং আপডেট')) --}}
+{{-- @section('pageTitle',trans('ওয়ারিশ আপডেট')) --}}
 
 @section('content')
 <section id="multiple-column-form">
@@ -316,7 +316,7 @@
                                                 @endif
                                             </tbody>
                                         </table>
-                                    </div
+                                    </div>
                               </div>
                               <div class="row m-3">
                                   <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">আবেদনকৃত ওয়ারিশ ব্যক্তির স্থায়ী ঠিকানা সমূহঃ </h4>
