@@ -34,15 +34,15 @@
                     <div class="col-4" style="padding-left: 150px;">
                         <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">হোল্ডিং নাম্বার সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</h5>
                 </div>
                 <div class="row">
-                    <p style="border-bottom: 3px solid rgb(73, 235, 8); border-top: 3px solid rgb(73, 235, 8); padding-top: 5px;">
-                        স্থানীয় সরকার (ইউনিয়ন পরিষদ) আইন,২০০৯(২০০৯ সনের ৬০ নং আইন) এর ধারা ৮৪-তে প্রদত্ত ক্ষমতাবলে সরকার প্রনীত আদর্শ
-                        অনুযায়ী নিন্মে বর্ণিত ব্যক্তির আনুকুলে বাড়ির হোল্ডিং সনদ ইস্যু করা হলো।
+                    <p style="border-bottom: 3px solid rgb(30, 94, 5); border-top: 3px solid rgb(30, 94, 5); padding-top: 5px;">
+                        স্থানীয় সরকার (ইউনিয়ন পরিষদ) আইন,২০০৯ সনের আইন এর ধারা ৮৪-তে প্রদত্ত ক্ষমতাবলে সরকার প্রনীত আদর্শ
+                        অনুযায়ী নিন্মে বর্ণিত ব্যক্তির অনুকুলে বাড়ির হোল্ডিং নাম্বার সনদ ইস্যু করা হচ্ছে।
                     </p>
-                    <p class="text-center">এই মর্মে বাড়ির হোল্ডিং নাম্বার প্রদান করা যাইতেছে যে, জন্মসূত্রে বাংলাদেশের নাগরিক ও উক্ত ইউনিয়নের স্থায়ী বাসীন্দা।<br/>
-                        তিনি আমার পরিচিত। আমার জানামতে তিনি রাষ্ট্র ও সমাজ বিরোধী কোন কার্যকলাপে জড়িত নহে।
+                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, জন্মসূত্রে বাংলাদেশের নাগরিক ও উক্ত ইউনিয়নের স্থায়ী বাসীন্দা।<br/>
+                        আমি তাকে ব্যক্তিগত ভাবে জানি ও চিনি। আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কাজের সাথে জড়িত নহে।
                     </p>
                 </div>
             </div>
@@ -89,6 +89,17 @@
                     <span  class="form-label" for="">৪।</span>
                 </div>
                 <div class="col-5">
+                    <span  class="form-label" for="">স্বামী/স্ত্রীর নাম:</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">{{ $hold->husband_wife }}</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-1">
+                    <span  class="form-label" for="">৫।</span>
+                </div>
+                <div class="col-5">
                     <span  class="form-label" for="">জন্ম তারিখ :</span>
                 </div>
                 <div class="col-5">
@@ -97,7 +108,7 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৫।</span>
+                    <span  class="form-label" for="">৬।</span>
                 </div>
                 @if($hold->voter_id_no)
                 <div class="col-5">
@@ -117,7 +128,7 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৬।</span>
+                    <span  class="form-label" for="">৭।</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">পেশা :</span>
@@ -130,7 +141,7 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৭।</span>
+                    <span  class="form-label" for="">৮।</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">ধর্ম :</span>
@@ -153,7 +164,7 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৮।</span>
+                    <span  class="form-label" for="">৯।</span>
                 </div>
                 <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
                     <span  class="form-label" for="">স্থায়ী ঠিকানা :</span>
@@ -175,6 +186,17 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
+                    <span  class="form-label" for="">রাস্তা/ব্লক :</span>
+                </div>
+                <div class="col-5">
+                    <span  class="form-label" for="">{{ $hold->street_nm }}</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-1">
+                    <span  class="form-label" for=""></span>
+                </div>
+                <div class="col-5">
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
@@ -186,7 +208,7 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">গ্রাম/মহল্লা :</span>
+                    <span  class="form-label" for="">গ্রাম/পাড়া :</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">{{ $hold->village_name }}</span>
@@ -208,7 +230,7 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">থানা :</span>
+                    <span  class="form-label" for="">উপজেলা/থানা :</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">{{ $hold->upazila?->name_bn }}</span>
@@ -227,7 +249,7 @@
             </div>
             <div class="row m-2">
                 <div class="col-1">
-                    <span  class="form-label" for="">৯।</span>
+                    <span  class="form-label" for="">১০।</span>
                 </div>
                 <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
                     <span  class="form-label" for="">যোগাযোগ মাধ্যম :</span>
@@ -255,28 +277,6 @@
                     <span  class="form-label" for="">{{ $hold->email }}</span>
                 </div>
             </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for="">১০।</span>
-                </div>
-                <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for=""> হোল্ডিং নাম্বার সনদ ফি :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->holding_certificate_fee }} টাকা</span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-1">
-                    <span  class="form-label" for=""></span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">সংশোধনী ফি :</span>
-                </div>
-                <div class="col-5">
-                    <span  class="form-label" for="">0 টাকা</span>
-                </div>
-            </div>
         </div>
         </section>
         <section class="mb-5">
@@ -297,7 +297,7 @@
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:30px">
-                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(73, 235, 8); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
+                <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(33, 110, 3); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
     </section>
