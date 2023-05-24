@@ -28,6 +28,7 @@
                                 <th>তারিখ</th>
                                 <th>বাড়ি প্রধানের নাম </th>
                                 <th>পেশা</th>
+                                <th>ওয়ার্ড</th>
                                 <th>মোবাইল</th>
                                 <th>ছবি</th>
                                 <th>অনুমোদন </th>
@@ -42,6 +43,7 @@
                                 <td>{{\Carbon\Carbon::parse($h->holding_date)->format('d-m-Y')}}</td>
                                 <td>{{$h->head_household}}</td>
                                 <td>{{$h->income?->name}}</td>
+                                <td>{{$h->ward?->ward_name_bn}}</td>
                                 <td>{{$h->phone}}</td>
                                 <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>
