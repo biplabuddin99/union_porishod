@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route(currentUser().'.family.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route(currentUser().'.citizen.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row m-2">
                                 {{-- <div class="col-6">

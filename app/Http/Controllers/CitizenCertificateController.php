@@ -20,6 +20,7 @@ use App\Models\All_onlineApplications;
 use App\Http\Traits\ImageHandleTraits;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class CitizenCertificateController extends Controller
 {
@@ -124,12 +125,19 @@ class CitizenCertificateController extends Controller
             $citizen->status=0;
             $citizen->created_by=currentUserId();
             $citizen->save();
-            return redirect(route('familysecondpart.form',Crypt::encrypt($citizen->id)));
+            return redirect(route('citizensecondpart.form',Crypt::encrypt($citizen->id)));
         }catch (Exception $e){
             Toastr::success('দয়করে আবার চেষ্টা করুন!');
             return back()->withInput();
             dd($e);
         }
+    }
+    public function FormPartSecond($encrypted_id)
+    {
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        $citizen = CitizenCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+        return view('citizen_certificate.create_page2',compact('citizen','ward','districts'));
     }
 
     /**
