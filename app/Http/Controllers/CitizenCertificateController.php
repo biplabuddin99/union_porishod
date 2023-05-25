@@ -46,7 +46,7 @@ class CitizenCertificateController extends Controller
 
     public function index()
     {
-        $citizen=CitizenCertificate::where('status',0)->get();
+        $citizen=CitizenCertificate::where('status',1)->get();
         return view('citizen_certificate.index',compact('citizen'));
     }
 
