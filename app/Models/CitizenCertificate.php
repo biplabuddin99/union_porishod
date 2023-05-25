@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\Settings\Location\District;
-use App\Models\Settings\Location\Division;
-use App\Models\Settings\Location\Thana;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,19 +12,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CitizenCertificate extends Model
 {
     use HasFactory,SoftDeletes;
-
-    public function division(){
-        return $this->belongsTo(Division::class,'division_id','id');
-    }
     public function district(){
         return $this->belongsTo(District::class,'district_id','id');
     }
-    public function thana()
-	{
-		return $this->belongsTo(Thana::class,'thana_id','id');
-	}
-    public function ward_no()
-	{
-		return $this->belongsTo(Ward_no::class,'ward_no_id','id');
-	}
+    public function upazila(){
+        return $this->belongsTo(Upazila::class,'upazila_id','id');
+    }
+    public function union(){
+        return $this->belongsTo(Union::class,'union_id','id');
+    }
+    public function ward(){
+        return $this->belongsTo(Ward_no::class,'ward_id','id');
+    }
+    public function income(){
+        return $this->belongsTo(Profession::class,'source_income','id');
+    }
+    public function approved(){
+        return $this->belongsTo(User::class,'approved_by','id');
+    }
+    public function chairman(){
+        return $this->belongsTo(Chairman::class,'chairman_id','id');
+    }
 }
