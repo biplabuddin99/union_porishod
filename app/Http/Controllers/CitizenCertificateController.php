@@ -32,15 +32,15 @@ class CitizenCertificateController extends Controller
      */
     public function primaryIndex($id)
     {
-        $citizen=CitizenCertificate::where('id',$id)->first();
-        $districts=District::where('id',$citizen->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$citizen->upazila_id)->select('id','name','name_bn')->first();
-        $unions=Union::where('id',$citizen->union_id)->select('id','name','name_bn')->first();
+        $citizen=CitizenCertificate::where('id',Crypt::decrypt($id))->first();
+        $districts=District::where('id',$citizen?->district_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$citizen?->upazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$citizen?->union_id)->select('id','name','name_bn')->first();
         $wards=Ward_no::select('id','ward_name','ward_name_bn')->first();
-        $Mobile = explode(',', $citizen->mobile_bank);
-        $Digital_devices = explode(',', $citizen->digital_devices);
-        $Govt_fac = explode(',', $citizen->government_facilities);
-        $Business_tax = explode(',', $citizen->business_taxes);
+        $Mobile = explode(',', $citizen?->mobile_bank);
+        $Digital_devices = explode(',', $citizen?->digital_devices);
+        $Govt_fac = explode(',', $citizen?->government_facilities);
+        $Business_tax = explode(',', $citizen?->business_taxes);
         return view('citizen_certificate.primary_index',compact('citizen','Mobile','Govt_fac','Digital_devices','Business_tax','districts','upazilas','unions','wards'));
     }
 
@@ -138,6 +138,52 @@ class CitizenCertificateController extends Controller
         $districts=District::select('id','name','name_bn')->get();
         $citizen = CitizenCertificate::findOrFail(Crypt::decrypt($encrypted_id));
         return view('citizen_certificate.create_page2',compact('citizen','ward','districts'));
+    }
+
+    public function FormPartSecondUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $citizen = CitizenCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+            // আবেদনের অন্যান্য তথ্য
+            $citizen->permanent_resident=$request->permanent_resident;
+            $citizen->citizen_bangladesh=$request->citizen_bangladesh;
+            $citizen->voters_union=$request->voters_union;
+            $citizen->voter_no=$request->voter_no;
+            $citizen->involved_anti_state=$request->involved_anti_state;
+            $citizen->house_holding_no=$request->house_holding_no;
+            $citizen->post_office=$request->post_office;
+            $citizen->district_id=$request->district_id;
+            $citizen->upazila_id=$request->upazila_id;
+            $citizen->union_id=$request->union_id;
+            $citizen->ward_id=$request->ward_id;
+            $citizen->village_name=$request->village_name;
+            $citizen->street_nm=$request->street_nm;
+            $citizen->prhouse_holding_number=$request->prhouse_holding_number;
+            $citizen->prstreet_nm=$request->prstreet_nm;
+            $citizen->prvillage_name=$request->prvillage_name;
+            $citizen->prward_id=$request->prward_id;
+            $citizen->prpost_office=$request->prpost_office;
+            $citizen->prunion_id=$request->prunion_id;
+            $citizen->prupazila_id=$request->prupazila_id;
+            $citizen->prdistrict_id=$request->prdistrict_id;
+
+            if($request->has('image'))
+            $citizen->image=$this->resizeImage($request->image,'uploads/citizen',true,300,300,false);
+
+            if($request->has('nid_image'))
+            $citizen->nid_image=$this->resizeImage($request->nid_image,'uploads/citizen',true,500,500,false);
+
+            if($request->has('digital_birth_certificate'))
+            $citizen->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,'uploads/citizen',true,500,700,false);
+            $citizen->status=1;
+            $citizen->chairman_id=request()->session()->get('upsetting')?request()->session()->get('upsetting')->chairman_id:"1";
+            $citizen->save();
+                Toastr::success('নাগরিক সনদ সফলভাবে তৈরি করা হয়েছে!!');
+                return redirect(route('citizen_primary.list',Crypt::encrypt($citizen->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
     }
 
     /**

@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{route('familysecondpart_update',Crypt::encrypt($citizen->id))}}" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        <form action="{{route('citizensecondpart_update',Crypt::encrypt($citizen->id))}}" role="form" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                             @csrf
                             @method('POST')
                             <div class="row m-2">
@@ -258,28 +258,32 @@
 
                             </div>
                             <div class="row m-3">
-                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">অতিরিক্ত সংযোজনঃ</h5>
+                                <h5>অতিরিক্ত সংযোজনঃ- </h5>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
-                                    <label  class="form-label" for="nid_image">ভোটার আইডির রঙিন কপি</label>
+                                    <label  class="form-label" for="nid_image">জাতীয় পরিচয়পত্র কপি</label>
                                     <input class="form-control"
                                     name="nid_image" id="nid_image" value="{{ old('nid_image') }}"  type="file" placeholder="">
                                 </div>
                                 <div class="col-6 float-right">
-                                    <label  class="form-label" for="holding_image">বাড়ি/প্রতিষ্ঠানের হোল্ডিং করের কপি:-</label>
-                                    <input class="form-control" type="file" name="holding_image" id="holding_image" value="{{ old('holding_image') }}" placeholder="">
+                                    <label  class="form-label" for="digital_birth_certificate">ডিজিটাল জন্ম নিবন্ধন সনদের কপি</label>
+                                    <input class="form-control" type="file" name="digital_birth_certificate" id="digital_birth_certificate" value="{{ old('digital_birth_certificate') }}" placeholder="">
                                 </div>
                             </div>
-                            <div class="row border border-2 m-2 p-3">
-                                <div class="col-6">
-                                    <label  class="form-label" for="image">ছবি যদি থাকে তার কপি :-</label>
-                                    <input class="form-control"
-                                    name="image" id="image" value="{{ old('image') }}"  type="file" placeholder="">
+                            <div class="row m-0 p-0">
+                                <div class="image-overlay">
+                                    <label  class="form-label" for="image">সদ্য তোলা রঙিন ছবি</label>
+                                    <input type="file" name="image" value="" data-default-file="{{ asset('uploads/onerror.jpg') }}" class="form-control dropify">
                                 </div>
-                                <div class="col-6 float-right">
-                                    <label  class="form-label" for="image_birth_certificate">জন্ম নিবন্ধন সনদের কপি :-</label>
-                                    <input class="form-control" type="file" name="image_birth_certificate" id="image_birth_certificate" value="{{ old('image_birth_certificate') }}" placeholder="">
+                            </div>
+                            <div class="row m-2">
+                                <div class="text-center">
+                                    <b>
+                                        আমি ঘোষনা করিতেছি যে, <br/>
+                                        আমার দেয়া উপরে বর্ণিত তথ্য সঠিক এবং বর্ণিত তথ্য মিথ্যা প্রমানিত হলে,  <br/>
+                                        আমি তাহার জন্য আইনত দায়ী থাকিব।
+                                    </b>
                                 </div>
                             </div>
                             <div class="container-fluid">
