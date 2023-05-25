@@ -20,11 +20,11 @@
                             @method('POST')
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="permanent_resident">উক্ত ইউনিয়নের স্থায়ী বাসিন্দা :-</label>
+                                    <label  class="form-label" for="permanent_resident">আমি উক্ত ইউনিয়নের</label>
                                     <select name="permanent_resident" class="form-select @error('permanent_resident') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">হ্যাঁ</option>
-                                        <option value="2">না</option>
+                                        <option value="1">স্থায়ী বাসিন্দা</option>
+                                        <option value="2">অস্থায়ী বাসিন্দা</option>
                                     </select>
                                     @if($errors->has('permanent_resident'))
                                     <small class="d-block text-danger text-center">
@@ -33,7 +33,7 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="citizen_bangladesh">জন্মসূত্রে বাংলাদেশের নাগরিক:-</label>
+                                    <label  class="form-label" for="citizen_bangladesh">জন্মসূত্রে বাংলাদেশের নাগরিক</label>
                                     <select name="citizen_bangladesh" class="form-select @error('citizen_bangladesh') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">হ্যাঁ</option>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="voters_union">উক্ত ইউনিয়নের ভোটার:-</label>
+                                    <label  class="form-label" for="voters_union">উক্ত ইউনিয়নের ভোটার</label>
                                     <select name="voters_union" class="form-select @error('voters_union') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1">হ্যাঁ</option>
@@ -61,11 +61,23 @@
                                     @endif
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="involved_anti_state">রাষ্ট্রবিরোধী কোন কাজের সাথে জড়িত কিনা?:-</label>
+                                    <label  class="form-label" for="voter_no">ভোটার নম্বর</label>
+                                    <input class="form-control @error('voter_no') is-invalid @enderror"
+                                    name="voter_no" id="voter_no" value="{{ old('voter_no') }}"  type="number" placeholder="ভোটার নম্বর">
+                                    @if($errors->has('voter_no'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('voter_no') }}
+                                    </small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6">
+                                    <label  class="form-label" for="involved_anti_state">রাষ্ট্রবিরোধী কোন কাজের সাথে জড়িত</label>
                                     <select name="involved_anti_state" class="form-select @error('involved_anti_state') is-invalid @enderror">
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">হ্যাঁ</option>
-                                        <option value="2">না</option>
+                                        <option value="1">আছে</option>
+                                        <option value="2">নাই</option>
                                     </select>
                                     @if($errors->has('involved_anti_state'))
                                     <small class="d-block text-danger text-center">
@@ -74,29 +86,14 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row m-2">
-                                <div class="col-6">
-                                    <label  class="form-label" for="update_holdingtax">হালনাগাদ হোল্ডিং কর:-</label>
-                                    <select name="update_holdingtax" class="form-select @error('update_holdingtax') is-invalid @enderror">
-                                        <option value="">নির্বাচন করুন</option>
-                                        <option value="1">আছে</option>
-                                        <option value="2">নাই</option>
-                                    </select>
-                                    @if($errors->has('update_holdingtax'))
-                                    <small class="d-block text-danger text-center">
-                                        {{ $errors->first('update_holdingtax') }}
-                                    </small>
-                                    @endif
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h5 style="padding-top: 5px;">আবেদনকারীর স্থায়ী ঠিকানা </h5>
                                 </div>
-                                <div class="col-6">
-                                </div>
-                            </div>
-                            <div class="row m-3">
-                                <h4 class="text-center" style="color: rgb(13, 134, 29); padding-top: 5px;">নাগরিক সনদের আবেদনকৃত ব্যাক্তির স্থায়ী ঠিকানা সমূহঃ </h4>
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="house_holding_no">বাড়ির হেল্ডিং নম্বর:-</label>
+                                    <label  class="form-label" for="house_holding_no">বাড়ির হেল্ডিং নম্বর</label>
                                     <input class="form-control @error('house_holding_no') is-invalid @enderror"
                                     name="house_holding_no" id="house_holding_no" value="{{ old('house_holding_no') }}"  type="text" placeholder="ইউনিয়ন পরিষদ কতৃক পূরণকৃত">
                                     {{-- @if($errors->has('house_holding_no'))
@@ -106,7 +103,7 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="post_office">ডাকঘর:-</label>
+                                    <label  class="form-label" for="post_office">ডাকঘর</label>
                                     <input class="form-control @error('post_office') is-invalid @enderror"
                                     name="post_office" id="post_office" value="{{ old('post_office') }}"  type="text" placeholder="ডাকঘর">
                                     @if($errors->has('post_office'))
@@ -118,7 +115,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label for="district">জেলা:-</label>
+                                    <label for="district">জেলা</label>
                                     <select id="district_id" name="district_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
                                         @foreach ($districts as $district)
@@ -145,7 +142,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="union_parishad">ইউনিয়ন পরিষদের নাম:-</label>
+                                    <label  class="form-label" for="union_parishad">ইউনিয়ন পরিষদ</label>
                                     <select id="union_id" name="union_id" class="form-select search_district">
                                         <option value="">নির্বাচন করুন</option>
                                     </select>
@@ -156,7 +153,7 @@
                                     @endif --}}
                                 </div>
                                 <div class="col-6">
-                                    <label  class="form-label" for="ward_id">ওয়ার্ড:-</label>
+                                    <label  class="form-label" for="ward_id">সেক্টর/ওয়ার্ড</label>
                                     <select name="ward_id" class="form-select search_district" id="ward_id">
                                         <option value="" selected="selected">ওয়ার্ড নং</option>
                                         @forelse ($ward as $w)
@@ -169,7 +166,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="village_name">গ্রাম/পাড়া/মহল্লা:-</label>
+                                    <label  class="form-label" for="village_name">গ্রাম/পাড়া</label>
                                     <input class="form-control @error('village_name') is-invalid @enderror"
                                     name="village_name" id="village_name" value="{{ old('village_name') }}"  type="text" placeholder="গ্রামের নাম">
                                     {{-- @if($errors->has('village_name'))
@@ -180,7 +177,7 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <label  class="form-label" for="street_nm">রাস্তা/পাড়া/মহল্লা:-</label>
+                                    <label  class="form-label" for="street_nm">রাস্তা/ব্লক</label>
                                     <input class="form-control @error('street_nm') is-invalid @enderror"
                                     name="street_nm" id="street_nm" value="{{ old('street_nm') }}"  type="text" placeholder="রাস্তা/পাড়া/মহল্লা">
                                     @if($errors->has('street_nm'))
@@ -192,11 +189,80 @@
 
                             </div>
                             <div class="row m-3">
-                                <h5 class="" style="color: rgb(13, 134, 29); padding-top: 5px;">অতিরিক্ত সংযোজনঃ- </h5>
+                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">আবেদনকৃত ব্যক্তির বর্তমান ঠিকানা সমূহ</h5>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-6 mb-2">
+                                    <label  class="form-label" for="prhouse_holding_number">বাড়ির হোল্ডিং নাম্বার</label>
+                                    <input class="form-control @error('prhouse_holding_number') is-invalid @enderror"
+                                    name="prhouse_holding_number" id="prhouse_holding_number" value="{{ old('prhouse_holding_number') }}"  type="text" placeholder="ইউনিয়ন কর্তৃক পূরনকৃত।">
+                                    @if($errors->has('prhouse_holding_number'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('prhouse_holding_number') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label  class="form-label" for="prstreet_nm">রাস্তা / ব্লক</label>
+                                    <input class="form-control @error('prstreet_nm') is-invalid @enderror"
+                                    name="prstreet_nm" id="prstreet_nm" value="{{ old('prstreet_nm') }}"  type="text" placeholder="রাস্তা / ব্লক">
+                                    @if($errors->has('prstreet_nm'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('prstreet_nm') }}
+                                    </small>
+                                    @endif
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label  class="form-label" for="prvillage_name">গ্রাম / পাড়া</label>
+                                    <input class="form-control @error('prvillage_name') is-invalid @enderror"
+                                    name="prvillage_name" id="prvillage_name" value="{{ old('prvillage_name') }}"  type="text" placeholder="গ্রাম / পাড়া">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label  class="form-label" for="prward_id">সেক্টর / ওয়ার্ড</label>
+                                    <select name="prward_id" class="form-select" id="prward_id">
+                                        <option value="" selected="selected">সেক্টর / ওয়ার্ড নং</option>
+                                        @forelse ($ward as $w)
+                                        <option value="{{ $w->id }}">{{ $w->ward_name_bn }}</option>
+                                        @empty
+                                        <p>No Ward found</p>
+                                        @endforelse
+                                    </select>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label  class="form-label" for="prpost_office">ডাকঘর</label>
+                                    <input class="form-control @error('prpost_office') is-invalid @enderror"
+                                    name="prpost_office" id="prpost_office" value="{{ old('prpost_office') }}"  type="text" placeholder="ডাকঘর">
+                                    @if($errors->has('prpost_office'))
+                                    <small class="d-block text-danger">
+                                        {{ $errors->first('prpost_office') }}
+                                    </small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label >ইউনিয়ন:</label>
+                                    <b>{{ request()->session()->get('upsetting')->union?->name_bn}}</b>
+                                    <input type="hidden" name="prunion_id" value="{{ request()->session()->get('upsetting')->union_id}}"/>
+                                </div>
+                                <div class="col-4">
+                                    <label  class="form-label" for="upazila_thana">উপজেলা/থানা:</label>
+                                    <b>{{ request()->session()->get('upsetting')->upazila?->name_bn}}</b>
+                                    <input type="hidden" name="prupazila_id" value="{{ request()->session()->get('upsetting')->upazila_id}}"/>
+                                </div>
+                                <div class="col-4">
+                                    <label for="district">জেলা:</label>
+                                    <b>{{ request()->session()->get('upsetting')->district?->name_bn}}</b>
+                                    <input type="hidden" name="prdistrict_id" value="{{ request()->session()->get('upsetting')->district_id}}"/>
+                                </div>
+
+                            </div>
+                            <div class="row m-3">
+                                <h5 class="text-center theme-text-color" style="padding-top: 5px;">অতিরিক্ত সংযোজনঃ</h5>
                             </div>
                             <div class="row border border-2 m-2 p-3">
                                 <div class="col-6">
-                                    <label  class="form-label" for="nid_image">ভোটার আইডির রঙিন কপি :-</label>
+                                    <label  class="form-label" for="nid_image">ভোটার আইডির রঙিন কপি</label>
                                     <input class="form-control"
                                     name="nid_image" id="nid_image" value="{{ old('nid_image') }}"  type="file" placeholder="">
                                 </div>
