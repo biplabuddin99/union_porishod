@@ -259,13 +259,11 @@ class CitizenCertificateController extends Controller
      */
     public function edit($id)
     {
-        $division=Division::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $ward=Ward_no::all();
         $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
-        $Govt_fac = explode(',', $citizen->government_facilities);
-        return view('citizen_certificate.edit',compact('citizen','Govt_fac','division','district','thana','ward'));
+        $Mobile_bank = explode(',', $citizen?->mobile_bank);
+        $Digital_devices = explode(',', $citizen?->digital_devices);
+        $Govt_fac = explode(',', $citizen?->government_facilities);
+        return view('citizen_certificate.edit',compact('citizen','Mobile_bank','Digital_devices','Govt_fac'));
     }
 
     /**
