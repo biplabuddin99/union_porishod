@@ -44,6 +44,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route(currentUser().'.character.create')}}">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('চারিত্রিক সনদ আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="{{route(currentUser().'.allapplication.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('নতুন আবেদন')}}</span>

@@ -13,6 +13,7 @@ use App\Http\Controllers\Settings\Location\ThanaController as thana;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProfileController as profile;
 use App\Http\Controllers\CitizenCertificateController as citizen;
+use App\Http\Controllers\CharacterCertificateController as character;
 use App\Http\Controllers\HoldingController as holding;
 use App\Http\Controllers\TradeLicenseController as trade;
 use App\Http\Controllers\WarishanController as warishan;
@@ -93,6 +94,13 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/citizen_primary/{id}',[citizen::class,'primaryIndex'])->name('citizen_primary.list');
         Route::get('citizen_profile',[citizen::class,'profile'])->name('citizen_profile.list');
         Route::get('/citizens_profile/{id}',[citizen::class,'add_profile'])->name('citizens_profile');
+
+        Route::resource('character',character::class,['as'=>'admin']);
+        Route::get('character-part2/{encrypted_id}',[character::class,'FormPartSecond'])->name('charactersecondpart.form');
+        Route::post('character-part2add/{encrypted_id}',[character::class,'FormPartSecondUpdate'])->name('charactersecondpart_update');
+        Route::get('/character_primary/{id}',[character::class,'primaryIndex'])->name('character_primary.list');
+        Route::get('character_profile',[character::class,'profile'])->name('character_profile.list');
+        Route::get('/characters_profile/{id}',[character::class,'add_profile'])->name('characters_profile');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');
