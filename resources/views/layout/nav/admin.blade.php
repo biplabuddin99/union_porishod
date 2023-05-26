@@ -109,6 +109,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route(currentUser().'.character.index')}}">
+                    <i class="bi bi-list-stars"></i>
+                    {{__('চারিত্রিক সনদ')}}
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="#">
                     <i class="bi bi-list-stars"></i>
                     {{__('গ্রাম আদালত')}}

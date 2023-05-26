@@ -64,7 +64,6 @@ class CitizenCertificateController extends Controller
 
             if($request->status==2)
                 $citizen->form_no='0'.Carbon::now()->format('y').'-'. str_pad((CitizenCertificate::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
-
             $citizen->status=$request->status;
             $citizen->approved_by=currentUserId();
             $citizen->save();
