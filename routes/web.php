@@ -89,6 +89,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('profile',profile::class,['as'=>'admin']);
 
         Route::resource('citizen',citizen::class,['as'=>'admin']);
+        Route::get('citizen-firstform/{encrypted_id}',[citizen::class,'FormPartFirstUp'])->name('admin.citizenfirstpart');
+        Route::post('citizen-firstform-update/{encrypted_id}',[citizen::class,'FormPartFirstUpdate'])->name('admin.citizenfirstpartupdate');
         Route::get('citizen-part2/{encrypted_id}',[citizen::class,'FormPartSecond'])->name('citizensecondpart.form');
         Route::post('citizen-part2add/{encrypted_id}',[citizen::class,'FormPartSecondUpdate'])->name('citizensecondpart_update');
         Route::get('/citizen_primary/{id}',[citizen::class,'primaryIndex'])->name('citizen_primary.list');

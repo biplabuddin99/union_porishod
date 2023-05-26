@@ -136,6 +136,51 @@ class CitizenCertificateController extends Controller
             dd($e);
         }
     }
+
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $citizen = CitizenCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+        $Mobile_bank = explode(',', $citizen?->mobile_bank);
+        $Digital_devices = explode(',', $citizen?->digital_devices);
+        $Govt_fac = explode(',', $citizen?->government_facilities);
+        return view('citizen_certificate.edit_firstpart',compact('citizen','Mobile_bank','Digital_devices','Govt_fac'));
+    }
+
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $citizen= CitizenCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+            // $citizen->form_no=$request->form_no;
+            $citizen->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $citizen->applicant_name=$request->applicant_name;
+            $citizen->father_name=$request->father_name;
+            $citizen->mother_name=$request->mother_name;
+            $citizen->husband_wife=$request->husband_wife;
+            $citizen->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $citizen->voter_id_no=$request->voter_id_no;
+            $citizen->birth_registration_id=$request->birth_registration_id;
+            $citizen->gender=$request->gender;
+            $citizen->religion=$request->religion;
+            $citizen->marital_status=$request->marital_status;
+            $citizen->freedom_fighter=$request->freedom_fighter;
+            $citizen->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $citizen->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $citizen->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $citizen->edu_qual=$request->edu_qual;
+            $citizen->source_income=$request->source_income;
+            $citizen->phone=$request->phone;
+            $citizen->email=$request->email;
+            $citizen->bank_acc=$request->bank_acc;
+            $citizen->status=0;
+            $citizen->created_by=currentUserId();
+            $citizen->save();
+            return redirect(route('citizensecondpart.form',Crypt::encrypt($citizen->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
+    }
+
     public function FormPartSecond($encrypted_id)
     {
         $ward=Ward_no::all();

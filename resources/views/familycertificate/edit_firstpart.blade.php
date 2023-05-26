@@ -25,10 +25,10 @@
                                 </div> --}}
 
                                 <div class="col-sm-2 col-lg-2">
-                                    <label  class="form-label" for="warish_date"><b>আবেদনের তারিখ</b> </label>
+                                    <label  class="form-label" for="apply_date"><b>আবেদনের তারিখ</b> </label>
                                 </div>
                                 <div class="col-sm-2 col-lg-2 ms-0 ps-0">
-                                    <input class="form-control datepicker" name="warish_date" value="{{ old('holding_date',\Carbon\Carbon::parse($family->warish_date)->format('d-m-Y')) }}" id="warish_date" type="text">
+                                    <input class="form-control datepicker" name="apply_date" value="{{ old('holding_date',\Carbon\Carbon::parse($family->apply_date)->format('d-m-Y')) }}" id="apply_date" type="text">
                                 </div>
                             </div>
                             <div class="row m-2">
