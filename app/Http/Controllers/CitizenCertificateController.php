@@ -67,7 +67,6 @@ class CitizenCertificateController extends Controller
 
             $citizen->status=$request->status;
             $citizen->approved_by=currentUserId();
-            $citizen->updated_by=currentUserId();
             $citizen->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.citizen.index'));
@@ -263,7 +262,11 @@ class CitizenCertificateController extends Controller
         $Mobile_bank = explode(',', $citizen?->mobile_bank);
         $Digital_devices = explode(',', $citizen?->digital_devices);
         $Govt_fac = explode(',', $citizen?->government_facilities);
-        return view('citizen_certificate.edit',compact('citizen','Mobile_bank','Digital_devices','Govt_fac'));
+        $ward=Ward_no::all();
+        $districts=District::select('id','name','name_bn')->get();
+        $upazilas=Upazila::select('id','name','name_bn')->get();
+        $unions=Union::select('id','name','name_bn')->get();
+        return view('citizen_certificate.edit',compact('citizen','Mobile_bank','Digital_devices','Govt_fac','ward','districts','upazilas','unions'));
     }
 
     /**
@@ -277,69 +280,65 @@ class CitizenCertificateController extends Controller
     {
         try {
             $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
-           // $citizen->form_no=$request->form_no;
-           $citizen->holding_date=Carbon::parse($request->holding_date)->format('Y-m-d');
-           $citizen->head_household=$request->head_household;
-           $citizen->husband_wife=$request->husband_wife;
-           $citizen->father_name=$request->father_name;
-           $citizen->freedom_fighter=$request->freedom_fighter;
-           $citizen->mother_name=$request->mother_name;
-           $citizen->gender=$request->gender;
-           $citizen->birth_date=$request->birth_date;
-           $citizen->voter_id_no=$request->voter_id_no;
-           $citizen->birth_registration_id=$request->birth_registration_id;
-           $citizen->religion=$request->religion;
-           $citizen->phone=$request->phone;
-           $citizen->edu_qual=$request->edu_qual;
-           $citizen->email=$request->email;
-           $citizen->source_income=$request->source_income;
-           $citizen->marital_status=$request->marital_status;
-           $citizen->internet_connection=$request->internet_connection;
-           $citizen->tube_well=$request->tube_well;
-           $citizen->disline_connection=$request->disline_connection;
-           $citizen->paved_bathroom=$request->paved_bathroom;
-           $citizen->arsenic_free=$request->arsenic_free;
-        //    $Govt_fac = explode(',', $all->government_facilities);
-           $citizen->government_facilities=implode(',',$request->government_facilities);
-           $citizen->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
-           $citizen->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            // $citizen->form_no=$request->form_no;
+            $citizen->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $citizen->applicant_name=$request->applicant_name;
+            $citizen->father_name=$request->father_name;
+            $citizen->mother_name=$request->mother_name;
+            $citizen->husband_wife=$request->husband_wife;
+            $citizen->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $citizen->voter_id_no=$request->voter_id_no;
+            $citizen->birth_registration_id=$request->birth_registration_id;
+            $citizen->gender=$request->gender;
+            $citizen->religion=$request->religion;
+            $citizen->marital_status=$request->marital_status;
+            $citizen->freedom_fighter=$request->freedom_fighter;
+            $citizen->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $citizen->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $citizen->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $citizen->edu_qual=$request->edu_qual;
+            $citizen->source_income=$request->source_income;
+            $citizen->phone=$request->phone;
+            $citizen->email=$request->email;
+            $citizen->bank_acc=$request->bank_acc;
 
            // নাগরিক ‍সনদ আবেদনের অন্যান্য তথ্য
-           $citizen->permanent_resident=$request->permanent_resident;
-           $citizen->citizen_bangladesh=$request->citizen_bangladesh;
-           $citizen->voters_union=$request->voters_union;
-           $citizen->involved_anti_state=$request->involved_anti_state;
-           $citizen->update_holdingtax=$request->update_holdingtax;
-           $citizen->house_holding_no=$request->house_holding_no;
-           $citizen->street_nm=$request->street_nm;
-           $citizen->village_name=$request->village_name;
-           $citizen->ward_id=$request->ward_id;
-           $citizen->union_id=$request->union_id;
-           $citizen->post_office=$request->post_office;
-           $citizen->upazila_id=$request->upazila_id;
-           $citizen->district_id=$request->district_id;
-           $citizen->status=0;
+            $citizen->permanent_resident=$request->permanent_resident;
+            $citizen->citizen_bangladesh=$request->citizen_bangladesh;
+            $citizen->voters_union=$request->voters_union;
+            $citizen->voter_no=$request->voter_no;
+            $citizen->involved_anti_state=$request->involved_anti_state;
+            $citizen->house_holding_no=$request->house_holding_no;
+            $citizen->post_office=$request->post_office;
+            $citizen->district_id=$request->district_id;
+            $citizen->upazila_id=$request->upazila_id;
+            $citizen->union_id=$request->union_id;
+            $citizen->ward_id=$request->ward_id;
+            $citizen->village_name=$request->village_name;
+            $citizen->street_nm=$request->street_nm;
+            $citizen->prhouse_holding_number=$request->prhouse_holding_number;
+            $citizen->prstreet_nm=$request->prstreet_nm;
+            $citizen->prvillage_name=$request->prvillage_name;
+            $citizen->prward_id=$request->prward_id;
+            $citizen->prpost_office=$request->prpost_office;
+            $citizen->prunion_id=$request->prunion_id;
+            $citizen->prupazila_id=$request->prupazila_id;
+            $citizen->prdistrict_id=$request->prdistrict_id;
+            $citizen->updated_by=currentUserId();
 
-            $path='uploads/citizen_certificate/nid';
-           $path1='uploads/citizen_certificate/image';
-           $path2='uploads/citizen_certificate/citizen';
-           $path3='uploads/citizen_certificate/birth';
+            $path='uploads/citizen';
 
-           if($request->has('nid_image') && $request->nid_image)
-           if($this->deleteImage($citizen->nid_image,$path))
-               $citizen->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
+            if($request->has('digital_birth_certificate') && $request->digital_birth_certificate)
+            if($this->deleteImage($citizen->digital_birth_certificate,$path))
+                $citizen->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,$path,true,200,200,false);
 
             if($request->has('image') && $request->image)
-           if($this->deleteImage($citizen->image,$path1))
-               $citizen->image=$this->resizeImage($request->image,$path1,true,200,200,false);
+            if($this->deleteImage($citizen->image,$path))
+                $citizen->image=$this->resizeImage($request->image,$path,true,200,200,false);
 
-            if($request->has('holding_image') && $request->holding_image)
-           if($this->deleteImage($citizen->holding_image,$path2))
-               $citizen->holding_image=$this->resizeImage($request->holding_image,$path2,true,200,200,false);
-
-            if($request->has('image_birth_certificate') && $request->image_birth_certificate)
-           if($this->deleteImage($citizen->image_birth_certificate,$path3))
-               $citizen->image_birth_certificate=$this->resizeImage($request->image_birth_certificate,$path3,true,200,200,false);
+            if($request->has('nid_image') && $request->nid_image)
+            if($this->deleteImage($citizen->nid_image,$path))
+                $citizen->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
 
             if($citizen->save()){
                 Toastr::success('নাগরিক সনদ সফলভাবে আপডেট করা হয়েছে!!');
