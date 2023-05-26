@@ -91,10 +91,16 @@
                                                                         @csrf
                                                                         @method('PATCH')
                                                                         <tr>
-                                                                            <td>পারিবারিক সনদ ফি</td>
-                                                                            <td><input id="" class="form-control" name="family_certificate_fee" type="number" placeholder="পারিবারিক সনদ ফি"></td>
+                                                                            <td>সনদ ফি</td>
+                                                                            <td><input id="" class="form-control" name="certificate_fee" type="number" placeholder="সনদ ফি"></td>
                                                                             <td>সার্ভিস চার্জ</td>
                                                                             <td><input id="" class="form-control" name="service_charge" type="number" placeholder="সার্ভিস চার্জ"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>পরিবারের সদস্য সংখ্যা</td>
+                                                                            <td><input id="" class="form-control" name="number_family_members" type="number" placeholder="পরিবারের সদস্য সংখ্যা"></td>
+                                                                            <td>উক্ত ইউনিয়নের</td>
+                                                                            <td><input id="" class="form-control" name="of_the_union" type="text" placeholder="স্থায়ী বাসিন্দা"></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>অনুমেদনের তারিখ</td>

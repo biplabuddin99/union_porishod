@@ -1,53 +1,68 @@
 @extends('layout.app')
-{{-- @section('pageTitle',trans('citizen List'))
-@section('pageSubTitle',trans('List')) --}}
 
 @section('content')
-<section style="margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center"
-                style="margin-top: 10px; margin-bottom: 20px; border-radius: 4px; background-color: rgb(223, 183, 183);">
-                <h4 style="color: rgb(29, 28, 28); padding-top: 5px;">নাগরিক সনদ প্রোফাইল</h4>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="section">
     <div class="row" id="table-bordered">
         <div class="col-12">
 
             <div class="card">
-                <div class="table-responsive">
-                    <table class="table table-bordered mb-0">
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-block">
+                            <h5 style="padding-top: 5px;">অনুমোদিত নাগরিক সনদ তালিকা</h5>
+                        </div>
+                    </div>
+                </div>
+                @if(Session::has('response'))
+                    {!!Session::get('response')['message']!!}
+                @endif
+                <!-- table bordered -->
+                <div class="table-responsive mt-2">
+                    <table class="table" id="table1">
                         <thead>
                             <tr>
-                                <th width="3%"> ক্রমিক </th>
-                                <th width="70">ছবি</th>
-                                <th>ব্যাক্তির নাম </th>
-                                <th>মাতা </th>
-                                <th>পিতা/স্বামী</th>
-                                <th width="13%"> কর্মকাণ্ড  </th>
+                                <th> ক্রমিক </th>
+                                <th>অনুমোদন তাং</th>
+                                <th>আবেদনকারীর নাম</th>
+                                <th>পেশা</th>
+                                <th>হোল্ডিং</th>
+                                <th>ওয়ার্ড</th>
+                                <th>সদস্য</th>
+                                <th>মোবাইল</th>
+                                <th>সনদ ফি</th>
+                                <th>ছবি</th>
+                                <th>ভিউ</th>
+                                <th>প্রিন্ট</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($citizen as $c)
+                            @forelse($citizen as $p)
                             <tr>
-                                <th scope="row">{{ ++$loop->index }}</th>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/citizen_certificate/image')}}/{{ $c->image}}" alt=""></td>
-                                <td>{{$c->head_household}}</td>
-                                <td>{{$c->mother_name}}</td>
-                                <td>{{$c->husband_wife}}</td>
-                                <td class="white-space-nowrap">
-                                    <a href="{{route(currentUser().'.citizen.show',encryptor('encrypt',$c->id))}}">
+                            <th scope="row">{{ ++$loop->index }}</th>
+                                <td>{{\Carbon\Carbon::parse($p->approval_date)->format('d-m-Y')}}</td>
+                                <td>{{$p->applicant_name}}</td>
+                                <td>{{$p->income?->name}}</td>
+                                <td>{{$p->house_holding_no}}</td>
+                                <td>{{$p->ward?->ward_name_bn}}</td>
+                                <td>{{$p->number_family_members}}</td>
+                                <td>{{$p->phone}}</td>
+                                <td>{{$p->certificate_fee}}</td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/citizen')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
+                                <td>
+                                    <a href="{{route('citizen_primary.list',Crypt::encrypt($p->id))}}">
                                         <i class="bi bi-eye-fill"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a  href="{{route(currentUser().'.citizen.show',encryptor('encrypt',$p->id))}}">
+                                        <i class="bi bi-printer"></i>
                                     </a>
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <th colspan="8" class="text-center">No citizen Found</th>
+                                <th colspan="12" class="text-center">No citizen Found</th>
                             </tr>
                             @endforelse
                         </tbody>

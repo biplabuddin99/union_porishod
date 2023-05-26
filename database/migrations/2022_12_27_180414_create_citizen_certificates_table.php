@@ -62,13 +62,16 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nid_image')->nullable();
             $table->string('digital_birth_certificate')->nullable();
-            $table->string('citizen_certificate_fee')->nullable();
+            $table->string('certificate_fee')->nullable();
+            $table->string('service_charge')->nullable();
+            $table->string('number_family_members')->nullable();
+            $table->string('of_the_union')->nullable();
             $table->string('approval_date')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->string('status')->default(0);
-            $table->integer('approved_by')->nullable();
             $table->integer('chairman_id')->nullable();
             $table->integer('created_by')->nullable();
+            $table->integer('approved_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();

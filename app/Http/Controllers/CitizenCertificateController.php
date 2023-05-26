@@ -33,15 +33,10 @@ class CitizenCertificateController extends Controller
     public function primaryIndex($id)
     {
         $citizen=CitizenCertificate::where('id',Crypt::decrypt($id))->first();
-        $districts=District::where('id',$citizen?->district_id)->select('id','name','name_bn')->first();
-        $upazilas=Upazila::where('id',$citizen?->upazila_id)->select('id','name','name_bn')->first();
-        $unions=Union::where('id',$citizen?->union_id)->select('id','name','name_bn')->first();
-        $wards=Ward_no::select('id','ward_name','ward_name_bn')->first();
         $Mobile = explode(',', $citizen?->mobile_bank);
         $Digital_devices = explode(',', $citizen?->digital_devices);
         $Govt_fac = explode(',', $citizen?->government_facilities);
-        $Business_tax = explode(',', $citizen?->business_taxes);
-        return view('citizen_certificate.primary_index',compact('citizen','Mobile','Govt_fac','Digital_devices','Business_tax','districts','upazilas','unions','wards'));
+        return view('citizen_certificate.primary_index',compact('citizen','Mobile','Govt_fac','Digital_devices'));
     }
 
     public function index()
@@ -52,7 +47,7 @@ class CitizenCertificateController extends Controller
 
     public function profile()
     {
-        $citizen=CitizenCertificate::where('status',1)->get();
+        $citizen=CitizenCertificate::where('status',2)->get();
         return view('citizen_certificate.profile',compact('citizen'));
     }
 
@@ -60,10 +55,19 @@ class CitizenCertificateController extends Controller
     {
         try{
             $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
-            $citizen->citizen_certificate_fee=$request->citizen_certificate_fee;
-            $citizen->approval_date=$request->approval_date;
+            $citizen->certificate_fee=$request->certificate_fee;
+            $citizen->service_charge=$request->service_charge;
+            $citizen->number_family_members=$request->number_family_members;
+            $citizen->of_the_union=$request->of_the_union;
+            $citizen->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $citizen->cancel_reason=$request->cancel_reason;
-            $citizen->status=$request->cancel_reason==""?1:2;
+
+            if($request->status==2)
+                $citizen->form_no='0'.Carbon::now()->format('y').'-'. str_pad((CitizenCertificate::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
+
+            $citizen->status=$request->status;
+            $citizen->approved_by=currentUserId();
+            $citizen->updated_by=currentUserId();
             $citizen->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
             return redirect(route(currentUser().'.citizen.index'));
@@ -195,7 +199,11 @@ class CitizenCertificateController extends Controller
     public function show($id)
     {
         $citizen=CitizenCertificate::findOrFail(encryptor('decrypt',$id));
-        return view('citizen_certificate.show',compact('citizen'));
+        $districts=District::where('id',$citizen->prdistrict_id)->select('id','name','name_bn')->first();
+        $upazilas=Upazila::where('id',$citizen->prupazila_id)->select('id','name','name_bn')->first();
+        $unions=Union::where('id',$citizen->prunion_id)->select('id','name','name_bn')->first();
+        $wards=Ward_no::where('id',$citizen->prward_id)->select('id','ward_name','ward_name_bn')->first();
+        return view('citizen_certificate.show',compact('citizen','wards','upazilas','districts'));
     }
 
     /**
