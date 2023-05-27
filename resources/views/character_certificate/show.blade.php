@@ -35,7 +35,7 @@
                     <div class="col-4" style="padding-left: 150px;">
                         <img height="150px" width="150px"  src="{{ asset('uploads/character') }}/{{ $character->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: HOUSE-NUM/{{ $character->form_no }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: CHARACTER/{{ $character->form_no }}</h5>
                 </div>
                 <div class="row">
                     <p style="border-bottom: 3px solid rgb(30, 94, 5); border-top: 3px solid rgb(30, 94, 5); padding-top: 5px;">

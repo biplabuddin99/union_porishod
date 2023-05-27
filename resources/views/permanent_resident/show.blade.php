@@ -22,28 +22,28 @@
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">নাগরিক সনদ ইস্যুর বিবরন</strong></p>
-                        <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($citizen->apply_date)->format('d-m-Y') }}<br>
-                            ইস্যুর সময়ঃ {{ $citizen->created_at->format("h:i:s A") }}</p>
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">স্থায়ী বাসিন্দা সনদ ইস্যুর বিবরন</strong></p>
+                        <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($permanent->apply_date)->format('d-m-Y') }}<br>
+                            ইস্যুর সময়ঃ {{ $permanent->created_at->format("h:i:s A") }}</p>
                     </div>
                     <div class="col-5 col-sm-5" style="padding-left: 110px; padding-top: 5px;">
                         <div style="text-align: center;">
                             <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                         </div>
-                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-নাগরিক সনদ</h4>
+                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-স্থায়ী বাসিন্দা সনদ</h4>
                     </div>
                     <div class="col-4" style="padding-left: 150px;">
-                        <img height="150px" width="150px"  src="{{ asset('uploads/citizen') }}/{{ $citizen->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
+                        <img height="150px" width="150px"  src="{{ asset('uploads/permanent') }}/{{ $permanent->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: CITIZENS/{{ $citizen->form_no }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: PERMANENT/{{ $permanent->form_no }}</h5>
                 </div>
                 <div class="row">
                     <p style="border-bottom: 3px solid rgb(30, 94, 5); border-top: 3px solid rgb(30, 94, 5); padding-top: 5px;">
                         স্থানীয় সরকার (ইউনিয়ন পরিষদ) আইন,২০০৯ সনের আইন এর ধারা ৮৪-তে প্রদত্ত ক্ষমতাবলে সরকার প্রনীত আদর্শ
-                        অনুযায়ী নিন্মে বর্ণিত ব্যক্তির অনুকুলে অত্র নাগরিক সনদ ইস্যু করা হচ্ছে।
+                        অনুযায়ী নিন্মে বর্ণিত ব্যক্তির অনুকুলে অত্র স্থায়ী বাসিন্দা সনদ ইস্যু করা হচ্ছে।
                     </p>
-                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে,তিনি জন্মসূত্রে বাংলাদেশের নাগরিক ও উক্ত ইউনিয়নের স্থায়ী বাসীন্দা।<br/>
-                        তিনি আমার পরিচিত। আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কাজের সাথে জড়িত নয়।
+                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে,তিনি অত্র ইউনিয়নের স্থায়ী বাসিন্দা এবং জন্মসূত্রে বাংলাদেশের নাগরিক।<br/>
+                        আমি তাকে ব্যক্তিগতভাবে জানি ও চিনি।আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কাজের সাথে জড়িত নয়।
                     </p>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <span  class="form-label" for="">ব্যক্তির নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->applicant_name }}</span>
+                    <span  class="form-label" for="">{{ $permanent->applicant_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -71,7 +71,7 @@
                     <span  class="form-label" for="">পিতার নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->father_name }}</span>
+                    <span  class="form-label" for="">{{ $permanent->father_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -82,7 +82,7 @@
                     <span  class="form-label" for="">মাতার নাম :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->mother_name }}</span>
+                    <span  class="form-label" for="">{{ $permanent->mother_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -93,7 +93,7 @@
                     <span  class="form-label" for="">স্বামী/স্ত্রীর নাম:</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->husband_wife }}</span>
+                    <span  class="form-label" for="">{{ $permanent->husband_wife }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -104,26 +104,26 @@
                     <span  class="form-label" for="">জন্ম তারিখ :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->birth_date }}</span>
+                    <span  class="form-label" for="">{{ $permanent->birth_date }}</span>
                 </div>
             </div>
             <div class="row m-2">
                 <div class="col-1">
                     <span  class="form-label" for="">৬।</span>
                 </div>
-                @if($citizen->voter_id_no)
+                @if($permanent->voter_id_no)
                 <div class="col-5">
                     <span  class="form-label" for="">ভোটার আইডি :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->voter_id_no }}</span>
+                    <span  class="form-label" for="">{{ $permanent->voter_id_no }}</span>
                 </div>
                 @else
                 <div class="col-5">
                     <span  class="form-label" for="">ডিজিটাল জন্ম নিবন্ধন :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->birth_registration_id }}</span>
+                    <span  class="form-label" for="">{{ $permanent->birth_registration_id }}</span>
                 </div>
                 @endif
             </div>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">
-                        {{$citizen->income?->name}}
+                        {{$permanent->income?->name}}
                     </span>
                 </div>
             </div>
@@ -149,15 +149,15 @@
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">
-                        @if ($citizen->religion ==1)
+                        @if ($permanent->religion ==1)
                         ইসলাম
-                        @elseif ($citizen->religion ==2)
+                        @elseif ($permanent->religion ==2)
                         হিন্দু
-                        @elseif ($citizen->religion ==3)
+                        @elseif ($permanent->religion ==3)
                         বৌদ্ধ
-                        @elseif ($citizen->religion ==4)
+                        @elseif ($permanent->religion ==4)
                         খ্রিষ্টান
-                        @elseif ($citizen->religion ==5)
+                        @elseif ($permanent->religion ==5)
                         উপজাতি
                         @endif
                     </span>
@@ -179,7 +179,7 @@
                     <span  class="form-label" for="">হোল্ডিং নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->prhouse_holding_number }}</span>
+                    <span  class="form-label" for="">{{ $permanent->house_holding_no }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -190,7 +190,7 @@
                     <span  class="form-label" for="">রাস্তা/ব্লক:</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->prstreet_nm }}</span>
+                    <span  class="form-label" for="">{{ $permanent->street_nm }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -201,7 +201,7 @@
                     <span  class="form-label" for="">ওয়ার্ড নং :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $wards->ward_name_bn }}</span>
+                    <span  class="form-label" for="">{{ $permanent->ward->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -212,7 +212,7 @@
                     <span  class="form-label" for="">গ্রাম/পাড়া :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->prvillage_name }}</span>
+                    <span  class="form-label" for="">{{ $permanent->village_name }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -223,7 +223,7 @@
                     <span  class="form-label" for="">ডাকঘর :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->prpost_office }}</span>
+                    <span  class="form-label" for="">{{ $permanent->post_office }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -234,7 +234,7 @@
                     <span  class="form-label" for="">উপজেলা/থানা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $upazilas->name_bn }}</span>
+                    <span  class="form-label" for="">{{ $permanent->upazila->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -245,7 +245,7 @@
                     <span  class="form-label" for="">জেলা :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $districts->name_bn }}</span>
+                    <span  class="form-label" for="">{{ $permanent->district->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -264,7 +264,7 @@
                     <span  class="form-label" for="">ফোন/মোবাইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->phone }}</span>
+                    <span  class="form-label" for="">{{ $permanent->phone }}</span>
                 </div>
             </div>
             <div class="row m-2">
@@ -275,7 +275,7 @@
                     <span  class="form-label" for="">ইমেইল :</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $citizen->email }}</span>
+                    <span  class="form-label" for="">{{ $permanent->email }}</span>
                 </div>
             </div>
         </div>
@@ -291,7 +291,7 @@
                     <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                 </div>
                 <div class="col-4" style="color: rgb(18, 5, 133);align-self: end;">
-                    <div class="row"><strong>({{ $citizen->chairman?->name}})</strong></div>
+                    <div class="row"><strong>({{ $permanent->chairman?->name}})</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
                     <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
                     <div class="row" style="padding-left: 40px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>

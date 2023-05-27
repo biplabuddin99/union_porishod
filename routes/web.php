@@ -110,11 +110,11 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('permanentresident',permanentresident::class,['as'=>'admin']);
         Route::get('character-firstform/{encrypted_id}',[character::class,'FormPartFirstUp'])->name('admin.characterfirstpart');
         Route::post('character-firstform-update/{encrypted_id}',[character::class,'FormPartFirstUpdate'])->name('admin.characterfirstpartupdate');
-        Route::get('character-part2/{encrypted_id}',[character::class,'FormPartSecond'])->name('charactersecondpart.form');
-        Route::post('character-part2add/{encrypted_id}',[character::class,'FormPartSecondUpdate'])->name('charactersecondpart_update');
-        Route::get('/character_primary/{id}',[character::class,'primaryIndex'])->name('character_primary.list');
-        Route::get('character_profile',[character::class,'profile'])->name('character_profile.list');
-        Route::get('/characters_profile/{id}',[character::class,'add_profile'])->name('characters_profile');
+        Route::get('permanent-part2/{encrypted_id}',[permanentresident::class,'FormPartSecond'])->name('permanentsecondpart.form');
+        Route::post('permanent-part2add/{encrypted_id}',[permanentresident::class,'FormPartSecondUpdate'])->name('permanentsecondpart_update');
+        Route::get('/permanent_primary/{id}',[permanentresident::class,'primaryIndex'])->name('permanent_primary.list');
+        Route::get('permanents_profile',[permanentresident::class,'profile'])->name('permanents_profile.list');
+        Route::get('/permanents_profile/{id}',[permanentresident::class,'add_profile'])->name('permanents_profile');
 
         Route::resource('holding',holding::class,['as'=>'admin']);
         Route::get('hold-firstform/{encrypted_id}',[holding::class,'FormPartFirstUp'])->name('admin.holdingfirstpart');

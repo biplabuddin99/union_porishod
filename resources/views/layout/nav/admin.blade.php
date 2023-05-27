@@ -55,12 +55,12 @@
                     <span>{{__('স্থায়ী বাসিন্দা আবেদন')}}</span>
                 </a>
             </li>
-            <li class="py-1">
+            {{--  <li class="py-1">
                 <a href="{{route(currentUser().'.allapplication.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('নতুন আবেদন')}}</span>
                 </a>
-            </li>
+            </li>  --}}
             <li class="py-1">
                 <a href="#">
                     <i class="bi bi-bag-plus-fill"></i>
@@ -118,6 +118,12 @@
                 <a href="{{route(currentUser().'.character.index')}}">
                     <i class="bi bi-list-stars"></i>
                     {{__('চারিত্রিক সনদ')}}
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="{{route(currentUser().'.permanentresident.index')}}">
+                    <i class="bi bi-list-stars"></i>
+                    {{__('স্থায়ী বাসিন্দা')}}
                 </a>
             </li>
             <li class="py-1">
@@ -189,6 +195,12 @@
                 <a href="{{route('character_profile.list')}}">
                     <i class="bi bi-person-check"></i>
                     {{__('চারিত্রিক সনদ')}}
+                </a>
+            </li>
+            <li class="py-1">
+                <a href="{{route('permanents_profile.list')}}">
+                    <i class="bi bi-person-check"></i>
+                    {{__('স্থায়ী বাসিন্দা')}}
                 </a>
             </li>
             <li class="py-1">

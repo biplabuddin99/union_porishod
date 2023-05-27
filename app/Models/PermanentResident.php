@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Settings\Location\District;
+use App\Models\Settings\Location\Upazila;
+use App\Models\Settings\Location\Union;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PermanentResident extends Model
 {
