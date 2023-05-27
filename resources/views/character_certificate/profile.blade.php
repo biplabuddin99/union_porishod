@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center heading-block">
-                            <h5 style="padding-top: 5px;">অনুমোদিত নাগরিক সনদ তালিকা</h5>
+                            <h5 style="padding-top: 5px;">অনুমোদিত চারিত্রিক সনদ তালিকা</h5>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($chatacter as $p)
+                            @forelse($character as $p)
                             <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
                                 <td>{{\Carbon\Carbon::parse($p->approval_date)->format('d-m-Y')}}</td>
@@ -45,26 +45,24 @@
                                 <td>{{$p->income?->name}}</td>
                                 <td>{{$p->house_holding_no}}</td>
                                 <td>{{$p->ward?->ward_name_bn}}</td>
-                                <td>{{@if ($p->permanent_resident)
-                                    স্থায়ী বাসিন্দা @else অস্থায়ী বাসিন্দা @endif}}
-                                </td>
+                                <td> @if ($p->permanent_resident==1) স্থায়ী বাসিন্দা @else অস্থায়ী বাসিন্দা @endif </td>
                                 <td>{{$p->phone}}</td>
                                 <td>{{$p->certificate_fee}}</td>
-                                <td><img width="70px" height="50px" src="{{asset('uploads/citizen')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{asset('uploads/character')}}/{{ $p->image}}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>
-                                    <a href="{{route('citizen_primary.list',Crypt::encrypt($p->id))}}">
+                                    <a href="{{route('character_primary.list',Crypt::encrypt($p->id))}}">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a  href="{{route(currentUser().'.citizen.show',encryptor('encrypt',$p->id))}}">
+                                    <a  href="{{route(currentUser().'.character.show',encryptor('encrypt',$p->id))}}">
                                         <i class="bi bi-printer"></i>
                                     </a>
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <th colspan="12" class="text-center">No citizen Found</th>
+                                <th colspan="12" class="text-center">No character Found</th>
                             </tr>
                             @endforelse
                         </tbody>

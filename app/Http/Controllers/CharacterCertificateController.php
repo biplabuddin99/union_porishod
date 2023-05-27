@@ -38,37 +38,38 @@ class CharacterCertificateController extends Controller
 
     public function index()
     {
-        $chatacter=CharacterCertificate::where('status',1)->get();
-        return view('character_certificate.index',compact('chatacter'));
+        $character=CharacterCertificate::where('status',1)->get();
+        return view('character_certificate.index',compact('character'));
     }
 
     public function profile()
     {
-        $chatacter=CharacterCertificate::where('status',2)->get();
-        return view('character_certificate.profile',compact('chatacter'));
+        $character=CharacterCertificate::where('status',2)->get();
+        return view('character_certificate.profile',compact('character'));
     }
 
     public function add_profile(Request $request, $id)
     {
         try{
-            $chatacter=CharacterCertificate::findOrFail(encryptor('decrypt',$id));
-            $chatacter->certificate_fee=$request->certificate_fee;
-            $chatacter->service_charge=$request->service_charge;
-            $chatacter->as_i_know=$request->as_i_know;
-            $chatacter->of_the_union=$request->of_the_union;
-            $chatacter->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
-            $chatacter->cancel_reason=$request->cancel_reason;
+            $character=CharacterCertificate::findOrFail(encryptor('decrypt',$id));
+            $character->certificate_fee=$request->certificate_fee;
+            $character->service_charge=$request->service_charge;
+            $character->as_i_know=$request->as_i_know;
+            $character->of_the_union=$request->of_the_union;
+            $character->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
+            $character->cancel_reason=$request->cancel_reason;
 
             if($request->status==2)
-                $chatacter->form_no='0'.Carbon::now()->format('y').'-'. str_pad((CharacterCertificate::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
-            $chatacter->status=$request->status;
-            $chatacter->approved_by=currentUserId();
-            $chatacter->save();
+                $character->form_no='0'.Carbon::now()->format('y').'-'. str_pad((CharacterCertificate::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
+            $character->status=$request->status;
+            $character->approved_by=currentUserId();
+            $character->save();
             Toastr::success('প্রোফাইলে যুক্ত করা হয়েছে!');
-            return redirect(route(currentUser().'.chatacter.index'));
+            return redirect(route(currentUser().'.character.index'));
             // dd($request);
         }
         catch (Exception $e){
+            dd($e);
             return back()->withInput();
 
         }
@@ -132,6 +133,50 @@ class CharacterCertificateController extends Controller
         }
     }
 
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $character = CharacterCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+        $Mobile_bank = explode(',', $character?->mobile_bank);
+        $Digital_devices = explode(',', $character?->digital_devices);
+        $Govt_fac = explode(',', $character?->government_facilities);
+        return view('character_certificate.edit_firstpart',compact('character','Mobile_bank','Digital_devices','Govt_fac'));
+    }
+
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $character= CharacterCertificate::findOrFail(Crypt::decrypt($encrypted_id));
+            // $character->form_no=$request->form_no;
+            $character->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $character->applicant_name=$request->applicant_name;
+            $character->father_name=$request->father_name;
+            $character->mother_name=$request->mother_name;
+            $character->husband_wife=$request->husband_wife;
+            $character->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $character->voter_id_no=$request->voter_id_no;
+            $character->birth_registration_id=$request->birth_registration_id;
+            $character->gender=$request->gender;
+            $character->religion=$request->religion;
+            $character->marital_status=$request->marital_status;
+            $character->freedom_fighter=$request->freedom_fighter;
+            $character->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $character->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $character->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $character->edu_qual=$request->edu_qual;
+            $character->source_income=$request->source_income;
+            $character->phone=$request->phone;
+            $character->email=$request->email;
+            $character->bank_acc=$request->bank_acc;
+            $character->status=0;
+            $character->created_by=currentUserId();
+            $character->save();
+            return redirect(route('charactersecondpart.form',Crypt::encrypt($character->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
+    }
+
     public function FormPartSecond($encrypted_id)
     {
         $ward=Ward_no::all();
@@ -185,9 +230,10 @@ class CharacterCertificateController extends Controller
      * @param  \App\Models\CharacterCertificate  $characterCertificate
      * @return \Illuminate\Http\Response
      */
-    public function show(CharacterCertificate $characterCertificate)
+    public function show($id)
     {
-        //
+        $character=CharacterCertificate::findOrFail(encryptor('decrypt',$id));
+        return view('character_certificate.show',compact('character'));
     }
 
     /**

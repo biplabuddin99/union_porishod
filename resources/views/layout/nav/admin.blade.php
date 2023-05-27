@@ -180,6 +180,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route('character_profile.list')}}">
+                    <i class="bi bi-person-check"></i>
+                    {{__('চারিত্রিক সনদ')}}
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="#">
                     <i class="bi bi-person-check"></i>
                     {{__('অন্যান্য')}}

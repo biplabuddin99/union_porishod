@@ -34,14 +34,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($chatacter as $p)
+                            @forelse($character as $p)
                             <tr>
                                 <th>{{ ++$loop->index }}</th>
                                 <td>{{\Carbon\Carbon::parse($p->apply_date)->format('d-m-Y')}}</td>
                                 <td>{{$p->applicant_name}}</td>
                                 <td>{{$p->income?->name}}</td>
                                 <td>{{$p->phone}}</td>
-                                <td><img width="70px" height="50px" src="{{ asset('uploads/citizen') }}/{{ $p->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
+                                <td><img width="70px" height="50px" src="{{ asset('uploads/character') }}/{{ $p->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $p->id }}">যুক্ত করুন</button>
                                     <div class="modal fade" id="modal{{ $p->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $p->id }}Title" aria-hidden="true">
