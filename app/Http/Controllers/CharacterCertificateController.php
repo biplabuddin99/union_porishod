@@ -262,9 +262,74 @@ class CharacterCertificateController extends Controller
      * @param  \App\Models\CharacterCertificate  $characterCertificate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CharacterCertificate $characterCertificate)
+    public function update(Request $request,$id)
     {
-        //
+        try {
+            $character=CharacterCertificate::findOrFail(encryptor('decrypt',$id));
+            // $character->form_no=$request->form_no;
+            $character->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $character->applicant_name=$request->applicant_name;
+            $character->father_name=$request->father_name;
+            $character->mother_name=$request->mother_name;
+            $character->husband_wife=$request->husband_wife;
+            $character->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $character->voter_id_no=$request->voter_id_no;
+            $character->birth_registration_id=$request->birth_registration_id;
+            $character->gender=$request->gender;
+            $character->religion=$request->religion;
+            $character->marital_status=$request->marital_status;
+            $character->freedom_fighter=$request->freedom_fighter;
+            $character->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $character->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $character->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $character->edu_qual=$request->edu_qual;
+            $character->source_income=$request->source_income;
+            $character->phone=$request->phone;
+            $character->email=$request->email;
+            $character->bank_acc=$request->bank_acc;
+
+           // নাগরিক ‍সনদ আবেদনের অন্যান্য তথ্য
+            $character->permanent_resident=$request->permanent_resident;
+            $character->citizen_bangladesh=$request->citizen_bangladesh;
+            $character->voters_union=$request->voters_union;
+            $character->voter_no=$request->voter_no;
+            $character->involved_anti_state=$request->involved_anti_state;
+            $character->house_holding_no=$request->house_holding_no;
+            $character->post_office=$request->post_office;
+            $character->district_id=$request->district_id;
+            $character->upazila_id=$request->upazila_id;
+            $character->union_id=$request->union_id;
+            $character->ward_id=$request->ward_id;
+            $character->village_name=$request->village_name;
+            $character->street_nm=$request->street_nm;
+            $character->updated_by=currentUserId();
+
+            $path='uploads/character';
+
+            if($request->has('digital_birth_certificate') && $request->digital_birth_certificate)
+            if($this->deleteImage($character->digital_birth_certificate,$path))
+                $character->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,$path,true,200,200,false);
+
+            if($request->has('image') && $request->image)
+            if($this->deleteImage($character->image,$path))
+                $character->image=$this->resizeImage($request->image,$path,true,200,200,false);
+
+            if($request->has('nid_image') && $request->nid_image)
+            if($this->deleteImage($character->nid_image,$path))
+                $character->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
+
+            if($character->save()){
+                Toastr::success('চারিত্রিক সনদ সফলভাবে আপডেট করা হয়েছে!!');
+                return redirect()->route(currentUser().'.character.index');
+            }else{
+                Toastr::info('Please try Again!');
+                return redirect()->back();
+                }
+
+        } catch (Exception $e) {
+            Toastr::info('Please try Again!');
+            dd($e);
+        }
     }
 
     /**
