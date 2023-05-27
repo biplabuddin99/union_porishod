@@ -50,6 +50,12 @@
                 </a>
             </li>
             <li class="py-1">
+                <a href="{{route(currentUser().'.permanentresident.create')}}">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    <span>{{__('স্থায়ী বাসিন্দা আবেদন')}}</span>
+                </a>
+            </li>
+            <li class="py-1">
                 <a href="{{route(currentUser().'.allapplication.create')}}">
                     <i class="bi bi-bag-plus-fill"></i>
                     <span>{{__('নতুন আবেদন')}}</span>

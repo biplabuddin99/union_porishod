@@ -249,10 +249,7 @@ class CharacterCertificateController extends Controller
         $Digital_devices = explode(',', $character?->digital_devices);
         $Govt_fac = explode(',', $character?->government_facilities);
         $ward=Ward_no::all();
-        $districts=District::select('id','name','name_bn')->get();
-        $upazilas=Upazila::select('id','name','name_bn')->get();
-        $unions=Union::select('id','name','name_bn')->get();
-        return view('character_certificate.edit',compact('character','Mobile_bank','Digital_devices','Govt_fac','ward','districts','upazilas','unions'));
+        return view('character_certificate.edit',compact('character','Mobile_bank','Digital_devices','Govt_fac','ward'));
     }
 
     /**
