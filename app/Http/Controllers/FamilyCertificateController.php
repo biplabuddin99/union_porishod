@@ -314,6 +314,22 @@ class FamilyCertificateController extends Controller
             if($this->deleteImage($family->nid_image,$path))
                 $family->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
             if($family->save()){
+                if($request->cname){
+                    $dl=FamilyMemberChild::where('family_certificate_id',$family->id)->delete();
+                    foreach($request->cname as $key => $value){
+                        // dd($request->all());
+                        if($value){
+                        $cwarisan = new FamilyMemberChild;
+                        $cwarisan->family_certificate_id=$family->id;
+                        $cwarisan->name=$request->cname[$key];
+                        $cwarisan->ralation=$request->crelation[$key];
+                        $cwarisan->birth_date=$request->cbirth_date[$key];
+                        $cwarisan->cnid=$request->cnid[$key];
+                        $cwarisan->ccomments=$request->ccomments[$key];
+                        $cwarisan->save();
+                    }
+                    }
+                }
             Toastr::success('আপডেট সফলভাবে সম্পন্ন করা হয়েছে!!');
             return redirect()->route(currentUser().'.family.index');
             }else{

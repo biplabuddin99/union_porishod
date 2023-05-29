@@ -133,6 +133,50 @@ class PermanentResidentController extends Controller
         }
     }
 
+    public function FormPartFirstUp(Request $request, $encrypted_id)
+    {
+        $permanent = PermanentResident::findOrFail(Crypt::decrypt($encrypted_id));
+        $Mobile_bank = explode(',', $permanent?->mobile_bank);
+        $Digital_devices = explode(',', $permanent?->digital_devices);
+        $Govt_fac = explode(',', $permanent?->government_facilities);
+        return view('permanent_resident.edit_firstpart',compact('permanent','Mobile_bank','Digital_devices','Govt_fac'));
+    }
+
+    public function FormPartFirstUpdate(Request $request, $encrypted_id)
+    {
+        try{
+            $permanent= PermanentResident::findOrFail(Crypt::decrypt($encrypted_id));
+            // $permanent->form_no=$request->form_no;
+            $permanent->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $permanent->applicant_name=$request->applicant_name;
+            $permanent->father_name=$request->father_name;
+            $permanent->mother_name=$request->mother_name;
+            $permanent->husband_wife=$request->husband_wife;
+            $permanent->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $permanent->voter_id_no=$request->voter_id_no;
+            $permanent->birth_registration_id=$request->birth_registration_id;
+            $permanent->gender=$request->gender;
+            $permanent->religion=$request->religion;
+            $permanent->marital_status=$request->marital_status;
+            $permanent->freedom_fighter=$request->freedom_fighter;
+            $permanent->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $permanent->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $permanent->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $permanent->edu_qual=$request->edu_qual;
+            $permanent->source_income=$request->source_income;
+            $permanent->phone=$request->phone;
+            $permanent->email=$request->email;
+            $permanent->bank_acc=$request->bank_acc;
+            $permanent->status=0;
+            $permanent->created_by=currentUserId();
+            $permanent->save();
+            return redirect(route('permanentsecondpart.form',Crypt::encrypt($permanent->id)));
+        }
+        catch (Exception $e){
+            return back()->withInput();
+        }
+    }
+
     public function FormPartSecond($encrypted_id)
     {
         $ward=Ward_no::all();
@@ -198,9 +242,14 @@ class PermanentResidentController extends Controller
      * @param  \App\Models\PermanentResident  $permanentResident
      * @return \Illuminate\Http\Response
      */
-    public function edit(PermanentResident $permanentResident)
+    public function edit($id)
     {
-        //
+        $permanent=PermanentResident::findOrFail(encryptor('decrypt',$id));
+        $Mobile_bank = explode(',', $permanent?->mobile_bank);
+        $Digital_devices = explode(',', $permanent?->digital_devices);
+        $Govt_fac = explode(',', $permanent?->government_facilities);
+        $ward=Ward_no::all();
+        return view('permanent_resident.edit',compact('permanent','Mobile_bank','Digital_devices','Govt_fac','ward'));
     }
 
     /**
@@ -210,9 +259,74 @@ class PermanentResidentController extends Controller
      * @param  \App\Models\PermanentResident  $permanentResident
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PermanentResident $permanentResident)
+    public function update(Request $request,$id)
     {
-        //
+        try {
+            $permanent=PermanentResident::findOrFail(encryptor('decrypt',$id));
+            // $permanent->form_no=$request->form_no;
+            $permanent->apply_date=Carbon::parse($request->apply_date)->format('Y-m-d');
+            $permanent->applicant_name=$request->applicant_name;
+            $permanent->father_name=$request->father_name;
+            $permanent->mother_name=$request->mother_name;
+            $permanent->husband_wife=$request->husband_wife;
+            $permanent->birth_date=Carbon::parse($request->birth_date)->format('Y-m-d');
+            $permanent->voter_id_no=$request->voter_id_no;
+            $permanent->birth_registration_id=$request->birth_registration_id;
+            $permanent->gender=$request->gender;
+            $permanent->religion=$request->religion;
+            $permanent->marital_status=$request->marital_status;
+            $permanent->freedom_fighter=$request->freedom_fighter;
+            $permanent->mobile_bank=$request->mobile_bank?implode(',',$request->mobile_bank):'';
+            $permanent->digital_devices=$request->digital_devices?implode(',',$request->digital_devices):'';
+            $permanent->government_facilities=$request->government_facilities?implode(',',$request->government_facilities):'';
+            $permanent->edu_qual=$request->edu_qual;
+            $permanent->source_income=$request->source_income;
+            $permanent->phone=$request->phone;
+            $permanent->email=$request->email;
+            $permanent->bank_acc=$request->bank_acc;
+
+           // নাগরিক ‍সনদ আবেদনের অন্যান্য তথ্য
+            $permanent->permanent_resident=$request->permanent_resident;
+            $permanent->citizen_bangladesh=$request->citizen_bangladesh;
+            $permanent->voters_union=$request->voters_union;
+            $permanent->voter_no=$request->voter_no;
+            $permanent->involved_anti_state=$request->involved_anti_state;
+            $permanent->house_holding_no=$request->house_holding_no;
+            $permanent->post_office=$request->post_office;
+            $permanent->district_id=$request->district_id;
+            $permanent->upazila_id=$request->upazila_id;
+            $permanent->union_id=$request->union_id;
+            $permanent->ward_id=$request->ward_id;
+            $permanent->village_name=$request->village_name;
+            $permanent->street_nm=$request->street_nm;
+            $permanent->updated_by=currentUserId();
+
+            $path='uploads/permanent';
+
+            if($request->has('digital_birth_certificate') && $request->digital_birth_certificate)
+            if($this->deleteImage($permanent->digital_birth_certificate,$path))
+                $permanent->digital_birth_certificate=$this->resizeImage($request->digital_birth_certificate,$path,true,200,200,false);
+
+            if($request->has('image') && $request->image)
+            if($this->deleteImage($permanent->image,$path))
+                $permanent->image=$this->resizeImage($request->image,$path,true,200,200,false);
+
+            if($request->has('nid_image') && $request->nid_image)
+            if($this->deleteImage($permanent->nid_image,$path))
+                $permanent->nid_image=$this->resizeImage($request->nid_image,$path,true,200,200,false);
+
+            if($permanent->save()){
+                Toastr::success('স্থায়ী বাসিন্দা সনদ সফলভাবে আপডেট করা হয়েছে!!');
+                return redirect()->route(currentUser().'.permanentresident.index');
+            }else{
+                Toastr::info('Please try Again!');
+                return redirect()->back();
+                }
+
+        } catch (Exception $e) {
+            Toastr::info('Please try Again!');
+            dd($e);
+        }
     }
 
     /**

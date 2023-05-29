@@ -187,7 +187,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-9 mt-3">
-                                      {{--  <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.characterfirstpart',Crypt::encrypt($permanent->id))}}">  --}}
+                                      <a class="p-2 bg-primary text-white" href="{{route(currentUser().'.permanentfirstpart',Crypt::encrypt($permanent->id))}}">
                                           পূর্ববর্তী
                                       </a>
                                     </div>

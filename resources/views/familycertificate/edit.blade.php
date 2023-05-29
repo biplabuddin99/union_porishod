@@ -281,9 +281,9 @@
                                                         <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
                                                             <option value="">সম্পর্ক</option>
                                                             <option value="1"  {{ old('crelation', $c->ralation)=="1" ? "selected":""}}>স্ত্রী</option>
-                                                            <option value="2" {{ old('crelation', $c->relation)=="2" ? "selected":""}}>ছেলে</option>
-                                                            <option value="3" {{ old('crelation', $c->relation)=="3" ? "selected":""}}>মেয়ে</option>
-                                                            <option value="4" {{ old('crelation', $c->relation)=="4" ? "selected":""}}>অন্যান্য</option>
+                                                            <option value="2" {{ old('crelation', $c->ralation)=="2" ? "selected":""}}>ছেলে</option>
+                                                            <option value="3" {{ old('crelation', $c->ralation)=="3" ? "selected":""}}>মেয়ে</option>
+                                                            <option value="4" {{ old('crelation', $c->ralation)=="4" ? "selected":""}}>অন্যান্য</option>
                                                         </select>
                                                     </td>
                                                     <td style='text-align:left;'>
@@ -303,6 +303,14 @@
                                             @endforeach
                                             @endif
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th style="text-align:right;" colspan="6">
+                                                    <input type='button' class='btn btn-primary' value='Add' onClick='add_row();'>
+                                                    <input type='button' class='btn btn-danger' value='Remove' onClick='remove_row();'>
+                                                </th>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                           </div>
@@ -424,7 +432,7 @@
          repeatRows(result)
        }
 
-      function repeatRows() {
+      {{--  function repeatRows() {
         //const Total_warishan = document.getElementById('num_total');
         const tableElement = document.getElementById('table');
 
@@ -446,6 +454,45 @@
         let nm=$('#num_male_vot').val()?parseFloat($('#num_male_vot').val()):0;
         let nf=$('#num_female_vot').val()?parseFloat($('#num_female_vot').val()):0;
         $('#num_totalv').val((nm+nf));
-     }
+     }  --}}
 </script>
+<script>
+	function add_row(){
+
+		var row=`<tr>
+                    <td style='text-align:center;'>`+(parseInt($("#account tbody tr").length) + 1)+`</td>\
+                    <input type="hidden" name="id[]" value="{{$c->id}}">\
+                    <td style='text-align:left;'>
+                        <input type='text' name='cname[]' class='form-control' value='{{ $c->name }}' style='border:none;' maxlength='100' placeholder="নাম"/>
+                    </td>\
+                    <td style='text-align:left;'>
+                        <select class='cls_debit form-control' name="crelation[]" style='border:none;'>
+                            <option value="">সম্পর্ক</option>
+                            <option value="1"  {{ old('crelation', $c->ralation)=="1" ? "selected":""}}>স্ত্রী</option>
+                            <option value="2" {{ old('crelation', $c->ralation)=="2" ? "selected":""}}>ছেলে</option>
+                            <option value="3" {{ old('crelation', $c->ralation)=="3" ? "selected":""}}>মেয়ে</option>
+                            <option value="4" {{ old('crelation', $c->ralation)=="4" ? "selected":""}}>অন্যান্য</option>
+                        </select>
+                    </td>\
+                    <td style='text-align:left;'>
+                        <input class="form-control" name="cbirth_date[]" style='border:none;' value="{{ old('cbirth_date',$c->birth_date) }}" id="cbirth_date" type="date" placeholder="মন্তব্য">
+                    </td>
+                    <td style='text-align:left;'>
+                        <input class="form-control" name="cnid[]" id="cnid" style='border:none;' value="{{ old('cnid',$c->cnid) }}"  type="text" placeholder="ভোটার আইডি">
+                    </td>
+                    <td style='text-align:left;'>
+                        <select class='cls_debit form-control' name="ccomments[]" style='border:none;'>
+                            <option value="">সম্পর্ক</option>
+                            <option value="1"  {{ old('ccomments', $c->ccomments)=="1" ? "selected":""}}>জীবিত</option>
+                            <option value="2" {{ old('ccomments', $c->ccomments)=="2" ? "selected":""}}>মৃত</option>
+                        </select>
+                    </td>
+                </tr>`;
+		$('#account tbody').append(row);
+	}
+
+	function remove_row(){
+		$('#account tbody tr').last().remove();
+	}
+    </script>
 @endpush
