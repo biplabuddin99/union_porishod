@@ -33,6 +33,7 @@
                                 <th>কর </th>
                                 <th>ছবি</th>
                                 <th>অনুমোদনকারী </th>
+                                <th width="30">এডিট</th>
                                 <th width="30">ভিউ</th>
                                 <th width="60">সনদ প্রিন্ট </th>
                             </tr>
@@ -50,6 +51,11 @@
                                 <td>{{$h->tax_levied_annually_house}}</td>
                                 <td><img width="70px" height="50px" src="{{ asset('uploads/holding/thumb') }}/{{ $h->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt=""></td>
                                 <td>{{$h->approved?->name}}</td>
+                                <td>
+                                    <a href="{{route(currentUser().'.hold_profileupdate',encryptor('encrypt',$h->id))}}">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                </td>
                                 <td class="white-space-nowrap">
                                     <a href="{{route('hold_primary.list',Crypt::encrypt($h->id))}}">
                                         <i class="bi bi-eye-fill"></i>

@@ -41,13 +41,13 @@
                         স্থানীয় সরকার (ইউনিয়ন পরিষদ) আইন,২০০৯ সনের আইন এর ধারা ৮৪-তে প্রদত্ত ক্ষমতাবলে সরকার প্রনীত আদর্শ
                         অনুযায়ী নিন্মে বর্ণিত ব্যক্তির অনুকুলে বাড়ির হোল্ডিং নাম্বার সনদ ইস্যু করা হচ্ছে।
                     </p>
-                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, জন্মসূত্রে বাংলাদেশের নাগরিক ও উক্ত ইউনিয়নের স্থায়ী বাসীন্দা।<br/>
+                    <p class="text-center">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, জন্মসূত্রে বাংলাদেশের নাগরিক ও উক্ত ইউনিয়নের স্থায়ী বাসিন্দা।<br/>
                         আমি তাকে ব্যক্তিগত ভাবে জানি ও চিনি। আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কাজের সাথে জড়িত নহে।
                     </p>
                 </div>
             </div>
         </section>
-        <section class="col-10 offset-1" style="border: 3px solid rgb(122, 101, 4); position: relative;">
+        <section class="col-10 offset-1" style="border: 5px solid rgb(30, 94, 5); position: relative;">
             <div class="bgimage">
                 <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 450px; padding-top: 83px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
@@ -282,7 +282,7 @@
         <section class="mb-5">
             <div class="row">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
-                <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যান  উন্নতি কামনা করি ।</p>
+                <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যান ও সু-স্বাস্থ্য কামনা করি ।</p>
                </div>
             </div>
             <div class="row">

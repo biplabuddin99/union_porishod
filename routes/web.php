@@ -125,6 +125,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::get('/hold_primary/{id}',[holding::class,'primaryIndex'])->name('hold_primary.list');
         // Route::get('generate-pdf', [holding::class, 'generatePDF']);
         Route::get('hold_profile',[holding::class,'profile'])->name('admin.hold_profile.list');
+        Route::get('hold_profile-edit/{id}',[holding::class,'EditProfileApproved'])->name('admin.hold_profileupdate');
+        Route::post('hold_profile-edit/{id}',[holding::class,'EditProfileApprovedUpdate'])->name('admin.hold_profileupdate');
         Route::get('/holding_profile/{id}',[holding::class,'add_profile'])->name('holding_profile');
 
         Route::get('hold_tax',[holding::class,'tax'])->name('admin.hold_tax.list');
