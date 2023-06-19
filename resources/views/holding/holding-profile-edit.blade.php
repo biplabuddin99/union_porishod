@@ -536,13 +536,13 @@
                                     <input class="form-control @error('approval_date') is-invalid @enderror"
                                     name="approval_date" id="approval_date" value="{{ old('approval_date',$hold->approval_date) }}"  type="text" placeholder="অনুমেদনের তারিখ">
                                 </div>
-                                {{--  <div class="col-6">
+                                <div class="col-6">
                                     <label  class="form-label" for="status">গ্রহণ/ বাতিল</label>
                                     <select onchange="change_status(this)" name="status" class="form-control">
                                         <option value="2"{{$hold->status == 2 ? 'selected' : ''}}>গ্রহণ</option>
                                         <option value="3" {{$hold->status == 3 ? 'selected' : ''}}>বাতিল</option>
                                     </select>
-                                </div>  --}}
+                                </div>
                                 <div class="col-6">
                                     <label  class="form-label" for="approval_date">মন্তব্য</label>
                                     <textarea name="cancel_reason" class="form-control cancel_r" id="" placeholder="মন্তব্য দিন">{{ old('cancel_reason',$hold->cancel_reason) }}</textarea>

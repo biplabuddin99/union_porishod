@@ -33,9 +33,9 @@
                                 <th>কর </th>
                                 <th>ছবি</th>
                                 <th>অনুমোদনকারী </th>
-                                <th width="30">এডিট</th>
-                                <th width="30">ভিউ</th>
-                                <th width="60">সনদ প্রিন্ট </th>
+                                <th>এডিট</th>
+                                <th>ভিউ</th>
+                                <th>সনদ প্রিন্ট </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,7 +74,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <th colspan="8" class="text-center">No holding Found</th>
+                                <th colspan="9" class="text-center">No holding Found</th>
                             </tr>
                             @endforelse
                         </tbody>

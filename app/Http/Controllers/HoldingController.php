@@ -475,6 +475,7 @@ class HoldingController extends Controller
             $holding->tax_levied_annually_house=$request->tax_levied_annually_house;
             $holding->approval_date=Carbon::parse($request->approval_date)->format('Y-m-d');
             $holding->cancel_reason=$request->cancel_reason;
+            $holding->status=$request->status;
             $holding->updated_by=currentUserId();
             if($holding->save()){
                     Toastr::success('হোল্ডিং আপডেট সফলভাবে সম্পন্ন হয়েছে!');
