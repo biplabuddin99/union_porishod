@@ -126,7 +126,7 @@
     <div class="wrapper">
         <div class="header" >
             <div class="photo">
-                <img src="{{ asset('logo/logo-01.png') }}" width="80px" height="80px" alt="Logo">
+                <img src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" width="80px" height="80px" alt="Logo">
             </div>
             <div class="headcontent">
                 <img class="mujib" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'logo/mujib_logo-01.png')}}" width="80px" height="80px" alt="Logo">
@@ -138,7 +138,7 @@
         </div>
         <div>
             <div class="formnodiv"><b>আবেদন নং :</b><input class="formno" value="{{ $trade->id }}" type="text"></div>
-            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ $trade->trade_date }}" type="text"></div>
+            <div class="datediv"><b>তারিখ :</b><input class="hdate" value="{{ \Carbon\Carbon::parse($trade->trade_date)->format('d-m-Y') }}" type="text"></div>
         </div>
         <div style="position: relative; margin-top: 15px;">
             <table class="imgreleted" style="width: 84%;min-height:105px;">
