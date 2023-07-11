@@ -30,7 +30,7 @@
                         <div style="text-align: center;">
                             <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                         </div>
-                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-ওয়ারিশান সনদ</h4>
+                        <h4 class="font-bold clo-sm-4" style="padding-top: 10px;text-align: center; color: rgb(167, 86, 10);">ই-ওয়ারিশ সনদ</h4>
                     </div>
                     <div class="col-4" style="padding-left: 150px;">
                         <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $warisan->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
@@ -56,7 +56,7 @@
                         <span  class="form-label" for="">১।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">মৃত ব্যাক্তির নাম :</span>
+                        <span  class="form-label" for="">মৃত ব্যক্তির নাম :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">{{ $warisan->warishan_person_name }}</span>
@@ -100,7 +100,7 @@
                         <span  class="form-label" for="">৫।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">মৃতব্যাক্তির সহিত আবেদনকারীর সম্পর্ক :</span>
+                        <span  class="form-label" for="">মৃতব্যক্তির সহিত আবেদনকারীর সম্পর্ক :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">ছেলে</span>
@@ -243,7 +243,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-12">
-                        <h6>মৃত ব্যাক্তির {{ $warisan->total_warishan_members }} জন উত্তরাধিকারী সদস্য ছাড়া আর কোন উত্তরাধিকারী নাই। উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে, তা প্রমান হয়। ফলে আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া হবে। উক্ত ওয়ার্ডের ইউপি সদস্য ও কাউন্সিলর দ্বারা যাচাই পূর্বক উক্ত ব্যাক্তির ওয়ারিশ সনদ প্রদান করা হলো।</h6>
+                        <h6>মৃত ব্যাক্তির {{ $warisan->total_warishan_members }} জন উত্তরাধিকারী সদস্য ছাড়া আর কোন উত্তরাধিকারী নাই। উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে, তা প্রমাণ হয়। ফলে আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া হবে। উক্ত ওয়ার্ডের ইউপি সদস্য ও কাউন্সিলর দ্বারা যাচাই পূর্বক উক্ত ব্যাক্তির ওয়ারিশ সনদ প্রদান করা হলো।</h6>
                     </div>
                 </div>
             </div>
@@ -251,7 +251,7 @@
         <section>
             <div class="row">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
-                <p class="text-center">আমি তাহার উত্তরাধিকারী সদস্যদের সার্বিক কল্যান ও উন্নতি কামনা করি ।</p>
+                <p class="text-center">আমি তাহার উত্তরাধিকারী সদস্যদের সার্বিক কল্যাণ ও সু-স্বাস্থ্য কামনা করি ।</p>
                </div>
             </div>
             <div class="row">

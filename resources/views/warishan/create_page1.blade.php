@@ -185,15 +185,15 @@
 
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label for="num_male"><b>পরিবারের সদস্য সংখ্যা (পুরুষ)</b></label>
+                                    <label for="num_male"><b>পুরুষ সদস্য সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_male" id="num_male" onkeyup="num_fmember()">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের সদস্য সংখ্যা (মহিলা)</b></label>
+                                    <label for="num_female"><b>মহিলা সদস্য সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_female" id="num_female" onkeyup="num_fmember()">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_total"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
+                                    <label for="num_total"><b>মোট সদস্য সংখ্যা </b></label>
                                     <input type="number" class="form-control" id="num_total">
                                 </div>
                             </div>

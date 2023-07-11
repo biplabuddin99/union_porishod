@@ -71,7 +71,7 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-6">
-                                    <label  class="form-label" for="date_death_warishan"><b>ওয়ারিশাান ব্যাক্তির মৃত্যু তারিখ</b></label>
+                                    <label  class="form-label" for="date_death_warishan"><b>ওয়ারিশাান ব্যাক্তির মৃত্যুর তারিখ</b></label>
                                     <input class="form-control datepicker" name="date_death_warishan" value="" id="date_death_warishan" type="text" placeholder="যদি মারা যায়">
                                 </div>
                                 <div class="col-6">
