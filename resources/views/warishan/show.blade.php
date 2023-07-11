@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">ওয়ারিশ সনদ ইস্যুর বিবরন</strong></p>
                         <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($warisan->apply_date)->format('d-m-Y') }}<br>
                             ইস্যুর সময়ঃ {{ $warisan->created_at->format("h:i:s A") }}</p>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="col-4" style="padding-left: 150px;">
                         <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $warisan->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">ওয়ারিশান সনদ নং: HEIR/{{ $warisan->form_no }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: HEIR/{{ $warisan->form_no }}</h5>
                 </div>
                 <div class="row">
                     <p class="text-center" style="border-bottom: 2px solid rgb(73, 235, 8); border-top: 2px solid rgb(73, 235, 8); padding-top: 5px;">
@@ -70,7 +70,7 @@
                         <span  class="form-label" for="">পিতার নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->father_name }}</span>
+                        <span  class="form-label" for="">{{ $warisan->warisan_father_name }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -92,7 +92,7 @@
                         <span  class="form-label" for="">স্বামী/স্ত্রীর নাম :</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">{{ $warisan->husband_wife }}</span>
+                        <span  class="form-label" for="">{{ $warisan->warisan_husband_wife }}</span>
                     </div>
                 </div>
                 <div class="row m-2">
