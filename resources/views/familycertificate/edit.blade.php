@@ -211,11 +211,11 @@
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="1" {{ old('relationship_applicant', $family->relationship_applicant)=="1" ? "selected":""}}>বাবা</option>
                                         <option value="2" {{ old('relationship_applicant', $family->relationship_applicant)=="2" ? "selected":""}}>মা</option>
-                                        {{--  <option value="3">ভাই</option>
-                                        <option value="4">বোন</option>
-                                        <option value="5">ছেলে</option>
-                                        <option value="6">মেয়ে</option>
-                                        <option value="7">অন্যান্য</option>  --}}
+                                        <option value="3" {{ old('relationship_applicant', $family->relationship_applicant)=="3" ? "selected":""}}>স্ত্রী</option>
+                                        <option value="4" {{ old('relationship_applicant', $family->relationship_applicant)=="4" ? "selected":""}}>ছেলে</option>
+                                        <option value="5" {{ old('relationship_applicant', $family->relationship_applicant)=="5" ? "selected":""}}>মেয়ে</option>
+                                        <option value="6" {{ old('relationship_applicant', $family->relationship_applicant)=="6" ? "selected":""}}>অন্যান্য</option>
+                                        {{--  <option value="4">বোন</option>  --}}
                                     </select>
                                     @if($errors->has('relationship_applicant'))
                                     <small class="d-block text-danger text-center">
@@ -226,29 +226,29 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label for="num_male"><b>পরিবারের সদস্য সংখ্যা (পুরুষ)</b></label>
+                                    <label for="num_male"><b>পুরুষ সদস্য সংখ্যা </b></label>
                                     <input type="number" class="form-control" name="num_male" id="num_male" value="{{ old('num_male',$family->num_male) }}" onkeyup="addNumbers()" placeholder="সদস্য সংখ্যা (পুরুষ) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের সদস্য সংখ্যা (মহিলা)</b></label>
+                                    <label for="num_female"><b>মহিলা সদস্য সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_female" id="num_female" value="{{ old('num_female',$family->num_female) }}" onkeyup="addNumbers()" placeholder="সদস্য সংখ্যা (মহিলা) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
+                                    <label for="num_female"><b>মোট সদস্য সংখ্যা </b></label>
                                     <input readonly type="number" class="form-control" id="num_total" value="{{ $family->num_female + $family->num_male }}" placeholder="মোট সদস্য পুরুষ + মহিলা">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label for="num_male_vot"><b>পরিবারের ভোটার সংখ্যা (পুরুষ)</b></label>
+                                    <label for="num_male_vot"><b>পুরুষ ভোটার সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_male_vot" id="num_male_vot" value="{{ old('num_male_vot',$family->num_male_vot) }}" onkeyup="num_fmembervot()" placeholder="ভোটার সংখ্যা (পুরুষ) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female_vot"><b>পরিবারের ভোটার সংখ্যা (মহিলা)</b></label>
+                                    <label for="num_female_vot"><b>মহিলা ভোটার সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_female_vot" id="num_female_vot" value="{{ old('num_female_vot',$family->num_female_vot) }}" onkeyup="num_fmembervot()" placeholder="ভোটার সংখ্যা (মহিলা) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label ><b>পরিবারের মোট ভোটার  সংখ্যা</b> </label>
+                                    <label ><b>মোট ভোটার  সংখ্যা</b> </label>
                                     <input readonly type="number" class="form-control" id="num_totalv" value="{{ $family->num_male_vot + $family->num_female_vot }}" placeholder="মোট ভোটার পুরুষ + মহিলা">
                                 </div>
                             </div>

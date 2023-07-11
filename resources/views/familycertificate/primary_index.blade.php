@@ -226,7 +226,7 @@
                 </tr>
                 <tr>
                     <th style="width: 25%; text-align: left;">আবেদনকারীর সাথে সম্পর্ক</th>
-                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($family->relationship_applicant == 1 ) বাবা @else মা @endif</td>
+                    <td style="border: 1px solid rgb(19, 18, 18);"> @if ($family->relationship_applicant == 1 ) পিতা @elseif($family->relationship_applicant == 2 ) মাতা @elseif($family->relationship_applicant == 3 ) স্ত্রী @elseif($family->relationship_applicant == 4 ) ছেলে @elseif($family->relationship_applicant == 5 ) মেয়ে @elseif($family->relationship_applicant == 6 ) অন্যান্য @endif</td>
                     <th style="width: 25%; text-align: left; padding-left: 10px;">পরিবারের সদস্য(পুরুষ)</th>
                     <td><input type="text" value="{{ $family->num_male }}" class="binput"></td>
                 </tr>

@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">ওয়ারিশ সনদ ইস্যুর বিবরন</strong></p>
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">ওয়ারিশ সনদ ইস্যুর বিবরণ</strong></p>
                         <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($warisan->apply_date)->format('d-m-Y') }}<br>
                             ইস্যুর সময়ঃ {{ $warisan->created_at->format("h:i:s A") }}</p>
                     </div>

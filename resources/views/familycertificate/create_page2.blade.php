@@ -50,13 +50,13 @@
                                     <label  class="form-label" for="relationship_applicant"><b>আবেদনকারীর সাথে সম্পর্ক</b></label>
                                     <select name="relationship_applicant" class="form-select @error('relationship_applicant') is-invalid @enderror" required>
                                         <option value="">নির্বাচন করুন</option>
-                                        <option value="1">বাবা</option>
-                                        <option value="2">মা</option>
-                                        {{--  <option value="3">ভাই</option>
-                                        <option value="4">বোন</option>
-                                        <option value="5">ছেলে</option>
-                                        <option value="6">মেয়ে</option>
-                                        <option value="7">অন্যান্য</option>  --}}
+                                        <option value="1">পিতা</option>
+                                        <option value="2">মাতা</option>
+                                        <option value="3">স্ত্রী</option>
+                                        <option value="4">ছেলে</option>
+                                        <option value="5">মেয়ে</option>
+                                        <option value="6">অন্যান্য</option>
+                                        {{--  <option value="4">বোন</option>  --}}
                                     </select>
                                     @if($errors->has('relationship_applicant'))
                                     <small class="d-block text-danger text-center">
@@ -67,29 +67,29 @@
                             </div>
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label for="num_male"><b>পরিবারের সদস্য সংখ্যা (পুরুষ)</b></label>
+                                    <label for="num_male"><b>পুরুষ সদস্য সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_male" id="num_male" onkeyup="addNumbers()" placeholder="সদস্য সংখ্যা (পুরুষ) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের সদস্য সংখ্যা (মহিলা)</b></label>
+                                    <label for="num_female"><b>মহিলা সদস্য সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_female" id="num_female" onkeyup="addNumbers()" placeholder="সদস্য সংখ্যা (মহিলা) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female"><b>পরিবারের মোট সদস্য সংখ্যা </b></label>
+                                    <label for="num_female"><b>মোট সদস্য সংখ্যা </b></label>
                                     <input readonly type="number" class="form-control" id="num_total" placeholder="মোট সদস্য পুরুষ + মহিলা">
                                 </div>
                             </div>
                             <div class="row m-2">
                                 <div class="col-4">
-                                    <label for="num_male_vot"><b>পরিবারের ভোটার সংখ্যা (পুরুষ)</b></label>
+                                    <label for="num_male_vot"><b>পুরুষ ভোটার সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_male_vot" id="num_male_vot" onkeyup="num_fmembervot()" placeholder="ভোটার সংখ্যা (পুরুষ) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label for="num_female_vot"><b>পরিবারের ভোটার সংখ্যা (মহিলা)</b></label>
+                                    <label for="num_female_vot"><b>মহিলা ভোটার সংখ্যা</b></label>
                                     <input type="number" class="form-control" name="num_female_vot" id="num_female_vot" onkeyup="num_fmembervot()" placeholder="ভোটার সংখ্যা (মহিলা) দিন">
                                 </div>
                                 <div class="col-4">
-                                    <label ><b>পরিবারের মোট ভোটার  সংখ্যা</b> </label>
+                                    <label ><b>মোট ভোটার  সংখ্যা</b> </label>
                                     <input readonly type="number" class="form-control" id="num_totalv" placeholder="মোট ভোটার পুরুষ + মহিলা">
                                 </div>
                             </div>

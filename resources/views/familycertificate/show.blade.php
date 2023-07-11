@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-3">
                         <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">পারিবারিক সনদ ইস্যুর বিবরন</strong></p>
+                        <p style="padding-top: 10px;margin-bottom:5px;"><strong style="border-bottom: 3px solid rgb(15, 1, 1);">পারিবারিক সনদ ইস্যুর বিবরণ</strong></p>
                         <p class="mb-1">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($family->apply_date)->format('d-m-Y') }}<br>
                             ইস্যুর সময়ঃ {{ $family->created_at->format("h:i:s A") }}</p>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="col-4" style="padding-left: 150px;">
                         <img height="150px" width="150px"  src="{{ asset('uploads/family') }}/{{ $family->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
                     </div>
-                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">পারিবারিক সনদ নং: FAMILY/{{ $family->form_no }}</h5>
+                    <h5 class="font-bold text-center" style="color: rgb(8, 104, 5); padding-bottom: 5px;">সনদ নং: FAMILY/{{ $family->form_no }}</h5>
                 </div>
                 <div class="row">
                     <p class="text-center" style="border-bottom: 2px solid rgb(73, 235, 8); border-top: 2px solid rgb(73, 235, 8); padding-top: 5px;">
@@ -67,7 +67,7 @@
                         <span  class="form-label" for="">২।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">আবেদনকারীর পিতার নাম :</span>
+                        <span  class="form-label" for="">পিতার নাম :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">{{ $family->father_name }}</span>
@@ -78,7 +78,7 @@
                         <span  class="form-label" for="">৩।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">আবেদনকারীর মাতার নাম :</span>
+                        <span  class="form-label" for="">মাতার নাম :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">{{ $family->mother_name }}</span>
@@ -89,7 +89,7 @@
                         <span  class="form-label" for="">৪।</span>
                     </div>
                     <div class="col-5">
-                        <span  class="form-label" for="">আবেদনকারীর স্বামী/স্ত্রীর নাম :</span>
+                        <span  class="form-label" for="">স্বামী/স্ত্রীর নাম :</span>
                     </div>
                     <div class="col-5">
                         <span  class="form-label" for="">{{ $family->husband_wife }}</span>
@@ -105,9 +105,17 @@
                     <div class="col-5">
                         <span  class="form-label" for="">
                             @if ($family->relationship_applicant == 1)
-                            বাবা
-                            @else
-                                মা
+                                পিতা
+                            @elseif($family->relationship_applicant == 2)
+                                মাতা
+                            @elseif($family->relationship_applicant == 3)
+                                স্ত্রী
+                            @elseif($family->relationship_applicant == 4)
+                                ছেলে
+                            @elseif($family->relationship_applicant == 5)
+                                মেয়ে
+                            @elseif($family->relationship_applicant == 6)
+                                অন্যান্য
                             @endif
                         </span>
                     </div>
@@ -222,7 +230,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-12">
-                        <h6>উক্ত পরিবারের মধ্যে {{ $family->num_male + $family->num_female }} জন সদস্য ছাড়া আর কোন সদস্য নাই। উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে, তা প্রমান হয়। ফলে আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া হবে। উক্ত ওয়ার্ডের ইউপি সদস্য ও কাউন্সিলর দ্বারা যাচাই পূর্বক উক্ত ব্যাক্তির পরিবারের পারিবারিক সনদ প্রদান করা হলো।</h6>
+                        <h6>উক্ত পরিবারের মধ্যে {{ $family->num_male + $family->num_female }} জন সদস্য ছাড়া আর কোন সদস্য নাই। উপরোক্ত বিবরণে যদি কোন প্রকার মিথ্যা তথ্য থাকে, তা প্রমাণ হয়। ফলে আবেদনকৃত ব্যাক্তির বিরুদ্ধে আইনানুগ ব্যবস্থা নেয়া হবে। উক্ত ওয়ার্ডের ইউপি সদস্য ও কাউন্সিলর দ্বারা যাচাই পূর্বক উক্ত ব্যাক্তির পরিবারের পারিবারিক সনদ প্রদান করা হলো।</h6>
                     </div>
                 </div>
             </div>
