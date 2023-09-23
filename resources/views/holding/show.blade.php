@@ -2,8 +2,8 @@
 
 @section('content')
 <div id="result_show">
-    <section style="font-size: 14px">
-        <section style="margin-top: 40px;">
+    <section style="font-size: 15px">
+        <section style="margin-top: 30px;">
             <div class="container">
                 <div class="row">
                     <h6 class="text-center" style="margin-top: 20px; margin-bottom: 5px;"><strong>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</strong></h6>
@@ -49,9 +49,9 @@
         </section>
         <section class="col-10 offset-1" style="border: 5px solid rgb(30, 94, 5); position: relative;">
             <div class="bgimage">
-                <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 450px; padding-top: 83px;"
+                <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 280px; padding-top: 83px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">১।</span>
                 </div>
@@ -62,7 +62,7 @@
                     <span  class="form-label" for="">{{ $hold->head_household }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">2।</span>
                 </div>
@@ -73,7 +73,7 @@
                     <span  class="form-label" for="">{{ $hold->father_name }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৩।</span>
                 </div>
@@ -84,7 +84,7 @@
                     <span  class="form-label" for="">{{ $hold->mother_name }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৪।</span>
                 </div>
@@ -95,7 +95,7 @@
                     <span  class="form-label" for="">{{ $hold->husband_wife }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৫।</span>
                 </div>
@@ -106,7 +106,7 @@
                     <span  class="form-label" for="">{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y') }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৬।</span>
                 </div>
@@ -126,7 +126,7 @@
                 </div>
                 @endif
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৭।</span>
                 </div>
@@ -139,7 +139,7 @@
                     </span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৮।</span>
                 </div>
@@ -162,7 +162,7 @@
                     </span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">৯।</span>
                 </div>
@@ -170,7 +170,7 @@
                     <span  class="form-label" for="">স্থায়ী ঠিকানা :</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -181,7 +181,7 @@
                     <span  class="form-label" for="">{{ $hold->house_holding_no }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -192,7 +192,7 @@
                     <span  class="form-label" for="">{{ $hold->street_nm }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -203,7 +203,7 @@
                     <span  class="form-label" for="">{{ $hold->ward?->ward_name_bn }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -214,7 +214,7 @@
                     <span  class="form-label" for="">{{ $hold->village_name }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -225,7 +225,7 @@
                     <span  class="form-label" for="">{{ $hold->post_office }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -236,7 +236,7 @@
                     <span  class="form-label" for="">{{ $hold->upazila?->name_bn }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -247,7 +247,7 @@
                     <span  class="form-label" for="">{{ $hold->district?->name_bn }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for="">১০।</span>
                 </div>
@@ -255,7 +255,7 @@
                     <span  class="form-label" for="">যোগাযোগ মাধ্যম :</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -266,7 +266,7 @@
                     <span  class="form-label" for="">{{ $hold->phone }}</span>
                 </div>
             </div>
-            <div class="row m-2">
+            <div class="row m-1">
                 <div class="col-1">
                     <span  class="form-label" for=""></span>
                 </div>
@@ -282,7 +282,7 @@
         <section class="mb-5">
             <div class="row">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
-                <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যান ও সু-স্বাস্থ্য কামনা করি ।</p>
+                <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যাণ ও সু-স্বাস্থ্য কামনা করি ।</p>
                </div>
             </div>
             <div class="row">
@@ -292,8 +292,8 @@
                 <div class="col-4" style="color: rgb(18, 5, 133);align-self: end;">
                     <div class="row"><strong>({{ $hold->chairman?->name}})</strong></div>
                     <div class="row" style="padding-left: 60px">চেয়ারম্যান</div>
-                    <div class="row" style="padding-left: 30px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
-                    <div class="row" style="padding-left: 40px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
+                    <div class="row" style="padding-left: 10px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</div>
+                    <div class="row" style="padding-left: 15px">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</div>
                 </div>
             </div>
             <div class="font-bold row" style="padding-top:30px">
