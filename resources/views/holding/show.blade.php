@@ -11,14 +11,14 @@
             background-color: #ffffff !important;
           }
     </style>
-    <section style="font-family: vrinda !important; sans-serif; font-size: 24px !important;">
+    <section style="font-family: vrinda !important; sans-serif; font-size: 20px !important;">
         <div class="row text-center m-0 p-0">
-            <p class="m-0 p-0" style="font-size: 28px !important;"><b>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</b></p>
-            <div class="col-md-12 text-center"
+            <p class="m-0 p-0" style="font-size: 19px !important;"><b>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</b></p>
+            <div class="col-md-12 text-center p-5"
                 style="border-radius: 4px; background-color: rgb(196, 213, 245);">
-                <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 35px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
+                <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 30px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
             </div>
-            <p class="m-0 p-0" style="font-size: 28px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
+            <p class="m-0 p-0" style="font-size: 23px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
             <h6 class="m-0 p-0" style="font-size: 25px !important;">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h6>
         </div>
         <div class="row text-center m-0 p-0">
@@ -30,8 +30,8 @@
             </div>
             <div class="col-4 col-sm-4 m-0 p-0">
                 <img height="140px" width="140px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
-                <p class="font-bold clo-sm-4 m-0 p-0" style="color: rgb(167, 86, 10); font-size: 35px !important;">ই-হোল্ডিং নাম্বার সনদ</p>
-                <p class="font-bold text-center" style="color: rgb(8, 104, 5); font-size: 30px !important;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</p>
+                <p class="font-bold clo-sm-4 m-0 p-0" style="color: rgb(167, 86, 10); font-size: 30px !important;">ই-হোল্ডিং নাম্বার সনদ</p>
+                <p class="font-bold text-center" style="color: rgb(8, 104, 5); font-size: 23px !important;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</p>
             </div>
             <div class="col-4">
                 <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
