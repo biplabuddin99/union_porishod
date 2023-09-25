@@ -23,18 +23,18 @@
         </div>
         <div class="row text-center m-0 p-0">
             <div class="col-4 m-0 p-0">
-                <img height="130px" width="130px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
+                <img height="150px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
                 <p class=" m-0 p-0"><strong class=" m-0 p-0" style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
                 <p class=" m-0 p-0">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}</p>
                 <p class=" m-0 p-0">ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
             </div>
             <div class="col-4 col-sm-4 m-0 p-0">
-                <img class="py-2" height="140px" width="140px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
+                <img class="py-2" height="150px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                 <p class="font-bold clo-sm-4 m-0 p-0" style="color: rgb(167, 86, 10); font-size: 30px !important;">ই-হোল্ডিং নাম্বার সনদ</p>
                 <p class="font-bold text-center" style="color: rgb(8, 104, 5); font-size: 23px !important;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</p>
             </div>
             <div class="col-4">
-                <img height="150px" width="150px"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
+                <img height="165px" width="auto"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
             </div>
         </div>
         <div class="row m-0 p-0">
