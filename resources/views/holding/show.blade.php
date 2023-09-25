@@ -14,7 +14,7 @@
     <section style="font-family: vrinda !important; sans-serif; font-size: 20px !important;">
         <div class="row text-center m-0 p-0">
             <p class="m-0 p-0" style="font-size: 19px !important;"><b>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</b></p>
-            <div class="col-md-12 text-center p-5"
+            <div class="col-md-12 text-center p-1"
                 style="border-radius: 4px; background-color: rgb(196, 213, 245);">
                 <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 30px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
             </div>
