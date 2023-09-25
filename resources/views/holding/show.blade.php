@@ -29,7 +29,7 @@
                 <p class=" m-0 p-0">ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
             </div>
             <div class="col-4 col-sm-4 m-0 p-0">
-                <img height="140px" width="140px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
+                <img class="py-2" height="140px" width="140px" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                 <p class="font-bold clo-sm-4 m-0 p-0" style="color: rgb(167, 86, 10); font-size: 30px !important;">ই-হোল্ডিং নাম্বার সনদ</p>
                 <p class="font-bold text-center" style="color: rgb(8, 104, 5); font-size: 23px !important;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</p>
             </div>
