@@ -16,7 +16,8 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" referrerpolicy="no-referrer" />
-    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    {{--  <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">  --}}
+    <link rel="stylesheet" href="{{ asset('assets/fonts/vrinda.ttf') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     {{-- tostr css --}}
