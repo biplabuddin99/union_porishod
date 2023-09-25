@@ -18,7 +18,7 @@
                 style="border-radius: 4px; background-color: rgb(196, 213, 245);">
                 <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 30px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
             </div>
-            <p class="m-0 p-0" style="font-size: 23px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
+            <p class="m-0 p-0 mt-1" style="font-size: 23px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
             <h6 class="m-0 p-0" style="font-size: 25px !important;">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h6>
         </div>
         <div class="row text-center m-0 p-0">
@@ -295,7 +295,7 @@
                     <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</p>
                 </div>
             </div>
-            <div class="font-bold row m-0 p-0" style="padding-top:10px">
+            <div class="font-bold row m-0 p-0 pt-1" style="padding-top:10px">
                 <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(33, 110, 3); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
