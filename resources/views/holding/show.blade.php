@@ -281,7 +281,7 @@
         <section class="mb-5">
             <div class="row m-0 p-0">
                <div class="col-10 offset-1 pt-2" style="padding-left: 30px">
-                <p>আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যাণ ও সু-স্বাস্থ্য কামনা করি ।</p>
+                <p class="py-3">আমি উক্ত বাড়ির সকল সদস্যের সার্বিক কল্যাণ ও সু-স্বাস্থ্য কামনা করি ।</p>
                </div>
             </div>
             <div class="row m-0 p-0">
@@ -295,7 +295,7 @@
                     <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</p>
                 </div>
             </div>
-            <div class="font-bold row m-0 p-0 pt-1" style="padding-top:10px">
+            <div class="font-bold row m-0 p-0 pt-3">
                 <h5 class="col-10 offset-1 text-center pt-1" style="border-bottom: 5px solid rgb(33, 110, 3); border-top: 3px solid rgb(212, 33, 27); background-color: rgb(125, 197, 135);">|| {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->slogan:"সময়মত ইউনিয়ন পরিষদ কর পরিশোধ করুন"}} ||</h5>
             </div>
         </section>
