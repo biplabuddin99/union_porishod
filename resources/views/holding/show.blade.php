@@ -293,7 +293,7 @@
                     <p class="m-0 p-0"><strong>({{ $hold->chairman?->name}})</strong></p>
                     <p class="m-0 p-0">চেয়ারম্যান</p>
                     <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</p>
-                    <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</p>
+                    <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}} ।</p>
                 </div>
             </div>
             <div class="font-bold row m-0 p-0 pt-3">
