@@ -29,12 +29,12 @@
                 <p class=" m-0 p-0">ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
             </div>
             <div class="col-4 col-sm-4 m-0 p-0">
-                <img class="py-2" height="150px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
+                <img class="py-2" height="160px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->logo:'./images/Login-01.png')}}" alt="">
                 <p class="font-bold clo-sm-4 m-0 p-0" style="color: rgb(167, 86, 10); font-size: 30px !important;">ই-হোল্ডিং নাম্বার সনদ</p>
                 <p class="font-bold text-center" style="color: rgb(8, 104, 5); font-size: 23px !important;">সনদ নং: HOUSE-NUM/{{ $hold->form_no }}</p>
             </div>
             <div class="col-4">
-                <img height="165px" width="auto"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
+                <img height="170px" width="auto"  src="{{ asset('uploads/holding/thumb') }}/{{ $hold->image }}" onerror="this.onerror=null;this.src='{{ asset('uploads/onerror.jpg')}}';" alt="কোন ছবি পাওয়া যায় নি">
             </div>
         </div>
         <div class="row m-0 p-0">
@@ -46,7 +46,7 @@
                 আমি তাকে ব্যক্তিগত ভাবে জানি ও চিনি। আমার জানামতে তিনি রাষ্ট্র বা সমাজ বিরোধী কোন কাজের সাথে জড়িত নহে।
             </p>
         </div>
-        <section class="col-10 offset-1" style="border: 5px solid rgb(30, 94, 5); position: relative;">
+        <section class="col-10 offset-1" style="border: 3px solid rgb(30, 94, 5); position: relative;">
             <div class="bgimage">
                 <img style="background-repeat: no-repeat; position: absolute; height: 404px; width: auto; align-items: center; padding-left: 280px; padding-top: 83px;"
                 src="{{ asset('images/show_img/bglogo.png') }}" alt="">
@@ -251,8 +251,8 @@
                 <div class="col-1">
                     <span  class="form-label" for="">১০।</span>
                 </div>
-                <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for="">যোগাযোগ মাধ্যম</span>
+                <div class="col-5">
+                    <span style="border-bottom: 2px solid rgba(7, 19, 4, 0.521);"  class="form-label" for="">যোগাযোগ মাধ্যম &nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
