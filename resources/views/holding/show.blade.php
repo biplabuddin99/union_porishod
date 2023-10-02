@@ -16,15 +16,15 @@
             <p class="m-0 p-0" style="font-size: 19px !important;"><b>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</b></p>
             <div class="col-md-12 text-center p-1"
                 style="border-radius: 4px; background-color: rgb(196, 213, 245);">
-                <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 30px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
+                <h3 class="theme-text-color m-0 p-0" style="color:red; padding-top: 5px; font-size: 32px !important;">{{ request()->session()->get('upsetting')->union?->name_bn}} ইউনিয়ন পরিষদ</h3>
             </div>
-            <p class="m-0 p-0 mt-1" style="font-size: 23px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
+            <p class="m-0 p-0 mt-1" style="font-size: 25px !important;"><b>{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->upazila?->name_bn:"উপজেলা"}}, {{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->district?->name_bn:"জেলা"}}</b></p>
             <h6 class="m-0 p-0" style="font-size: 25px !important;">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->website:"ওয়েবসাইট"}}</h6>
         </div>
         <div class="row text-center m-0 p-0">
             <div class="col-4 m-0 p-0">
-                <img height="150px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
-                <p class=" m-0 p-0"><strong class=" m-0 p-0" style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</strong></p>
+                <img height="160px" width="auto" src="{{ asset(request()->session()->get('upsetting')?"uploads/logo_folder/".request()->session()->get('upsetting')->formlogo:'./images/Login-01.png')}}" alt="">
+                <p class=" m-0 p-0"><span class=" m-0 p-0" style="border-bottom: 3px solid rgb(15, 1, 1);">হোল্ডিং নাম্বার সনদ ইস্যুর বিবরন</span></p>
                 <p class=" m-0 p-0">ইস্যুর তারিখঃ {{ \Carbon\Carbon::parse($hold->holding_date)->format('d-m-Y') }}</p>
                 <p class=" m-0 p-0">ইস্যুর সময়ঃ {{ $hold->created_at->format("h:i:s A") }}</p>
             </div>
@@ -55,10 +55,10 @@
                     <span  class="form-label" for="">১।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">বাড়ির প্রধানের নাম :</span>
+                    <span  class="form-label" for="">বাড়ির প্রধানের নাম</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->head_household }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ $hold->head_household }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -66,10 +66,10 @@
                     <span  class="form-label" for="">২।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">পিতার নাম :</span>
+                    <span  class="form-label" for="">পিতার নাম</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->father_name }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->father_name }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -77,10 +77,10 @@
                     <span  class="form-label" for="">৩।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">মাতার নাম :</span>
+                    <span  class="form-label" for="">মাতার নাম</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->mother_name }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->mother_name }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -88,10 +88,10 @@
                     <span  class="form-label" for="">৪।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">স্বামী/স্ত্রীর নাম:</span>
+                    <span  class="form-label" for="">স্বামী/স্ত্রীর নাম</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->husband_wife }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->husband_wife }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -99,10 +99,10 @@
                     <span  class="form-label" for="">৫।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">জন্ম তারিখ :</span>
+                    <span  class="form-label" for="">জন্ম তারিখ</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y') }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ \Carbon\Carbon::parse($hold->birth_date)->format('d-m-Y') }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -111,17 +111,17 @@
                 </div>
                 @if($hold->voter_id_no)
                 <div class="col-5">
-                    <span  class="form-label" for="">ভোটার আইডি :</span>
+                    <span  class="form-label" for="">ভোটার আইডি</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->voter_id_no }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->voter_id_no }}</span>
                 </div>
                 @else
                 <div class="col-5">
-                    <span  class="form-label" for="">ডিজিটাল জন্ম নিবন্ধন :</span>
+                    <span  class="form-label" for="">ডিজিটাল জন্ম নিবন্ধন</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->birth_registration_id }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->birth_registration_id }}</span>
                 </div>
                 @endif
             </div>
@@ -130,11 +130,11 @@
                     <span  class="form-label" for="">৭।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">পেশা :</span>
+                    <span  class="form-label" for="">পেশা</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">
-                        {{$hold->income?->name}}
+                        : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$hold->income?->name}}
                     </span>
                 </div>
             </div>
@@ -143,10 +143,11 @@
                     <span  class="form-label" for="">৮।</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ধর্ম :</span>
+                    <span  class="form-label" for="">ধর্ম</span>
                 </div>
                 <div class="col-5">
                     <span  class="form-label" for="">
+                        : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @if ($hold->religion ==1)
                         ইসলাম
                         @elseif ($hold->religion ==2)
@@ -165,8 +166,8 @@
                 <div class="col-1">
                     <span  class="form-label" for="">৯।</span>
                 </div>
-                <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for="">স্থায়ী ঠিকানা :</span>
+                <div class="col-5">
+                    <span style="border-bottom: 2px solid rgba(7, 19, 4, 0.521);" class="form-label" for="">স্থায়ী ঠিকানা &nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -174,10 +175,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">হোল্ডিং নং :</span>
+                    <span  class="form-label" for="">হোল্ডিং নং</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->house_holding_no }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->house_holding_no }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -185,10 +186,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">রাস্তা/ব্লক :</span>
+                    <span  class="form-label" for="">রাস্তা/ব্লক</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->street_nm }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->street_nm }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -196,10 +197,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ওয়ার্ড নং :</span>
+                    <span  class="form-label" for="">ওয়ার্ড নং</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->ward?->ward_name_bn }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->ward?->ward_name_bn }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -207,10 +208,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">গ্রাম/পাড়া :</span>
+                    <span  class="form-label" for="">গ্রাম/পাড়া</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->village_name }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->village_name }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -218,10 +219,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ডাকঘর :</span>
+                    <span  class="form-label" for="">ডাকঘর</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->post_office }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->post_office }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -229,10 +230,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">উপজেলা/থানা :</span>
+                    <span  class="form-label" for="">উপজেলা/থানা</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->upazila?->name_bn }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->upazila?->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -240,10 +241,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">জেলা :</span>
+                    <span  class="form-label" for="">জেলা</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->district?->name_bn }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->district?->name_bn }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -251,7 +252,7 @@
                     <span  class="form-label" for="">১০।</span>
                 </div>
                 <div class="col-5" style="border-bottom: 2px solid rgb(4, 14, 1);">
-                    <span  class="form-label" for="">যোগাযোগ মাধ্যম :</span>
+                    <span  class="form-label" for="">যোগাযোগ মাধ্যম</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -259,10 +260,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ফোন/মোবাইল :</span>
+                    <span  class="form-label" for="">ফোন/মোবাইল</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->phone }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->phone }}</span>
                 </div>
             </div>
             <div class="row m-0 p-0">
@@ -270,10 +271,10 @@
                     <span  class="form-label" for=""></span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">ইমেইল :</span>
+                    <span  class="form-label" for="">ইমেইল</span>
                 </div>
                 <div class="col-5">
-                    <span  class="form-label" for="">{{ $hold->email }}</span>
+                    <span  class="form-label" for="">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $hold->email }}</span>
                 </div>
             </div>
         </div>
@@ -285,10 +286,10 @@
                </div>
             </div>
             <div class="row m-0 p-0">
-                <div class="col-8" style="padding-left: 100px">
-                    <img height="130px" width="130px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
+                <div class="col-7" style="padding-left: 120px">
+                    <img height="auto" width="140px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                 </div>
-                <div class="col-4 text-center" style="color: rgb(18, 5, 133);align-self: end;">
+                <div class="col-5 text-center" style="color: rgb(18, 5, 133);align-self: end;">
                     <p class="m-0 p-0"><strong>({{ $hold->chairman?->name}})</strong></p>
                     <p class="m-0 p-0">চেয়ারম্যান</p>
                     <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</p>
