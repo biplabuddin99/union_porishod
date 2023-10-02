@@ -289,7 +289,7 @@
                 <div class="col-7" style="padding-left: 120px">
                     <img height="auto" width="140px" src="{{ asset('images/show_img/qrcode.png') }}" alt="">
                 </div>
-                <div class="col-5 text-center" style="color: rgb(18, 5, 133);align-self: end;">
+                <div class="col-5 text-center" style="color: rgb(18, 5, 133);align-self: end; font-size: 15px !important;">
                     <p class="m-0 p-0"><strong>({{ $hold->chairman?->name}})</strong></p>
                     <p class="m-0 p-0">চেয়ারম্যান</p>
                     <p class="m-0 p-0">{{ request()->session()->get('upsetting')?request()->session()->get('upsetting')->union?->name_bn:""}} ইউনিয়ন পরিষদ</p>
